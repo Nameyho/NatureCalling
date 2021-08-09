@@ -10,16 +10,16 @@ public class CameraMovement : MonoBehaviour
     private float _SpeedScrolling = 2f;
 
     [SerializeField]
-    private float _maxUpScrolling;
+    private float _maxUpScrolling = 10f;
 
     [SerializeField]
-    private float _minDownScrolling;
+    private float _minDownScrolling = -10f;
 
     [SerializeField]
-    private float _maxRightScrolling;
+    private float _maxRightScrolling = 10f;
 
     [SerializeField]
-    private float _maxLeftScrolling;
+    private float _maxLeftScrolling = 10f;
 
     [Header("Zoom")]
     [SerializeField]
