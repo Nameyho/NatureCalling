@@ -1,4 +1,4 @@
-
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class ZoneDetection : MonoBehaviour
@@ -15,40 +15,64 @@ public class ZoneDetection : MonoBehaviour
     [SerializeField]
     private Material _Unbuildable;
 
+    [Header("Prefabs")]
+    [SerializeField]
+    private ObjectVariable _plantsPrefabs;
+    
+
+    [Header("camera")]
+    public Camera cam;
+    public LayerMask IgnoreMe;
+    public LayerMask Hitme;
+    public float _moveSpeed;
 
     #endregion
 
     #region Private
 
     private Renderer _myRend;
+    private bool _isBuildable = false;
+    
+
 
     #endregion
 
     #region Unity API
+
+
+    private void Update()
+    {
+        FollowMouse();
+        onClick();
+    }
+
+
+
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.tag);
+
         if (other.CompareTag("UnBuild"))
         {
-            Debug.Log("Je peux pas construire");
-            _myRend.material = _Unbuildable;
 
+            _myRend.material = _Unbuildable;
+            _isBuildable = false;
         }
 
 
     }
     private void OnTriggerExit(Collider other)
     {
-
+       
 
         if (other.CompareTag("UnBuild"))
         {
             _myRend.material = _Effect;
+            _isBuildable = true;
         }
         else
         {
             _myRend.material = _Basic;
-
+            _isBuildable = true;
         }
 
     }
@@ -58,6 +82,7 @@ public class ZoneDetection : MonoBehaviour
         if (other.CompareTag("EffectZone"))
         {
             _myRend.material = _Effect;
+            _isBuildable = true;
         }
     }
 
@@ -66,5 +91,47 @@ public class ZoneDetection : MonoBehaviour
         _myRend = GetComponent<Renderer>();
     }
 
-    #endregion  
+    #endregion
+
+
+    #region Methods
+
+    private void onClick()
+    {
+        RaycastHit hit;
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+       
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+        {
+            
+            if (Input.GetMouseButtonDown(0)&& _isBuildable)
+            {
+                
+                Instantiate(_plantsPrefabs.Value,new Vector3( hit.point.x,0.5f ,hit.point.z), Quaternion.identity);
+            }
+        }
+
+    }
+
+    private void FollowMouse()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+            {
+               
+                this.transform.position =new Vector3 (hit.point.x,0,hit.point.z);
+            }
+
+        }
+
+
+
+    }
+    #endregion
 }
