@@ -23,7 +23,7 @@ public class ZoneDetection : MonoBehaviour
     [Header("camera")]
     public Camera cam;
     public LayerMask IgnoreMe;
-    public LayerMask Hitme;
+    
     public float _moveSpeed;
 
     #endregion
@@ -32,6 +32,7 @@ public class ZoneDetection : MonoBehaviour
 
     private Renderer _myRend;
     private bool _isBuildable = false;
+    private bool _isAlreadyMove = false;
     
 
 
@@ -89,6 +90,7 @@ public class ZoneDetection : MonoBehaviour
     private void Awake()
     {
         _myRend = GetComponent<Renderer>();
+        
     }
 
     #endregion
@@ -118,6 +120,11 @@ public class ZoneDetection : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
+            if (!_isAlreadyMove)
+            {
+                _isAlreadyMove = true;
+                _isBuildable = true;
+            }
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
