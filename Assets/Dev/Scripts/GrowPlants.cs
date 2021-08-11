@@ -108,7 +108,7 @@ public class GrowPlants : MonoBehaviour
                             _detailsPrefab.gameObject.transform.localScale = Vector3.zero;
                         }else if (VecMax.sqrMagnitude <= _detailsPrefab.gameObject.transform.localScale.sqrMagnitude)
                         {
-                            Debug.Log("retrecissement");
+                           
                             _detailsPrefab.gameObject.transform.localScale -= Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
                         }
                     }
@@ -140,7 +140,7 @@ public class GrowPlants : MonoBehaviour
                     }
                     else if (VecMax.sqrMagnitude <= _detailsPrefab.gameObject.transform.localScale.sqrMagnitude)
                     {
-                        Debug.Log("retrecissement");
+                        
                         _detailsPrefab.gameObject.transform.localScale -= Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
                     }
                 }
