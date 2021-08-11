@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Scrolling")]
     [SerializeField]
+
     private float _SpeedScrolling = 2f;
 
     [SerializeField]
@@ -31,6 +32,12 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private float ZoomOutMax = 90f;
 
+    [SerializeField]
+    private float _minScrollSpeed = 0f;
+
+    [SerializeField]
+    private float _maxScrollSpeed = 200f;
+
 
     #endregion
 
@@ -40,6 +47,7 @@ public class CameraMovement : MonoBehaviour
     private CinemachineInputProvider m_inputProvider;
     private CinemachineVirtualCamera m_virtualCamera;
     private Transform m_cameratransform;
+    private float lastFov;
 
     #endregion
 
@@ -85,7 +93,7 @@ public class CameraMovement : MonoBehaviour
             
             new Vector3(Mathf.Clamp(m_cameratransform.position.x + direction.x,_maxLeftScrolling,_maxRightScrolling ),m_cameratransform.position.y, Mathf.Clamp(m_cameratransform.position.z + direction.z, _minDownScrolling, _maxUpScrolling))
 
-            + direction * _SpeedScrolling, Time.deltaTime);
+            + direction * _SpeedScrolling , Time.deltaTime);
 
     }
 
@@ -119,6 +127,19 @@ public class CameraMovement : MonoBehaviour
         float fov = m_virtualCamera.m_Lens.FieldOfView;
         float target = Mathf.Clamp(fov + increment, ZoomOutMax, ZoomInMax);
         m_virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, _SpeedZoom * Time.deltaTime);
+
+        if(lastFov< fov &&(ZoomOutMax >= fov))
+        {
+             _SpeedScrolling += (_SpeedScrolling / (ZoomOutMax - ZoomInMax) *fov);
+        }    
+
+        else if (lastFov >fov && (ZoomInMax <= fov))
+        {
+            _SpeedScrolling -= (_SpeedScrolling / (ZoomOutMax - ZoomInMax) * fov );
+        }
+        lastFov = fov;
+        _SpeedScrolling = Mathf.Clamp(_SpeedScrolling, _minScrollSpeed, _maxScrollSpeed);
+
     }
     #endregion
 }
