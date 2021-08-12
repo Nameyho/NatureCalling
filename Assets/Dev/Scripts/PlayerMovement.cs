@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     #region Private
     private Transform _transform;
     private Vector3 target;
-
+    private bool _hasAlreadywalked = false;
     #endregion
 
     #region Unity API
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         _transform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     #region Privates Methods
     private void Move()
     {
-    
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
@@ -53,10 +52,16 @@ public class PlayerMovement : MonoBehaviour
                 target = hit.point;
             
             }
+            _hasAlreadywalked = true;
+        }
+        if (_hasAlreadywalked)
+        {
+            
+            _transform.position = Vector3.MoveTowards(_transform.position, new Vector3(target.x,1,target.z), _speedMovement*Time.deltaTime);
+		    _transform.LookAt(new Vector3(target.x, 1, target.z));
 
         }
-        _transform.position = Vector3.MoveTowards(_transform.position, new Vector3(target.x,1,target.z), _speedMovement*Time.deltaTime);
-    }
+	}
 
     #endregion
 }
