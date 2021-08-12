@@ -23,7 +23,7 @@ public class GrowPlants : MonoBehaviour
 
 
     [Header("Details")]
-    public GameObject _detailsPrefab;
+    public GameObject[] _detailsPrefabs;
     #endregion
 
     #region Private
@@ -76,16 +76,25 @@ public class GrowPlants : MonoBehaviour
                     growValue += 1 / (_timeToGrow / _RefreshRate);
                     mat.SetFloat("Grow_", growValue);
 
-                    if(currentTier>= _plantTier.PhaseTodetail)
+                    if(currentTier> _plantTier.PhaseTodetail)
                     {
                         Vector3 VecMax = ((currentTier-_plantTier.PhaseTodetail)* (Vector3.one/(_plantTier.PhaseAmount - _plantTier.PhaseTodetail)));
                         if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                         {
-                            _detailsPrefab.gameObject.transform.localScale = Vector3.zero;
+                            for (int i = 0; i < _detailsPrefabs.Length; i++)
+                            {
+                                _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+
+                            }
                         }
-                        else if(VecMax.sqrMagnitude>= _detailsPrefab.gameObject.transform.localScale.sqrMagnitude)
+
+                        for (int i = 0; i < _detailsPrefabs.Length; i++)
                         {
-                        _detailsPrefab.gameObject.transform.localScale += Vector3.one * (1f /( currentTier - _plantTier.PhaseTodetail)*_RefreshRate);
+                             if(VecMax.sqrMagnitude>= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude)
+                            {
+                                    _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
+                       
+                            }
                         }
                     }
                     yield return new WaitForSeconds(_RefreshRate);
@@ -105,11 +114,20 @@ public class GrowPlants : MonoBehaviour
 
                         if(VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                         {
-                            _detailsPrefab.gameObject.transform.localScale = Vector3.zero;
-                        }else if (VecMax.sqrMagnitude <= _detailsPrefab.gameObject.transform.localScale.sqrMagnitude)
+                            for (int i = 0; i < _detailsPrefabs.Length; i++)
+                            {
+                                _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+
+                            }
+                        }
+                        for (int i = 0; i < _detailsPrefabs.Length; i++)
                         {
+                            if(VecMax.sqrMagnitude <= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude && (_detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude >Vector3.zero.sqrMagnitude))
+                            {
                            
-                            _detailsPrefab.gameObject.transform.localScale -= Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
+                                _detailsPrefabs[i].gameObject.transform.localScale -= Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
+                            }
+
                         }
                     }
 
@@ -136,12 +154,20 @@ public class GrowPlants : MonoBehaviour
 
                     if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                     {
-                        _detailsPrefab.gameObject.transform.localScale = Vector3.zero;
+                        for (int i = 0; i < _detailsPrefabs.Length; i++)
+                        {
+                            _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+                        }
                     }
-                    else if (VecMax.sqrMagnitude <= _detailsPrefab.gameObject.transform.localScale.sqrMagnitude)
+                    for (int i = 0; i < _detailsPrefabs.Length; i++)
                     {
+                    
+                        if (VecMax.sqrMagnitude <= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude && (_detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude > Vector3.zero.sqrMagnitude))
+                        {
                         
-                        _detailsPrefab.gameObject.transform.localScale -= Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
+                            _detailsPrefabs[i].gameObject.transform.localScale -= Vector3.one * (1f / (currentTier - _plantTier.PhaseTodetail) * _RefreshRate);
+                        }
+
                     }
                 }
 

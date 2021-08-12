@@ -58,6 +58,7 @@ public class CameraMovement : MonoBehaviour
         m_inputProvider = GetComponent<CinemachineInputProvider>();
         m_virtualCamera = GetComponent<CinemachineVirtualCamera>();
         m_cameratransform = GetComponent<Transform>();
+        
     }
 
     private void Update()
@@ -65,7 +66,8 @@ public class CameraMovement : MonoBehaviour
         float x = m_inputProvider.GetAxisValue(0);
         float y = m_inputProvider.GetAxisValue(1);
         float z = m_inputProvider.GetAxisValue(2);
-        if(x != 0 || y!= 0 )
+        Cursor.lockState = CursorLockMode.Confined;
+        if (x != 0 || y!= 0 )
         {
             PanScreen(x, y,z) ;
         }
