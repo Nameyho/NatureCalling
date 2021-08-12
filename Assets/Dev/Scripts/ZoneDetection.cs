@@ -43,8 +43,8 @@ public class ZoneDetection : MonoBehaviour
 
     private void Update()
     {
-        FollowMouse();
-        onClick();
+		FollowMouse();
+		onClick();
     }
 
 
@@ -110,7 +110,7 @@ public class ZoneDetection : MonoBehaviour
             if (Input.GetMouseButtonDown(0)&& _isBuildable)
             {
                 
-                Instantiate(_plantsPrefabs.Value,new Vector3( hit.point.x,0.5f ,hit.point.z), Quaternion.identity);
+                Instantiate(_plantsPrefabs.Value,new Vector3( hit.point.x,0f ,hit.point.z), Quaternion.identity);
             }
         }
 
@@ -125,15 +125,15 @@ public class ZoneDetection : MonoBehaviour
                 _isAlreadyMove = true;
                 _isBuildable = true;
             }
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+            //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
-            {
+            //if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+            //{
                
-                this.transform.position =new Vector3 (hit.point.x,0,hit.point.z);
-            }
+            //    this.transform.position =new Vector3 (hit.point.x,0,hit.point.z);
+            //}
 
         }
 

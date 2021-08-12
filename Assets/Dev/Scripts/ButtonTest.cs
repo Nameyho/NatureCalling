@@ -18,7 +18,8 @@ public class ButtonTest : MonoBehaviour
             number.Value++;
             Debug.Log(number.Value);
         GrowPlants gp = _plant.GetComponent<GrowPlants>();
-        gp.SetCurrentTier(number);
+			Debug.Log(gp);
+			gp.SetCurrentTier(number);
 
         }
     }

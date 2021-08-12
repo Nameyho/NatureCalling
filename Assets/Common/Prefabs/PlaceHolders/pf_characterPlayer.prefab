@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5556913831270259957}
   - component: {fileID: 4178832949215717030}
   - component: {fileID: 1748623699}
+  - component: {fileID: 1614080006}
   m_Layer: 0
   m_Name: pf_characterPlayer
   m_TagString: Untagged
@@ -44,9 +45,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.23451442
-  m_Height: 1.548101
+  m_Height: 1.4727838
   m_Direction: 1
-  m_Center: {x: -0.010517448, y: 0.78552616, z: 0.15633512}
+  m_Center: {x: -0.010517448, y: 0.8231847, z: 0.15633512}
 --- !u!114 &1748623699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   _speedMovement: 10
+--- !u!114 &1614080006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5556913831270259954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7564ffc070f5d7d4b95aa3c31f23865f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Basic: {fileID: 0}
+  _Effect: {fileID: 0}
+  _Unbuildable: {fileID: 0}
+  _plantsPrefabs: {fileID: 0}
+  cam: {fileID: 0}
+  IgnoreMe:
+    serializedVersion: 2
+    m_Bits: 0
+  _moveSpeed: 0
 --- !u!1001 &7267274773051826447
 PrefabInstance:
   m_ObjectHideFlags: 0

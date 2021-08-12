@@ -51,9 +51,11 @@ public class GrowPlants : MonoBehaviour
                 {
                     _growPlantMeshes[i].materials[j].SetFloat("Grow_", _minGrow);
                     growPlantsMaterials.Add(_growPlantMeshes[i].materials[j]);
+					
                 }
             }
         }
+		Debug.Log(growPlantsMaterials.Count);
     }
 
     private void Update()
