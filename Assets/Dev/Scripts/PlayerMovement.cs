@@ -57,8 +57,8 @@ public class PlayerMovement : MonoBehaviour
         if (_hasAlreadywalked)
         {
             
-            _transform.position = Vector3.MoveTowards(_transform.position, new Vector3(target.x,1,target.z), _speedMovement*Time.deltaTime);
-		    _transform.LookAt(new Vector3(target.x, 1, target.z));
+            _transform.position = Vector3.MoveTowards(_transform.position, new Vector3(target.x,0,target.z), _speedMovement*Time.deltaTime);
+		    _transform.LookAt(new Vector3(target.x, 0, target.z));
 
         }
 	}

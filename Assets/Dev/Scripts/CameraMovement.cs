@@ -76,16 +76,25 @@ public class CameraMovement : MonoBehaviour
            
             ZoomScreen(z);
         }
-    }
 
-    #endregion
+		RotateAroundObject();
+	}
+
+	#endregion
 
 
 
 
-    #region Public Methods
+	#region Public Methods
+	public void RotateAroundObject()
+	{
+		if (Input.GetMouseButtonDown(2))
+		{
+			Debug.Log("molette");
+		}
+	}
 
-    public void PanScreen(float x , float y,float z)
+	public void PanScreen(float x , float y,float z)
     {
         Vector3 direction = PanDirection(x, y,z);
 
