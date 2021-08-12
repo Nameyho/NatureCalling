@@ -23,20 +23,20 @@ public class GroundGenerator : MonoBehaviour
 
     public void SpawnNextPart()
     {
-        
+        BoxCollider[] boxColliders = GetComponentsInChildren<BoxCollider>();
+
+        for (int i = 0; i < boxColliders.Length; i++)
+        {
+            Destroy(boxColliders[i]);
+        }
+
+
         _indexOfLastPartSpawned++;
         if(_indexOfLastPartSpawned < _mapsParts.Count)
         {
             Instantiate(_mapsParts[_indexOfLastPartSpawned],_transform);
         }
     }
-
-    //public void DeleteLastPart()
-    //{
-    //    Debug.Log(_mapsParts)
-    //    DestroyImmediate(_mapsParts[_indexOfLastPartSpawned],true);
-    //    _indexOfLastPartSpawned--;
-    //}
     #endregion
     #region Unity Api
 
