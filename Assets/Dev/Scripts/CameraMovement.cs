@@ -7,20 +7,19 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Scrolling")]
     [SerializeField]
-
     private float _SpeedScrolling = 2f;
 
-    [SerializeField]
-    private float _maxUpScrolling = 10f;
+    //[SerializeField]
+    //private float _maxUpScrolling = 10f;
 
-    [SerializeField]
-    private float _minDownScrolling = -10f;
+    //[SerializeField]
+    //private float _minDownScrolling = -10f;
 
-    [SerializeField]
-    private float _maxRightScrolling = 10f;
+    //[SerializeField]
+    //private float _maxRightScrolling = 10f;
 
-    [SerializeField]
-    private float _maxLeftScrolling = 10f;
+    //[SerializeField]
+    //private float _maxLeftScrolling = 10f;
 
     [Header("Zoom")]
     [SerializeField]
@@ -45,7 +44,7 @@ public class CameraMovement : MonoBehaviour
     #region private
 
     private CinemachineInputProvider m_inputProvider;
-    private CinemachineVirtualCamera m_virtualCamera;
+    private CinemachineFreeLook m_virtualCamera;
     private Transform m_cameratransform;
     private float lastFov;
 
@@ -56,83 +55,27 @@ public class CameraMovement : MonoBehaviour
     private void Awake()
     {
         m_inputProvider = GetComponent<CinemachineInputProvider>();
-        m_virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        m_virtualCamera = GetComponent<CinemachineFreeLook>();
         m_cameratransform = GetComponent<Transform>();
         
     }
 
     private void Update()
     {
-        float x = m_inputProvider.GetAxisValue(0);
-        float y = m_inputProvider.GetAxisValue(1);
         float z = m_inputProvider.GetAxisValue(2);
         Cursor.lockState = CursorLockMode.Confined;
-        if (x != 0 || y!= 0 )
-        {
-            PanScreen(x, y,z) ;
-        }
         
         if(z != 0){
            
             ZoomScreen(z);
         }
 
-		RotateAroundObject();
 	}
 
 	#endregion
 
 
-
-
 	#region Public Methods
-	public void RotateAroundObject()
-	{
-		if (Input.GetMouseButtonDown(2))
-		{
-			Debug.Log("molette");
-		}
-	}
-
-	public void PanScreen(float x , float y,float z)
-    {
-        Vector3 direction = PanDirection(x, y,z);
-
-
-
-        m_cameratransform.position = Vector3.Lerp(m_cameratransform.position, 
-            
-            new Vector3(Mathf.Clamp(m_cameratransform.position.x + direction.x,_maxLeftScrolling,_maxRightScrolling ),m_cameratransform.position.y, Mathf.Clamp(m_cameratransform.position.z + direction.z, _minDownScrolling, _maxUpScrolling))
-
-            + direction * _SpeedScrolling , Time.deltaTime);
-
-    }
-
-    public Vector3 PanDirection(float x ,float y,float z)
-    {
-        Vector3 direction = Vector3.zero;
-        if(y>= Screen.height * .95f)
-        {
-           direction.z += 1;
-            
-        }
-        else if (y <= Screen.height * .05f)
-        {
-            direction.z -= 1;
-        }
-
-        else if( x>= Screen.width * 0.95f)
-        {
-            direction.x += 1;
-        }
-        else if (x <= Screen.width * 0.05f)
-        {
-            direction.x -= 1;
-        }
-        return direction;
-    }
-
-
     public void ZoomScreen( float increment)
     {
         float fov = m_virtualCamera.m_Lens.FieldOfView;
