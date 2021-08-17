@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: Carte_test_1 2
+  m_EditorClassIdentifier: 
+  _CardName: CarteTest
+  _CardImage: {fileID: 21300000, guid: c478405655e8a3e47ab1925359f5f305, type: 3}
+  _Energy: 2
+  _cost: 20
+  _prefabToSpawn: {fileID: 5114498069158390869, guid: b92c0b95465910b43983b0384ec79916, type: 3}
+  _TimesToBeSpawn: 2

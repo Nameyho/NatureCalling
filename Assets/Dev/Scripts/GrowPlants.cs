@@ -55,7 +55,6 @@ public class GrowPlants : MonoBehaviour
                 }
             }
         }
-		Debug.Log(growPlantsMaterials.Count);
     }
 
     private void Update()
