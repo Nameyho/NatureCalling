@@ -19,7 +19,7 @@ public class TestCamera : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
 
-            Debug.Log(hit.transform.tag);
+           
         }
 
     }
