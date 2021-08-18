@@ -76,7 +76,6 @@ public class CMFreelookEdgeCamera : MonoBehaviour
         float fov = m_virtualCamera.m_Lens.FieldOfView;
         float target = Mathf.Clamp(fov+ increment, ZoomInMax, ZoomOutMax);
 
-        Debug.Log(target);
         m_virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, _SpeedZoom * Time.deltaTime);
 
         if (lastFov < fov && (ZoomOutMax >= fov))

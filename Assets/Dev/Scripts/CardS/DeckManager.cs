@@ -16,7 +16,7 @@ public class DeckManager : MonoBehaviour
     private List<CardScriptable> _cardsinHands = new List<CardScriptable>();
 
     [SerializeField]
-    private Button _buttonModel;
+    private GameObject _carteModel;
 
     [SerializeField]
     private ObjectVariable _currentPrefabSelected;
@@ -26,12 +26,17 @@ public class DeckManager : MonoBehaviour
 
     [SerializeField]
     private IntVariable _numbersCardsInHand;
+
+    [SerializeField]
+    private Transform[] _spawnLocation;
+
+    [SerializeField]
+    private TMP_Text _tmp;
     #endregion
 
     #region Private
 
     private Transform _transform;
-
 
 
     #endregion
@@ -47,6 +52,7 @@ public class DeckManager : MonoBehaviour
     private void Update()
     {
         CompleteHand();
+        UpdateDeckText();
     }
 
     #endregion
@@ -97,19 +103,34 @@ public class DeckManager : MonoBehaviour
 
     public void AddACart()
     {
-        int rand = Random.Range(0, _DeckList.Count);
+       
 
-        Button but = Instantiate(_buttonModel, _transform);
-        _numbersCardsInHand.Value++;
-        but.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        but.GetComponent<Image>().sprite = _DeckList[rand]._CardImage;
-        but.GetComponentInChildren<TMP_Text>().text = _DeckList[rand]._CardName;
-        but.GetComponentInChildren<ButtonScriptData>().SetCardScriptable(_DeckList[rand]);
+        
 
-        _cardsinHands.Add(_DeckList[rand]);
-        _DeckList.Remove(_DeckList[rand]);
+        for (int i = 0; i < _spawnLocation.Length; i++)
+        {
+            int rand = Random.Range(0, _DeckList.Count);
+            if (_spawnLocation[i].transform.childCount <= 0)
+            {
+               GameObject go =  Instantiate(_carteModel, _spawnLocation[i].transform);
+               _numbersCardsInHand.Value++;
+                go.GetComponentInChildren<ButtonScriptData>().SetCardScriptable(_DeckList[rand]);
+                 _cardsinHands.Add(_DeckList[rand]);
+                _DeckList.Remove(_DeckList[rand]);
+            }
+
+        }
+
+
+        
+
     }
 
+
+    public void UpdateDeckText()
+    {
+        _tmp.text = " Il reste " + _DeckList.Count + " dans le paquet";
+    }
     #endregion
 
 
