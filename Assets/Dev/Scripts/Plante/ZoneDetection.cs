@@ -29,6 +29,10 @@ public class ZoneDetection : MonoBehaviour
     
     public float _moveSpeed;
 
+
+    [Header("Gestion de la main")]
+    [SerializeField]
+    private IntVariable _cardsInHands;
     #endregion
 
     #region Private
@@ -110,11 +114,13 @@ public class ZoneDetection : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
-            Debug.Log(hit.transform.tag +  hit.transform.name);
+          
             if (Input.GetMouseButtonDown(0)&& _isBuildable)
             {
-                Debug.Log(hit.point);
+               
                 Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                Destroy(this.gameObject);
+                _cardsInHands.Value--;
             }
         }
 

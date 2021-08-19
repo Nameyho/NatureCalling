@@ -38,6 +38,10 @@ public class ButtonScriptData : MonoBehaviour
         GetComponentInParent<DeckManager>().PlayCard(card,this.gameObject);
     }
 
+    public void DestroyThisCard()
+    {
+        GetComponentInParent<DeckManager>().DestoyCard(card, this.gameObject);
+    }
     public void TransformIntoGhostModel()
     {
         _cardGO.SetActive(false);
