@@ -16,8 +16,8 @@ public class CardBackgroundManager : MonoBehaviour
     {
         if (other.GetComponent<ButtonScriptData>())
         {
-            other.GetComponent<ButtonScriptData>().TransformIntoCard();
             other.GetComponent<DragAndDropCard>().SetGhost(false);
+            other.GetComponent<ButtonScriptData>().TransformIntoCard();
         }
     }
 }

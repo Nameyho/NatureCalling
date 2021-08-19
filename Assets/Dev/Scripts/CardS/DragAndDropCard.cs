@@ -12,9 +12,6 @@ public class DragAndDropCard : MonoBehaviour
     private Camera cam;
     private bool _isGhost = false;
 
-    [Header("camera")]
-    public LayerMask IgnoreMe;
-
     #endregion
 
 
@@ -54,24 +51,35 @@ public class DragAndDropCard : MonoBehaviour
     {
         if (!_isGhost)
         {
+
+            Debug.Log("pas fantome");
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
 
 
-            transform.position = curPosition;
+            transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
 
         }
         else
         {
-
+            Debug.Log("fantome");
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+            if (Physics.Raycast(ray, out hit))
             {
-                this.transform.position =new Vector3 (hit.point.x,hit.point.y +0.3f,hit.point.z);
+                if(hit.transform.tag == "CardsBackground"){
+
+
+                    _transform.position = _transform.parent.position;
+                   }
+                else
+                {
+                    this.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+                }
+                
             }
 
         }
