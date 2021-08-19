@@ -111,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _plantsPrefabs
       value: 
-      objectReference: {fileID: 919132149155446097, guid: 0197d0e1cf74c4c4f8d6e349398fcb65, type: 3}
+      objectReference: {fileID: 5821892439539980420, guid: d063b89a33e399042a9d01a93f54a123, type: 3}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: IgnoreMe.m_Bits
       value: 1047564
@@ -126,6 +126,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7046556453952346103, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: IgnoreMe.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
