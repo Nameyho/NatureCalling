@@ -15,8 +15,6 @@ public class DeckManager : MonoBehaviour
     [SerializeField]
     private List<CardScriptable> _cardsinHands = new List<CardScriptable>();
 
-    [SerializeField]
-    private GameObject _carteModel;
 
     [SerializeField]
     private ObjectVariable _currentPrefabSelected;
@@ -71,7 +69,6 @@ public class DeckManager : MonoBehaviour
 
     public void PlayCard(CardScriptable card,GameObject go) 
     {
-        Debug.Log("je joue la carte " + card.name);
 
         if (card._prefabToSpawn)
         {
@@ -119,7 +116,7 @@ public class DeckManager : MonoBehaviour
             int rand = Random.Range(0, _DeckList.Count);
             if (_spawnLocation[i].transform.childCount <= 0)
             {
-               GameObject go =  Instantiate(_carteModel, _spawnLocation[i].transform);
+               GameObject go =  Instantiate(_DeckList[rand]._cardModel, _spawnLocation[i].transform);
                _numbersCardsInHand.Value++;
                 go.GetComponentInChildren<ButtonScriptData>().SetCardScriptable(_DeckList[rand]);
                  _cardsinHands.Add(_DeckList[rand]);

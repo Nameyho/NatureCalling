@@ -15,6 +15,8 @@ public class CardScriptable : ScriptableObject
 
     public int _cost;
 
+    public GameObject _cardModel;
+
     [Header("bonus que la carte va apporter")]
 
     public GameObject _prefabToSpawn;
