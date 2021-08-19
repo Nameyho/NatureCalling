@@ -14,6 +14,8 @@ public class ButtonScriptData : MonoBehaviour
 
     [SerializeField]
     private GameObject _GhostCard;
+
+
     #endregion
 
     #region Private
@@ -46,6 +48,7 @@ public class ButtonScriptData : MonoBehaviour
     {
         _cardGO.SetActive(false);
         _GhostCard.SetActive(true);
+        
     }
 
     public void TransformIntoCard()

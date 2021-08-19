@@ -10,8 +10,15 @@ public class DragAndDropCard : MonoBehaviour
     private Transform _transform;
     private bool _isDragable;
     private Camera cam;
+    private bool _isGhost = true;
+    private Vector3 __lastpoint;
+
+
+    [Header("camera")]
+    public LayerMask IgnoreMe;
 
     #endregion
+
 
     #region Unity API
     private void Awake()
@@ -47,13 +54,30 @@ public class DragAndDropCard : MonoBehaviour
     #region Methods
     void Drag()
     {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        if (!_isGhost)
+        {
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
-        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
 
 
-        transform.position = curPosition;
+            transform.position = curPosition;
 
+        }
+        else
+        {
+
+            RaycastHit hit;
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+            {
+                Debug.Log(hit.point);
+                this.transform.position =new Vector3 (hit.point.x,0.3f,hit.point.z);
+            }
+
+        }
     }
 
     private void reset()
@@ -68,14 +92,8 @@ public class DragAndDropCard : MonoBehaviour
         Debug.Log(mousePosition);
 
         RaycastHit hit;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+     
 
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            Debug.Log(_transform.localRotation);
-           
-        }
     }
     #endregion
 
