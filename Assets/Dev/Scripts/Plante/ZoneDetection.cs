@@ -15,17 +15,24 @@ public class ZoneDetection : MonoBehaviour
     [SerializeField]
     private Material _Unbuildable;
 
+    [SerializeField]
+    private GameObject _ghostModel;
+
+
     [Header("Prefabs")]
     [SerializeField]
-    private ObjectVariable _plantsPrefabs;
+    private GameObject _plantsPrefabs;
     
 
     [Header("camera")]
-    public Camera cam;
     public LayerMask IgnoreMe;
     
     public float _moveSpeed;
 
+
+    [Header("Gestion de la main")]
+    [SerializeField]
+    private IntVariable _cardsInHands;
     #endregion
 
     #region Private
@@ -33,6 +40,7 @@ public class ZoneDetection : MonoBehaviour
     private Renderer _myRend;
     private bool _isBuildable = false;
     private bool _isAlreadyMove = false;
+    private Camera cam;
     
 
 
@@ -89,8 +97,8 @@ public class ZoneDetection : MonoBehaviour
 
     private void Awake()
     {
-        _myRend = GetComponent<Renderer>();
-        
+        _myRend = _ghostModel.GetComponent<Renderer>();
+        cam = Camera.main;
     }
 
     #endregion
@@ -106,11 +114,13 @@ public class ZoneDetection : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
-            
+          
             if (Input.GetMouseButtonDown(0)&& _isBuildable)
             {
-                
-                Instantiate(_plantsPrefabs.Value,new Vector3( hit.point.x,0f ,hit.point.z), Quaternion.identity);
+               
+                Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                Destroy(this.gameObject);
+                _cardsInHands.Value--;
             }
         }
 

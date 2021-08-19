@@ -92,6 +92,13 @@ public class DeckManager : MonoBehaviour
 
     }
 
+
+    public void DestoyCard(CardScriptable card, GameObject go)
+    {
+        _cardsinHands.Remove(card);
+        Destroy(go);
+        _numbersCardsInHand.Value--;
+    }
     public void CompleteHand()
     {
         if((_numbersCardsInHand.Value < 5)&&(_DeckList.Count> 0))
