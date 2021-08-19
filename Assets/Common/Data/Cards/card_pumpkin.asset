@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: card_pumpkin
+  m_EditorClassIdentifier: 
+  _CardName: Pumpkin
+  _CardImage: {fileID: 0}
+  _cost: 1
+  _prefabToSpawn: {fileID: 8552205986434223997, guid: 200973c218e7e6240b1afd74c39c00ba, type: 3}
