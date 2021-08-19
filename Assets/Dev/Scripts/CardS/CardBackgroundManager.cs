@@ -9,7 +9,7 @@ public class CardBackgroundManager : MonoBehaviour
         if (other.GetComponent<ButtonScriptData>())
         {
           other.GetComponent<ButtonScriptData>().TransformIntoGhostModel();
-
+            other.GetComponent<DragAndDropCard>().SetGhost(true);  
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -17,7 +17,7 @@ public class CardBackgroundManager : MonoBehaviour
         if (other.GetComponent<ButtonScriptData>())
         {
             other.GetComponent<ButtonScriptData>().TransformIntoCard();
-
+            other.GetComponent<DragAndDropCard>().SetGhost(false);
         }
     }
 }

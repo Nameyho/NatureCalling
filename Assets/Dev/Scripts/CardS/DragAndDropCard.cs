@@ -10,9 +10,7 @@ public class DragAndDropCard : MonoBehaviour
     private Transform _transform;
     private bool _isDragable;
     private Camera cam;
-    private bool _isGhost = true;
-    private Vector3 __lastpoint;
-
+    private bool _isGhost = false;
 
     [Header("camera")]
     public LayerMask IgnoreMe;
@@ -37,7 +35,7 @@ public class DragAndDropCard : MonoBehaviour
         {
             reset();
         }
-        CardsRotation();
+       // CardsRotation();
     }
     void OnMouseDown()
     {
@@ -73,8 +71,7 @@ public class DragAndDropCard : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
             {
-                Debug.Log(hit.point);
-                this.transform.position =new Vector3 (hit.point.x,0.3f,hit.point.z);
+                this.transform.position =new Vector3 (hit.point.x,hit.point.y +0.3f,hit.point.z);
             }
 
         }
@@ -94,6 +91,11 @@ public class DragAndDropCard : MonoBehaviour
         RaycastHit hit;
      
 
+    }
+
+    public void SetGhost(bool b)
+    {
+        _isGhost = b;
     }
     #endregion
 
