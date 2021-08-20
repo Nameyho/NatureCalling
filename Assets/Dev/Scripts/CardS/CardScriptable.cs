@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.UI;
+//using UnityEditor.UI;
 
 
 [CreateAssetMenu(fileName = "Data", menuName = "Cartes_Configuration/cartes", order = 1)]
