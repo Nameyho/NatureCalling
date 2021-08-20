@@ -77,7 +77,7 @@ public class DragAndDropCard : MonoBehaviour
                    }
                 else
                 {
-                    this.transform.position = new Vector3(hit.point.x, 0, hit.point.z);
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z); ;
                 }
                 
             }
