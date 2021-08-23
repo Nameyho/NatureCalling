@@ -9,7 +9,7 @@ public class HandManager : MonoBehaviour
 {
     #region Exposed
 
-  
+
     [SerializeField]
     private ObjectVariable _currentPrefabSelected;
 
@@ -20,14 +20,25 @@ public class HandManager : MonoBehaviour
     [SerializeField]
     private SubMenuScriptable _subMenu;
 
+
+    [SerializeField]
+    private GameObject _previous;
+
+    [SerializeField]
+    private GameObject _forward;
     #endregion
 
+    #region Private
+    [SerializeField]
+    private int _minimum = 1;
+
+    #endregion
 
     #region Unity API
 
     private void Update()
     {
-       
+        EnableNavigation();
 
     }
 
@@ -37,7 +48,7 @@ public class HandManager : MonoBehaviour
     #region Public Methods 
 
 
-     public void PlayCard(CardScriptable card,GameObject go) 
+    public void PlayCard(CardScriptable card, GameObject go)
     {
 
         if (card._prefabToSpawn)
@@ -51,10 +62,10 @@ public class HandManager : MonoBehaviour
     {
         for (int i = 0; i < _spawnLocation.Length; i++)
         {
-            if(_spawnLocation[i].childCount> 0)
+            if (_spawnLocation[i].childCount > 0)
             {
-           Transform go =  _spawnLocation[i].GetChild(0);
-            Destroy(go.gameObject);
+                Transform go = _spawnLocation[i].GetChild(0);
+                Destroy(go.gameObject);
 
             }
         }
@@ -70,14 +81,44 @@ public class HandManager : MonoBehaviour
         }
 
 
-        for (int i = 0; i <shortestlistlength; i++)
+        for (int i = 0; i < shortestlistlength; i++)
         {
             if (_subMenu._listSubMenu[i]._cardModel)
             {
-               GameObject go =  Instantiate(_subMenu._listSubMenu[i]._cardModel, _spawnLocation[i]);
+                GameObject go = Instantiate(_subMenu._listSubMenu[i]._cardModel, _spawnLocation[i]);
                 go.transform.SetParent(_spawnLocation[i]);
             }
         }
+    }
+
+    public void Navigate(int step)
+    {
+        _minimum += step;
+        ChangeHand();
+    }
+
+    public void EnableNavigation()
+    {
+        if(((_minimum +(_spawnLocation.Length- 1 )) -_spawnLocation.Length) >=0)
+                                   {
+            _previous.SetActive(true);
+        }
+        else
+        {
+            _previous.SetActive(false);
+        }
+
+
+
+        if(_subMenu._listSubMenu.Count - _spawnLocation.Length > _minimum)
+        {
+            _forward.SetActive(true);
+        }
+        else
+        {
+            _forward.SetActive(false);
+        }
+
     }
 
     #endregion
