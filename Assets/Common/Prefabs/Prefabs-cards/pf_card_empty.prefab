@@ -125,9 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0bef74e3edaf24baecd26083a01aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IgnoreMe:
-    serializedVersion: 2
-    m_Bits: 12
+  _currentSpawnerLocation: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -162,7 +160,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1047564
   _moveSpeed: 0
-  _cardsInHands: {fileID: 11400000, guid: 0772dfa9c2e234244851876a931e86b3, type: 2}
 --- !u!1001 &6583339704167548137
 PrefabInstance:
   m_ObjectHideFlags: 0

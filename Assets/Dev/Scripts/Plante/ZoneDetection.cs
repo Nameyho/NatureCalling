@@ -29,17 +29,12 @@ public class ZoneDetection : MonoBehaviour
     
     public float _moveSpeed;
 
-
-    [Header("Gestion de la main")]
-    [SerializeField]
-    private IntVariable _cardsInHands;
     #endregion
 
     #region Private
 
     private Renderer _myRend;
     private bool _isBuildable = false;
-    private bool _isAlreadyMove = false;
     private Camera cam;
     
 
@@ -51,7 +46,7 @@ public class ZoneDetection : MonoBehaviour
 
     private void Update()
     {
-		FollowMouse();
+		
 		onClick();
     }
 
@@ -117,37 +112,13 @@ public class ZoneDetection : MonoBehaviour
           
             if (Input.GetMouseButtonDown(0)&& _isBuildable)
             {
-               
+                GetComponent<Cards>().PlayThisCard();
                 Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
-                Destroy(this.gameObject);
-                _cardsInHands.Value--;
-            }
-        }
 
-    }
-
-    private void FollowMouse()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            if (!_isAlreadyMove)
-            {
-                _isAlreadyMove = true;
-                _isBuildable = true;
-            }
-            //RaycastHit hit;
-            //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-
-            //if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
-            //{
+              
                
-            //    this.transform.position =new Vector3 (hit.point.x,0,hit.point.z);
-            //}
-
+            }
         }
-
-
 
     }
     #endregion

@@ -116,14 +116,26 @@ PrefabInstance:
       propertyPath: IgnoreMe.m_Bits
       value: 1047564
       objectReference: {fileID: 0}
+    - target: {fileID: 6548185811734685258, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: e947511fa6971a94c9be5dc88d6a390e, type: 2}
     - target: {fileID: 7046556453952346103, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _Hand
+      value: 
+      objectReference: {fileID: 4571708910082683727, guid: 32247fe7dfc81854eaf095de06413125, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: IgnoreMe.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _currentSpawnerLocation
+      value: 
+      objectReference: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0

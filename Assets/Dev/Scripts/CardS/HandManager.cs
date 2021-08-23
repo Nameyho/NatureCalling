@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using ScriptableObjectArchitecture;
+
+public class HandManager : MonoBehaviour
+{
+    #region Exposed
+
+  
+    [SerializeField]
+    private ObjectVariable _currentPrefabSelected;
+
+
+    [SerializeField]
+    private Transform[] _spawnLocation;
+
+    [SerializeField]
+    private SubMenuScriptable _subMenu;
+
+    #endregion
+
+
+    #region Unity API
+
+    private void Update()
+    {
+       
+
+    }
+
+    #endregion
+
+
+    #region Public Methods 
+
+
+     public void PlayCard(CardScriptable card,GameObject go) 
+    {
+
+        if (card._prefabToSpawn)
+        {
+            _currentPrefabSelected.Value = card._prefabToSpawn;
+        }
+    }
+
+
+    public void ChangeHand()
+    {
+        for (int i = 0; i < _spawnLocation.Length; i++)
+        {
+            if(_spawnLocation[i].childCount> 0)
+            {
+           Transform go =  _spawnLocation[i].GetChild(0);
+            Destroy(go.gameObject);
+
+            }
+        }
+
+
+        int shortestlistlength = 0;
+        if (_spawnLocation.Length <= _subMenu._listSubMenu.Count)
+        {
+            shortestlistlength = _spawnLocation.Length;
+        }
+        else {
+            shortestlistlength = _subMenu._listSubMenu.Count;
+        }
+
+
+        for (int i = 0; i <shortestlistlength; i++)
+        {
+            if (_subMenu._listSubMenu[i]._cardModel)
+            {
+               GameObject go =  Instantiate(_subMenu._listSubMenu[i]._cardModel, _spawnLocation[i]);
+                go.transform.SetParent(_spawnLocation[i]);
+            }
+        }
+    }
+
+    #endregion
+
+
+}

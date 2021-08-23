@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonScriptData : MonoBehaviour
+public class Cards : MonoBehaviour
 {
     #region Exposed
 
@@ -37,13 +37,9 @@ public class ButtonScriptData : MonoBehaviour
 
     public void PlayThisCard()
     {
-        GetComponentInParent<DeckManager>().PlayCard(card,this.gameObject);
+        GetComponentInParent<HandManager>().PlayCard(card,this.gameObject);
     }
 
-    public void DestroyThisCard()
-    {
-        GetComponentInParent<DeckManager>().DestoyCard(card, this.gameObject);
-    }
     public void TransformIntoGhostModel()
     {
         _cardGO.SetActive(false);

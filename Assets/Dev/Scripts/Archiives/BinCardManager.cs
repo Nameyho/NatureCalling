@@ -7,9 +7,9 @@ public class BinCardManager : MonoBehaviour
     #region
         private void OnTriggerEnter(Collider other)
         {
-        if (other.GetComponent<ButtonScriptData>())
+        if (other.GetComponent<Cards>())
         {
-            other.GetComponent<ButtonScriptData>().DestroyThisCard();
+        
 
         }
     }
