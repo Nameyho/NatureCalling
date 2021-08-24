@@ -20,7 +20,6 @@ public class ScrollButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("test");
         _hand.Navigate(step);  
     }
 
