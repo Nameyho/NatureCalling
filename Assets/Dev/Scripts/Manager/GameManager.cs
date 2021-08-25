@@ -11,20 +11,36 @@ public class GameManager: MonoBehaviour
     [Header("Progression")]
 
     [SerializeField]
-    private FloatVariable _currentScore;
+    private IntVariable _currentScore;
+
+    [SerializeField]
+    private int _scoreToChangeScene;
 
     #endregion
 
     #region Public Methods
 
-    public void AddProgression(float score)
+    public void AddProgression(int score)
     {
         _currentScore.Value += score;
     }
 
-    public void DeleteProgression(float score)
+    public void DeleteProgression(int score)
     {
         _currentScore.Value -= score;
     }
     #endregion
+
+    public void CheckMinimalProgression()
+    {
+        if (_scoreToChangeScene < _currentScore.Value)
+        {
+        //bravo tu peux aller au niveau suivant si tu veux
+        }
+    }
+
+    public void Awake()
+    {
+        _currentScore.Value = 0;
+    }
 }

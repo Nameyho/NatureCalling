@@ -13,12 +13,18 @@ public class DragAndDropCard : MonoBehaviour
     private Camera cam;
     private bool _isGhost = false;
     private bool _isBusy =false;
-    private int nbr = 0;
-
+    private Collider effectcollider;
+    private float _lastTimeUnbuild;
+    private float _lastTimeEffect;
     private Transform _Hand;
 
     [SerializeField]
     private CurrentSpawnerLocationScritpable _currentSpawnerLocation;
+
+
+    [Header("camera")]
+    public LayerMask IgnoreMe;
+
 
     #endregion
 
@@ -49,7 +55,7 @@ public class DragAndDropCard : MonoBehaviour
         
         if (!(_isBusy))
         {
-            nbr++;
+            
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
@@ -80,19 +86,38 @@ public class DragAndDropCard : MonoBehaviour
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-
+            Seeding seed = GetComponent<Seeding>();
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.transform.tag == "CardsBackground"){
 
-
+                
+                
+                if (hit.transform.tag == "CardsBackground")
+                {
                     _transform.position = _transform.parent.position;
-                   }
+                }
+                else if(hit.transform.tag == "UnBuild")
+                {
+                    seed.UpdateRenderer(2);
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+                    _lastTimeUnbuild = Time.time;
+
+
+                }else if ( hit.transform.tag == "EffectZone")
+                {
+                    seed.UpdateRenderer(1);
+                    effectcollider = hit.collider;
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+
+                }
                 else
                 {
-                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z); 
+                    seed.UpdateRenderer(0);
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+
                 }
-                
+
+
             }
 
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ScriptableObjectArchitecture;
 
-public class ProgressionBar : MonoBehaviour
+public class BiodiversityBar : MonoBehaviour
 {
 
     #region Exposed

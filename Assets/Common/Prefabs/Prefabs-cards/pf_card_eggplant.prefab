@@ -105,6 +105,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 7d85c4df23d7ec8458db5c8388505dc3, type: 2}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 8537393271563585056, guid: aa992846c7871d0489d3542d6b96034b, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _cardsInHands
       value: 
       objectReference: {fileID: 11400000, guid: 0772dfa9c2e234244851876a931e86b3, type: 2}
@@ -114,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 8280670437141093787, guid: 6a035eaf1d958394a89f35f2385ca0d7, type: 3}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: IgnoreMe.m_Bits
-      value: 1047564
+      value: 1047628
       objectReference: {fileID: 0}
     - target: {fileID: 6313432347788347264, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_Layer
@@ -138,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 4571708910082683727, guid: 32247fe7dfc81854eaf095de06413125, type: 3}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: IgnoreMe.m_Bits
-      value: 0
+      value: 1047678
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _currentSpawnerLocation

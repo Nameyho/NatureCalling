@@ -19,5 +19,5 @@ public class CardScriptable : ScriptableObject
 
     public GameObject _prefabToSpawn;
 
-
+    public int _bonusBioDiversity;
 }
