@@ -19,26 +19,27 @@ public class AnimalEventManager : MonoBehaviour
     private float _delay;
 
     [Header("Locations")]
+    [SerializeField]
     private List<Transform> _animalsLocationsSpawner;
 
     #endregion
 
     #region Private
-    private float _lastCheckedTime;
+    private float _nextCheckTime;
 
-    private List<AnimalsConditionScriptable> _animalsWaitingToBeInstancied;
+    private List<AnimalsConditionScriptable> _animalsWaitingToBeInstancied = new List<AnimalsConditionScriptable>();
     #endregion 
 
     #region 
 
     private void Update()
     {
-        if(Time.time> _lastCheckedTime - _delay)
+        if(Time.time>= _nextCheckTime)
         {
             CheckIfconditionsFilled();
             CheckIfConditionsStillFilled();
             SpawningAnimal();
-            _lastCheckedTime = Time.time;
+            _nextCheckTime = Time.time + _delay;
         }
         
     }
@@ -48,56 +49,77 @@ public class AnimalEventManager : MonoBehaviour
 
     private void CheckIfconditionsFilled()
     {
-        foreach (AnimalsConditionScriptable animals in _AnimalsConditionsList)
+       
+        for (int i = 0; i <_AnimalsConditionsList.Count ; i++)
         {
+            AnimalsConditionScriptable animals = _AnimalsConditionsList[i];
             bool isPassed = true;
-            for (int i = 0; i < animals.conditions.Length; i++)
-            {
-                if (!(animals.conditions[i]))
+                for (int j = 0; j < animals.conditions.Length; j++)
                 {
-                    isPassed = false; 
+                    if (!(animals.conditions[j]))
+                    {
+                        isPassed = false; 
+                    }
                 }
-            }
+            
 
-            if(isPassed && animals.ScoreToReach>= _currentScore)
-            {
-                _animalsWaitingToBeInstancied.Add(animals);
-                _AnimalsConditionsList.Remove(animals);
-            }
-        }
+                if(isPassed &&  _currentScore >= animals.ScoreToReach)
+                {
+                _animalsWaitingToBeInstancied.Add(_AnimalsConditionsList[i]);
+               
+                _AnimalsConditionsList.Remove(_AnimalsConditionsList[i]);
+                }
+
+        } 
+        
     }
 
     private void CheckIfConditionsStillFilled()
     {
-        foreach (AnimalsConditionScriptable animals in _animalsWaitingToBeInstancied)
+       
+       
+        for (int i = 0; i < _animalsWaitingToBeInstancied.Count; i++)
         {
+            AnimalsConditionScriptable animals = _animalsWaitingToBeInstancied[i];
             bool isNotFilled = false;
-            for (int i = 0; i < animals.conditions.Length; i++)
+            for (int j = 0; j < animals.conditions.Length; j++)
             {
-                if (!(animals.conditions[i]))
+                if (!(animals.conditions[j]))
                 {
                     isNotFilled = true;
                 }
             }
 
-            if (isNotFilled || animals.ScoreToReach >= _currentScore)
+            if (isNotFilled || animals.ScoreToReach > _currentScore)
             {
-                _AnimalsConditionsList.Add(animals);
-                _animalsWaitingToBeInstancied.Remove(animals);
+                Debug.Log("Add instanciatie");
+                _AnimalsConditionsList.Add(_animalsWaitingToBeInstancied[i]);
+                _animalsWaitingToBeInstancied.Remove(_animalsWaitingToBeInstancied[i]);
             }
         }
     }
 
     private void SpawningAnimal()
     {
-        int temp = Random.Range(0, _animalsWaitingToBeInstancied.Count);
-        int percentage = Random.Range(0, 101);
-        if(_animalsWaitingToBeInstancied[temp].PercentageToSpawn<= percentage)
+        if (_animalsWaitingToBeInstancied.Count > 0)
         {
-            int temp2 = Random.Range(0, _animalsLocationsSpawner.Count);
-            Instantiate(_animalsWaitingToBeInstancied[temp].animalGameObject, _animalsLocationsSpawner[temp2]);
-            
+                int temp = Random.Range(0, _animalsWaitingToBeInstancied.Count);
+                int percentage = Random.Range(0, 101);
+                Debug.Log(percentage);
+                if(_animalsWaitingToBeInstancied[temp].PercentageToSpawn>= percentage)
+                {
+                    int temp2 = Random.Range(0, _animalsLocationsSpawner.Count);
+                    Instantiate(_animalsWaitingToBeInstancied[temp].animalGameObject, _animalsLocationsSpawner[temp2]);
+                _animalsWaitingToBeInstancied.Remove(_animalsWaitingToBeInstancied[temp]);
+              
+                }
+
         }
+    }
+
+    public void AddToWaitinglist(AnimalsConditionScriptable acs)
+    {
+        _AnimalsConditionsList.Add(acs);
     }
     #endregion
 }
