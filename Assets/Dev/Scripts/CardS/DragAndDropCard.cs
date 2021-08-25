@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using ScriptableObjectArchitecture;
 
 public class DragAndDropCard : MonoBehaviour
 {
@@ -11,8 +12,22 @@ public class DragAndDropCard : MonoBehaviour
     private bool _isDragable;
     private Camera cam;
     private bool _isGhost = false;
+    private bool _isBusy =false;
+    private Collider effectcollider;
+    private float _lastTimeUnbuild;
+    private float _lastTimeEffect;
+    private Transform _Hand;
+
+    [SerializeField]
+    private CurrentSpawnerLocationScritpable _currentSpawnerLocation;
+
+
+    [Header("camera")]
+    public LayerMask IgnoreMe;
+
 
     #endregion
+
 
 
     #region Unity API
@@ -20,9 +35,10 @@ public class DragAndDropCard : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
         cam = Camera.main;
+        _Hand = this.gameObject.transform.parent.transform.parent.transform.parent.transform;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (_isDragable)
         {
@@ -32,15 +48,20 @@ public class DragAndDropCard : MonoBehaviour
         {
             reset();
         }
-       // CardsRotation();
+
     }
     void OnMouseDown()
     {
+        
+        if (!(_isBusy))
+        {
+            
+            screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-        _isDragable = true;
+            offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+            _isDragable = true;
+            _isBusy = true;
+        }
     }
 
     #endregion
@@ -52,7 +73,6 @@ public class DragAndDropCard : MonoBehaviour
         if (!_isGhost)
         {
 
-            Debug.Log("pas fantome");
             Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
             Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
@@ -63,23 +83,41 @@ public class DragAndDropCard : MonoBehaviour
         }
         else
         {
-            Debug.Log("fantome");
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-
+            Seeding seed = GetComponent<Seeding>();
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.transform.tag == "CardsBackground"){
 
-
+                
+                
+                if (hit.transform.tag == "CardsBackground")
+                {
                     _transform.position = _transform.parent.position;
-                   }
+                }
+                else if(hit.transform.tag == "UnBuild")
+                {
+                    seed.UpdateRenderer(2);
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+                    _lastTimeUnbuild = Time.time;
+
+
+                }else if ( hit.transform.tag == "EffectZone")
+                {
+                    seed.UpdateRenderer(1);
+                    effectcollider = hit.collider;
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+
+                }
                 else
                 {
-                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z); ;
+                    seed.UpdateRenderer(0);
+                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+
                 }
-                
+
+
             }
 
         }
@@ -87,19 +125,15 @@ public class DragAndDropCard : MonoBehaviour
 
     private void reset()
     {
+        
+        _Hand.gameObject.SetActive(true);
+        _isBusy = false;
+        _transform.SetParent(_currentSpawnerLocation._SpawnerTransform);
         transform.localPosition = Vector3.zero;
         _isDragable = false;
+        
     }
 
-    private void CardsRotation()
-    {
-        float mousePosition = Input.GetAxis("Horizontal");
-        Debug.Log(mousePosition);
-
-        RaycastHit hit;
-     
-
-    }
 
     public void SetGhost(bool b)
     {
