@@ -133,6 +133,7 @@ public class DragAndDropCard : MonoBehaviour
         _isBusy = false;
         _transform.SetParent(_currentSpawnerLocation._SpawnerTransform);
         transform.localPosition = Vector3.zero;
+        _transform.localRotation = Quaternion.Euler(0, 0, 0);
         _isDragable = false;
         
     }

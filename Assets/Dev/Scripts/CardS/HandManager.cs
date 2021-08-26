@@ -30,7 +30,7 @@ public class HandManager : MonoBehaviour
 
     #region Private
     [SerializeField]
-    private int _minimum = 1;
+    private int _minimum = 0;
 
     #endregion
 
@@ -119,6 +119,11 @@ public class HandManager : MonoBehaviour
             _forward.SetActive(false);
         }
 
+    }
+
+    public void resetMinimum()
+    {
+        this._minimum = 0;
     }
 
     #endregion
