@@ -29,14 +29,13 @@ public class HandManager : MonoBehaviour
     #endregion
 
     #region Private
-    [SerializeField]
-    private int _minimum = 1;
+    private int _minimum = 0;
 
-    #endregion
+	#endregion
 
-    #region Unity API
+	#region Unity API
 
-    private void Update()
+	private void Update()
     {
         EnableNavigation();
 
