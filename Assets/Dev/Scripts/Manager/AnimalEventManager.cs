@@ -105,7 +105,7 @@ public class AnimalEventManager : MonoBehaviour
         {
                 int temp = Random.Range(0, _animalsWaitingToBeInstancied.Count);
                 int percentage = Random.Range(0, 101);
-                Debug.Log(percentage);
+               
                 if(_animalsWaitingToBeInstancied[temp].PercentageToSpawn>= percentage)
                 {
                     int temp2 = Random.Range(0, _animalsLocationsSpawner.Count);
