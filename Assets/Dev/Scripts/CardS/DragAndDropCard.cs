@@ -109,6 +109,9 @@ public class DragAndDropCard : MonoBehaviour
                     effectcollider = hit.collider;
                     this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
+                }else if(hit.transform.tag == "Cards")
+                {
+
                 }
                 else
                 {
