@@ -35,10 +35,10 @@ public class Cards : MonoBehaviour
         return card;
     }
 
-    public void PlayThisCard()
-    {
-        GetComponentInParent<HandManager>().PlayCard(card,this.gameObject);
-    }
+    //public void PlayThisCard()
+    //{
+    //    GetComponentInParent<HandManager>().PlayCard(card,this.gameObject);
+    //}
 
     public void TransformIntoGhostModel()
     {

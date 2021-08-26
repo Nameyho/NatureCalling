@@ -10,8 +10,8 @@ public class HandManager : MonoBehaviour
     #region Exposed
 
 
-    [SerializeField]
-    private ObjectVariable _currentPrefabSelected;
+    //[SerializeField]
+    //private ObjectVariable _currentPrefabSelected;
 
 
     [SerializeField]
@@ -48,14 +48,14 @@ public class HandManager : MonoBehaviour
     #region Public Methods 
 
 
-    public void PlayCard(CardScriptable card, GameObject go)
-    {
+    //public void PlayCard(CardScriptable card, GameObject go)
+    //{
 
-        if (card._prefabToSpawn)
-        {
-            _currentPrefabSelected.Value = card._prefabToSpawn;
-        }
-    }
+    //    if (card._prefabToSpawn)
+    //    {
+    //        _currentPrefabSelected.Value = card._prefabToSpawn;
+    //    }
+    //}
 
 
     public void ChangeHand()

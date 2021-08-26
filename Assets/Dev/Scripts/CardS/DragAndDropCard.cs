@@ -61,6 +61,7 @@ public class DragAndDropCard : MonoBehaviour
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             _isDragable = true;
             _isBusy = true;
+            GetComponent<Seeding>().SetIsSelected(true);
         }
     }
 
@@ -135,6 +136,7 @@ public class DragAndDropCard : MonoBehaviour
         transform.localPosition = Vector3.zero;
         _transform.localRotation = Quaternion.Euler(0, 0, 0);
         _isDragable = false;
+        GetComponent<Seeding>().SetIsSelected(false);
         
     }
 

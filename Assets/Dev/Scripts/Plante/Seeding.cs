@@ -39,7 +39,7 @@ public class Seeding : MonoBehaviour
     private Renderer _myRend;
     private bool _isBuildable = false;
     private Camera cam;
-    
+    private bool _isSelected;
 
 
     #endregion
@@ -141,9 +141,9 @@ public class Seeding : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
           
-            if (Input.GetMouseButtonDown(0)&& _isBuildable)
+            if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
-                GetComponent<Cards>().PlayThisCard();
+                //GetComponent<Cards>().PlayThisCard();
                 Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
 
                 _gameManager.AddProgression(GetComponent<Cards>().GetCardScriptable()._bonusBioDiversity);
@@ -153,5 +153,14 @@ public class Seeding : MonoBehaviour
         }
 
     }
+    #endregion
+
+    #region public
+
+    public void SetIsSelected(bool f)
+    {
+        _isSelected = f;
+    }
+
     #endregion
 }
