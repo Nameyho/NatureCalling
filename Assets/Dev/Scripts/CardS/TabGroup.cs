@@ -55,6 +55,7 @@ public class TabGroup : MonoBehaviour
         ResetTabs();
         button.background.sprite = _tabActive;
         _currentCards._listSubMenu = cardScriptable;
+        _handmanager.resetMinimum();
         _handmanager.ChangeHand();
     }
 

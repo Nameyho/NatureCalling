@@ -61,6 +61,7 @@ public class DragAndDropCard : MonoBehaviour
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             _isDragable = true;
             _isBusy = true;
+            GetComponent<Seeding>().SetIsSelected(true);
         }
     }
 
@@ -109,6 +110,9 @@ public class DragAndDropCard : MonoBehaviour
                     effectcollider = hit.collider;
                     this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
+                }else if(hit.transform.tag == "Cards")
+                {
+                    this.transform.rotation = Quaternion.Euler(0,0,0);
                 }
                 else
                 {
@@ -130,7 +134,9 @@ public class DragAndDropCard : MonoBehaviour
         _isBusy = false;
         _transform.SetParent(_currentSpawnerLocation._SpawnerTransform);
         transform.localPosition = Vector3.zero;
+        _transform.localRotation = Quaternion.Euler(0, 0, 0);
         _isDragable = false;
+        GetComponent<Seeding>().SetIsSelected(false);
         
     }
 
