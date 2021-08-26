@@ -111,7 +111,7 @@ public class DragAndDropCard : MonoBehaviour
 
                 }else if(hit.transform.tag == "Cards")
                 {
-
+                    this.transform.rotation = Quaternion.Euler(0,0,0);
                 }
                 else
                 {
