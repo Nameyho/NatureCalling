@@ -143,7 +143,6 @@ public class Seeding : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
 
-            Debug.Log(hit.transform.tag);
 
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {

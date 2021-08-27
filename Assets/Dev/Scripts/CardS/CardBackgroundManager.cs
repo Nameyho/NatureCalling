@@ -27,11 +27,12 @@ public class CardBackgroundManager : MonoBehaviour
             _currentSpawnerLocation._SpawnerTransform = cards.transform.parent; 
             cards.transform.SetParent(cards.transform.parent.transform.parent.transform.parent.transform.parent.transform);
         }
-
         _hand.SetActive(false);
+
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.GetComponent<Cards>())
         {
             other.GetComponent<DragAndDropCard>().SetGhost(false);

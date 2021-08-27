@@ -130,14 +130,18 @@ public class DragAndDropCard : MonoBehaviour
 
     private void reset()
     {
-        
-        _Hand.gameObject.SetActive(true);
-        _isBusy = false;
-        _transform.SetParent(_currentSpawnerLocation._SpawnerTransform);
-        transform.localPosition = Vector3.zero;
-        _transform.localRotation = Quaternion.Euler(0, 0, 0);
-        _isDragable = false;
-        GetComponent<Seeding>().SetIsSelected(false);
+        if (_isGhost)
+        {
+
+            _Hand.gameObject.SetActive(true);
+            _isBusy = false;
+            _transform.SetParent(_currentSpawnerLocation._SpawnerTransform);
+            transform.localPosition = Vector3.zero;
+            _transform.localRotation = Quaternion.Euler(0, 0, 0);
+            _transform.localScale = Vector3.one;
+            _isDragable = false;
+            GetComponent<Seeding>().SetIsSelected(false);
+        }
         
     }
 
