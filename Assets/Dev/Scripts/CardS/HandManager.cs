@@ -119,7 +119,10 @@ public class HandManager : MonoBehaviour
         }
 
     }
-
+public void resetMinimum()
+    {
+        _minimum = 0;
+    }
     #endregion
 
 
