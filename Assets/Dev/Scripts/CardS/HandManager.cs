@@ -10,8 +10,8 @@ public class HandManager : MonoBehaviour
     #region Exposed
 
 
-    //[SerializeField]
-    //private ObjectVariable _currentPrefabSelected;
+    [SerializeField]
+    private ObjectVariable _currentPrefabSelected;
 
 
     [SerializeField]
@@ -29,14 +29,13 @@ public class HandManager : MonoBehaviour
     #endregion
 
     #region Private
-    [SerializeField]
     private int _minimum = 0;
 
-    #endregion
+	#endregion
 
-    #region Unity API
+	#region Unity API
 
-    private void Update()
+	private void Update()
     {
         EnableNavigation();
 
@@ -48,14 +47,14 @@ public class HandManager : MonoBehaviour
     #region Public Methods 
 
 
-    //public void PlayCard(CardScriptable card, GameObject go)
-    //{
+    public void PlayCard(CardScriptable card, GameObject go)
+    {
 
-    //    if (card._prefabToSpawn)
-    //    {
-    //        _currentPrefabSelected.Value = card._prefabToSpawn;
-    //    }
-    //}
+        if (card._prefabToSpawn)
+        {
+            _currentPrefabSelected.Value = card._prefabToSpawn;
+        }
+    }
 
 
     public void ChangeHand()
@@ -119,11 +118,6 @@ public class HandManager : MonoBehaviour
             _forward.SetActive(false);
         }
 
-    }
-
-    public void resetMinimum()
-    {
-        this._minimum = 0;
     }
 
     #endregion
