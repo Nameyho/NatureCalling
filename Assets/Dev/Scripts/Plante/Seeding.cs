@@ -136,19 +136,39 @@ public class Seeding : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-       
 
+        CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
+
+        
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
-          
+
+            Debug.Log(hit.transform.tag);
+
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
-                //GetComponent<Cards>().PlayThisCard();
-                Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
 
-                _gameManager.AddProgression(GetComponent<Cards>().GetCardScriptable()._bonusBioDiversity);
-                
-               
+                if (hit.transform.tag == "Plants" &&cs._isPlant)
+                {
+                     Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
+
+                }
+                if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
+                {
+                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
+
+                }
+                if( !cs._isAquaticPlant && !cs._isPlant && hit.transform.tag=="BuildingZone")
+                {
+                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
+                }
+
+                //GetComponent<Cards>().PlayThisCard();
+
+
             }
         }
 
