@@ -88,7 +88,6 @@ public class HandManager : MonoBehaviour
         {
             if (_subMenu._listSubMenu[i]._cardModel)
             {
-                
                 GameObject go = Instantiate(_subMenu._listSubMenu[i+_minimum]._cardModel, _spawnLocation[i]);
                 go.transform.SetParent(_spawnLocation[i]);
             }
