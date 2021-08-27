@@ -88,6 +88,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _Basic
+      value: 
+      objectReference: {fileID: 2100000, guid: a4de27661cf65c349854447274e9ec80, type: 2}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _ghostModel
+      value: 
+      objectReference: {fileID: 2218523332488810248}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _plantsPrefabs
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: b9fe807766b23ac4b9f7d03a2e0068a0, type: 3}
     - target: {fileID: 6313432347788347264, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_Layer
       value: 16
@@ -96,6 +108,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 19
       objectReference: {fileID: 0}
+    - target: {fileID: 6548185811734685258, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a0c719e9754581499137f439466e245, type: 2}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -217,3 +233,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6c2bdfb7038824e945749b5998a19b, type: 3}
+--- !u!1 &2218523332488810248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c6c2bdfb7038824e945749b5998a19b, type: 3}
+  m_PrefabInstance: {fileID: 1299480797826544217}
+  m_PrefabAsset: {fileID: 0}

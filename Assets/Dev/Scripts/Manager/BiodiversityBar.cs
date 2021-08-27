@@ -15,10 +15,10 @@ public class BiodiversityBar : MonoBehaviour
 
     [Header("Data")]
     [SerializeField]
-    private FloatVariable _currentScore;
+    private IntVariable _currentScore;
 
     [SerializeField]
-    private FloatVariable _maximumScore;
+    private IntVariable _maximumScore;
 
     #endregion
 
