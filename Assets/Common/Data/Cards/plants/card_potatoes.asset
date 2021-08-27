@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_potatoes
   m_EditorClassIdentifier: 
-  _CardName: Potetoes
+  _CardName: Potatoes
   _CardImage: {fileID: 0}
   _cardModel: {fileID: 3182945348355267906, guid: 0f135b2541e82474ebc5fad2c5ab96ca, type: 3}
+  _isPlant: 1
+  _isAquaticPlant: 0
   _prefabToSpawn: {fileID: 8280670437141093787, guid: d7ec2cb091ed72440958b5c68cec5669, type: 3}
   _bonusBioDiversity: 0
