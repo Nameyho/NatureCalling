@@ -9,16 +9,14 @@ public class BiodiversityBar : MonoBehaviour
 
     #region Exposed
 
-    [Header("Image bar remplie")]
-    [SerializeField]
     private Image _image;
 
     [Header("Data")]
     [SerializeField]
-    private FloatVariable _currentScore;
+    private IntVariable _currentScore;
 
     [SerializeField]
-    private FloatVariable _maximumScore;
+    private IntVariable _maximumScore;
 
     #endregion
 
@@ -35,7 +33,12 @@ public class BiodiversityBar : MonoBehaviour
 
     public void UpdatingProgressionBar()
     {
-        _image.fillAmount= _currentScore.Value / _maximumScore.Value;
+        _image.fillAmount= (float)_currentScore.Value / (float) _maximumScore.Value;
+    }
+
+    public void Awake()
+    {
+        _image = GetComponent<Image>();
     }
 
     #endregion
