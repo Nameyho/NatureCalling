@@ -142,6 +142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df0529b7258f6b442823ca16f0e0c405, type: 3}
+--- !u!1 &2700207728289221576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df0529b7258f6b442823ca16f0e0c405, type: 3}
+  m_PrefabInstance: {fileID: 3006286129406981785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7936385858580726925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +154,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _Basic
+      value: 
+      objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _ghostModel
+      value: 
+      objectReference: {fileID: 2700207728289221576}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _plantsPrefabs
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: 8ce145740f2f96545b76625afe61c8c5, type: 3}
     - target: {fileID: 6313432347788347264, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_Layer
       value: 20
@@ -157,6 +174,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 6548185811734685258, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: c9ac977bebcc8b543be0dd94b212be94, type: 2}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0

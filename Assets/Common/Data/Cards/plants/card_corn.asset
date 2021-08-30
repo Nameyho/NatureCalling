@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: card_corn
+  m_EditorClassIdentifier: 
+  _CardName: Carrot
+  _CardImage: {fileID: 0}
+  _cardModel: {fileID: 2285397122851104518, guid: c2cdae6e41fd1784ca1474fd41f81abd, type: 3}
+  _isPlant: 1
+  _isAquaticPlant: 0
+  _prefabToSpawn: {fileID: 8280670437141093787, guid: 8ce145740f2f96545b76625afe61c8c5, type: 3}
+  _bonusBioDiversity: 0

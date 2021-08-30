@@ -40,14 +40,18 @@ public class HandManager : MonoBehaviour
         EnableNavigation();
 
     }
+	private void Awake()
+	{
+		_subMenu._listSubMenu.Clear();
+	}
 
-    #endregion
+	#endregion
 
 
-    #region Public Methods 
+	#region Public Methods 
 
 
-    public void PlayCard(CardScriptable card, GameObject go)
+	public void PlayCard(CardScriptable card, GameObject go)
     {
 
         if (card._prefabToSpawn)
