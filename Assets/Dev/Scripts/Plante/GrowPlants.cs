@@ -36,10 +36,6 @@ public class GrowPlants : MonoBehaviour
 
     #region Unity API
 
-    private void Awake()
-    {
-        
-    }
 
     private void Start()
     {
@@ -57,11 +53,10 @@ public class GrowPlants : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
 
-
-    }
+   
+    #endregion
+    #region Methods
 
     IEnumerator GrowPlantsFunction( Material mat)
     {
@@ -191,20 +186,60 @@ public class GrowPlants : MonoBehaviour
 
     public void SetCurrentTier(int tier)
     {
-        if(!(currentTier == tier))
+
+        if (!(currentTier == tier))
         {
-           
+
 
             currentTier = tier;
-                for (int i = 0; i < growPlantsMaterials.Count; i++)
-                    {
-                          StartCoroutine(GrowPlantsFunction(growPlantsMaterials[i]));
+            for (int i = 0; i < growPlantsMaterials.Count; i++)
+            {
+                StartCoroutine(GrowPlantsFunction(growPlantsMaterials[i]));
 
-                    }
+            }
 
         }
-        
+
+
     }
+
+    public int GetCurrentTier()
+    {
+        return currentTier;
+    }
+    
+
+    //public void Growing()
+    //{
+    //    //if(!(currentTier == tier))
+    //    //{
+
+
+    //    //    currentTier = tier;
+    //    //        for (int i = 0; i < growPlantsMaterials.Count; i++)
+    //    //            {
+    //    //                  StartCoroutine(GrowPlantsFunction(growPlantsMaterials[i]));
+
+    //    //            }
+
+    //    //}
+    //    if (GetComponent<Plants>().IsWatered())
+    //    {
+
+    //         Debug.Log("arrosé et je grandis");
+           
+           
+    //        for (int i = 0; i < growPlantsMaterials.Count; i++)
+    //        {
+    //            StartCoroutine(GrowPlantsFunction(growPlantsMaterials[i]));
+
+    //        }
+
+    //    }
+
+    //}
+
+
     #endregion
 
 }
