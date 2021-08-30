@@ -31,6 +31,7 @@ public class GrowPlants : MonoBehaviour
     private List<Material> growPlantsMaterials = new List<Material>();
     private bool fullyGrown;
     private int currentTier = 0 ;
+    private int _maxTier ;
 
     #endregion
 
@@ -39,6 +40,7 @@ public class GrowPlants : MonoBehaviour
 
     private void Start()
     {
+        _maxTier = _plantTier.PhaseAmount;
         for (int i = 0; i < _growPlantMeshes.Count; i++)
         {
             for (int j = 0; j < _growPlantMeshes[i].materials.Length; j++)
@@ -60,13 +62,14 @@ public class GrowPlants : MonoBehaviour
 
     IEnumerator GrowPlantsFunction( Material mat)
     {
+       
         float growValue = mat.GetFloat("Grow_");
 
         if (!fullyGrown)
         {
-            if (growValue < (_maxGrow / _plantTier.PhaseAmount) * currentTier)
+            if (growValue < (_maxGrow /_maxTier) * currentTier)
             {
-                while (growValue < (_maxGrow/_plantTier.PhaseAmount)*currentTier)
+                while (growValue < (_maxGrow/ _maxTier) *currentTier)
                 {
                 
                     growValue += 1 / (_timeToGrow / _RefreshRate);
@@ -74,7 +77,7 @@ public class GrowPlants : MonoBehaviour
 
                     if(currentTier> _plantTier.PhaseTodetail)
                     {
-                        Vector3 VecMax = ((currentTier-_plantTier.PhaseTodetail)* (Vector3.one/(_plantTier.PhaseAmount - _plantTier.PhaseTodetail)));
+                        Vector3 VecMax = ((currentTier-_plantTier.PhaseTodetail)* (Vector3.one/(_maxTier - _plantTier.PhaseTodetail)));
                         if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                         {
                             for (int i = 0; i < _detailsPrefabs.Length; i++)
@@ -96,9 +99,9 @@ public class GrowPlants : MonoBehaviour
                     yield return new WaitForSeconds(_RefreshRate);
                 }  
             }
-            else if (growValue > ((_maxGrow / _plantTier.PhaseAmount) * currentTier))
+            else if (growValue > ((_maxGrow / _maxTier) * currentTier))
                 {
-                while (growValue > (_maxGrow / _plantTier.PhaseAmount) * currentTier)
+                while (growValue > (_maxGrow / _maxTier) * currentTier)
                 {
 
                     growValue -= 1 / (_timeToGrow / _RefreshRate);
@@ -106,7 +109,7 @@ public class GrowPlants : MonoBehaviour
 
                     if (currentTier >= _plantTier.PhaseTodetail)
                     {
-                        Vector3 VecMax = ((currentTier - _plantTier.PhaseTodetail) * (Vector3.one / (_plantTier.PhaseAmount - _plantTier.PhaseTodetail)));
+                        Vector3 VecMax = ((currentTier - _plantTier.PhaseTodetail) * (Vector3.one / (_maxTier - _plantTier.PhaseTodetail)));
 
                         if(VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                         {
@@ -138,7 +141,7 @@ public class GrowPlants : MonoBehaviour
         else
         {
            
-            while (growValue >= (_maxGrow / _plantTier.PhaseAmount) * currentTier)
+            while (growValue >= (_maxGrow / _maxTier) * currentTier)
             {
                
                 growValue -= 1 / (_timeToGrow / _RefreshRate);
@@ -146,7 +149,7 @@ public class GrowPlants : MonoBehaviour
 
                 if (currentTier >= _plantTier.PhaseTodetail)
                 {
-                    Vector3 VecMax = ((currentTier - _plantTier.PhaseTodetail) * (Vector3.one / (_plantTier.PhaseAmount - _plantTier.PhaseTodetail)));
+                    Vector3 VecMax = ((currentTier - _plantTier.PhaseTodetail) * (Vector3.one / (_maxTier - _plantTier.PhaseTodetail)));
 
                     if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                     {
@@ -186,7 +189,10 @@ public class GrowPlants : MonoBehaviour
 
     public void SetCurrentTier(int tier)
     {
-
+        if (_maxTier < tier)
+        {
+            return;
+        }
         if (!(currentTier == tier))
         {
 
@@ -206,6 +212,15 @@ public class GrowPlants : MonoBehaviour
     public int GetCurrentTier()
     {
         return currentTier;
+    }
+
+    public void RemoveMaxTier(int del)
+    {
+        if (_maxTier - del > currentTier)
+        {
+            _maxTier -= del;
+
+        }
     }
     
 

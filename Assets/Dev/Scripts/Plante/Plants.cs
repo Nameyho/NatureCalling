@@ -33,6 +33,7 @@ public class Plants : MonoBehaviour
     public void AddTier()
     {
         _gp.SetCurrentTier(_gp.GetCurrentTier() +1);
+        _gp.RemoveMaxTier(2);
     }
 
     public void DeleteTier()
