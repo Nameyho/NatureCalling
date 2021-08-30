@@ -164,6 +164,12 @@ public class Seeding : MonoBehaviour
                     Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
+                if(cs._isWaterCan && hit.transform.tag == "Plants")
+                {
+                    WaterCan watercan = GetComponent<WaterCan>();
+                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    Destroy(go);
+                }
 
                 //GetComponent<Cards>().PlayThisCard();
 

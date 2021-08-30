@@ -22,8 +22,7 @@ public class DragAndDropCard : MonoBehaviour
     private CurrentSpawnerLocationScritpable _currentSpawnerLocation;
 
 
-    [Header("camera")]
-    public LayerMask IgnoreMe;
+
 
 
     #endregion
