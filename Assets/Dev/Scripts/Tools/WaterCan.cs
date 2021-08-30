@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class WaterCan : MonoBehaviour
 {
+
+
     #region private
 
-    private MeshCollider _meshCollider;
+    private SphereCollider _meshCollider;
 
     #endregion
 
@@ -14,17 +16,25 @@ public class WaterCan : MonoBehaviour
     #region Unity API
     private void Awake()
     {
-        _meshCollider = GetComponent<MeshCollider>();
+        _meshCollider = GetComponent<SphereCollider>();
+
+        
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag== "Plants")
+       
+        if(other.tag == "Plants" && other.GetComponentInParent<Plants>())
         {
-            Debug.Log(other);
-            //other.GetComponent<Plants>().AddTier();
+          
+            other.GetComponentInParent<Plants>().AddTier();
+            Destroy(transform.parent.gameObject, 0.5f);
         }
+       
+            //other.GetComponent<Plants>().AddTier();
+        
     }
+
     #endregion
 }

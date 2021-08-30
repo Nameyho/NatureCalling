@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2445033291080855389}
   - component: {fileID: 1603663305722814712}
   - component: {fileID: 3577454656336368690}
+  - component: {fileID: 5348172577035776235}
   m_Layer: 23
   m_Name: mod_vg_corn
   m_TagString: Untagged
@@ -81,6 +82,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5348172577035776235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072950824730670567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3006286129406981785
 PrefabInstance:
   m_ObjectHideFlags: 0

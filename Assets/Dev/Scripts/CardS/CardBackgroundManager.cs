@@ -20,14 +20,15 @@ public class CardBackgroundManager : MonoBehaviour
     {
         if (other.GetComponent<Cards>())
         {
+            
           other.GetComponent<Cards>().TransformIntoGhostModel();
             other.GetComponent<DragAndDropCard>().SetGhost(true);
             Cards cards = other.GetComponent<Cards>();
             
             _currentSpawnerLocation._SpawnerTransform = cards.transform.parent; 
             cards.transform.SetParent(cards.transform.parent.transform.parent.transform.parent.transform.parent.transform);
+             _hand.SetActive(false);
         }
-        _hand.SetActive(false);
 
     }
     private void OnTriggerEnter(Collider other)

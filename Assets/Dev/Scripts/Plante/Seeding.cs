@@ -142,7 +142,7 @@ public class Seeding : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
-
+            
 
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
@@ -167,8 +167,9 @@ public class Seeding : MonoBehaviour
                 if(cs._isWaterCan && hit.transform.tag == "Plants")
                 {
                     WaterCan watercan = GetComponent<WaterCan>();
+                  
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    Destroy(go);
+                    //Destroy(go);
                 }
 
                 //GetComponent<Cards>().PlayThisCard();

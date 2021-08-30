@@ -85,6 +85,7 @@ public class DragAndDropCard : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
             Seeding seed = GetComponent<Seeding>();
             if (Physics.Raycast(ray, out hit))
@@ -112,6 +113,13 @@ public class DragAndDropCard : MonoBehaviour
                 }else if(hit.transform.tag == "Cards")
                 {
                     this.transform.rotation = Quaternion.Euler(0,0,0);
+                }else if
+                    ((hit.transform.tag == "Plants" || 
+                    (hit.transform.tag=="EffectZone" && Vector3.Distance(hit.point,transform.position)>0.5 ))&& cs._isWaterCan && Input.GetMouseButtonDown(0))
+                {
+                    
+                    Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+
                 }
                 
                 else
