@@ -21,6 +21,10 @@ public class CardScriptable : ScriptableObject
 
     public bool _isWaterCan;
 
+    public bool _IsBasket;
+
+  
+
     [Header("bonus que la carte va apporter")]
 
     public GameObject _prefabToSpawn;

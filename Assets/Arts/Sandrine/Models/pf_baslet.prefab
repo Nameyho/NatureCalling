@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2488126861169425530}
   m_Layer: 0
-  m_Name: pf_watercan
+  m_Name: pf_baslet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 400335224383078097}
   - component: {fileID: 1892004495794974463}
   - component: {fileID: 3224347237097624354}
-  - component: {fileID: 8338665371905865673}
+  - component: {fileID: 8939273250867062034}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2818069701822680581}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -103,7 +103,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8338665371905865673
+--- !u!114 &8939273250867062034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,9 +112,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2818069701822680581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c125db8d5b05c7343872790018d1dba3, type: 3}
+  m_Script: {fileID: 11500000, guid: b37b0157a3195ab4fa8be010dda548ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _score: {fileID: 11400000, guid: ba023799744d9eb4ebe7624fc527948e, type: 2}
 --- !u!1001 &3305725700339099463
 PrefabInstance:
   m_ObjectHideFlags: 0

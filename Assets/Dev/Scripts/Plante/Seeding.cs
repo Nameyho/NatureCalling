@@ -142,14 +142,15 @@ public class Seeding : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
-            
-
+  
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
 
-                if (hit.transform.tag == "Plants" &&cs._isPlant)
+                if (hit.transform.tag == "Layering" &&cs._isPlant)
                 {
-                     Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                    GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                   
+                    plant.GetComponent<Plants>().GetAllPlants();
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                 }
@@ -188,5 +189,10 @@ public class Seeding : MonoBehaviour
         _isSelected = f;
     }
 
+
+    public void SetIsBuidable(bool b)
+    {
+        _isBuildable = b;
+    }
     #endregion
 }

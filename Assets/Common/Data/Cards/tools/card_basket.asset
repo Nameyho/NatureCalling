@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
-  m_Name: card_corn
+  m_Name: card_basket
   m_EditorClassIdentifier: 
-  _CardName: Carrot
+  _CardName: Basket
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 2285397122851104518, guid: c2cdae6e41fd1784ca1474fd41f81abd, type: 3}
-  _isPlant: 1
+  _cardModel: {fileID: 596771829224055525, guid: 3cd5cbdb91bf0f542aa9f06f734ad174, type: 3}
+  _isPlant: 0
   _isAquaticPlant: 0
   _isWaterCan: 0
-  _IsBasket: 0
-  _prefabToSpawn: {fileID: 8280670437141093787, guid: 8ce145740f2f96545b76625afe61c8c5, type: 3}
-  _bonusBioDiversity: 1
+  _IsBasket: 1
+  _prefabToSpawn: {fileID: 1018505939896522697, guid: 98a5bbe80d267b049936d8c9229acb9f, type: 3}
+  _bonusBioDiversity: 0

@@ -10,11 +10,18 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private int _bonusMalus;
 
+    [SerializeField]
+
+
     #endregion
 
     #region private
 
     GrowPlants _gp;
+    Rigidbody _rb;
+    SphereCollider sc;
+   
+ 
 
     #endregion
 
@@ -23,8 +30,18 @@ public class Plants : MonoBehaviour
     private void Awake()
     {
         _gp = GetComponent<GrowPlants>();
+        _rb = GetComponent<Rigidbody>();
+        
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.tag== "Plants"  )
+    //    {
+    //        Debug.Log(other.name);
+    //        other.GetComponentInParent<Plants>().ApplyEffect();
+    //    }
 
+    //}
 
     #endregion
 
@@ -32,6 +49,11 @@ public class Plants : MonoBehaviour
 
     #region public
 
+    public void ApplyEffect()
+    {
+        _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+        Destroy(_rb);
+    }
 
     public void AddTier()
     {
@@ -44,6 +66,24 @@ public class Plants : MonoBehaviour
         _gp.SetCurrentTier(_gp.GetCurrentTier() - _bonusMalus);
     }
 
+    public int getBonusMalus()
+    {
+        return _bonusMalus;
+    }
+
+    #endregion
+
+    #region Privates
+
+    public void GetAllPlants()
+    {
+        Plants[] Plants = FindObjectsOfType<Plants>();
+        
+        for (int i = 0; i < Plants.Length; i++)
+        {
+            Plants[i].ApplyEffect();
+        }
+    }
 
     #endregion
 }

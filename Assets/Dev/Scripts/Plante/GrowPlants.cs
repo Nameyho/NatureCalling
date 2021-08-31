@@ -214,6 +214,22 @@ public class GrowPlants : MonoBehaviour
         return currentTier;
     }
 
+    public int GetMaxTier()
+    {
+        return _plantTier.PhaseAmount;
+
+
+    }
+
+    public int  GetPhaseWhenHarvest()
+    {
+        return _plantTier.PhaseWhenHarvested;
+    }
+
+    public bool IsDestroyOnHarvest()
+    {
+        return _plantTier._DestroyOnHarvest;
+    }
     public void RemoveMaxTier(int del)
     {
         if (_maxTier - del > currentTier)

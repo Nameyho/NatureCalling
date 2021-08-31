@@ -6,21 +6,7 @@ public class WaterCan : MonoBehaviour
 {
 
 
-    #region private
-
-    private SphereCollider _meshCollider;
-
-    #endregion
-
-
     #region Unity API
-    private void Awake()
-    {
-        _meshCollider = GetComponent<SphereCollider>();
-
-        
-    }
-
 
     private void OnTriggerEnter(Collider other)
     {
