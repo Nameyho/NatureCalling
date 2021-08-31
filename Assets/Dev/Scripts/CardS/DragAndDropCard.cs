@@ -136,7 +136,7 @@ public class DragAndDropCard : MonoBehaviour
                       Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
 
                     }
-                    if(cs._IsBasket )
+                    if(cs._IsBasket && (gp.GetCurrentTier() == gp.GetMaxTier()))
                     {
                         seed.SetIsBuidable(false);
                         Debug.Log(gp.GetCurrentTier());

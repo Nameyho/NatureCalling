@@ -232,11 +232,18 @@ public class GrowPlants : MonoBehaviour
     }
     public void RemoveMaxTier(int del)
     {
-        if (_maxTier - del > currentTier)
+        if(_maxTier > currentTier)
         {
-            _maxTier -= del;
-
+            _maxTier  -=  del;
         }
+        else
+        {
+            currentTier = _plantTier.PhaseAmount;
+        }
+
+  
+
+        
     }
     
 
