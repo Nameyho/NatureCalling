@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentSpawnerLocation: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
+  IgnoreMe:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -151,15 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7564ffc070f5d7d4b95aa3c31f23865f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Basic: {fileID: -876546973899608171, guid: fa4db0b0a2aa5c84b90876988f563143, type: 3}
+  _Basic: {fileID: -876546973899608171, guid: effb6d28d0235b24e9607d4fb2e887cb, type: 3}
   _Effect: {fileID: 2100000, guid: 2d634d3779be18241bce3225027edbb4, type: 2}
   _Unbuildable: {fileID: 2100000, guid: 7d85c4df23d7ec8458db5c8388505dc3, type: 2}
   _ghostModel: {fileID: 6270857463234308764, guid: 2d9df3168d3759e41ab5bea36e30ddf4, type: 3}
-  _plantsPrefabs: {fileID: 919132149155446097, guid: e831ad1d0767a874b891df19b29ad987, type: 3}
+  _plantsPrefabs: {fileID: 0}
   IgnoreMe:
     serializedVersion: 2
-    m_Bits: 1047564
-  _moveSpeed: 0
+    m_Bits: 67107916
   _gameManager: {fileID: 8537393271563585056, guid: aa992846c7871d0489d3542d6b96034b, type: 3}
 --- !u!1001 &6583339704167548137
 PrefabInstance:
