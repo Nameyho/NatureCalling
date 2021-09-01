@@ -9,7 +9,7 @@ MeshCollider:
   m_GameObject: {fileID: 9176689197222559878}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -174,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 8280670437141093787, guid: 8ce145740f2f96545b76625afe61c8c5, type: 3}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: IgnoreMe.m_Bits
-      value: 134216780
+      value: 1047628
       objectReference: {fileID: 0}
     - target: {fileID: 6313432347788347264, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_Layer
