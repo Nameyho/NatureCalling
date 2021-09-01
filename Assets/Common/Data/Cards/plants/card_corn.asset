@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_corn
   m_EditorClassIdentifier: 
-  _CardName: Carrot
+  _CardName: Corn
   _CardImage: {fileID: 0}
   _cardModel: {fileID: 2285397122851104518, guid: c2cdae6e41fd1784ca1474fd41f81abd, type: 3}
   _isPlant: 1
   _isAquaticPlant: 0
   _isWaterCan: 0
   _IsBasket: 0
+  _isShovel: 0
+  _isBuilding: 0
+  _isInsectPollinator: 0
   _prefabToSpawn: {fileID: 8280670437141093787, guid: 8ce145740f2f96545b76625afe61c8c5, type: 3}
   _bonusBioDiversity: 1
