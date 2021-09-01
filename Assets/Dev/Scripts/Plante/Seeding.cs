@@ -177,6 +177,7 @@ public class Seeding : MonoBehaviour
                     Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
+
                 //GetComponent<Cards>().PlayThisCard();
 
 
