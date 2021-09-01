@@ -171,13 +171,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growPlantMeshes:
-  - {fileID: 0}
+  - {fileID: 5663643317785194896}
   _plantTier: {fileID: 11400000, guid: 1a5a19637660bb94ea71dd1b42a495a6, type: 2}
   _timeToGrow: 5
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
-  _detailsPrefabs: []
+  _detailsPrefabs:
+  - {fileID: 1542994275750462726}
+  - {fileID: 950524015915590423}
+  - {fileID: 8605992230940201404}
+  - {fileID: 8590990789720564714}
 --- !u!54 &-3185029718879076855
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -258,6 +262,31 @@ PrefabInstance:
 --- !u!4 &1631109606307558496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 07c69a9f28157c5439dc9e1d16f0a8b3, type: 3}
+  m_PrefabInstance: {fileID: 1236349109716980619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1542994275750462726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 306726260352767629, guid: 07c69a9f28157c5439dc9e1d16f0a8b3, type: 3}
+  m_PrefabInstance: {fileID: 1236349109716980619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &950524015915590423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7198840758815854436, guid: 07c69a9f28157c5439dc9e1d16f0a8b3, type: 3}
+  m_PrefabInstance: {fileID: 1236349109716980619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8605992230940201404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1853578002592742857, guid: 07c69a9f28157c5439dc9e1d16f0a8b3, type: 3}
+  m_PrefabInstance: {fileID: 1236349109716980619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8590990789720564714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1868659122199629727, guid: 07c69a9f28157c5439dc9e1d16f0a8b3, type: 3}
+  m_PrefabInstance: {fileID: 1236349109716980619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5663643317785194896 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6895338004896080411, guid: 07c69a9f28157c5439dc9e1d16f0a8b3, type: 3}
   m_PrefabInstance: {fileID: 1236349109716980619}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1383096331496264594

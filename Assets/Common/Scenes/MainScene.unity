@@ -4086,6 +4086,7 @@ MonoBehaviour:
   _tabGroup: {fileID: 907148811}
   background: {fileID: 0}
   _tabCardsScriptable:
+  - {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
   - {fileID: 11400000, guid: 8488377f837867b46a98c3d7cbf24777, type: 2}
   - {fileID: 11400000, guid: 71c004741dfa22246b475ee4ddd2652b, type: 2}
   - {fileID: 11400000, guid: 197d25b8de3c01f4aad6ae27e2e6e6ae, type: 2}
@@ -4798,6 +4799,26 @@ PrefabInstance:
     - target: {fileID: 2966122915756289141, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
       propertyPath: m_Name
       value: UI3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966122917023811038, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
+      propertyPath: m_Size.x
+      value: 1.9140016
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966122917023811038, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.020721255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966122917023811038, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
+      propertyPath: m_Center.x
+      value: -1.0936705e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966122917023811038, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
+      propertyPath: m_Center.y
+      value: 0.7293587
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966122917023811038, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0035535602
       objectReference: {fileID: 0}
     - target: {fileID: 3360653367178486314, guid: 165827341b98ec44399c54ff6820d7d1, type: 3}
       propertyPath: m_LocalPosition.x

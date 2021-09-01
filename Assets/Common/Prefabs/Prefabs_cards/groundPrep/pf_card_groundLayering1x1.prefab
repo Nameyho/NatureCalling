@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 919132149155446097, guid: e1cafbebffa7e394f9130112380ca7cd, type: 3}
       propertyPath: m_Name
-      value: mod_groundLayering_1x1
+      value: mod_groundLayering_1x1Ghost
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1cafbebffa7e394f9130112380ca7cd, type: 3}
@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: _plantsPrefabs
       value: 
       objectReference: {fileID: 4885253156091891685, guid: 1bc178753fe54cd49973498acc08fc2b, type: 3}
+    - target: {fileID: 6548185811734685258, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: 66cb3ccf4efdd004aab5301d04b02d3c, type: 2}
     - target: {fileID: 7046556453952346103, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_IsActive
       value: 0

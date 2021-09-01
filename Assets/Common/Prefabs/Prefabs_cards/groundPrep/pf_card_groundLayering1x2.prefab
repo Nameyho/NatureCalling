@@ -92,7 +92,7 @@ BoxCollider:
   m_GameObject: {fileID: 7869941016117706956}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.85, y: 0.05, z: 1.85}
   m_Center: {x: 0, y: -0.02, z: 0}
@@ -105,7 +105,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 7869941016117706956}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.42997873
   m_Height: 1.6778646
   m_Direction: 2
@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 6548185811734685258, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: e617c85bacde8d148abdad3017e43e09, type: 2}
     - target: {fileID: 8184421993309676426, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_RootOrder
       value: 0

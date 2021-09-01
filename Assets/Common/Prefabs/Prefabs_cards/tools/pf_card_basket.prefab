@@ -73,7 +73,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 02a9b260a24c85f4b9387887e91c3d79, type: 3}
+  - {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -257,8 +257,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26743fbce58905547b1b8ea02a336456, type: 2}
     - target: {fileID: 919132149155446097, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_Name
       value: mod_AOE
@@ -280,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _Basic
       value: 
-      objectReference: {fileID: 2100000, guid: 8aaf24c51b5c327498d43e5e1411fc2b, type: 2}
+      objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _ghostModel
       value: 
@@ -288,7 +292,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _plantsPrefabs
       value: 
-      objectReference: {fileID: 4745128527397837097, guid: 293067aa7ed1df145bda56e9591fe6b0, type: 3}
+      objectReference: {fileID: 1018505939896522697, guid: 608bcf9a68f18a349b1a3cc281f6190b, type: 3}
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: IgnoreMe.m_Bits
       value: 67108876
@@ -305,6 +309,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 2699da5cd7b3d024e9c500bf2fcbcafe, type: 2}
+    - target: {fileID: 7046556453952346103, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: IgnoreMe.m_Bits
       value: 67108864

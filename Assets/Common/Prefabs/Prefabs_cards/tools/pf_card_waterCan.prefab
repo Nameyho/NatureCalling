@@ -276,7 +276,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _Basic
       value: 
-      objectReference: {fileID: 2100000, guid: 8aaf24c51b5c327498d43e5e1411fc2b, type: 2}
+      objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _ghostModel
       value: 
@@ -293,6 +293,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 76556c6d7ba0f504a9284b49ab8022c3, type: 2}
+    - target: {fileID: 7046556453952346103, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: IgnoreMe.m_Bits
       value: 67108864
