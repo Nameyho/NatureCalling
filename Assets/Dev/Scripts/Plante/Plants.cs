@@ -20,8 +20,9 @@ public class Plants : MonoBehaviour
     GrowPlants _gp;
     Rigidbody _rb;
     SphereCollider sc;
-   
- 
+
+    int _Waterdurability;
+    int _PollinatorDurability;
 
     #endregion
 
@@ -52,13 +53,32 @@ public class Plants : MonoBehaviour
     public void ApplyEffect()
     {
         _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+        if (_Waterdurability > 0)
+        {
+        _Waterdurability--;
+
+        }
+        if (_PollinatorDurability> 0)
+        {
+            _PollinatorDurability--;
+        }
         Destroy(_rb);
     }
 
-    public void AddTier()
+    public void AddTier(int durability,GameObject go)
     {
-        _gp.SetCurrentTier(_gp.GetCurrentTier() +_bonusMalus);
-        _gp.RemoveMaxTier(2);
+        if (_Waterdurability == 0 && durability> 0 && go.GetComponent<WaterCan>())
+        {
+            _Waterdurability = durability;
+            _gp.SetCurrentTier(_gp.GetCurrentTier() +_bonusMalus);
+            _gp.RemoveMaxTier(2);
+        }
+        if (_PollinatorDurability == 0 && durability > 0 && go.GetComponent<Pollinator>())
+        {
+            _PollinatorDurability = durability;
+            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+            _gp.RemoveMaxTier(2);
+        }
     }
 
     public void DeleteTier()

@@ -15,7 +15,7 @@ public class TestWatering : MonoBehaviour
 
     public void ArroserMoiCettePlante()
     {
-        _plant.AddTier();
+
     }
 
     #endregion
