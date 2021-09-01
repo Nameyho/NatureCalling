@@ -87,13 +87,13 @@ public class DragAndDropCard : MonoBehaviour
         }
         else
         {
-            Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+          
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
             Seeding seed = GetComponent<Seeding>();
-            seed.SetIsBuidable(true);
+            
             if (Physics.Raycast(ray, out hit))
             {
 
@@ -104,6 +104,7 @@ public class DragAndDropCard : MonoBehaviour
                 else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants")
                 {
                     seed.UpdateRenderer(2);
+                    
                     this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
                     _lastTimeUnbuild = Time.time;
 
@@ -182,6 +183,11 @@ public class DragAndDropCard : MonoBehaviour
                         Destroy(hit.transform.parent.gameObject);
                     }
 
+                }
+                if (hit.transform.tag == "Unbuild" && cs._isPlant)
+                {
+                    seed.SetIsBuidable(false);
+                    return;
                 }
 
             }
