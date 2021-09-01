@@ -28,6 +28,9 @@ public class DragAndDropCard : MonoBehaviour
     [Header("Score")]
     [SerializeField]
     private IntVariable _score;
+
+
+    private HandManager _hm;
     #endregion
 
 
@@ -38,6 +41,7 @@ public class DragAndDropCard : MonoBehaviour
         _transform = GetComponent<Transform>();
         cam = Camera.main;
         _Hand = this.gameObject.transform.parent.transform.parent.transform.parent.transform;
+        _hm = FindObjectOfType<HandManager>();
     }
 
     private void LateUpdate()
@@ -129,19 +133,24 @@ public class DragAndDropCard : MonoBehaviour
 
 
             }
-
+            
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
             {
+              
+         
                 GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
                 if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 1)
                 {
+                    
                     if (cs._isWaterCan && Input.GetMouseButtonDown(0))
                     {
+                        
                         Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
 
                     }
-                    if (cs._IsBasket && (gp.GetCurrentTier() == gp.GetMaxTier()))
+                    if (cs._IsBasket )
                     {
+                      
                         seed.SetIsBuidable(false);
                         if (Input.GetMouseButtonDown(0))
                         {
@@ -201,13 +210,10 @@ public class DragAndDropCard : MonoBehaviour
         {
 
             _Hand.gameObject.SetActive(true);
-            _isBusy = false;
-            _transform.SetParent(_currentSpawnerLocation._SpawnerTransform);
-            transform.localPosition = Vector3.zero;
-            _transform.localRotation = Quaternion.Euler(0, 0, 0);
-            _transform.localScale = Vector3.one;
-            _isDragable = false;
-            GetComponent<Seeding>().SetIsSelected(false);
+            
+            Destroy(_transform.gameObject);
+            _hm.ChangeHand();
+            
         }
         
     }

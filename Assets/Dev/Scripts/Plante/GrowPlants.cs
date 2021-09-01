@@ -32,6 +32,7 @@ public class GrowPlants : MonoBehaviour
     private bool fullyGrown;
     private int currentTier = 0 ;
     private int _maxTier ;
+    private Transform _transform;
 
     #endregion
 
@@ -41,18 +42,24 @@ public class GrowPlants : MonoBehaviour
     private void Start()
     {
         _maxTier = _plantTier.PhaseAmount;
-        for (int i = 0; i < _growPlantMeshes.Count; i++)
+        _transform = GetComponent<Transform>();
+        if(_growPlantMeshes.Count> 0)
         {
-            for (int j = 0; j < _growPlantMeshes[i].materials.Length; j++)
+            for (int i = 0; i < _growPlantMeshes.Count; i++)
             {
-                if (_growPlantMeshes[i].materials[j].HasProperty("Grow_"))
+                for (int j = 0; j < _growPlantMeshes[i].materials.Length; j++)
                 {
-                    _growPlantMeshes[i].materials[j].SetFloat("Grow_", _minGrow);
-                    growPlantsMaterials.Add(_growPlantMeshes[i].materials[j]);
+                    if (_growPlantMeshes[i].materials[j].HasProperty("Grow_"))
+                    {
+                        _growPlantMeshes[i].materials[j].SetFloat("Grow_", _minGrow);
+                        growPlantsMaterials.Add(_growPlantMeshes[i].materials[j]);
 					
+                    }
                 }
             }
+
         }
+
     }
 
 
@@ -187,6 +194,13 @@ public class GrowPlants : MonoBehaviour
     }
 
 
+    IEnumerator GrowScaleFunction()
+    {
+        float currentfloat = (float)currentTier / (float)_maxTier;
+        _transform.localScale += Vector3.one * ((1f / currentfloat)* _RefreshRate);
+        yield return new WaitForSeconds(_RefreshRate);
+    }
+
     public void SetCurrentTier(int tier)
     {
         if (_maxTier < tier)
@@ -198,10 +212,18 @@ public class GrowPlants : MonoBehaviour
 
 
             currentTier = tier;
-            for (int i = 0; i < growPlantsMaterials.Count; i++)
+            if (growPlantsMaterials.Count > 0)
             {
-                StartCoroutine(GrowPlantsFunction(growPlantsMaterials[i]));
+                for (int i = 0; i < growPlantsMaterials.Count; i++)
+                {
+                    StartCoroutine(GrowPlantsFunction(growPlantsMaterials[i]));
 
+                }
+
+            }
+            else
+            {
+                StartCoroutine(GrowScaleFunction());
             }
 
         }
@@ -219,6 +241,11 @@ public class GrowPlants : MonoBehaviour
         return _plantTier.PhaseAmount;
 
 
+    }
+
+    public bool isFullingGrown()
+    {
+        return fullyGrown;
     }
 
     public int  GetPhaseWhenHarvest()

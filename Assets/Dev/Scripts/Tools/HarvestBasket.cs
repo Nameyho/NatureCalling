@@ -19,16 +19,18 @@ public class HarvestBasket : MonoBehaviour
         if (other.tag == "Plants" && other.GetComponentInParent<GrowPlants>())
         {
             GrowPlants gp = other.GetComponentInParent<GrowPlants>();
-            Debug.Log(gp.IsDestroyOnHarvest());
-            if (gp.IsDestroyOnHarvest())
-            {
-                //_score.Value -= other.GetComponentInParent<Plants>().getBonusMalus();
-                Destroy(other.transform.parent.transform.gameObject);
-            }
-            else
-            {
-                int phase = gp.GetPhaseWhenHarvest();
-                gp.SetCurrentTier(phase);
+            if(gp.isFullingGrown()){
+                if (gp.IsDestroyOnHarvest())
+                {
+                    //_score.Value -= other.GetComponentInParent<Plants>().getBonusMalus();
+                    Destroy(other.transform.parent.transform.gameObject);
+                }
+                else
+                {
+                    int phase = gp.GetPhaseWhenHarvest();
+                    gp.SetCurrentTier(phase);
+                }
+
             }
            
            Destroy(transform.parent.gameObject, 0.5f);
