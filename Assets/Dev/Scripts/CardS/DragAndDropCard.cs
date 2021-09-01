@@ -73,7 +73,7 @@ public class DragAndDropCard : MonoBehaviour
     #region Methods
     void Drag()
     {
-
+        
         if (!_isGhost)
         {
 
@@ -87,6 +87,7 @@ public class DragAndDropCard : MonoBehaviour
         }
         else
         {
+            Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
@@ -141,15 +142,21 @@ public class DragAndDropCard : MonoBehaviour
                     if (cs._IsBasket && (gp.GetCurrentTier() == gp.GetMaxTier()))
                     {
                         seed.SetIsBuidable(false);
-                        Debug.Log(gp.GetCurrentTier());
-                        Debug.Log(gp.GetMaxTier());
-                        seed.UpdateRenderer(0);
                         if (Input.GetMouseButtonDown(0))
                         {
                             Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
                         }
 
                     }
+                    if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()))
+                    {
+                        seed.SetIsBuidable(false);
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+                        }
+                    }
+
                     if (cs._isShovel)
                     {
                        
