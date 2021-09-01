@@ -23,7 +23,9 @@ public class CardScriptable : ScriptableObject
 
     public bool _IsBasket;
 
-  
+    public bool _isShovel;
+
+    public bool _isBuilding;
 
     [Header("bonus que la carte va apporter")]
 

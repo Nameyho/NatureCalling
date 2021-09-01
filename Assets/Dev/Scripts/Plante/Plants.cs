@@ -10,7 +10,7 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private int _bonusMalus;
 
-    [SerializeField]
+ 
 
 
     #endregion

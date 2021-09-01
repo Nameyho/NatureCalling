@@ -172,7 +172,11 @@ public class Seeding : MonoBehaviour
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     //Destroy(go);
                 }
-
+                if(cs._isBuilding)
+                {
+                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
+                }
                 //GetComponent<Cards>().PlayThisCard();
 
 

@@ -25,8 +25,9 @@ public class DragAndDropCard : MonoBehaviour
     [Header("camera")]
     public LayerMask IgnoreMe;
 
-
-
+    [Header("Score")]
+    [SerializeField]
+    private IntVariable _score;
     #endregion
 
 
@@ -130,13 +131,14 @@ public class DragAndDropCard : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
             {
                 GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
-                if ((hit.transform.tag == "Plants" ||(hit.transform.tag == "EffectZone"))&& Vector3.Distance(hit.point, transform.position) < 1 )
+                if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 1)
                 {
-                    if( cs._isWaterCan && Input.GetMouseButtonDown(0)){
-                      Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+                    if (cs._isWaterCan && Input.GetMouseButtonDown(0))
+                    {
+                        Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
 
                     }
-                    if(cs._IsBasket && (gp.GetCurrentTier() == gp.GetMaxTier()))
+                    if (cs._IsBasket && (gp.GetCurrentTier() == gp.GetMaxTier()))
                     {
                         seed.SetIsBuidable(false);
                         Debug.Log(gp.GetCurrentTier());
@@ -146,14 +148,35 @@ public class DragAndDropCard : MonoBehaviour
                         {
                             Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
                         }
+
+                    }
+                    if (cs._isShovel)
+                    {
                        
+                        if (hit.transform.GetComponentInParent<Plants>())
+                        {
+                            seed.SetIsBuidable(false);
+                            if (Input.GetMouseButtonDown(0))
+                            {
+                                _score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
+                                Destroy(hit.transform.parent.gameObject);
+                            }
+
+                        }
+
                     }
                 }
+                if (hit.transform.GetComponentInParent<Building>()&& cs._isShovel)
                 {
-
+                    seed.SetIsBuidable(false);
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        _score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
+                        Destroy(hit.transform.parent.gameObject);
+                    }
 
                 }
-                     
+
             }
 
         }
