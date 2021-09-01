@@ -47,6 +47,10 @@ public class Cards : MonoBehaviour
         
     }
 
+    public int GetBonusDiversity()
+    {
+        return card._bonusBioDiversity;
+    }
     public void TransformIntoCard()
     {
         _cardGO.SetActive(true);

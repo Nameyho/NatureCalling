@@ -25,7 +25,9 @@ public class DragAndDropCard : MonoBehaviour
     [Header("camera")]
     public LayerMask IgnoreMe;
 
-
+    [Header("Score")]
+    [SerializeField]
+    private IntVariable _score;
     #endregion
 
 
@@ -71,6 +73,7 @@ public class DragAndDropCard : MonoBehaviour
     #region Methods
     void Drag()
     {
+
         if (!_isGhost)
         {
 
@@ -86,34 +89,34 @@ public class DragAndDropCard : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
             Seeding seed = GetComponent<Seeding>();
+            seed.SetIsBuidable(true);
             if (Physics.Raycast(ray, out hit))
             {
 
-                
-                
                 if (hit.transform.tag == "CardsBackground")
                 {
                     _transform.position = _transform.parent.position;
                 }
-                else if(hit.transform.tag == "UnBuild")
+                else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants")
                 {
                     seed.UpdateRenderer(2);
                     this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
                     _lastTimeUnbuild = Time.time;
 
 
-                }else if ( hit.transform.tag == "EffectZone")
+                } else if (hit.transform.tag == "EffectZone")
                 {
                     seed.UpdateRenderer(1);
                     effectcollider = hit.collider;
                     this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
-                }else if(hit.transform.tag == "Cards")
+                } else if (hit.transform.tag == "Cards")
                 {
-                    this.transform.rotation = Quaternion.Euler(0,0,0);
-                }
+                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                } 
                 
                 else
                 {
@@ -122,6 +125,57 @@ public class DragAndDropCard : MonoBehaviour
 
                 }
 
+
+            }
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+            {
+                GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
+                if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 1)
+                {
+                    if (cs._isWaterCan && Input.GetMouseButtonDown(0))
+                    {
+                        Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+
+                    }
+                    if (cs._IsBasket && (gp.GetCurrentTier() == gp.GetMaxTier()))
+                    {
+                        seed.SetIsBuidable(false);
+                        Debug.Log(gp.GetCurrentTier());
+                        Debug.Log(gp.GetMaxTier());
+                        seed.UpdateRenderer(0);
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+                        }
+
+                    }
+                    if (cs._isShovel)
+                    {
+                       
+                        if (hit.transform.GetComponentInParent<Plants>())
+                        {
+                            seed.SetIsBuidable(false);
+                            if (Input.GetMouseButtonDown(0))
+                            {
+                                _score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
+                                Destroy(hit.transform.parent.gameObject);
+                            }
+
+                        }
+
+                    }
+                }
+                if (hit.transform.GetComponentInParent<Building>()&& cs._isShovel)
+                {
+                    seed.SetIsBuidable(false);
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        _score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
+                        Destroy(hit.transform.parent.gameObject);
+                    }
+
+                }
 
             }
 
