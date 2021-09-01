@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6554a1b8445c0b24685aac16742b548a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+      objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 919132149155446097, guid: 6554a1b8445c0b24685aac16742b548a, type: 3}
       propertyPath: m_Name
       value: mod_BG_Poulailler
@@ -157,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _Basic
       value: 
-      objectReference: {fileID: -876546973899608171, guid: c384513c8d62ea8498d9baa8106a2594, type: 3}
+      objectReference: {fileID: 2100000, guid: a4de27661cf65c349854447274e9ec80, type: 2}
     - target: {fileID: 470302230727989669, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _ghostModel
       value: 
@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: e89c2c1161ebca2489ca5ebfa0a0b70d, type: 2}
+    - target: {fileID: 7046556453952346103, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_RootOrder
       value: 0

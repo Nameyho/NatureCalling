@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_waterCan
   m_EditorClassIdentifier: 
-  _CardName: WaterCanTest
+  _CardName: WaterCan
   _CardImage: {fileID: 0}
   _cardModel: {fileID: 596771829224055525, guid: 791b99508c71a314aa8df69cd752655f, type: 3}
   _isPlant: 0
   _isAquaticPlant: 0
   _isWaterCan: 1
-  _prefabToSpawn: {fileID: 1018505939896522697, guid: 98a5bbe80d267b049936d8c9229acb9f, type: 3}
+  _IsBasket: 0
+  _isShovel: 0
+  _isBuilding: 0
+  _prefabToSpawn: {fileID: 5803338057726061643, guid: a2c59e28e0e30df4b9dc4fa7f6c74fa1, type: 3}
   _bonusBioDiversity: 0

@@ -118,6 +118,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8280670437141093784}
+  - component: {fileID: 1960175358109402039}
+  - component: {fileID: 4665304163381673275}
   m_Layer: 0
   m_Name: pf_artichoke
   m_TagString: Untagged
@@ -142,6 +144,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1960175358109402039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280670437141093787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonusMalus: 1
+--- !u!114 &4665304163381673275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280670437141093787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5a3ce0e3d38224a9a80ab2331ef8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growPlantMeshes:
+  - {fileID: 0}
+  _plantTier: {fileID: 11400000, guid: 1a5a19637660bb94ea71dd1b42a495a6, type: 2}
+  _timeToGrow: 5
+  _RefreshRate: 0.05
+  _minGrow: 0
+  _maxGrow: 1
+  _detailsPrefabs: []
 --- !u!1001 &1383096331496264594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_CastShadows
@@ -295,6 +330,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8ab16b332921ac841ae971f529e2b836, type: 3}
       propertyPath: m_Name
       value: mod_vg_artichoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ab16b332921ac841ae971f529e2b836, type: 3}
+      propertyPath: m_TagString
+      value: Plants
       objectReference: {fileID: 0}
     - target: {fileID: 4911579809569829329, guid: 8ab16b332921ac841ae971f529e2b836, type: 3}
       propertyPath: m_Materials.Array.data[0]

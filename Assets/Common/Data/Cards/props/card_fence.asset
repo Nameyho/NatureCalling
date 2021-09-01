@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
-  m_Name: card_basket
+  m_Name: card_fence
   m_EditorClassIdentifier: 
-  _CardName: Basket
+  _CardName: Fence
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 596771829224055525, guid: 3cd5cbdb91bf0f542aa9f06f734ad174, type: 3}
+  _cardModel: {fileID: 7538371972670526017, guid: 850005ab34b8f784ea9c7f023f6c885f, type: 3}
   _isPlant: 0
   _isAquaticPlant: 0
   _isWaterCan: 0
-  _IsBasket: 1
+  _IsBasket: 0
   _isShovel: 0
-  _isBuilding: 0
-  _prefabToSpawn: {fileID: 4745128527397837097, guid: 293067aa7ed1df145bda56e9591fe6b0, type: 3}
+  _isBuilding: 1
+  _prefabToSpawn: {fileID: 8300888782485459508, guid: fed95e01260994344af972208bdc4ad7, type: 3}
   _bonusBioDiversity: 0
