@@ -8,4 +8,6 @@ public class PlantPhase : ScriptableObject
     
     public int PhaseAmount ;
     public int PhaseTodetail;
-    }
+    public int PhaseWhenHarvested;
+    public bool _DestroyOnHarvest;
+}

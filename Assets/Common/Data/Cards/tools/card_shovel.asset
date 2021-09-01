@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: card_shovel
+  m_EditorClassIdentifier: 
+  _CardName: Shovel
+  _CardImage: {fileID: 0}
+  _cardModel: {fileID: 596771829224055525, guid: 535de3c680d80b641814fff6742b47d7, type: 3}
+  _isPlant: 0
+  _isAquaticPlant: 0
+  _isWaterCan: 0
+  _IsBasket: 0
+  _isShovel: 1
+  _isBuilding: 0
+  _isInsectPollinator: 0
+  _prefabToSpawn: {fileID: 1018505939896522697, guid: 5e4bce4a293f9ec4e8b83bd9a18de460, type: 3}
+  _bonusBioDiversity: 0

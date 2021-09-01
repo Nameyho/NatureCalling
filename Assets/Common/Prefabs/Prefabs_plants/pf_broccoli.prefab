@@ -42,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 3833716614199884689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.6336, y: 0.6336, z: 0.6336}
   m_Children: []
   m_Father: {fileID: 8280670437141093784}
   m_RootOrder: 1
@@ -196,7 +196,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ac86539dcc0339e45a68e965215d78af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a4de27661cf65c349854447274e9ec80, type: 2}
+      objectReference: {fileID: 2100000, guid: 26009c46a094d584694a2e18a73a6a3a, type: 2}
     - target: {fileID: 919132149155446097, guid: ac86539dcc0339e45a68e965215d78af, type: 3}
       propertyPath: m_Name
       value: mod_vg_brokoly
@@ -221,15 +221,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 4.3347
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 4.3347
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 4.3347
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
       propertyPath: m_LocalPosition.x
