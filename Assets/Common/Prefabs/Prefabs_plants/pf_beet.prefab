@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 1813642630122344445}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
-  m_TagString: UnBuild
+  m_TagString: Plants
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.31
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8280670437141093787
 GameObject:
@@ -169,9 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5a3ce0e3d38224a9a80ab2331ef8f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _growPlantMeshes:
-  - {fileID: 0}
-  _plantTier: {fileID: 11400000, guid: 1a5a19637660bb94ea71dd1b42a495a6, type: 2}
+  _growPlantMeshes: []
+  _plantTier: {fileID: 11400000, guid: 9a53756e3ab8e1541b837357ebf7efb8, type: 2}
   _timeToGrow: 5
   _RefreshRate: 0.05
   _minGrow: 0

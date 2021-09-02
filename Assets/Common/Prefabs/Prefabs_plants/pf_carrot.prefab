@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 1813642630122344445}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
-  m_TagString: UnBuild
+  m_TagString: Plants
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 0.82
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8280670437141093787
 GameObject:
@@ -284,6 +284,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}

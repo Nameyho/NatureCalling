@@ -25,7 +25,10 @@ public class DragAndDropCard : MonoBehaviour
     [Header("camera")]
     public LayerMask IgnoreMe;
 
-    [Header("Score")]
+	[Header("camera")]
+	public LayerMask IgnoreMeSpade;
+
+	[Header("Score")]
     [SerializeField]
     private IntVariable _score;
 
@@ -71,137 +74,143 @@ public class DragAndDropCard : MonoBehaviour
         }
     }
 
-    #endregion
+	#endregion
 
 
-    #region Methods
-    void Drag()
-    {
-        
-        if (!_isGhost)
-        {
+	#region Methods
+	void Drag()
+	{
 
-            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+		if (!_isGhost)
+		{
 
-            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+			Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
-
-            transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
-
-        }
-        else
-        {
-          
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
-
-            Seeding seed = GetComponent<Seeding>();
-            
-            if (Physics.Raycast(ray, out hit))
-            {
-
-                if (hit.transform.tag == "CardsBackground")
-                {
-                    _transform.position = _transform.parent.position;
-                }
-                else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants")
-                {
-                    seed.UpdateRenderer(2);
-                    
-                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
-                    _lastTimeUnbuild = Time.time;
+			Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
 
 
-                } else if (hit.transform.tag == "EffectZone")
-                {
-                    seed.UpdateRenderer(1);
-                    effectcollider = hit.collider;
-                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+			transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
 
-                } else if (hit.transform.tag == "Cards")
-                {
-                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
-                } 
-                
-                else
-                {
-                    seed.UpdateRenderer(0);
-                    this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+		}
+		else
+		{
 
-                }
+			RaycastHit hit;
+			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+			CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
+
+			Seeding seed = GetComponent<Seeding>();
+
+			if (Physics.Raycast(ray, out hit))
+			{
+
+				if (hit.transform.tag == "CardsBackground")
+				{
+					_transform.position = _transform.parent.position;
+				}
+				else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants")
+				{
+					seed.UpdateRenderer(2);
+
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					_lastTimeUnbuild = Time.time;
 
 
-            }
-            
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
-            {
-              
-         
-                GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
-                if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 1)
-                {
-                    
-                    if (cs._isWaterCan && Input.GetMouseButtonDown(0))
-                    {
-                        
-                        Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+				}
+				else if (hit.transform.tag == "EffectZone")
+				{
+					seed.UpdateRenderer(1);
+					effectcollider = hit.collider;
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
-                    }
-                    if (cs._IsBasket )
-                    {
-                      
-                        seed.SetIsBuidable(false);
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
-                        }
+				}
+				else if (hit.transform.tag == "Cards")
+				{
+					this.transform.rotation = Quaternion.Euler(0, 0, 0);
+				}
 
-                    }
-                    if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()))
-                    {
-                        seed.SetIsBuidable(false);
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
-                        }
-                    }
+				else
+				{
+					seed.UpdateRenderer(0);
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
-                    if (cs._isShovel)
-                    {
-                       
-                        if (hit.transform.GetComponentInParent<Plants>())
-                        {
-                            seed.SetIsBuidable(false);
-                            if (Input.GetMouseButtonDown(0))
-                            {
-                                _score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
-                                Destroy(hit.transform.parent.gameObject);
-                            }
+				}
 
-                        }
 
-                    }
-                }
-                if (hit.transform.GetComponentInParent<Building>()&& cs._isShovel)
-                {
-                    seed.SetIsBuidable(false);
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        _score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
-                        Destroy(hit.transform.parent.gameObject);
-                    }
+			}
 
-                }
-                if (hit.transform.tag == "Unbuild" && cs._isPlant)
-                {
-                    seed.SetIsBuidable(false);
-                    return;
-                }
+			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+			{
 
-            }
 
-        }
+				GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
+				if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 0.2f)
+				{
+
+					if (cs._isWaterCan && Input.GetMouseButtonDown(0))
+					{
+
+						Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+
+					}
+					if (cs._IsBasket)
+					{
+
+						seed.SetIsBuidable(false);
+						if (Input.GetMouseButtonDown(0))
+						{
+							Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+						}
+
+					}
+					if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()))
+					{
+						seed.SetIsBuidable(false);
+						if (Input.GetMouseButtonDown(0))
+						{
+							Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+						}
+					}
+
+				}
+				if (hit.transform.GetComponentInParent<Building>() && cs._isShovel)
+				{
+					seed.SetIsBuidable(false);
+					if (Input.GetMouseButtonDown(0))
+					{
+						_score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
+						Destroy(hit.transform.parent.gameObject);
+					}
+
+				}
+				if (hit.transform.tag == "Unbuild" && cs._isPlant)
+				{
+					seed.SetIsBuidable(false);
+					return;
+				}
+
+			}
+			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMeSpade))
+			{
+				if (cs._isShovel)
+				{
+
+					if (hit.transform.GetComponentInParent<Plants>())
+					{
+						seed.SetIsBuidable(false);
+						if (Input.GetMouseButtonDown(0))
+						{
+							_score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
+							Destroy(hit.transform.parent.gameObject);
+						}
+
+					}
+
+				}
+
+			}
+		}
+
     }
 
     private void reset()
