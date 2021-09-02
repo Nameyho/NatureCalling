@@ -74,7 +74,7 @@ public class CMFreelookEdgeCamera : MonoBehaviour
 
             Debug.Log(target);
      
-                m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(radius, target, _SpeedZoom * Time.deltaTime);
+                m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);
                 m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
                 m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
 
@@ -92,9 +92,9 @@ public class CMFreelookEdgeCamera : MonoBehaviour
             Debug.Log(target);
 
 
-            m_virtualCamera.m_Orbits[0].m_Radius = Mathf.Lerp(radius, target, _SpeedZoom * Time.deltaTime);
-            m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(radius, target, _SpeedZoom * Time.deltaTime);
-            m_virtualCamera.m_Orbits[2].m_Radius = Mathf.Lerp(radius, target, _SpeedZoom * Time.deltaTime);
+            m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);
+            m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
+            m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
 
 
 
