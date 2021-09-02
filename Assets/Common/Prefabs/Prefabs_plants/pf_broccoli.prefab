@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1480277539998227705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166437732055291494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bonusMalus: 1
---- !u!114 &9162970901432568757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166437732055291494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5a3ce0e3d38224a9a80ab2331ef8f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _growPlantMeshes: []
-  _plantTier: {fileID: 11400000, guid: ef73e3466569a1f4ba3c23ea1640f3fc, type: 2}
-  _timeToGrow: 5
-  _RefreshRate: 0.05
-  _minGrow: 0.2
-  _maxGrow: 0.97
-  _detailsPrefabs: []
 --- !u!64 &9173137579655591029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -150,6 +118,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8280670437141093784}
+  - component: {fileID: 6622406106853851270}
+  - component: {fileID: 7064656313665035405}
   m_Layer: 0
   m_Name: pf_broccoli
   m_TagString: Untagged
@@ -174,6 +144,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6622406106853851270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280670437141093787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonusMalus: 1
+--- !u!114 &7064656313665035405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280670437141093787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5a3ce0e3d38224a9a80ab2331ef8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _growPlantMeshes: []
+  _plantTier: {fileID: 11400000, guid: ef73e3466569a1f4ba3c23ea1640f3fc, type: 2}
+  _timeToGrow: 5
+  _RefreshRate: 0.05
+  _minGrow: 0.2
+  _maxGrow: 0.97
+  _detailsPrefabs: []
+  _plantModel: {fileID: 166437732055291494}
 --- !u!1001 &1048819664977505079
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -176,6 +176,7 @@ MonoBehaviour:
   _minGrow: 0
   _maxGrow: 1
   _detailsPrefabs: []
+  _plantModel: {fileID: 4903117775132437947}
 --- !u!1001 &1383096331496264594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,6 +345,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c37070f750958443be76553e8af8a2a, type: 3}
+--- !u!1 &4903117775132437947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c37070f750958443be76553e8af8a2a, type: 3}
+  m_PrefabInstance: {fileID: 5245064581874782442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5710721625920141057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c37070f750958443be76553e8af8a2a, type: 3}
