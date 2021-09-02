@@ -32,6 +32,7 @@ public class GrowPlants : MonoBehaviour
     private bool fullyGrown;
     private int currentTier = 0 ;
     private int _maxTier ;
+    private int _maxTierDetail;
     private Transform _transform;
 
     #endregion
@@ -42,6 +43,7 @@ public class GrowPlants : MonoBehaviour
     private void Start()
     {
         _maxTier = _plantTier.PhaseAmount;
+        _maxTierDetail = _plantTier.PhaseTodetail;
         _transform = GetComponent<Transform>();
         if(_growPlantMeshes.Count> 0)
         {
@@ -291,11 +293,18 @@ public class GrowPlants : MonoBehaviour
         if(_maxTier > currentTier)
         {
             _maxTier  -=  del;
+            
         }
         else
         {
             currentTier = _plantTier.PhaseAmount;
         }
+
+        if( _maxTierDetail> currentTier)
+        {
+            _maxTierDetail -= del;
+        }
+
 
   
 
