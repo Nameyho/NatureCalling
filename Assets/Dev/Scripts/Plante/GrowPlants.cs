@@ -62,8 +62,24 @@ public class GrowPlants : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        float currentfloat = (float)currentTier / (float)_maxTier;
+        
 
-   
+        if (currentfloat >= 1)
+        {
+
+            fullyGrown = true;
+        }
+        else
+        {
+            fullyGrown = false;
+
+        }
+    }
+
+
     #endregion
     #region Methods
 
@@ -198,7 +214,20 @@ public class GrowPlants : MonoBehaviour
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
         _transform.localScale += Vector3.one * ((1f / currentfloat)* _RefreshRate);
+
+        if (currentfloat >= 1)
+        {
+
+            fullyGrown = true;
+        }
+        else
+        {
+            fullyGrown = false;
+
+        }
         yield return new WaitForSeconds(_RefreshRate);
+
+
     }
 
     public void SetCurrentTier(int tier)
