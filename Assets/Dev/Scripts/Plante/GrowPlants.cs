@@ -103,7 +103,7 @@ public class GrowPlants : MonoBehaviour
                     growValue += 1 / (_timeToGrow / _RefreshRate);
                     mat.SetFloat("Grow_", growValue);
 
-                    if(currentTier>  _maxTierDetail)
+                    if(currentTier>=  _maxTierDetail)
                     {
                         Vector3 VecMax = ((currentTier- _maxTierDetail)* (Vector3.one/(_maxTier -  _maxTierDetail)));
                         if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
@@ -119,10 +119,25 @@ public class GrowPlants : MonoBehaviour
                         {
                              if(VecMax.sqrMagnitude>= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude)
                             {
-                                    _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f / (currentTier -  _maxTierDetail) * _RefreshRate);
+                               
+                                if(currentTier != _maxTierDetail)
+                                {
+                                    if (_detailsPrefabs[i].transform.localScale.sqrMagnitude < Vector3.one.sqrMagnitude)
+                                    {
+                                        _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f / (currentTier - _maxTierDetail) * _RefreshRate);
+
+                                    }
+                                }
+                                else
+                                {
+                                    _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f  * _RefreshRate);
+                                }
+
+
                        
                             }
                         }
+
                     }
                     yield return new WaitForSeconds(_RefreshRate);
                 }  
@@ -151,8 +166,12 @@ public class GrowPlants : MonoBehaviour
                         {
                             if(VecMax.sqrMagnitude <= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude && (_detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude >Vector3.zero.sqrMagnitude))
                             {
-                           
-                                _detailsPrefabs[i].gameObject.transform.localScale -= Vector3.one * (1f / (currentTier -  _maxTierDetail) * _RefreshRate);
+                                if (_detailsPrefabs[i].transform.localScale.sqrMagnitude < Vector3.one.sqrMagnitude)
+                                {
+                                    _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f / (currentTier - _maxTierDetail) * _RefreshRate);
+
+                                }
+
                             }
 
                         }
@@ -191,8 +210,9 @@ public class GrowPlants : MonoBehaviour
                     
                         if (VecMax.sqrMagnitude <= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude && (_detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude > Vector3.zero.sqrMagnitude))
                         {
-                        
-                            _detailsPrefabs[i].gameObject.transform.localScale -= Vector3.one * (1f / (currentTier -  _maxTierDetail) * _RefreshRate);
+
+                            float maxScale = Mathf.Clamp((currentTier - _maxTierDetail), 0, 1);
+                            _detailsPrefabs[i].gameObject.transform.localScale -= Vector3.one * (1f / maxScale * _RefreshRate);
                         }
 
                     }
@@ -212,6 +232,7 @@ public class GrowPlants : MonoBehaviour
             fullyGrown = false;
 
         }
+        
     }
 
 
