@@ -149,9 +149,12 @@ public class Seeding : MonoBehaviour
                 if (hit.transform.tag == "Layering" &&cs._isPlant)
                 {
                     GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
-                   
-                    plant.GetComponent<Plants>().GetAllPlants();
-                    _gameManager.AddProgression(cs._bonusBioDiversity);
+                    if (plant.GetComponent<Plants>())
+                    {
+                        plant.GetComponent<Plants>().GetAllPlants();
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
+                    }
+
 
                 }
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)

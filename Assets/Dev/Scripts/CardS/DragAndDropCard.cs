@@ -103,7 +103,7 @@ public class DragAndDropCard : MonoBehaviour
 
 			if (Physics.Raycast(ray, out hit))
 			{
-
+				
 				if (hit.transform.tag == "CardsBackground")
 				{
 					_transform.position = _transform.parent.position;
@@ -142,9 +142,8 @@ public class DragAndDropCard : MonoBehaviour
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
 			{
 
-
 				GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
-				if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 0.2f)
+				if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 0.5f)
 				{
 
 					if (cs._isWaterCan && Input.GetMouseButtonDown(0))

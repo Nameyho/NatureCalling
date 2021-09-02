@@ -9,9 +9,9 @@ MeshCollider:
   m_GameObject: {fileID: 2301575911909502659}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8803937527578110353, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
 --- !u!1 &3833716614199884689
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8280670437141093784}
   - component: {fileID: -1282488994293882767}
   - component: {fileID: -2428596361744151830}
-  - component: {fileID: 3062989669417207508}
+  - component: {fileID: 1245500273861672931}
   m_Layer: 0
   m_Name: pf_carrot
   m_TagString: Untagged
@@ -177,7 +177,8 @@ MonoBehaviour:
   _minGrow: 0
   _maxGrow: 1
   _detailsPrefabs: []
---- !u!54 &3062989669417207508
+  _plantModel: {fileID: 6092563344725651088}
+--- !u!54 &1245500273861672931
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,6 +366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}
+--- !u!1 &6092563344725651088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}
+  m_PrefabInstance: {fileID: 6362543682679018433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6901470357912319018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6b261bf83cd0ade4a8a04a87bbed5b7b, type: 3}

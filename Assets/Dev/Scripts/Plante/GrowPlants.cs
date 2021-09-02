@@ -24,6 +24,9 @@ public class GrowPlants : MonoBehaviour
 
     [Header("Details")]
     public GameObject[] _detailsPrefabs;
+
+    [Header("Model Plant sans mesh")]
+    public GameObject _plantModel;
     #endregion
 
     #region Private
@@ -215,7 +218,7 @@ public class GrowPlants : MonoBehaviour
     IEnumerator GrowScaleFunction()
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
-        _transform.localScale += Vector3.one * ((1f / currentfloat)* _RefreshRate);
+        _plantModel.transform.localScale += Vector3.one * ((1f / currentfloat)* _RefreshRate);
 
         if (currentfloat >= 1)
         {
