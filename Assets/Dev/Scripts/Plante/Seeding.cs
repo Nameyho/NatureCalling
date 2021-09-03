@@ -40,7 +40,7 @@ public class Seeding : MonoBehaviour
     private bool _isBuildable = false;
     private Camera cam;
     private bool _isSelected;
-
+    private DragAndDropCard _DaD;
 
     #endregion
 
@@ -125,6 +125,7 @@ public class Seeding : MonoBehaviour
     {
         _myRend = _ghostModel.GetComponent<Renderer>();
         cam = Camera.main;
+        _DaD = GetComponent<DragAndDropCard>();
     }
 
     #endregion
@@ -149,6 +150,7 @@ public class Seeding : MonoBehaviour
                 if (hit.transform.tag == "Layering" &&cs._isPlant)
                 {
                     GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                    plant.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     if (plant.GetComponent<Plants>())
                     {
                         plant.GetComponent<Plants>().GetAllPlants();
@@ -159,13 +161,15 @@ public class Seeding : MonoBehaviour
                 }
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                 {
-                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                 }
-                if( !cs._isAquaticPlant && !cs._isPlant && hit.transform.tag=="BuildingZone")
+                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && hit.transform.tag=="BuildingZone")
                 {
-                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
                 if(cs._isWaterCan && hit.transform.tag == "Plants")
@@ -173,11 +177,15 @@ public class Seeding : MonoBehaviour
                     WaterCan watercan = GetComponent<WaterCan>();
                   
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     //Destroy(go);
                 }
-                if(cs._isBuilding)
+                if(cs._isBuilding )
                 {
-                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    _DaD.GetRotation();
+                    GameObject go =Instantiate(_plantsPrefabs, hit.point,Quaternion.identity);
+                    go.transform.Rotate(0,_DaD.GetRotation().eulerAngles.y,0);
+                    
                     _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
 

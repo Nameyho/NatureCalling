@@ -157,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _Basic
       value: 
-      objectReference: {fileID: 2100000, guid: a4de27661cf65c349854447274e9ec80, type: 2}
+      objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 470302230727989669, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _ghostModel
       value: 
@@ -181,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 7046556453952346103, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: _RotationSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_RootOrder

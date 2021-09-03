@@ -44,6 +44,7 @@ public class Cards : MonoBehaviour
     {
         _cardGO.SetActive(false);
         _GhostCard.SetActive(true);
+        _GhostCard.transform.Rotate(-45, 0, 0);
         
     }
 
