@@ -249,12 +249,12 @@ public class DragAndDropCard : MonoBehaviour
 	public void RotateObject()
 	{
 
-		if (Input.GetKey(KeyCode.R))
+		if (Input.GetKey(KeyCode.T))
 		{
 
 			_transform.Rotate(Vector3.up * Time.deltaTime *_RotationSpeed ,Space.World);
 		}
-		if (Input.GetKey(KeyCode.T))
+		if (Input.GetKey(KeyCode.R))
 		{
 			_transform.Rotate(Vector3.down * Time.deltaTime * _RotationSpeed, Space.World); ;
 		}
