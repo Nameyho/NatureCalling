@@ -11,23 +11,15 @@ public class CMFreelookEdgeCamera : MonoBehaviour
     int screenHeight;
 
     [Header("Zoom")]
-    [HideInInspector]
-    private float _SpeedScrolling = 2f;
 
     [SerializeField]
     private float _SpeedZoom = 3f;
 
     [SerializeField]
-    private float ZoomInMax = 40f;
+    private float ZoomInMax = 5f;
 
     [SerializeField]
-    private float ZoomOutMax = 90f;
-
-    [SerializeField]
-    private float _minScrollSpeed = 0f;
-
-    [SerializeField]
-    private float _maxScrollSpeed = 200f;
+    private float ZoomOutMax = 20f;
 
     [SerializeField]
     [Range(1,500)]
@@ -73,22 +65,42 @@ public class CMFreelookEdgeCamera : MonoBehaviour
 
     public void ZoomScreen(float increment)
     {
-        float fov = m_virtualCamera.m_Lens.FieldOfView;
-        float target = Mathf.Clamp(fov+ increment, ZoomInMax, ZoomOutMax);
 
-        m_virtualCamera.m_Lens.FieldOfView = Mathf.Lerp(fov, target, _SpeedZoom * Time.deltaTime);
-
-        if (lastFov < fov && (ZoomOutMax >= fov))
+  
+        if(increment> 0 ) // 10 = zoom
         {
-            _SpeedScrolling += (_SpeedScrolling / (ZoomOutMax - ZoomInMax) * fov);
+            float radius=  m_virtualCamera.m_Orbits[0].m_Radius;
+            float target = Mathf.Clamp(radius- increment, ZoomInMax, ZoomOutMax);
+
+            Debug.Log(target);
+     
+                m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);
+                m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
+                m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
+
+
+            
+            
+            
+
+        }
+        if( increment<0) // -10 = dezoom
+        {
+            float radius = m_virtualCamera.m_Orbits[0].m_Radius;
+            float target = Mathf.Clamp(radius-increment, ZoomInMax, ZoomOutMax);
+
+            Debug.Log(target);
+
+
+            m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);
+            m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
+            m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
+
+
+
+
         }
 
-        else if (lastFov > fov && (ZoomInMax <= fov))
-        {
-            _SpeedScrolling -= (_SpeedScrolling / (ZoomOutMax - ZoomInMax) * fov);
-        }
-        lastFov = fov;
-        _SpeedScrolling = Mathf.Clamp(_SpeedScrolling, _minScrollSpeed, _maxScrollSpeed);
 
     }
 
