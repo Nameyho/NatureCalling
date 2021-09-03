@@ -18,6 +18,10 @@ public class DragAndDropCard : MonoBehaviour
     private float _lastTimeEffect;
     private Transform _Hand;
 
+
+    #endregion
+    #region Exposed
+
     [SerializeField]
     private CurrentSpawnerLocationScritpable _currentSpawnerLocation;
 
@@ -31,9 +35,12 @@ public class DragAndDropCard : MonoBehaviour
 	[Header("Score")]
     [SerializeField]
     private IntVariable _score;
-
-
     private HandManager _hm;
+
+	[Header("Rotation Speed")]
+	[SerializeField]
+	private float _RotationSpeed = 1000;
+	
     #endregion
 
 
@@ -57,7 +64,11 @@ public class DragAndDropCard : MonoBehaviour
         {
             reset();
         }
+        if (_isGhost)
+        {
+			RotateObject();
 
+        }
     }
     void OnMouseDown()
     {
@@ -126,14 +137,15 @@ public class DragAndDropCard : MonoBehaviour
 				}
 				else if (hit.transform.tag == "Cards")
 				{
-					this.transform.rotation = Quaternion.Euler(0, 0, 0);
+					//this.transform.rotation = Quaternion.Euler(0, 0, 0);
+					RotateObject();
 				}
 
 				else
 				{
 					seed.UpdateRenderer(0);
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
-
+					
 				}
 
 
@@ -149,8 +161,8 @@ public class DragAndDropCard : MonoBehaviour
 					if (cs._isWaterCan && Input.GetMouseButtonDown(0))
 					{
 
-						Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
-
+						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+						go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 					}
 					if (cs._IsBasket)
 					{
@@ -158,7 +170,8 @@ public class DragAndDropCard : MonoBehaviour
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-							Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 						}
 
 					}
@@ -167,7 +180,8 @@ public class DragAndDropCard : MonoBehaviour
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-							Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 						}
 					}
 
@@ -230,6 +244,31 @@ public class DragAndDropCard : MonoBehaviour
     public void SetGhost(bool b)
     {
         _isGhost = b;
+    }
+
+	public void RotateObject()
+	{
+
+		if (Input.GetKey(KeyCode.R))
+		{
+
+			_transform.Rotate(Vector3.up * Time.deltaTime *_RotationSpeed ,Space.World);
+		}
+		if (Input.GetKey(KeyCode.T))
+		{
+			_transform.Rotate(Vector3.down * Time.deltaTime * _RotationSpeed, Space.World); ;
+		}
+
+	
+	}
+
+	public Quaternion GetRotation()
+    {
+
+		Debug.Log(Quaternion.Euler(_transform.rotation.eulerAngles)) ;
+
+
+		return Quaternion.Euler(_transform.rotation.eulerAngles);
     }
     #endregion
 
