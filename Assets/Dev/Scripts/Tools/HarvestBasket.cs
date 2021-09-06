@@ -19,6 +19,7 @@ public class HarvestBasket : MonoBehaviour
         if (other.tag == "Plants" && other.GetComponentInParent<GrowPlants>())
         {
             GrowPlants gp = other.GetComponentInParent<GrowPlants>();
+            Plants plant = other.GetComponentInParent<Plants>();
             if(gp.isFullingGrown()){
                 if (gp.IsDestroyOnHarvest())
                 {
@@ -29,12 +30,15 @@ public class HarvestBasket : MonoBehaviour
                 {
                     int phase = gp.GetPhaseWhenHarvest();
                     gp.SetCurrentTier(phase);
+                    gp.Harvest();
+                    plant.resetSpawnTime();
+                    plant.ResetMultiply();
                 }
 
             }
            
-           Destroy(transform.parent.gameObject, 0.5f);
         }
+           Destroy(transform.parent.gameObject, 0.5f);
 
         //other.GetComponent<Plants>().AddTier();
 

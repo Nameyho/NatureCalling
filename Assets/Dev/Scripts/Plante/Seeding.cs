@@ -1,5 +1,6 @@
 using ScriptableObjectArchitecture;
 using UnityEngine;
+using TMPro;
 
 public class Seeding : MonoBehaviour
 {
@@ -32,6 +33,15 @@ public class Seeding : MonoBehaviour
     [SerializeField]
     private GameManager _gameManager;
 
+    [Header("Limitation")]
+
+    [SerializeField]
+    private IntVariable _cardLimitation;
+
+
+    [SerializeField]
+    private TextMeshPro _textLimitation;
+
     #endregion
 
     #region Private
@@ -42,6 +52,7 @@ public class Seeding : MonoBehaviour
     private bool _isSelected;
     private DragAndDropCard _DaD;
 
+
     #endregion
 
     #region Unity API
@@ -51,6 +62,7 @@ public class Seeding : MonoBehaviour
     {
 		
 		onClick();
+        UpdateTextLimitation();
     }
 
 
@@ -126,6 +138,7 @@ public class Seeding : MonoBehaviour
         _myRend = _ghostModel.GetComponent<Renderer>();
         cam = Camera.main;
         _DaD = GetComponent<DragAndDropCard>();
+        
     }
 
     #endregion
@@ -135,14 +148,17 @@ public class Seeding : MonoBehaviour
 
     private void onClick()
     {
+
+
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
-        
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+        if(_cardLimitation.Value > 0)
         {
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
   
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
@@ -150,13 +166,15 @@ public class Seeding : MonoBehaviour
                 if (hit.transform.tag == "Layering" &&cs._isPlant)
                 {
                     GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                        
                     plant.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     if (plant.GetComponent<Plants>())
                     {
-                        plant.GetComponent<Plants>().GetAllPlants();
+                        //plant.GetComponent<Plants>().GetAllPlants();
+                        plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
                         _gameManager.AddProgression(cs._bonusBioDiversity);
+                        hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
                     }
-
 
                 }
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
@@ -166,11 +184,15 @@ public class Seeding : MonoBehaviour
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                 }
-                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && hit.transform.tag=="BuildingZone")
+                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && hit.transform.tag=="BuildingZone")
                 {
+                     
+
+
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
+                        _cardLimitation.Value--;
                 }
                 if(cs._isWaterCan && hit.transform.tag == "Plants")
                 {
@@ -185,16 +207,23 @@ public class Seeding : MonoBehaviour
                     _DaD.GetRotation();
                     GameObject go =Instantiate(_plantsPrefabs, hit.point,Quaternion.identity);
                     go.transform.Rotate(0,_DaD.GetRotation().eulerAngles.y,0);
-                    
-                    _gameManager.AddProgression(cs._bonusBioDiversity);
+                        _cardLimitation.Value--;
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
+
 
                 //GetComponent<Cards>().PlayThisCard();
 
 
             }
-        }
 
+        }
+    }
+
+    public void UpdateTextLimitation()
+    {
+     
+        _textLimitation.text = _cardLimitation.Value.ToString();
     }
     #endregion
 
