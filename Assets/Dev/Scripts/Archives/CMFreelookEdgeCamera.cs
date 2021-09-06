@@ -89,7 +89,7 @@ public class CMFreelookEdgeCamera : MonoBehaviour
             float radius = m_virtualCamera.m_Orbits[0].m_Radius;
             float target = Mathf.Clamp(radius-increment, ZoomInMax, ZoomOutMax);
 
-            Debug.Log(target);
+
 
 
             m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);

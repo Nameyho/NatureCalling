@@ -154,9 +154,10 @@ public class Seeding : MonoBehaviour
                     if (plant.GetComponent<Plants>())
                     {
                         plant.GetComponent<Plants>().GetAllPlants();
+                        plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
                         _gameManager.AddProgression(cs._bonusBioDiversity);
+                        hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
                     }
-
 
                 }
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
@@ -166,7 +167,7 @@ public class Seeding : MonoBehaviour
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                 }
-                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && hit.transform.tag=="BuildingZone")
+                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && hit.transform.tag=="BuildingZone")
                 {
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
@@ -188,6 +189,7 @@ public class Seeding : MonoBehaviour
                     
                     _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
+
 
                 //GetComponent<Cards>().PlayThisCard();
 
