@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: card_groundLayering1x1Bigger
+  m_EditorClassIdentifier: 
+  _CardName: Ground Layering 1x1
+  _CardImage: {fileID: 0}
+  _cardModel: {fileID: 4590777645457902033, guid: a8f0556d4081bfe4f8984e2a0d37768c, type: 3}
+  _isPlant: 0
+  _isAquaticPlant: 0
+  _isWaterCan: 0
+  _IsBasket: 0
+  _isShovel: 0
+  _isBuilding: 0
+  _isInsectPollinator: 0
+  _prefabToSpawn: {fileID: 4885253156091891685, guid: 46fcd54e8b30d6245ad35a3da7555b25, type: 3}
+  _bonusBioDiversity: 0
