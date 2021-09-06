@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: WaterCan
+  m_EditorClassIdentifier: 
+  _CardName: WaterCan
+  _CardImage: {fileID: 0}
+  _cardModel: {fileID: 5479838588943980211, guid: 862afc1892fdae4449063b65ecbf907a, type: 3}
+  _isPlant: 0
+  _isAquaticPlant: 0
+  _isWaterCan: 1
+  _prefabToSpawn: {fileID: 635910598315199270, guid: 6d6d84fc3f3b1624a9fcff735135c49d, type: 3}
+  _bonusBioDiversity: 0

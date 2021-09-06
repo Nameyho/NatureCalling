@@ -142,15 +142,19 @@ public class Seeding : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
         {
-
-
+  
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
 
-                if (hit.transform.tag == "Plants" &&cs._isPlant)
+                if (hit.transform.tag == "Layering" &&cs._isPlant)
                 {
-                     Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
-                    _gameManager.AddProgression(cs._bonusBioDiversity);
+                    GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                    if (plant.GetComponent<Plants>())
+                    {
+                        plant.GetComponent<Plants>().GetAllPlants();
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
+                    }
+
 
                 }
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
@@ -160,6 +164,18 @@ public class Seeding : MonoBehaviour
 
                 }
                 if( !cs._isAquaticPlant && !cs._isPlant && hit.transform.tag=="BuildingZone")
+                {
+                    Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
+                }
+                if(cs._isWaterCan && hit.transform.tag == "Plants")
+                {
+                    WaterCan watercan = GetComponent<WaterCan>();
+                  
+                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    //Destroy(go);
+                }
+                if(cs._isBuilding)
                 {
                     Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
@@ -181,5 +197,10 @@ public class Seeding : MonoBehaviour
         _isSelected = f;
     }
 
+
+    public void SetIsBuidable(bool b)
+    {
+        _isBuildable = b;
+    }
     #endregion
 }
