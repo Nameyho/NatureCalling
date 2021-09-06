@@ -10,7 +10,11 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private int _bonusMalus;
 
- 
+    [SerializeField]
+    private float _TotalGrowTime;
+
+    [SerializeField]
+    private float _wateredTime = 20f;
 
 
     #endregion
@@ -19,8 +23,10 @@ public class Plants : MonoBehaviour
 
     GrowPlants _gp;
     Rigidbody _rb;
-    SphereCollider sc;
-
+    float _phaseTime;
+    float _spawnTime;
+    int _MultiplyWatered = 0;
+    float _timewhenLastwatered;
     int _Waterdurability;
     int _PollinatorDurability;
 
@@ -34,6 +40,8 @@ public class Plants : MonoBehaviour
     {
         _gp = GetComponent<GrowPlants>();
         _rb = GetComponent<Rigidbody>();
+        _phaseTime = _TotalGrowTime / _gp.GetMaxTier();
+        _spawnTime = Time.time;
         
     }
     //private void OnTriggerEnter(Collider other)
@@ -46,40 +54,58 @@ public class Plants : MonoBehaviour
 
     //}
 
+
+    private void Update()
+    {
+        GrowPlantWithTime();
+    }
     #endregion
 
+    #region Methods
 
+    private void GrowPlantWithTime()
+    {
+        if((Time.time - _spawnTime) + (_wateredTime * _MultiplyWatered )  > _phaseTime * _gp.GetCurrentTier())
+        {
+            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+        }
+    }
+
+
+
+    #endregion
 
     #region public
 
-    public void ApplyEffect()
-    {
-        _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
-        if (_Waterdurability > 0)
-        {
-        _Waterdurability--;
+    //public void ApplyEffect()
+    //{
+    //    _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+    //    if (_Waterdurability > 0)
+    //    {
+    //    _Waterdurability--;
 
-        }
-        if (_PollinatorDurability> 0)
-        {
-            _PollinatorDurability--;
-        }
-        Destroy(_rb);
-    }
+    //    }
+    //    if (_PollinatorDurability> 0)
+    //    {
+    //        _PollinatorDurability--;
+    //    }
+    //    Destroy(_rb);
+    //}
 
     public void AddTier(int durability,GameObject go)
     {
-        if (_Waterdurability == 0 && durability> 0 && go.GetComponent<WaterCan>())
+        if (go.GetComponent<WaterCan>()&& (Time.time -_timewhenLastwatered> _wateredTime))
         {
-            _Waterdurability = durability;
+            //_Waterdurability = durability;
             _gp.SetCurrentTier(_gp.GetCurrentTier() +_bonusMalus);
-            _gp.RemoveMaxTier(2);
+            _MultiplyWatered++;
+            _timewhenLastwatered = Time.time;
         }
         if (_PollinatorDurability == 0 && durability > 0 && go.GetComponent<Pollinator>())
         {
-            _PollinatorDurability = durability;
+          //  _PollinatorDurability = durability;
             _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
-            _gp.RemoveMaxTier(2);
+            
         }
     }
 
@@ -93,15 +119,15 @@ public class Plants : MonoBehaviour
         return _bonusMalus;
     }
 
-    public void GetAllPlants()
-    {
-        Plants[] Plants = FindObjectsOfType<Plants>();
+    //public void GetAllPlants()
+    //{
+    //    Plants[] Plants = FindObjectsOfType<Plants>();
         
-        for (int i = 0; i < Plants.Length; i++)
-        {
-            Plants[i].ApplyEffect();
-        }
-    }
+    //    for (int i = 0; i < Plants.Length; i++)
+    //    {
+    //        Plants[i].ApplyEffect();
+    //    }
+    //}
 
     public void SetGroundLayering(GroundLayering gl) 
     {
@@ -113,5 +139,14 @@ public class Plants : MonoBehaviour
         return _groundLayering;
     }
 
+    public void resetSpawnTime()
+    {
+        _spawnTime = Time.time;
+    }
+
+    public void ResetMultiply()
+    {
+        _MultiplyWatered = 0;
+    }
     #endregion
 }

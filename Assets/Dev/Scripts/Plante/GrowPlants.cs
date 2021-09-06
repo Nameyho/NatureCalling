@@ -239,7 +239,13 @@ public class GrowPlants : MonoBehaviour
     IEnumerator GrowScaleFunction()
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
-        _plantModel.transform.localScale += Vector3.one * ((1f / currentfloat)* _RefreshRate);
+        Debug.Log(currentfloat);
+        Debug.Log(_plantModel.transform.localScale.sqrMagnitude);
+        if (_plantModel.transform.localScale.sqrMagnitude <= Vector3.one.sqrMagnitude)
+        {
+         _plantModel.transform.localScale += Vector3.one * ((2f / currentfloat)* _RefreshRate);
+
+        }
 
         if (currentfloat >= 1)
         {
@@ -298,6 +304,8 @@ public class GrowPlants : MonoBehaviour
 
     }
 
+
+
     public bool isFullingGrown()
     {
         return fullyGrown;
@@ -333,6 +341,14 @@ public class GrowPlants : MonoBehaviour
   
 
         
+    }
+
+    public void Harvest()
+    {
+        for (int i = 0; i < _detailsPrefabs.Length; i++)
+        {
+            _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+        }
     }
     
 

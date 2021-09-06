@@ -34,4 +34,10 @@ public class CardScriptable : ScriptableObject
     public GameObject _prefabToSpawn;
 
     public int _bonusBioDiversity;
+
+    [Header("Limitation de la carte")]
+
+    public int _usingLimitation;
+
+    //public bool _isUsingLimited;
 }

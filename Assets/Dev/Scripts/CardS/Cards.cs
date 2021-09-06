@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Cards : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Cards : MonoBehaviour
 
     [SerializeField]
     private GameObject _GhostCard;
+
+    [SerializeField]
+    private TMP_Text _name;
 
 
     #endregion
@@ -64,6 +68,7 @@ public class Cards : MonoBehaviour
     private void Awake()
     {
         _transform = GetComponent<Transform>();
+        _name.text = card._CardName;
     }
 
     #endregion

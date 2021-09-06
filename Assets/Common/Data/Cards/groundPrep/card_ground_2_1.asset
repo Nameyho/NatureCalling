@@ -9,10 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3856e84d486feb48a4c85c2f91e435f, type: 3}
-  m_Name: Corn
+  m_Script: {fileID: 11500000, guid: a56a9b97a78f01f4b97f217c74f00246, type: 3}
+  m_Name: card_ground_2_1
   m_EditorClassIdentifier: 
-  PhaseAmount: 5
-  PhaseTodetail: 3
-  PhaseWhenHarvested: 1
-  _DestroyOnHarvest: 0
+  _value: 0
+  _readOnly: 0
+  _raiseWarning: 1
+  _isClamped: 0
+  _minClampedValue: 0
+  _maxClampedValue: 0
+  _event:
+    m_PersistentCalls:
+      m_Calls: []

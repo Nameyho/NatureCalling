@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bonusMalus: 1
+  _TotalGrowTime: 20
+  _wateredTime: 10
 --- !u!114 &7577365461060944825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +184,7 @@ MonoBehaviour:
   - {fileID: 4677819358992106019}
   - {fileID: 4230185394949173384}
   - {fileID: 4243332001391280862}
+  _plantModel: {fileID: 0}
 --- !u!54 &-3185029718879076855
 Rigidbody:
   m_ObjectHideFlags: 0
