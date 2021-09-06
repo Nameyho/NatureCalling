@@ -17,6 +17,12 @@ public class DragAndDropCard : MonoBehaviour
     private float _lastTimeUnbuild;
     private float _lastTimeEffect;
     private Transform _Hand;
+	private float _lastTimeClose;
+	private bool _isFirstTimePlayed = true;
+
+
+    #endregion
+    #region Exposed
 
     [SerializeField]
     private CurrentSpawnerLocationScritpable _currentSpawnerLocation;
@@ -31,9 +37,13 @@ public class DragAndDropCard : MonoBehaviour
 	[Header("Score")]
     [SerializeField]
     private IntVariable _score;
-
-
     private HandManager _hm;
+
+	[Header("Rotation Speed")]
+	[SerializeField]
+	private float _RotationSpeed = 1000;
+
+	
     #endregion
 
 
@@ -53,11 +63,27 @@ public class DragAndDropCard : MonoBehaviour
         {
             Drag();
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) )
         {
-            reset();
-        }
 
+			
+            if (_Hand.gameObject.activeSelf)
+            {
+				_Hand.gameObject.SetActive(false);
+            }
+            else
+            {
+				reset();
+
+            }
+
+		}
+
+        if (_isGhost)
+        {
+			RotateObject();
+
+        }
     }
     void OnMouseDown()
     {
@@ -104,6 +130,7 @@ public class DragAndDropCard : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 				
+				
 				if (hit.transform.tag == "CardsBackground")
 				{
 					_transform.position = _transform.parent.position;
@@ -126,14 +153,21 @@ public class DragAndDropCard : MonoBehaviour
 				}
 				else if (hit.transform.tag == "Cards")
 				{
-					this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    if (_isFirstTimePlayed)
+                    {
+						this.transform.position = new Vector3(0, 0, 0);
+						_isFirstTimePlayed = false;
+					}
+					//this.transform.rotation = Quaternion.Euler(0, 0, 0);
+					
+					RotateObject();
 				}
 
 				else
 				{
 					seed.UpdateRenderer(0);
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
-
+					
 				}
 
 
@@ -149,8 +183,8 @@ public class DragAndDropCard : MonoBehaviour
 					if (cs._isWaterCan && Input.GetMouseButtonDown(0))
 					{
 
-						Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
-
+						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+						go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 					}
 					if (cs._IsBasket)
 					{
@@ -158,7 +192,8 @@ public class DragAndDropCard : MonoBehaviour
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-							Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 						}
 
 					}
@@ -167,12 +202,13 @@ public class DragAndDropCard : MonoBehaviour
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-							Instantiate(cs._prefabToSpawn, hit.point, Quaternion.identity);
+							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 						}
 					}
 
 				}
-				if (hit.transform.GetComponentInParent<Building>() && cs._isShovel)
+				if (hit.transform.GetComponentInParent<Building>() && cs._isBuilding)
 				{
 					seed.SetIsBuidable(false);
 					if (Input.GetMouseButtonDown(0))
@@ -191,28 +227,46 @@ public class DragAndDropCard : MonoBehaviour
 			}
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMeSpade))
 			{
+				
 				if (cs._isShovel)
 				{
-
-					if (hit.transform.GetComponentInParent<Plants>())
+					
+					if (hit.transform.GetComponentInParent<Plants>() || hit.transform.GetComponentInParent<Building>())
 					{
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
+							
+							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 							_score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
+							hit.transform.GetComponentInParent<Plants>().GetGroundLayering().DeletePlants();
 							Destroy(hit.transform.parent.gameObject);
+							Destroy(go,5f);
 						}
 
 					}
+			
+					if ((hit.transform.parent.GetComponent<GroundLayering>()))
+                    {
+				
+                        if (!hit.transform.parent.GetComponent<GroundLayering>().IsPlantsOn() && Input.GetMouseButtonDown(0))
+                        {
+							
+							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+							Destroy(hit.transform.gameObject);
+							Destroy(go, 5f);
+
+                        }
+					}
 
 				}
-
+				
 			}
 		}
 
     }
 
-    private void reset()
+    public void reset()
     {
         if (_isGhost)
         {
@@ -226,10 +280,42 @@ public class DragAndDropCard : MonoBehaviour
         
     }
 
+	private void Close()
+    {
+		_Hand.gameObject.SetActive(true);
+
+		Destroy(_transform.gameObject);
+		_hm.ChangeHand();
+	}
 
     public void SetGhost(bool b)
     {
         _isGhost = b;
+    }
+
+	public void RotateObject()
+	{
+
+		if (Input.GetKey(KeyCode.T))
+		{
+
+			_transform.Rotate(Vector3.up * Time.deltaTime *_RotationSpeed ,Space.World);
+		}
+		if (Input.GetKey(KeyCode.R))
+		{
+			_transform.Rotate(Vector3.down * Time.deltaTime * _RotationSpeed, Space.World); ;
+		}
+
+	
+	}
+
+	public Quaternion GetRotation()
+    {
+
+
+
+
+		return Quaternion.Euler(_transform.rotation.eulerAngles);
     }
     #endregion
 

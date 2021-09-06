@@ -24,6 +24,8 @@ public class Plants : MonoBehaviour
     int _Waterdurability;
     int _PollinatorDurability;
 
+    private GroundLayering _groundLayering;
+
     #endregion
 
     #region Unity API
@@ -91,10 +93,6 @@ public class Plants : MonoBehaviour
         return _bonusMalus;
     }
 
-    #endregion
-
-    #region Privates
-
     public void GetAllPlants()
     {
         Plants[] Plants = FindObjectsOfType<Plants>();
@@ -103,6 +101,16 @@ public class Plants : MonoBehaviour
         {
             Plants[i].ApplyEffect();
         }
+    }
+
+    public void SetGroundLayering(GroundLayering gl) 
+    {
+        _groundLayering = gl;
+    }
+
+    public GroundLayering GetGroundLayering()
+    {
+        return _groundLayering;
     }
 
     #endregion

@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 1813642630122344445}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
-  m_TagString: UnBuild
+  m_TagString: Plants
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   - {fileID: 6536037539313779042}
   - {fileID: 5217353190113706524}
   - {fileID: 7198795213690951408}
+  _plantModel: {fileID: 0}
 --- !u!1001 &1383096331496264594
 PrefabInstance:
   m_ObjectHideFlags: 0

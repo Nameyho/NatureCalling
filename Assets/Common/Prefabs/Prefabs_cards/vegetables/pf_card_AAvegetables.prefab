@@ -291,7 +291,11 @@ MonoBehaviour:
   IgnoreMe:
     serializedVersion: 2
     m_Bits: 67108888
+  IgnoreMeSpade:
+    serializedVersion: 2
+    m_Bits: 0
   _score: {fileID: 0}
+  _RotationSpeed: 100
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0

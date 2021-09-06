@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 8016043649188081478}
   - component: {fileID: 470302230727989669}
   m_Layer: 3
-  m_Name: pf_card_AAflower
+  m_Name: pf_card_AAfruit
   m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentSpawnerLocation: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
+  IgnoreMe:
+    serializedVersion: 2
+    m_Bits: 0
+  IgnoreMeSpade:
+    serializedVersion: 2
+    m_Bits: 0
+  _score: {fileID: 0}
+  _RotationSpeed: 100
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159,7 +167,6 @@ MonoBehaviour:
   IgnoreMe:
     serializedVersion: 2
     m_Bits: 1047564
-  _moveSpeed: 0
   _gameManager: {fileID: 8537393271563585056, guid: aa992846c7871d0489d3542d6b96034b, type: 3}
 --- !u!1001 &6583339704167548137
 PrefabInstance:

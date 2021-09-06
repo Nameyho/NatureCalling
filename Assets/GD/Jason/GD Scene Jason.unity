@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentScore: {fileID: 11400000, guid: ba023799744d9eb4ebe7624fc527948e, type: 2}
-  _scoreToChangeScene: 90
+  _scoreToChangeScene: 250
 --- !u!1 &907148809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,7 +3928,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 53928053175e9d04cad031ba3b97d5b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f9773802e05a2f24885d9270ff09ee07, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
