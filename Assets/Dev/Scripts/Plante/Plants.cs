@@ -16,6 +16,8 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private float _wateredTime = 20f;
 
+    [SerializeField]
+    private List<Plants> _compatibilytPlants = new List<Plants>();
 
     #endregion
 
@@ -29,6 +31,7 @@ public class Plants : MonoBehaviour
     float _timewhenLastwatered;
     int _Waterdurability;
     int _PollinatorDurability;
+    
 
     private GroundLayering _groundLayering;
 
@@ -42,6 +45,7 @@ public class Plants : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _phaseTime = _TotalGrowTime / _gp.GetMaxTier();
         _spawnTime = Time.time;
+        FindObjectOfType<PlantsManager>().AddPlantInMapList(this.gameObject);
         
     }
     //private void OnTriggerEnter(Collider other)
