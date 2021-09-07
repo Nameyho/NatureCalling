@@ -239,8 +239,7 @@ public class GrowPlants : MonoBehaviour
     IEnumerator GrowScaleFunction()
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
-        Debug.Log(currentfloat);
-        Debug.Log(_plantModel.transform.localScale.sqrMagnitude);
+   
         if (_plantModel.transform.localScale.sqrMagnitude <= Vector3.one.sqrMagnitude)
         {
          _plantModel.transform.localScale += Vector3.one * ((2f / currentfloat)* _RefreshRate);

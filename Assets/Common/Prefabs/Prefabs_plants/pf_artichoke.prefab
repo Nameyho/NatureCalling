@@ -105,7 +105,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833716614199884689}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2
@@ -171,7 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _TotalGrowTime: 0
   _bonusMalus: 1
+  _wateredTime: 20
+  _compatibilytPlants:
+  - {fileID: 11400000, guid: 8488377f837867b46a98c3d7cbf24777, type: 2}
+  _card: {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
+  _radiusDetection: 3
+  _limitation: {fileID: 11400000, guid: 7cf0f1a1c857c2249ad6e4fe5cda9f11, type: 2}
 --- !u!114 &4665304163381673275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +202,7 @@ MonoBehaviour:
   - {fileID: 7523681749448054299}
   - {fileID: 5446539101406495260}
   - {fileID: 7748373939144807630}
+  _plantModel: {fileID: 0}
 --- !u!1001 &1383096331496264594
 PrefabInstance:
   m_ObjectHideFlags: 0
