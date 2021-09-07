@@ -16,6 +16,14 @@ public class GameManager: MonoBehaviour
     [SerializeField]
     private int _scoreToChangeScene;
 
+    [Header("Valeur de départ à insérer dans le même ordre dans chaque liste")]
+    [SerializeField]
+    private List<CardScriptable> cardScriptables = new List<CardScriptable>();
+
+    [SerializeField]
+    private List<IntVariable> cardsIntvariable = new List<IntVariable>();
+
+
     #endregion
 
     #region Public Methods
@@ -42,5 +50,20 @@ public class GameManager: MonoBehaviour
     public void Awake()
     {
         _currentScore.Value = 0;
+        if(cardScriptables.Count == cardsIntvariable.Count)
+        {
+            for (int i = 0; i < cardScriptables.Count; i++)
+            {
+                cardsIntvariable[i].Value = cardScriptables[i]._usingLimitation;
+            }
+        }
+        else
+        {
+            Debug.Log("pas le même nombre de cartes");
+        }
     }
+
+    
+
+
 }
