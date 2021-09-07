@@ -2225,7 +2225,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _textLimitation
       value: 
-      objectReference: {fileID: 1094442945014858780}
+      objectReference: {fileID: 9005689852544407423}
     - target: {fileID: 6548185811734685258, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: card
       value: 
@@ -2304,6 +2304,17 @@ Transform:
 --- !u!114 &1094442945014858780 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2015274982946359186, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+  m_PrefabInstance: {fileID: 1497323611608105870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9005689852544407423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7511209028971336945, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
   m_PrefabInstance: {fileID: 1497323611608105870}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
