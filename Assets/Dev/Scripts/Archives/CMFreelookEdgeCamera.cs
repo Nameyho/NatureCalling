@@ -62,19 +62,8 @@ public class CMFreelookEdgeCamera : MonoBehaviour
     {
         float up =  Input.GetAxis("Mouse ScrollWheel");
         Cursor.lockState = CursorLockMode.Confined;
-        if (up != 0)
-        {
-            //ZoomScreen(up);
-        }
-        if(up > 0)
-        {
-            ZoomScreen(_zoomMultiply);
-        }
-        else if(up<0)
-        {
-            ZoomScreen(-_zoomMultiply);
-        }
-
+        
+        ZoomScreen(_zoomMultiply *up);
         Pan();
 
 
@@ -82,40 +71,25 @@ public class CMFreelookEdgeCamera : MonoBehaviour
 
     public void ZoomScreen(float increment)
     {
-        float radius;
-        float target;
-  
-        if(increment> 0 ) // 10 = zoom
-        {
-             radius=  m_virtualCamera.m_Orbits[0].m_Radius;
-             target = Mathf.Clamp(radius-increment, ZoomInMax, ZoomOutMax);
+        float radius=  m_virtualCamera.m_Orbits[0].m_Radius;
 
-                m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(radius,target, _SpeedZoom * Time.deltaTime);
-                m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
-                m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
+        m_virtualCamera.m_Orbits[1].m_Radius = radius-increment *Time.deltaTime;
+        m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Clamp(m_virtualCamera.m_Orbits[1].m_Radius, ZoomInMax, ZoomOutMax);
+        m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius ;
+        m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius ;
 
 
-            
-            
-            
+        //if( increment<0) // -10 = dezoom
+        //{
+        //     radius = m_virtualCamera.m_Orbits[0].m_Radius;
+        //     target = Mathf.Clamp(radius-increment, ZoomInMax, ZoomOutMax);
 
-        }
-        if( increment<0) // -10 = dezoom
-        {
-             radius = m_virtualCamera.m_Orbits[0].m_Radius;
-             target = Mathf.Clamp(radius-increment, ZoomInMax, ZoomOutMax);
-
+        //    m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);
+        //    m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
+        //    m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
 
 
-
-            m_virtualCamera.m_Orbits[1].m_Radius = Mathf.Lerp(target, radius, _SpeedZoom * Time.deltaTime);
-            m_virtualCamera.m_Orbits[0].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 5;
-            m_virtualCamera.m_Orbits[2].m_Radius = m_virtualCamera.m_Orbits[1].m_Radius - 10;
-
-
-
-
-        }
+        //}
 
 
     }
