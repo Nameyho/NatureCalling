@@ -24,6 +24,16 @@ public class GameManager: MonoBehaviour
     private List<IntVariable> cardsIntvariable = new List<IntVariable>();
 
 
+    [Header("Layering bonus à insérer dans le même ordre dans chaque liste")]
+    [SerializeField]
+    private IntVariable[] _layeringCard;
+
+    [SerializeField]
+    private float[] _layeringTime;
+
+
+    private float[] _lastTime;
+
     #endregion
 
     #region Public Methods
@@ -47,7 +57,10 @@ public class GameManager: MonoBehaviour
         }
     }
 
-    public void Awake()
+
+    #region Unity API
+
+    private void Awake()
     {
         _currentScore.Value = 0;
         if(cardScriptables.Count == cardsIntvariable.Count)
@@ -61,9 +74,42 @@ public class GameManager: MonoBehaviour
         {
             Debug.Log("pas le même nombre de cartes");
         }
+
+        if(_layeringCard.Length == _layeringTime.Length)
+        {
+            _lastTime = new float[_layeringTime.Length];
+        }
+        else
+        {
+            Debug.Log("pas le même nombre de cartes");
+        }
     }
 
-    
+    private void Update()
+    {
+        AddLayering();
+    }
 
+
+
+    #endregion
+
+
+
+    #region privates methods
+
+    private void AddLayering()
+    {
+        for (int i = 0; i < _layeringTime.Length; i++)
+        {
+            if(Time.time - _lastTime[i]> _layeringTime[i])
+            {
+                _layeringCard[i].Value++;
+                _lastTime[i] = Time.time;
+            }
+        }
+    }
+
+    #endregion
 
 }
