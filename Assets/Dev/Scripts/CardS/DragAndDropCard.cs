@@ -234,13 +234,15 @@ public class DragAndDropCard : MonoBehaviour
 					
 					if (hit.transform.GetComponentInParent<Plants>() || hit.transform.GetComponentInParent<Building>())
 					{
+						Plants p = hit.transform.GetComponentInParent<Plants>();
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
 							
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-							_score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
-							hit.transform.GetComponentInParent<Plants>().GetGroundLayering().DeletePlants();
+							_score.Value -=p.getBonusMalus();
+							p.GetGroundLayering().DeletePlants();
+							p.NoticeOtherAboutDestruction();
 							FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
 							Destroy(hit.transform.parent.gameObject);
 							seed.AddLimitation();

@@ -187,9 +187,6 @@ public class Seeding : MonoBehaviour
                 }
                 if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && hit.transform.tag=="BuildingZone")
                 {
-                     
-
-
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
