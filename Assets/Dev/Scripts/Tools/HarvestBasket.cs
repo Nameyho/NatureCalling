@@ -11,6 +11,15 @@ public class HarvestBasket : MonoBehaviour
     private IntVariable _score;
 
     #endregion
+
+    #region Private
+
+    #endregion
+
+    #region public
+
+
+    #endregion
     #region Unity API
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +33,9 @@ public class HarvestBasket : MonoBehaviour
                 if (gp.IsDestroyOnHarvest())
                 {
                     //_score.Value -= other.GetComponentInParent<Plants>().getBonusMalus();
+                    FindObjectOfType<PlantsManager>().DeletePlantInMapList(other.transform.parent.transform.gameObject);
                     Destroy(other.transform.parent.transform.gameObject);
+
                 }
                 else
                 {

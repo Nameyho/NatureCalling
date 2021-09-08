@@ -193,6 +193,7 @@ public class DragAndDropCard : MonoBehaviour
 						if (Input.GetMouseButtonDown(0))
 						{
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+						
 							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
 						}
 
@@ -240,7 +241,9 @@ public class DragAndDropCard : MonoBehaviour
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 							_score.Value -= hit.transform.GetComponentInParent<Plants>().getBonusMalus();
 							hit.transform.GetComponentInParent<Plants>().GetGroundLayering().DeletePlants();
+							FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
 							Destroy(hit.transform.parent.gameObject);
+							seed.AddLimitation();
 							Destroy(go,5f);
 						}
 

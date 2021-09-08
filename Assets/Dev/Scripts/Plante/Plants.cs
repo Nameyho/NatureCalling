@@ -1,37 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class Plants : MonoBehaviour
 {
 
     #region Exposed
 
-    [SerializeField]
-    private int _bonusMalus;
+    [Header("Pousse")]
+
 
     [SerializeField]
     private float _TotalGrowTime;
 
+    [Header("Gain à l'arrosage")]
+    [SerializeField]
+    private int _bonusMalus;
+
     [SerializeField]
     private float _wateredTime = 20f;
 
+    [Header("Compatibilité")]
     [SerializeField]
-    private List<Plants> _compatibilytPlants = new List<Plants>();
+    private List<CardScriptable> _compatibilytPlants = new List<CardScriptable>();
+
+    [SerializeField]
+    private CardScriptable _card;
+
+    [SerializeField]
+    private float _radiusDetection;
+
+    [SerializeField]
+    private float _complement;
+
+    [Header("Limitation du nombre de plante")]
+    [SerializeField]
+    private IntVariable _limitation;
 
     #endregion
 
     #region private
 
     GrowPlants _gp;
-    Rigidbody _rb;
     float _phaseTime;
     float _spawnTime;
     int _MultiplyWatered = 0;
     float _timewhenLastwatered;
-    int _Waterdurability;
+    float _completscore;
+    Transform _transform;
+
     int _PollinatorDurability;
-    
+
+    string _name;
 
     private GroundLayering _groundLayering;
 
@@ -42,11 +63,13 @@ public class Plants : MonoBehaviour
     private void Awake()
     {
         _gp = GetComponent<GrowPlants>();
-        _rb = GetComponent<Rigidbody>();
         _phaseTime = _TotalGrowTime / _gp.GetMaxTier();
         _spawnTime = Time.time;
         FindObjectOfType<PlantsManager>().AddPlantInMapList(this.gameObject);
-        
+        _name = _card._CardName;
+        _transform = GetComponent<Transform>();
+        GetAllPlantHitted();
+
     }
     //private void OnTriggerEnter(Collider other)
     //{
@@ -58,10 +81,10 @@ public class Plants : MonoBehaviour
 
     //}
 
-
-    private void Update()
+    private void FixedUpdate()
     {
         GrowPlantWithTime();
+
     }
     #endregion
 
@@ -69,14 +92,58 @@ public class Plants : MonoBehaviour
 
     private void GrowPlantWithTime()
     {
-        if((Time.time - _spawnTime) + (_wateredTime * _MultiplyWatered )  > _phaseTime * _gp.GetCurrentTier())
+        // (temps global - le temps de la plante ) + ( le temps que gagne à l'arrosage * le nombre d'arrossage)  *
+        // ( 1 * le nombre de plante complémentaire) > le temps d'une phase * le tiers actuel
+
+        float basicTime = Time.time - _spawnTime;
+        float wateredtime = _wateredTime * _MultiplyWatered;
+        float completTime = 1  +(1* (_complement * _completscore));
+
+            if (((basicTime + wateredtime) * completTime)> (_phaseTime *( _gp.GetCurrentTier()+1)))
+            {
+            
+                _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+            
+
+        }
+
+        
+     
+    }
+
+    private void GetAllPlantHitted()
+    {
+        CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+        Collider[] hits = Physics.OverlapSphere(_transform.position, _radiusDetection);
+        for (int i = 0; i < hits.Length; i++)
         {
-            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+            if (hits[i].GetComponent<CapsuleCollider>())
+            {
+                CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+
+                Debug.Log(hc.transform.parent.name);
+
+                if (hc.GetComponentInParent<Plants>() &&
+                    !(cc.GetInstanceID().Equals(hc.GetInstanceID())) 
+                    && (hc.GetInstanceID() != 0))
+                {
+
+                    if (CheckIsCompatible(hits[i].GetComponentInParent<Plants>()))
+                    {
+                        Debug.Log("on est compatible alors viens ici que je te dope ");
+                        _completscore++;
+                    }
+
+            }
+            }
+
         }
     }
 
-
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(_transform.position, _radiusDetection);
+    }
     #endregion
 
     #region public
@@ -96,20 +163,20 @@ public class Plants : MonoBehaviour
     //    Destroy(_rb);
     //}
 
-    public void AddTier(int durability,GameObject go)
+    public void AddTier(int durability, GameObject go)
     {
-        if (go.GetComponent<WaterCan>()&& (Time.time -_timewhenLastwatered> _wateredTime))
+        if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _wateredTime))
         {
             //_Waterdurability = durability;
-            _gp.SetCurrentTier(_gp.GetCurrentTier() +_bonusMalus);
+            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
         }
         if (_PollinatorDurability == 0 && durability > 0 && go.GetComponent<Pollinator>())
         {
-          //  _PollinatorDurability = durability;
+            //  _PollinatorDurability = durability;
             _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
-            
+
         }
     }
 
@@ -126,14 +193,14 @@ public class Plants : MonoBehaviour
     //public void GetAllPlants()
     //{
     //    Plants[] Plants = FindObjectsOfType<Plants>();
-        
+
     //    for (int i = 0; i < Plants.Length; i++)
     //    {
     //        Plants[i].ApplyEffect();
     //    }
     //}
 
-    public void SetGroundLayering(GroundLayering gl) 
+    public void SetGroundLayering(GroundLayering gl)
     {
         _groundLayering = gl;
     }
@@ -151,6 +218,39 @@ public class Plants : MonoBehaviour
     public void ResetMultiply()
     {
         _MultiplyWatered = 0;
+    }
+
+    public int GetPlantHashcode()
+    {
+        return _name.GetHashCode();
+    }
+
+    #endregion
+    #region main
+
+    private void OnDestroy()
+    {
+        _limitation.Value++;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public bool CheckIsCompatible(Plants plantIn)
+    {
+        bool _isIn = false;
+        foreach (CardScriptable plant in _compatibilytPlants) { 
+
+            if (plant._CardName.Equals(plantIn.GetName()))
+            {
+                //ffze
+                _isIn = true;
+            }
+        }
+
+        return _isIn;
     }
     #endregion
 }

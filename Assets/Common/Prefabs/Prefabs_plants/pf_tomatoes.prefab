@@ -156,7 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _TotalGrowTime: 0
   _bonusMalus: 1
+  _wateredTime: 20
+  _compatibilytPlants: []
+  _card: {fileID: 11400000, guid: 4a0c719e9754581499137f439466e245, type: 2}
+  _limitation: {fileID: 11400000, guid: 897e2cb5ddd3f41439d3d74cb1822140, type: 2}
 --- !u!114 &-8059996860377230155
 MonoBehaviour:
   m_ObjectHideFlags: 0

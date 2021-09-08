@@ -71,5 +71,6 @@ public class Cards : MonoBehaviour
         _name.text = card._CardName;
     }
 
+
     #endregion
 }

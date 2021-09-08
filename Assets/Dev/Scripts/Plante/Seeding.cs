@@ -174,6 +174,7 @@ public class Seeding : MonoBehaviour
                         plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                         hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
+                            _cardLimitation.Value--;
                     }
 
                 }
@@ -210,6 +211,8 @@ public class Seeding : MonoBehaviour
                         _cardLimitation.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
+                
+             
 
 
                 //GetComponent<Cards>().PlayThisCard();
@@ -220,14 +223,14 @@ public class Seeding : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region public
     public void UpdateTextLimitation()
     {
      
         _textLimitation.text = _cardLimitation.Value.ToString();
     }
-    #endregion
-
-    #region public
 
     public void SetIsSelected(bool f)
     {
@@ -239,5 +242,16 @@ public class Seeding : MonoBehaviour
     {
         _isBuildable = b;
     }
+
+    public void AddLimitation()
+    {
+        _cardLimitation.Value++;
+    }
+
+    public IntVariable GetLimitation()
+    {
+        return _cardLimitation;
+    }
+   
     #endregion
 }
