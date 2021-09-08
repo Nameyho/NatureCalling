@@ -224,7 +224,7 @@ public class GrowPlants : MonoBehaviour
 
         if (growValue >= _maxGrow)
         {
-
+            Debug.Log(Time.time);
             fullyGrown = true;
         }
         else

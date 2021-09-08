@@ -31,6 +31,9 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private float _radiusDetection;
 
+    [SerializeField]
+    private float _complement;
+
     [Header("Limitation du nombre de plante")]
     [SerializeField]
     private IntVariable _limitation;
@@ -44,6 +47,7 @@ public class Plants : MonoBehaviour
     float _spawnTime;
     int _MultiplyWatered = 0;
     float _timewhenLastwatered;
+    float _completscore;
     Transform _transform;
 
     int _PollinatorDurability;
@@ -88,10 +92,23 @@ public class Plants : MonoBehaviour
 
     private void GrowPlantWithTime()
     {
-        if ((Time.time - _spawnTime) + (_wateredTime * _MultiplyWatered) > _phaseTime * _gp.GetCurrentTier())
-        {
-            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+        // (temps global - le temps de la plante ) + ( le temps que gagne à l'arrosage * le nombre d'arrossage)  *
+        // ( 1 * le nombre de plante complémentaire) > le temps d'une phase * le tiers actuel
+
+        float basicTime = Time.time - _spawnTime;
+        float wateredtime = _wateredTime * _MultiplyWatered;
+        float completTime = 1  +(1* (_complement * _completscore));
+
+            if (((basicTime + wateredtime) * completTime)> (_phaseTime *( _gp.GetCurrentTier()+1)))
+            {
+            
+                _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+            
+
         }
+
+        
+     
     }
 
     private void GetAllPlantHitted()
@@ -114,6 +131,7 @@ public class Plants : MonoBehaviour
                     if (CheckIsCompatible(hits[i].GetComponentInParent<Plants>()))
                     {
                         Debug.Log("on est compatible alors viens ici que je te dope ");
+                        _completscore++;
                     }
 
             }
