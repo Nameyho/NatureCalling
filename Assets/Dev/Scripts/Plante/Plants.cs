@@ -49,6 +49,8 @@ public class Plants : MonoBehaviour
     float _timewhenLastwatered;
     float _completscore;
     Transform _transform;
+    List<AlreadyUseCard> _usedCardsList = new List<AlreadyUseCard>();
+     
 
     int _PollinatorDurability;
 
@@ -121,7 +123,7 @@ public class Plants : MonoBehaviour
             {
                 CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
 
-                Debug.Log(hc.transform.parent.name);
+              
 
                 if (hc.GetComponentInParent<Plants>() &&
                     !(cc.GetInstanceID().Equals(hc.GetInstanceID())) 
@@ -131,7 +133,7 @@ public class Plants : MonoBehaviour
                     if (CheckIsCompatible(hits[i].GetComponentInParent<Plants>()))
                     {
 
-                        Debug.Log("on est compatible alors viens ici que je te dope ");
+                      
                         _completscore++;
                     }
 
@@ -248,6 +250,8 @@ public class Plants : MonoBehaviour
             {
                   _isIn = true;
                 _compatibilytPlants.Remove(plantIn._card);
+                AlreadyUseCard temp = new AlreadyUseCard(plantIn._card, 1);
+                _usedCardsList.Add(temp);
                plantIn.AddCompletScore(_card);
                 return _isIn;
             }
@@ -258,8 +262,26 @@ public class Plants : MonoBehaviour
 
     public void AddCompletScore(CardScriptable card)
     {
-        _completscore++;
-        _compatibilytPlants.Remove(card);
+        if (_compatibilytPlants.Contains(card))
+        {
+            _completscore++;
+            _compatibilytPlants.Remove(card);
+            
+        }
     }
     #endregion
+
+        public class  AlreadyUseCard 
+        {
+        public CardScriptable _card;
+        public int _around;
+
+            public AlreadyUseCard(CardScriptable cs, int around)
+            {
+            _card = cs;
+            _around = around;
+
+            }
+       
+        }
 }
