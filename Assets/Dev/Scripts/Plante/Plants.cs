@@ -130,6 +130,7 @@ public class Plants : MonoBehaviour
 
                     if (CheckIsCompatible(hits[i].GetComponentInParent<Plants>()))
                     {
+
                         Debug.Log("on est compatible alors viens ici que je te dope ");
                         _completscore++;
                     }
@@ -245,12 +246,20 @@ public class Plants : MonoBehaviour
 
             if (plant._CardName.Equals(plantIn.GetName()))
             {
-                //ffze
-                _isIn = true;
+                  _isIn = true;
+                _compatibilytPlants.Remove(plantIn._card);
+               plantIn.AddCompletScore(_card);
+                return _isIn;
             }
         }
 
         return _isIn;
+    }
+
+    public void AddCompletScore(CardScriptable card)
+    {
+        _completscore++;
+        _compatibilytPlants.Remove(card);
     }
     #endregion
 }

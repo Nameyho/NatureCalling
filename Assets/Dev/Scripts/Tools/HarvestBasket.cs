@@ -45,7 +45,7 @@ public class HarvestBasket : MonoBehaviour
                     plant.resetSpawnTime();
                     plant.ResetMultiply();
                 }
-
+                _score.Value += plant.getBonusMalus();
             }
            
         }
