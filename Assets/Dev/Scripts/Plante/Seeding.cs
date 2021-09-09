@@ -220,7 +220,7 @@ public class Seeding : MonoBehaviour
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
                
-                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) || _isLayeringNotAlreadyPlant)
+                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) ||( _isLayeringNotAlreadyPlant &&cs._isLayering) )
                     {
                         _DaD.GetRotation();
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
