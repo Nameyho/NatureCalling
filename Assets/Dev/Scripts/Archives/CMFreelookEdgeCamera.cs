@@ -12,8 +12,6 @@ public class CMFreelookEdgeCamera : MonoBehaviour
 
     [Header("Zoom")]
 
-    [SerializeField]
-    private float _SpeedZoom = 3f;
 
     [SerializeField]
     private float ZoomInMax = 5f;
