@@ -157,10 +157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TotalGrowTime: 100
-  _BonusMalus: 50
+  _BonusMalus: 0
   _step: 1
-  _wateredTime: 10
-  _waterCanCooldown: 60
+  _wateredTime: 20
+  _waterCanCooldown: 0
   _compatibilytPlants:
   - {fileID: 0}
   _card: {fileID: 11400000, guid: a0a7186c0c6205a4f933ebe9adf9eb2c, type: 2}
