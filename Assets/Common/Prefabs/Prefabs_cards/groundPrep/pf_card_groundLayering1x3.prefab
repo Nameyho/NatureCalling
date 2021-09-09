@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 706430000821571745}
   m_Layer: 0
   m_Name: mod_groundLayering_1x3Ghost
-  m_TagString: Untagged
+  m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 7046556453952346103, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046556453952346103, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: m_TagString
+      value: Cards
       objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_RootOrder

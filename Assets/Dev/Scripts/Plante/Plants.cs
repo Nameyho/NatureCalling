@@ -16,7 +16,7 @@ public class Plants : MonoBehaviour
 
     [Header("Gain à la recolte")]
     [SerializeField]
-    private int _BonusMalus;
+    private int _HarvestBonus;
 
     [Header("Step")]
     [SerializeField]
@@ -163,7 +163,7 @@ public class Plants : MonoBehaviour
 
     public int getBonusMalus()
     {
-        return _BonusMalus;
+        return _HarvestBonus;
     }
 
     //public void GetAllPlants()
