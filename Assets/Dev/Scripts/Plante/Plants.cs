@@ -16,7 +16,7 @@ public class Plants : MonoBehaviour
 
     [Header("Gain à l'arrosage")]
     [SerializeField]
-    private int _bonusMalus;
+    private int _BonusMalus;
 
     [SerializeField]
     private float _wateredTime = 20f;
@@ -60,8 +60,9 @@ public class Plants : MonoBehaviour
 
     private void Awake()
     {
-        _gp = GetComponent<GrowPlants>();
+        _gp = GetComponentInParent<GrowPlants>();
         _phaseTime = _TotalGrowTime / _gp.GetMaxTier();
+        Debug.Log(_phaseTime);
         _spawnTime = Time.time;
         FindObjectOfType<PlantsManager>().AddPlantInMapList(this.gameObject);
         _name = _card._CardName;
@@ -69,15 +70,6 @@ public class Plants : MonoBehaviour
         GetAllPlantHitted();
 
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.tag== "Plants"  )
-    //    {
-    //        Debug.Log(other.name);
-    //        other.GetComponentInParent<Plants>().ApplyEffect();
-    //    }
-
-    //}
 
     private void FixedUpdate()
     {
@@ -100,7 +92,7 @@ public class Plants : MonoBehaviour
             if (((basicTime + wateredtime) * completTime)> (_phaseTime *( _gp.GetCurrentTier()+1)))
             {
             
-                _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
+                _gp.SetCurrentTier(_gp.GetCurrentTier() + _BonusMalus);
             
 
         }
@@ -140,46 +132,30 @@ public class Plants : MonoBehaviour
 
     #region public
 
-    //public void ApplyEffect()
-    //{
-    //    _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
-    //    if (_Waterdurability > 0)
-    //    {
-    //    _Waterdurability--;
 
-    //    }
-    //    if (_PollinatorDurability> 0)
-    //    {
-    //        _PollinatorDurability--;
-    //    }
-    //    Destroy(_rb);
-    //}
-
-    public void AddTier(int durability, GameObject go)
+    public void AddTier( GameObject go)
     {
-        if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _wateredTime))
+        if(_MultiplyWatered == 0)
         {
-            //_Waterdurability = durability;
-            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
         }
-        if (_PollinatorDurability == 0 && durability > 0 && go.GetComponent<Pollinator>())
+        if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _wateredTime))
         {
-            //  _PollinatorDurability = durability;
-            _gp.SetCurrentTier(_gp.GetCurrentTier() + _bonusMalus);
-
+            _MultiplyWatered++;
+            _timewhenLastwatered = Time.time;
         }
+
     }
 
     public void DeleteTier()
     {
-        _gp.SetCurrentTier(_gp.GetCurrentTier() - _bonusMalus);
+        _gp.SetCurrentTier(_gp.GetCurrentTier() - _BonusMalus);
     }
 
     public int getBonusMalus()
     {
-        return _bonusMalus;
+        return _BonusMalus;
     }
 
     //public void GetAllPlants()
@@ -249,23 +225,22 @@ public class Plants : MonoBehaviour
 
     public void AddOnUsedCardList(CardScriptable cs)
     {
-        Debug.Log(_usedCardsList.Count);
         for (int i = 0; i < _usedCardsList.Count; i++)
         {
-            Debug.Log(_usedCardsList[i]._cardAlreadyUse._CardName);
-            Debug.Log(cs._CardName);
+
             if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(cs._CardName))
             {
-                if(_usedCardsList[i]._around== 0)
+
+                if(_usedCardsList[i]._around== 1)
                 {
                     _usedCardsList.Remove(_usedCardsList[i]);
                     _compatibilytPlants.Add(cs);
-                }else if (_usedCardsList[i]._around >0)
+                    _completscore--;
+                }else if (_usedCardsList[i]._around >1)
                 {
                     _usedCardsList[i]._around--;
                 }
 
-                _completscore--;
             }
         }
     }
@@ -273,6 +248,11 @@ public class Plants : MonoBehaviour
     public string GetName()
     {
         return _name;
+    }
+
+    public float GetTotalGrowTime()
+    {
+        return _TotalGrowTime;
     }
 
     public bool CheckIsCompatible(Plants plantIn)
@@ -290,7 +270,7 @@ public class Plants : MonoBehaviour
                 return _isIn;
             }
         }
-        Debug.Log(_usedCardsList.Count);
+
         if (!_isIn)
         {
             for (int i = 0; i < _usedCardsList.Count; i++)
@@ -320,11 +300,12 @@ public class Plants : MonoBehaviour
 
     }
 
-    
+
 
 
     #endregion
 
+    #region External Class
     public class  AlreadyUseCard 
         {
         public CardScriptable _cardAlreadyUse;
@@ -338,4 +319,6 @@ public class Plants : MonoBehaviour
             }
        
         }
+
+    #endregion
 }
