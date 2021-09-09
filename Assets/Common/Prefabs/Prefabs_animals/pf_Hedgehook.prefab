@@ -45,7 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7e239e434f41d409e2dbf9b9e9bd52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
+  points:
+  - {fileID: 2226614575655289361, guid: 769cda614c63c34418b2032b1040d6e3, type: 3}
+  - {fileID: 5631626192790498027, guid: 5331ef0571648b34cbd5350f88b3b8f9, type: 3}
+  - {fileID: 737434661589422765, guid: bffee7593ede6b74c841084b2b284f7e, type: 3}
+  - {fileID: 677630158694960993, guid: 22c0fe1d50ddb2b41be310615ea81a52, type: 3}
+  - {fileID: 2523109573740481586, guid: c439d9fb01f65fd4aa2afe41de659112, type: 3}
 --- !u!195 &1710626831692622073
 NavMeshAgent:
   m_ObjectHideFlags: 0

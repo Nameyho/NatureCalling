@@ -14,10 +14,11 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private float _TotalGrowTime;
 
-    [Header("Gain à l'arrosage")]
+    [Header("Gain à la recolte")]
     [SerializeField]
     private int _BonusMalus;
 
+    [Header("Temps gagné à chaque arrosage")]
     [SerializeField]
     private float _wateredTime = 20f;
 
@@ -62,7 +63,6 @@ public class Plants : MonoBehaviour
     {
         _gp = GetComponentInParent<GrowPlants>();
         _phaseTime = _TotalGrowTime / _gp.GetMaxTier();
-        Debug.Log(_phaseTime);
         _spawnTime = Time.time;
         FindObjectOfType<PlantsManager>().AddPlantInMapList(this.gameObject);
         _name = _card._CardName;
@@ -231,12 +231,12 @@ public class Plants : MonoBehaviour
             if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(cs._CardName))
             {
 
-                if(_usedCardsList[i]._around== 1)
+                if(_usedCardsList[i]._around== 0)
                 {
                     _usedCardsList.Remove(_usedCardsList[i]);
                     _compatibilytPlants.Add(cs);
                     _completscore--;
-                }else if (_usedCardsList[i]._around >1)
+                }else if (_usedCardsList[i]._around >0)
                 {
                     _usedCardsList[i]._around--;
                 }
