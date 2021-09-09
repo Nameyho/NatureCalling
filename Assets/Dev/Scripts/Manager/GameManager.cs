@@ -26,11 +26,14 @@ public class GameManager: MonoBehaviour
 
     [Header("Layering bonus à insérer dans le même ordre dans chaque liste")]
     [SerializeField]
-    private IntVariable[] _layeringCard;
+    private IntVariable[] _numbersOfCardAtBeginning;
 
     [SerializeField]
-    private float[] _layeringTime;
+    private float[] _layeringAddEveryXSecond;
 
+
+    [SerializeField]
+    private float[] _MaxCardLayering;
 
     private float[] _lastTime;
 
@@ -57,6 +60,7 @@ public class GameManager: MonoBehaviour
         }
     }
 
+    private float[] _privateLayeringMax;
 
     #region Unity API
 
@@ -75,9 +79,16 @@ public class GameManager: MonoBehaviour
             Debug.Log("pas le même nombre de cartes");
         }
 
-        if(_layeringCard.Length == _layeringTime.Length)
+        if ((_numbersOfCardAtBeginning.Length == _layeringAddEveryXSecond.Length)  && (_MaxCardLayering.Length == _layeringAddEveryXSecond.Length))
         {
-            _lastTime = new float[_layeringTime.Length];
+            _lastTime = new float[_layeringAddEveryXSecond.Length];
+        
+            _privateLayeringMax = _MaxCardLayering;
+
+            for (int i = 0; i < _privateLayeringMax.Length; i++)
+            {
+                _privateLayeringMax[i] -= _numbersOfCardAtBeginning[i].Value;
+            }
         }
         else
         {
@@ -100,12 +111,15 @@ public class GameManager: MonoBehaviour
 
     private void AddLayering()
     {
-        for (int i = 0; i < _layeringTime.Length; i++)
+        for (int i = 0; i < _layeringAddEveryXSecond.Length; i++)
         {
-            if(Time.time - _lastTime[i]> _layeringTime[i])
+            if(Time.time - _lastTime[i]> _layeringAddEveryXSecond[i] && (_privateLayeringMax[i]>0))
             {
-                _layeringCard[i].Value++;
+                Debug.Log(_privateLayeringMax[i]);
+                _numbersOfCardAtBeginning[i].Value++;
                 _lastTime[i] = Time.time;
+                _privateLayeringMax[i]--;
+                
             }
         }
     }

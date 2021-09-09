@@ -37,6 +37,8 @@ public class CardScriptable : ScriptableObject
 
     [Header("Limitation de la carte")]
 
+
+    public int _numberCardsAtStart;
     public int _usingLimitation;
 
     //public bool _isUsingLimited;

@@ -22,6 +22,9 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private float _wateredTime = 20f;
 
+    [SerializeField]
+    private float _waterCanCooldown; 
+
     [Header("Compatibilité")]
     [SerializeField]
     private List<CardScriptable> _compatibilytPlants = new List<CardScriptable>();
@@ -140,8 +143,9 @@ public class Plants : MonoBehaviour
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
         }
-        if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _wateredTime))
+        if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _waterCanCooldown))
         {
+ 
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
         }
