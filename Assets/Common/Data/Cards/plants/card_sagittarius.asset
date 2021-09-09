@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
-  m_Name: card_sunflower
+  m_Name: card_sagittarius
   m_EditorClassIdentifier: 
-  _CardName: Sunflower
+  _CardName: Sagittarius
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 3276662385629234362, guid: 1be9f613388e90246a1072632ae30419, type: 3}
-  _isPlant: 1
-  _isAquaticPlant: 0
+  _cardModel: {fileID: 5451812157545168639, guid: 70b186dcf6884a34cba8c69393177958, type: 3}
+  _isPlant: 0
+  _isAquaticPlant: 1
   _isWaterCan: 0
   _IsBasket: 0
   _isShovel: 0
   _isBuilding: 0
   _isLayering: 0
   _isInsectPollinator: 0
-  _prefabToSpawn: {fileID: 8280670437141093787, guid: 964bedd821c26894b9520ec8a0db894c, type: 3}
+  _prefabToSpawn: {fileID: 8280670437141093787, guid: 47588c983f1df5947941eb0b5dc9e22a, type: 3}
   _bonusBioDiversity: 1
   _numberCardsAtStart: 666
