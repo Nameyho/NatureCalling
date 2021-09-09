@@ -156,11 +156,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 0
-  _bonusMalus: 1
-  _wateredTime: 20
+  _TotalGrowTime: 100
+  _BonusMalus: 50
+  _step: 1
+  _wateredTime: 10
+  _waterCanCooldown: 60
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: 2617f1149047d57449594c5dedcf901d, type: 2}
+  _radiusDetection: 0
+  _complement: 0
   _limitation: {fileID: 11400000, guid: 2e7f7967ff18e09468900a4f9350641f, type: 2}
 --- !u!114 &1212824115800035596
 MonoBehaviour:
@@ -177,7 +181,6 @@ MonoBehaviour:
   _growPlantMeshes:
   - {fileID: 2541434941185878743}
   _plantTier: {fileID: 11400000, guid: 9242af3f69aa10549ae29909c39cef21, type: 2}
-  _timeToGrow: 5
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
