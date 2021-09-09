@@ -98,7 +98,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: "\u221E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282212743
-  m_fontColor: {r: 0.5294118, g: 0.3803922, b: 0.2392157, a: 1}
+    rgba: 4279769885
+  m_fontColor: {r: 0.11320752, g: 0.10775311, b: 0.09558559, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287151643
-  m_fontColor: {r: 0.10588236, g: 0.74509805, b: 0.53333336, a: 1}
+    rgba: 4280626739
+  m_fontColor: {r: 0.1981132, g: 0.18225548, b: 0.14671591, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -734,7 +734,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.27553847, y: 0.4361157, z: 0.07335499}
-  m_Center: {x: 0, y: 0, z: -0.2}
+  m_Center: {x: 0, y: 0, z: -0.21}
 --- !u!114 &470302230727989669
 MonoBehaviour:
   m_ObjectHideFlags: 0
