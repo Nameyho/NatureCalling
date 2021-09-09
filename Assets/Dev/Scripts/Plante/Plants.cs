@@ -50,12 +50,8 @@ public class Plants : MonoBehaviour
     float _completscore;
     Transform _transform;
     List<AlreadyUseCard> _usedCardsList = new List<AlreadyUseCard>();
-     
-
     int _PollinatorDurability;
-
     string _name;
-
     private GroundLayering _groundLayering;
 
     #endregion
@@ -122,22 +118,15 @@ public class Plants : MonoBehaviour
             if (hits[i].GetComponent<CapsuleCollider>())
             {
                 CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
-
-              
-
                 if (hc.GetComponentInParent<Plants>() &&
                     !(cc.GetInstanceID().Equals(hc.GetInstanceID())) 
                     && (hc.GetInstanceID() != 0))
                 {
-
                     if (CheckIsCompatible(hits[i].GetComponentInParent<Plants>()))
                     {
-
-                      
                         _completscore++;
                     }
-
-            }
+                }
             }
 
         }
@@ -234,6 +223,51 @@ public class Plants : MonoBehaviour
     private void OnDestroy()
     {
         _limitation.Value++;
+     
+
+
+    }
+
+    public void NoticeOtherAboutDestruction()
+    {
+        CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+        Collider[] hits = Physics.OverlapSphere(_transform.position, _radiusDetection);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].GetComponent<CapsuleCollider>())
+            {
+                CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+                if (hc.GetComponentInParent<Plants>() &&!(cc.GetInstanceID().Equals(hc.GetInstanceID()))&& (hc.GetInstanceID() != 0))
+                {
+                   
+                    hc.GetComponentInParent<Plants>().AddOnUsedCardList(_card);
+                }
+            }
+
+        }
+    }
+
+    public void AddOnUsedCardList(CardScriptable cs)
+    {
+        Debug.Log(_usedCardsList.Count);
+        for (int i = 0; i < _usedCardsList.Count; i++)
+        {
+            Debug.Log(_usedCardsList[i]._cardAlreadyUse._CardName);
+            Debug.Log(cs._CardName);
+            if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(cs._CardName))
+            {
+                if(_usedCardsList[i]._around== 0)
+                {
+                    _usedCardsList.Remove(_usedCardsList[i]);
+                    _compatibilytPlants.Add(cs);
+                }else if (_usedCardsList[i]._around >0)
+                {
+                    _usedCardsList[i]._around--;
+                }
+
+                _completscore--;
+            }
+        }
     }
 
     public string GetName()
@@ -252,8 +286,21 @@ public class Plants : MonoBehaviour
                 _compatibilytPlants.Remove(plantIn._card);
                 AlreadyUseCard temp = new AlreadyUseCard(plantIn._card, 1);
                 _usedCardsList.Add(temp);
-               plantIn.AddCompletScore(_card);
+                plantIn.AddCompletScore(_card);
                 return _isIn;
+            }
+        }
+        Debug.Log(_usedCardsList.Count);
+        if (!_isIn)
+        {
+            for (int i = 0; i < _usedCardsList.Count; i++)
+            {
+                if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(plantIn.GetName()))
+                {
+                    _usedCardsList[i]._around++;
+                    Debug.Log(_usedCardsList[i]._around);
+                }
+
             }
         }
 
@@ -266,19 +313,26 @@ public class Plants : MonoBehaviour
         {
             _completscore++;
             _compatibilytPlants.Remove(card);
-            
+            AlreadyUseCard temp = new AlreadyUseCard(card, 1);
+            _usedCardsList.Add(temp);
+
         }
+
     }
+
+    
+
+
     #endregion
 
-        public class  AlreadyUseCard 
+    public class  AlreadyUseCard 
         {
-        public CardScriptable _card;
+        public CardScriptable _cardAlreadyUse;
         public int _around;
 
             public AlreadyUseCard(CardScriptable cs, int around)
             {
-            _card = cs;
+            _cardAlreadyUse = cs;
             _around = around;
 
             }
