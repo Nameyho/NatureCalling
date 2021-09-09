@@ -267,6 +267,7 @@ public class GrowPlants : MonoBehaviour
     {
         if (_maxTier < tier)
         {
+            currentTier = _maxTier;
             return;
         }
         if (!(currentTier == tier))

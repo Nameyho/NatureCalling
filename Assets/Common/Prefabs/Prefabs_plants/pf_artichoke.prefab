@@ -171,8 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 60
-  _BonusMalus: 1
+  _TotalGrowTime: 30
+  _BonusMalus: 50
+  _step: 11
   _wateredTime: 10
   _waterCanCooldown: 5
   _compatibilytPlants:
