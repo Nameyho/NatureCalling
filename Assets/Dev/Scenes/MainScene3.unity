@@ -1055,7 +1055,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851767067}
-  m_LocalRotation: {x: 0.22057469, y: -0.000000008391294, z: 0.000000001897646, w: 0.9753701}
+  m_LocalRotation: {x: 0.22057469, y: 0.000000008391296, z: -0.0000000018976463, w: 0.9753701}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1184,12 +1184,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 897e2cb5ddd3f41439d3d74cb1822140, type: 2}
   - {fileID: 11400000, guid: b62e729f04950d044957eabc929698d9, type: 2}
   - {fileID: 11400000, guid: a4dc811ecf05ea5459670f6cf859cf4b, type: 2}
-  _layeringCard:
+  _numbersOfCardAtBeginning:
   - {fileID: 11400000, guid: b62e729f04950d044957eabc929698d9, type: 2}
   - {fileID: 11400000, guid: a4dc811ecf05ea5459670f6cf859cf4b, type: 2}
-  _layeringTime:
+  _layeringAddEveryXSecond:
+  - 2
   - 5
+  _MaxCardLayering:
   - 10
+  - 7
 --- !u!1 &907148809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,7 +3151,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506672789}
-  m_LocalRotation: {x: 0.22057469, y: 0.000000008391296, z: -0.0000000018976463, w: 0.9753701}
+  m_LocalRotation: {x: 0.22057469, y: -0.000000008391294, z: 0.000000001897646, w: 0.9753701}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3276,7 +3279,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517450165}
-  m_LocalRotation: {x: 0.2205747, y: 0.0000000083912965, z: -0.0000000018976465, w: 0.9753701}
+  m_LocalRotation: {x: 0.2205747, y: -0.000000008391296, z: 0.0000000018976463, w: 0.9753701}
   m_LocalPosition: {x: 2.5, y: 7.15, z: -16.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4194,7 +4197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentScore: {fileID: 11400000, guid: ba023799744d9eb4ebe7624fc527948e, type: 2}
-  _maximumScore: {fileID: 11400000, guid: 2bf17549230dc1e4e8b898bae83d3b6c, type: 2}
+  _maximumScore: {fileID: 11400000, guid: e117bc4733a57544692771e6a82bf301, type: 2}
 --- !u!114 &2054821464
 MonoBehaviour:
   m_ObjectHideFlags: 0

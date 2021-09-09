@@ -36,7 +36,7 @@ public class Seeding : MonoBehaviour
     [Header("Limitation")]
 
     [SerializeField]
-    private IntVariable _cardLimitation;
+    private IntVariable _remainingCards;
 
 
     [SerializeField]
@@ -155,7 +155,7 @@ public class Seeding : MonoBehaviour
 
         CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
-        if(_cardLimitation.Value > 0)
+        if(_remainingCards.Value > 0)
         {
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
@@ -174,7 +174,7 @@ public class Seeding : MonoBehaviour
                         plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                         hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
-                            _cardLimitation.Value--;
+                          
                     }
 
                 }
@@ -189,8 +189,9 @@ public class Seeding : MonoBehaviour
                 {
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
-                    _gameManager.AddProgression(cs._bonusBioDiversity);
-                        _cardLimitation.Value--;
+                        _remainingCards.Value--;
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
+                        
                 }
                 if(cs._isWaterCan && hit.transform.tag == "Plants")
                 {
@@ -200,12 +201,12 @@ public class Seeding : MonoBehaviour
                     go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
                     //Destroy(go);
                 }
-                if(cs._isBuilding )
+                if(cs._isBuilding  )
                 {
                     _DaD.GetRotation();
                     GameObject go =Instantiate(_plantsPrefabs, hit.point,Quaternion.identity);
                     go.transform.Rotate(0,_DaD.GetRotation().eulerAngles.y,0);
-                        _cardLimitation.Value--;
+                        _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
                 
@@ -226,7 +227,7 @@ public class Seeding : MonoBehaviour
     public void UpdateTextLimitation()
     {
      
-        _textLimitation.text = _cardLimitation.Value.ToString();
+        _textLimitation.text = _remainingCards.Value.ToString();
     }
 
     public void SetIsSelected(bool f)
@@ -242,12 +243,12 @@ public class Seeding : MonoBehaviour
 
     public void AddLimitation()
     {
-        _cardLimitation.Value++;
+        _remainingCards.Value++;
     }
 
     public IntVariable GetLimitation()
     {
-        return _cardLimitation;
+        return _remainingCards;
     }
    
     #endregion
