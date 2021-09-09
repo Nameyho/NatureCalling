@@ -115,7 +115,7 @@ public class GameManager: MonoBehaviour
         {
             if(Time.time - _lastTime[i]> _layeringTime[i] && (_privateLayeringMax[i]>0))
             {
-                Debug.Log(_privateLayeringMax[i]);
+       
                 _layeringCard[i].Value++;
                 _lastTime[i] = Time.time;
                 _privateLayeringMax[i]--;

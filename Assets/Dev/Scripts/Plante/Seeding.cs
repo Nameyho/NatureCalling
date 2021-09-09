@@ -42,6 +42,9 @@ public class Seeding : MonoBehaviour
     [SerializeField]
     private TextMeshPro _textLimitation;
 
+    [SerializeField]
+    private float _CoolddownLayering;
+
     #endregion
 
     #region Private
@@ -51,7 +54,8 @@ public class Seeding : MonoBehaviour
     private Camera cam;
     private bool _isSelected;
     private DragAndDropCard _DaD;
-
+    private float _lastLayeringPlant;
+    private bool _isLayeringNotAlreadyPlant = true;
 
     #endregion
 
@@ -191,7 +195,7 @@ public class Seeding : MonoBehaviour
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                 }
-                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && hit.transform.tag=="BuildingZone")
+                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && !cs._isLayering && hit.transform.tag=="BuildingZone")
                 {
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                     go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
@@ -215,7 +219,18 @@ public class Seeding : MonoBehaviour
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
-                
+               
+                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) || _isLayeringNotAlreadyPlant)
+                    {
+                        _DaD.GetRotation();
+                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                        go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                        _remainingCards.Value--;
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
+                        _lastLayeringPlant = Time.time;
+                        _isLayeringNotAlreadyPlant = false;
+         
+                    }
              
 
 
