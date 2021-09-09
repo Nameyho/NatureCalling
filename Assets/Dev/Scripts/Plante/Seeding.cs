@@ -165,17 +165,23 @@ public class Seeding : MonoBehaviour
 
                 if (hit.transform.tag == "Layering" &&cs._isPlant)
                 {
-                    GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
-                        
-                    plant.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
-                    if (plant.GetComponent<Plants>())
-                    {
-                        //plant.GetComponent<Plants>().GetAllPlants();
-                        plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
-                        _gameManager.AddProgression(cs._bonusBioDiversity);
-                        hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
+
+
+                       if(hit.transform.parent.GetComponent<GroundLayering>().IsLayeringBuildable())
+                        {
+                            GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                            plant.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                            if (plant.GetComponent<Plants>())
+                            {
+                                //plant.GetComponent<Plants>().GetAllPlants();
+                                plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
+                                _gameManager.AddProgression(cs._bonusBioDiversity);
+                                hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
                           
-                    }
+                            }
+
+                        }
+                        
 
                 }
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)

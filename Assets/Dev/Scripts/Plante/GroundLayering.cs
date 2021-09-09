@@ -7,13 +7,24 @@ public class GroundLayering : MonoBehaviour
 
     #region Exposed
 
-    private int _numberOfPlants = 0;
 
     [SerializeField]
     private AudioSource _audioSource;
 
+    [SerializeField]
+    private int _NumberMaxOfPlants;
+
 
     #endregion
+
+
+    #region 
+
+    private int _numberOfPlants = 0;
+
+    #endregion
+
+
 
     #region UnityAPI
 
@@ -47,6 +58,15 @@ public class GroundLayering : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public bool IsLayeringBuildable()
+    {
+        if(_numberOfPlants< _NumberMaxOfPlants)
+        {
+            return true;
+        }
+        return false;
     }
     #endregion
 }

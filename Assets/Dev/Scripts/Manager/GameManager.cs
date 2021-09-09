@@ -26,14 +26,14 @@ public class GameManager: MonoBehaviour
 
     [Header("Layering bonus à insérer dans le même ordre dans chaque liste")]
     [SerializeField]
-    private IntVariable[] _numbersOfCardAtBeginning;
+    private IntVariable[] _layeringCard;
 
     [SerializeField]
-    private float[] _layeringAddEveryXSecond;
+    private float[] _layeringTime;
 
 
     [SerializeField]
-    private float[] _MaxCardLayering;
+    private float[] _layeringMax;
 
     private float[] _lastTime;
 
@@ -71,7 +71,7 @@ public class GameManager: MonoBehaviour
         {
             for (int i = 0; i < cardScriptables.Count; i++)
             {
-                cardsIntvariable[i].Value = cardScriptables[i]._usingLimitation;
+                cardsIntvariable[i].Value = cardScriptables[i]._numberCardsAtStart;
             }
         }
         else
@@ -79,15 +79,15 @@ public class GameManager: MonoBehaviour
             Debug.Log("pas le même nombre de cartes");
         }
 
-        if ((_numbersOfCardAtBeginning.Length == _layeringAddEveryXSecond.Length)  && (_MaxCardLayering.Length == _layeringAddEveryXSecond.Length))
+        if ((_layeringCard.Length == _layeringTime.Length)  && (_layeringMax.Length == _layeringTime.Length))
         {
-            _lastTime = new float[_layeringAddEveryXSecond.Length];
+            _lastTime = new float[_layeringTime.Length];
         
-            _privateLayeringMax = _MaxCardLayering;
+            _privateLayeringMax = _layeringMax;
 
             for (int i = 0; i < _privateLayeringMax.Length; i++)
             {
-                _privateLayeringMax[i] -= _numbersOfCardAtBeginning[i].Value;
+                _privateLayeringMax[i] -= _layeringCard[i].Value;
             }
         }
         else
@@ -111,12 +111,12 @@ public class GameManager: MonoBehaviour
 
     private void AddLayering()
     {
-        for (int i = 0; i < _layeringAddEveryXSecond.Length; i++)
+        for (int i = 0; i < _layeringTime.Length; i++)
         {
-            if(Time.time - _lastTime[i]> _layeringAddEveryXSecond[i] && (_privateLayeringMax[i]>0))
+            if(Time.time - _lastTime[i]> _layeringTime[i] && (_privateLayeringMax[i]>0))
             {
                 Debug.Log(_privateLayeringMax[i]);
-                _numbersOfCardAtBeginning[i].Value++;
+                _layeringCard[i].Value++;
                 _lastTime[i] = Time.time;
                 _privateLayeringMax[i]--;
                 

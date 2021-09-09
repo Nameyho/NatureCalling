@@ -27,6 +27,8 @@ public class CardScriptable : ScriptableObject
 
     public bool _isBuilding;
 
+    public bool _isLayering;
+
     public bool _isInsectPollinator;
 
     [Header("bonus que la carte va apporter")]
@@ -39,7 +41,6 @@ public class CardScriptable : ScriptableObject
 
 
     public int _numberCardsAtStart;
-    public int _usingLimitation;
 
     //public bool _isUsingLimited;
 }
