@@ -14,7 +14,6 @@ public class GrowPlants : MonoBehaviour
     public PlantPhase _plantTier;
 
     [Header("Growing Parameters ")]
-    public float _timeToGrow = 5;
     public float _RefreshRate = 0.05f;
     [Range(0,1)]
     public float _minGrow = 0.2f;
@@ -31,6 +30,7 @@ public class GrowPlants : MonoBehaviour
 
     #region Private
 
+    float _timeToGrow ;
     private List<Material> growPlantsMaterials = new List<Material>();
     private bool fullyGrown;
     private int currentTier = 0 ;
@@ -45,6 +45,7 @@ public class GrowPlants : MonoBehaviour
 
     private void Start()
     {
+        _timeToGrow = GetComponent<Plants>().GetTotalGrowTime();
         _maxTier = _plantTier.PhaseAmount;
         _maxTierDetail = _plantTier.PhaseTodetail;
         _transform = GetComponent<Transform>();
@@ -64,6 +65,7 @@ public class GrowPlants : MonoBehaviour
             }
 
         }
+
 
     }
 
@@ -224,7 +226,7 @@ public class GrowPlants : MonoBehaviour
 
         if (growValue >= _maxGrow)
         {
-            Debug.Log(Time.time);
+         
             fullyGrown = true;
         }
         else

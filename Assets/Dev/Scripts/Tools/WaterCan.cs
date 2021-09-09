@@ -7,8 +7,7 @@ public class WaterCan : MonoBehaviour
 
     #region Exposed
 
-    [SerializeField]
-    private int _durability;
+
     #endregion
 
     #region Unity API
@@ -19,7 +18,7 @@ public class WaterCan : MonoBehaviour
         if(other.tag == "Plants" && other.GetComponentInParent<Plants>())
         {
           
-            other.GetComponentInParent<Plants>().AddTier(_durability,this.gameObject);
+            other.GetComponentInParent<Plants>().AddTier(this.gameObject);
             Destroy(transform.parent.gameObject, 0.5f);
         }
        
