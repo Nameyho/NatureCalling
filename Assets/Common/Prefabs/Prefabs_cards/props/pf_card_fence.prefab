@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2886517011975602215}
   m_Layer: 0
   m_Name: mod_BG_FenceGhost
-  m_TagString: Untagged
+  m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: _name
       value: 
       objectReference: {fileID: 8489257254480464596}
+    - target: {fileID: 7046556453952346103, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
+      propertyPath: m_TagString
+      value: Cards
+      objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
       propertyPath: _RotationSpeed
       value: 100

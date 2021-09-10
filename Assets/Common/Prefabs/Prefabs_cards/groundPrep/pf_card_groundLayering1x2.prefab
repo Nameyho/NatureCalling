@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5033452065300580151}
   m_Layer: 0
   m_Name: mod_groundLayering_1x2Ghost
-  m_TagString: Untagged
+  m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 6772095020623676663, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046556453952346103, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: m_TagString
+      value: Cards
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: _RotationSpeed

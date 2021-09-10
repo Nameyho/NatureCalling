@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3171542709249935748}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   card: {fileID: 0}
   _cardGO: {fileID: 6026189485700990992}
   _GhostCard: {fileID: 7046556453952346103}
+  _name: {fileID: 0}
 --- !u!114 &7441933050289698363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1047564
   _gameManager: {fileID: 8537393271563585056, guid: aa992846c7871d0489d3542d6b96034b, type: 3}
+  _remainingCards: {fileID: 0}
+  _textLimitation: {fileID: 0}
+  _CoolddownLayering: 0
 --- !u!1001 &6583339704167548137
 PrefabInstance:
   m_ObjectHideFlags: 0

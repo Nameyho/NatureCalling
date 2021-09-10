@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 3171542709249935748}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,8 +511,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 67107916
   _gameManager: {fileID: 8537393271563585056, guid: aa992846c7871d0489d3542d6b96034b, type: 3}
-  _cardLimitation: {fileID: 0}
+  _remainingCards: {fileID: 0}
   _textLimitation: {fileID: 0}
+  _CoolddownLayering: 0
 --- !u!1001 &6583339704167548137
 PrefabInstance:
   m_ObjectHideFlags: 0

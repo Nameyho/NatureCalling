@@ -162,8 +162,10 @@ public class Seeding : MonoBehaviour
         if(_remainingCards.Value > 0)
         {
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
-  
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+
+
+        
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
 
@@ -271,6 +273,10 @@ public class Seeding : MonoBehaviour
     {
         return _remainingCards;
     }
-   
+  
+    public void AddRemainingCards()
+    {
+        _remainingCards.Value++;
+    }
     #endregion
 }
