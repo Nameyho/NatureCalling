@@ -16,7 +16,11 @@ public class Plants : MonoBehaviour
 
     [Header("Gain à la recolte")]
     [SerializeField]
-    private int _BonusMalus;
+    private int _HarvestBonus;
+
+    [Header("Step")]
+    [SerializeField]
+    private int _step;
 
     [Header("Temps gagné à chaque arrosage")]
     [SerializeField]
@@ -95,7 +99,7 @@ public class Plants : MonoBehaviour
             if (((basicTime + wateredtime) * completTime)> (_phaseTime *( _gp.GetCurrentTier()+1)))
             {
             
-                _gp.SetCurrentTier(_gp.GetCurrentTier() + _BonusMalus);
+                _gp.SetCurrentTier(_gp.GetCurrentTier() + _step);
             
 
         }
@@ -154,12 +158,12 @@ public class Plants : MonoBehaviour
 
     public void DeleteTier()
     {
-        _gp.SetCurrentTier(_gp.GetCurrentTier() - _BonusMalus);
+        _gp.SetCurrentTier(_gp.GetCurrentTier() - _step);
     }
 
     public int getBonusMalus()
     {
-        return _BonusMalus;
+        return _HarvestBonus;
     }
 
     //public void GetAllPlants()
@@ -206,6 +210,11 @@ public class Plants : MonoBehaviour
      
 
 
+    }
+
+    public CardScriptable GetCard()
+    {
+        return _card;
     }
 
     public void NoticeOtherAboutDestruction()

@@ -130,7 +130,6 @@ public class DragAndDropCard : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 				
-				
 				if (hit.transform.tag == "CardsBackground")
 				{
 					_transform.position = _transform.parent.position;
@@ -240,12 +239,13 @@ public class DragAndDropCard : MonoBehaviour
 						{
 							
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-							_score.Value -=p.getBonusMalus();
+							
 							p.GetGroundLayering().DeletePlants();
 							p.NoticeOtherAboutDestruction();
 							FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
+							_score.Value -= hit.transform.parent.GetComponent<Plants>().GetCard()._bonusBioDiversity;
 							Destroy(hit.transform.parent.gameObject);
-							seed.AddLimitation();
+							
 							Destroy(go,5f);
 						}
 
@@ -258,6 +258,7 @@ public class DragAndDropCard : MonoBehaviour
                         {
 							
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+							hit.transform.parent.GetComponentInParent<GroundLayering>().AddRemaining();
 							Destroy(hit.transform.gameObject);
 							Destroy(go, 5f);
 

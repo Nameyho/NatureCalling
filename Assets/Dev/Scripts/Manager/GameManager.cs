@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
 
-public class GameManager: MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
     #region Exposed
@@ -56,7 +56,7 @@ public class GameManager: MonoBehaviour
     {
         if (_scoreToChangeScene < _currentScore.Value)
         {
-        //bravo tu peux aller au niveau suivant si tu veux
+            //bravo tu peux aller au niveau suivant si tu veux
         }
     }
 
@@ -67,7 +67,7 @@ public class GameManager: MonoBehaviour
     private void Awake()
     {
         _currentScore.Value = 0;
-        if(cardScriptables.Count == cardsIntvariable.Count)
+        if (cardScriptables.Count == cardsIntvariable.Count)
         {
             for (int i = 0; i < cardScriptables.Count; i++)
             {
@@ -79,10 +79,10 @@ public class GameManager: MonoBehaviour
             Debug.Log("pas le même nombre de cartes");
         }
 
-        if ((_layeringCard.Length == _layeringTime.Length)  && (_layeringMax.Length == _layeringTime.Length))
+        if ((_layeringCard.Length == _layeringTime.Length) && (_layeringMax.Length == _layeringTime.Length))
         {
             _lastTime = new float[_layeringTime.Length];
-        
+
             _privateLayeringMax = _layeringMax;
 
             for (int i = 0; i < _privateLayeringMax.Length; i++)
@@ -113,13 +113,13 @@ public class GameManager: MonoBehaviour
     {
         for (int i = 0; i < _layeringTime.Length; i++)
         {
-            if(Time.time - _lastTime[i]> _layeringTime[i] && (_privateLayeringMax[i]>0))
+            if (Time.time - _lastTime[i] > _layeringTime[i] && (_privateLayeringMax[i] > 0))
             {
-       
+
                 _layeringCard[i].Value++;
                 _lastTime[i] = Time.time;
                 _privateLayeringMax[i]--;
-                
+
             }
         }
     }

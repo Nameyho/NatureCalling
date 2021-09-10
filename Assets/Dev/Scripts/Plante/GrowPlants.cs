@@ -241,12 +241,13 @@ public class GrowPlants : MonoBehaviour
     IEnumerator GrowScaleFunction()
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
-   
-        if (_plantModel.transform.localScale.sqrMagnitude <= Vector3.one.sqrMagnitude)
-        {
+     
+        
          _plantModel.transform.localScale += Vector3.one * ((2f / currentfloat)* _RefreshRate);
+        _plantModel.transform.localScale = new Vector3(currentfloat, currentfloat, currentfloat);
 
-        }
+
+
 
         if (currentfloat >= 1)
         {
@@ -267,6 +268,7 @@ public class GrowPlants : MonoBehaviour
     {
         if (_maxTier < tier)
         {
+            currentTier = _maxTier;
             return;
         }
         if (!(currentTier == tier))

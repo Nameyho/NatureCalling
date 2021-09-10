@@ -162,8 +162,10 @@ public class Seeding : MonoBehaviour
         if(_remainingCards.Value > 0)
         {
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
-  
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+
+
+        
             if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
             {
 
@@ -220,7 +222,7 @@ public class Seeding : MonoBehaviour
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
                
-                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) || _isLayeringNotAlreadyPlant)
+                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) ||( _isLayeringNotAlreadyPlant &&cs._isLayering) )
                     {
                         _DaD.GetRotation();
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
@@ -271,6 +273,10 @@ public class Seeding : MonoBehaviour
     {
         return _remainingCards;
     }
-   
+  
+    public void AddRemainingCards()
+    {
+        _remainingCards.Value++;
+    }
     #endregion
 }

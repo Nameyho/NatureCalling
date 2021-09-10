@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class GroundLayering : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GroundLayering : MonoBehaviour
     [SerializeField]
     private int _NumberMaxOfPlants;
 
+    [SerializeField]
+    private IntVariable _remainingCard;
 
     #endregion
 
@@ -67,6 +70,11 @@ public class GroundLayering : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void AddRemaining()
+    {
+        _remainingCard.Value++;   
     }
     #endregion
 }

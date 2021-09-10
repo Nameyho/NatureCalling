@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mod_groundLayering_1x1Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1cafbebffa7e394f9130112380ca7cd, type: 3}
+      propertyPath: m_TagString
+      value: Cards
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1cafbebffa7e394f9130112380ca7cd, type: 3}
 --- !u!1 &4381905659634112792 stripped
@@ -111,7 +115,7 @@ PrefabInstance:
       objectReference: {fileID: 6341990287074467207}
     - target: {fileID: 470302230727989669, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: _CoolddownLayering
-      value: 5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: card
@@ -128,6 +132,10 @@ PrefabInstance:
     - target: {fileID: 7046556453952346103, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046556453952346103, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: m_TagString
+      value: Cards
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: _RotationSpeed

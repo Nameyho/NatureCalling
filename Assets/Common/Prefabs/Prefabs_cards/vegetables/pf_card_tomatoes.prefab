@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7046556453952346103, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_TagString
+      value: Cards
+      objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _RotationSpeed
       value: 100
@@ -299,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mod_vg_tomatoMGhost
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c6c2bdfb7038824e945749b5998a19b, type: 3}
+      propertyPath: m_TagString
+      value: Cards
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6c2bdfb7038824e945749b5998a19b, type: 3}
 --- !u!1 &2218523332488810248 stripped
@@ -345,6 +353,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 26743fbce58905547b1b8ea02a336456, type: 2}
+    - target: {fileID: 919132149155446097, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
+      propertyPath: m_TagString
+      value: Cards
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3018efc7b21f3b344bbd43dbde6d5937, type: 3}
 --- !u!1 &7587836099728833240 stripped
