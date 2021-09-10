@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4696439304652334146}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0, y: -0.166, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: -0, y: -0.166, z: -0.011}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4539055073608140571}
   m_RootOrder: 2
@@ -182,6 +182,14 @@ PrefabInstance:
       propertyPath: _textLimitation
       value: 
       objectReference: {fileID: 9216893957743598068}
+    - target: {fileID: 472508302758733138, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640861748003380797, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: card
       value: 
@@ -204,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7610324541955592170, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_RootOrder

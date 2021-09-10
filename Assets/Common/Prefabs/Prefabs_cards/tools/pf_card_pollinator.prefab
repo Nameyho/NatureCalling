@@ -255,7 +255,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 205444045980417776, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _Basic
@@ -285,9 +285,17 @@ PrefabInstance:
       propertyPath: _textLimitation
       value: 
       objectReference: {fileID: 4360778416353737079}
+    - target: {fileID: 946565493758933635, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1973407743378892326, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119450024948220396, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: card

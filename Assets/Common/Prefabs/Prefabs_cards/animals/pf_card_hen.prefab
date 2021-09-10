@@ -2206,6 +2206,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 101810764454222943, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _cardUseMax
       value: 3
@@ -2230,6 +2234,10 @@ PrefabInstance:
       propertyPath: _textLimitation
       value: 
       objectReference: {fileID: 9005689852544407423}
+    - target: {fileID: 1234716946956887856, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: card
       value: 
@@ -2244,7 +2252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7634481018033048922, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634481018033048922, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2575
       objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_RootOrder
@@ -2297,6 +2309,10 @@ PrefabInstance:
     - target: {fileID: 8539634644130197128, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539634644130197128, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2666
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
