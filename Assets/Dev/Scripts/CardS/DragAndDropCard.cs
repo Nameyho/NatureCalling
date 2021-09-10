@@ -19,6 +19,7 @@ public class DragAndDropCard : MonoBehaviour
     private Transform _Hand;
 	private float _lastTimeClose;
 	private bool _isFirstTimePlayed = true;
+	private float AxeY;
 
 
     #endregion
@@ -129,11 +130,12 @@ public class DragAndDropCard : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 
-				_transform.rotation = hit.transform.rotation;
-				Debug.Log(transform.GetChild(1).name);
-				_transform.GetChild(1).rotation = hit.transform.rotation;
-				
-				if (hit.transform.tag == "CardsBackground")
+                _transform.rotation = hit.transform.rotation;
+
+				Quaternion target = Quaternion.Euler(0, AxeY, 0);
+				_transform.GetChild(1).localRotation = Quaternion.Slerp(transform.rotation,target,Time.deltaTime *500) ;
+
+                if (hit.transform.tag == "CardsBackground")
 				{
 					_transform.position = _transform.parent.position;
 				}
@@ -186,7 +188,7 @@ public class DragAndDropCard : MonoBehaviour
 					{
 
 						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-						go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
+						go.transform.Rotate(0, AxeY, 0);
 					}
 					if (cs._IsBasket)
 					{
@@ -196,7 +198,7 @@ public class DragAndDropCard : MonoBehaviour
 						{
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 						
-							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
+							go.transform.Rotate(0,AxeY, 0);
 						}
 
 					}
@@ -206,7 +208,7 @@ public class DragAndDropCard : MonoBehaviour
 						if (Input.GetMouseButtonDown(0))
 						{
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-							go.transform.Rotate(0, _transform.rotation.eulerAngles.y, 0);
+							go.transform.Rotate(0, AxeY, 0);
 						}
 					}
 
@@ -307,24 +309,26 @@ public class DragAndDropCard : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.T))
 		{
+			AxeY++;
+			//_transform.Rotate(Vector3.up * Time.deltaTime *_RotationSpeed ,Space.World);
 
-			_transform.Rotate(Vector3.up * Time.deltaTime *_RotationSpeed ,Space.World);
 		}
 		if (Input.GetKey(KeyCode.R))
 		{
-			_transform.Rotate(Vector3.down * Time.deltaTime * _RotationSpeed, Space.World); ;
+			AxeY--;
+			//_transform.Rotate(Vector3.down * Time.deltaTime * _RotationSpeed, Space.World); 
 		}
 
 	
 	}
 
-	public Quaternion GetRotation()
+	public float GetRotationY()
     {
 
 
 
 
-		return Quaternion.Euler(_transform.rotation.eulerAngles);
+		return AxeY;
     }
     #endregion
 

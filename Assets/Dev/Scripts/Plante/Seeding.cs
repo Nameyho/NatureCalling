@@ -176,7 +176,7 @@ public class Seeding : MonoBehaviour
                        if(hit.transform.parent.GetComponent<GroundLayering>().IsLayeringBuildable())
                         {
                             GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
-                            plant.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                            plant.transform.Rotate(0, _DaD.GetRotationY(), 0);
                             if (plant.GetComponent<Plants>())
                             {
                                 //plant.GetComponent<Plants>().GetAllPlants();
@@ -193,14 +193,14 @@ public class Seeding : MonoBehaviour
                 if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                 {
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                 }
                 if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && !cs._isLayering && hit.transform.tag=="BuildingZone")
                 {
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                         
@@ -210,23 +210,23 @@ public class Seeding : MonoBehaviour
                     WaterCan watercan = GetComponent<WaterCan>();
                   
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                     //Destroy(go);
                 }
                 if(cs._isBuilding  )
                 {
-                    _DaD.GetRotation();
+                  
                     GameObject go =Instantiate(_plantsPrefabs, hit.point,Quaternion.identity);
-                    go.transform.Rotate(0,_DaD.GetRotation().eulerAngles.y,0);
+                    go.transform.Rotate(0, _DaD.GetRotationY(),0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
                
                 if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) ||( _isLayeringNotAlreadyPlant &&cs._isLayering) )
                     {
-                        _DaD.GetRotation();
+                      
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                        go.transform.Rotate(0, _DaD.GetRotation().eulerAngles.y, 0);
+                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                         _lastLayeringPlant = Time.time;
