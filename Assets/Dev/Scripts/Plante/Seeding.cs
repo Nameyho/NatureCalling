@@ -222,15 +222,18 @@ public class Seeding : MonoBehaviour
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                 }
                
-                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) ||( _isLayeringNotAlreadyPlant &&cs._isLayering) )
+                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) ||( _isLayeringNotAlreadyPlant &&cs._isLayering ))
                     {
-                      
-                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
-                        _remainingCards.Value--;
-                        _gameManager.AddProgression(cs._bonusBioDiversity);
-                        _lastLayeringPlant = Time.time;
-                        _isLayeringNotAlreadyPlant = false;
+                        if (hit.transform.tag == "BuildingZone")
+                        {
+                            GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                            go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                            _remainingCards.Value--;
+                            _gameManager.AddProgression(cs._bonusBioDiversity);
+                            _lastLayeringPlant = Time.time;
+                            _isLayeringNotAlreadyPlant = false;
+
+                        }
          
                     }
              
