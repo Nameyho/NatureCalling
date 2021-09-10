@@ -126,9 +126,12 @@ public class DragAndDropCard : MonoBehaviour
 			CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
 			Seeding seed = GetComponent<Seeding>();
-
 			if (Physics.Raycast(ray, out hit))
 			{
+
+				_transform.rotation = hit.transform.rotation;
+				Debug.Log(transform.GetChild(1).name);
+				_transform.GetChild(1).rotation = hit.transform.rotation;
 				
 				if (hit.transform.tag == "CardsBackground")
 				{
