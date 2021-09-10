@@ -73,6 +73,14 @@ public class HandManager : MonoBehaviour
             }
         }
 
+        if (transform.childCount > 1)
+        {
+            Destroy(transform.GetChild(1).gameObject);
+
+        }
+
+        
+
 
         int shortestlistlength = 0;
         if (_spawnLocation.Length <= _subMenu._listSubMenu.Count)
