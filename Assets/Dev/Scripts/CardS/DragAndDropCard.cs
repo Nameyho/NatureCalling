@@ -283,21 +283,11 @@ public class DragAndDropCard : MonoBehaviour
         {
 
             _Hand.gameObject.SetActive(true);
-            
             Destroy(_transform.gameObject);
             _hm.ChangeHand();
-            
         }
         
     }
-
-	private void Close()
-    {
-		_Hand.gameObject.SetActive(true);
-
-		Destroy(_transform.gameObject);
-		_hm.ChangeHand();
-	}
 
     public void SetGhost(bool b)
     {
@@ -324,10 +314,6 @@ public class DragAndDropCard : MonoBehaviour
 
 	public float GetRotationY()
     {
-
-
-
-
 		return AxeY;
     }
     #endregion

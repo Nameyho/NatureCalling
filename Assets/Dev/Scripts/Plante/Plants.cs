@@ -206,7 +206,7 @@ public class Plants : MonoBehaviour
 
     private void OnDestroy()
     {
-        _limitation.Value++;
+     //   _limitation.Value++;
      
 
 
