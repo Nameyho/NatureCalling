@@ -157,14 +157,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TotalGrowTime: 120
-  _BonusMalus: 44
+  _HarvestBonus: 44
   _step: 1
   _wateredTime: 10
   _waterCanCooldown: 60
-  _compatibilytPlants: []
+  _compatibilytPlants:
+  - {fileID: 11400000, guid: a0a7186c0c6205a4f933ebe9adf9eb2c, type: 2}
+  - {fileID: 11400000, guid: bb5b2a20fca63664d9028b71d466cae3, type: 2}
   _card: {fileID: 11400000, guid: 4a0c719e9754581499137f439466e245, type: 2}
-  _radiusDetection: 0
-  _complement: 0
+  _radiusDetection: 3
+  _complement: 0.1
   _limitation: {fileID: 11400000, guid: 897e2cb5ddd3f41439d3d74cb1822140, type: 2}
 --- !u!114 &-8059996860377230155
 MonoBehaviour:
