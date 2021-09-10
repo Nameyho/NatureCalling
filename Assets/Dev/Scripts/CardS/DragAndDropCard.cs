@@ -42,6 +42,7 @@ public class DragAndDropCard : MonoBehaviour
 
 	[Header("Rotation Speed")]
 	[SerializeField]
+	[Range(0,1)]
 	private float _RotationSpeed = 1000;
 
 	
@@ -133,7 +134,7 @@ public class DragAndDropCard : MonoBehaviour
                 _transform.rotation = hit.transform.rotation;
 
 				Quaternion target = Quaternion.Euler(0, AxeY, 0);
-				_transform.GetChild(1).localRotation = Quaternion.Slerp(transform.rotation,target,Time.deltaTime *_RotationSpeed) ;
+				_transform.GetChild(1).localRotation = Quaternion.Slerp(transform.rotation,target,/*Time.deltaTime **/_RotationSpeed) ;
 
                 if (hit.transform.tag == "CardsBackground")
 				{
