@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 470302230727989669, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: _plantsPrefabs
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: e05db3fd5d0b7374d9e9581ce74ad142, type: 3}
+    - target: {fileID: 470302230727989669, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
       propertyPath: _remainingCards
       value: 
       objectReference: {fileID: 11400000, guid: 9f23465db9327174881c823c9defd6f2, type: 2}
