@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 4034133598250861439}
   - component: {fileID: 4544954936772352446}
   - component: {fileID: 1813642630122344445}
+  - component: {fileID: 185845992238169220}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -105,9 +106,23 @@ SphereCollider:
   m_GameObject: {fileID: 3833716614199884689}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2.82
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &185845992238169220
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833716614199884689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8280670437141093787
 GameObject:
@@ -157,10 +172,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TotalGrowTime: 0
-  _bonusMalus: 1
+  _HarvestBonus: 0
+  _step: 0
   _wateredTime: 20
+  _waterCanCooldown: 0
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: e947511fa6971a94c9be5dc88d6a390e, type: 2}
+  _radiusDetection: 0
+  _complement: 0
   _limitation: {fileID: 11400000, guid: 65028db2f37765847969cff765aed9b5, type: 2}
 --- !u!114 &-4148431098490828161
 MonoBehaviour:
@@ -177,7 +196,6 @@ MonoBehaviour:
   _growPlantMeshes:
   - {fileID: 3143635132901977238}
   _plantTier: {fileID: 11400000, guid: f117460d35119b74b9c37c1ae85d3cf6, type: 2}
-  _timeToGrow: 5
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
