@@ -14,9 +14,18 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameObject _levelSelection;
 
+    [SerializeField]
+    private GameObject _credit;
+
+    [SerializeField]
+    private GameObject _leave;
+
+    [SerializeField]
+    private GameObject _option;
 
     [SerializeField]
     private SceneCollection _scenesList;
+
     #endregion
 
 
@@ -46,16 +55,40 @@ public class MenuManager : MonoBehaviour
         _isMenuCanBeOpen = false;
     }
 
+    public void OnClickCredits()
+    {
+        _MainMenu.SetActive(false);
+        _credit.SetActive(true);
+        _isMenuCanBeOpen = false;
+    }
+
+    public void OnClickOptions()
+    {
+        _MainMenu.SetActive(false);
+        _option.SetActive(true);
+        _isMenuCanBeOpen = false;
+    }
+
     public void OnClickMainMenu(GameObject go)
     {
         _MainMenu.SetActive(true);
         go.SetActive(false);
     }
 
+    public void OnLeaveMenu()
+    {
+        _MainMenu.SetActive(false);
+        _leave.SetActive(true);
+        _isMenuCanBeOpen = false;
+    }
     public void LoadScene(int scene)
     {
-
           SceneManager.LoadScene(_scenesList[scene].SceneName);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
     #endregion
 }
