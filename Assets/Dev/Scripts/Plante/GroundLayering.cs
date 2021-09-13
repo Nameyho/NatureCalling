@@ -1,18 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class GroundLayering : MonoBehaviour
 {
 
     #region Exposed
 
-    private int _numberOfPlants = 0;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
+    [SerializeField]
+    private int _NumberMaxOfPlants;
+
+    [SerializeField]
+    private IntVariable _remainingCard;
+
     #endregion
 
+
+    #region 
+
+    private int _numberOfPlants = 0;
+
+    #endregion
+
+
+
+    #region UnityAPI
+
+
+    private void Awake()
+    {
+        _audioSource.Play();
+    }
+    #endregion
+
+
     #region public
-    
-    
+
+
     public void AddPlants(){
         _numberOfPlants++;
     }
@@ -32,6 +61,20 @@ public class GroundLayering : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public bool IsLayeringBuildable()
+    {
+        if(_numberOfPlants< _NumberMaxOfPlants)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void AddRemaining()
+    {
+        _remainingCard.Value++;   
     }
     #endregion
 }

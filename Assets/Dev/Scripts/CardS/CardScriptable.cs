@@ -27,6 +27,8 @@ public class CardScriptable : ScriptableObject
 
     public bool _isBuilding;
 
+    public bool _isLayering;
+
     public bool _isInsectPollinator;
 
     [Header("bonus que la carte va apporter")]
@@ -34,4 +36,11 @@ public class CardScriptable : ScriptableObject
     public GameObject _prefabToSpawn;
 
     public int _bonusBioDiversity;
+
+    [Header("Limitation de la carte")]
+
+
+    public int _numberCardsAtStart;
+
+    //public bool _isUsingLimited;
 }

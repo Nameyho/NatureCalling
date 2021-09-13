@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: card_waterLily
+  m_EditorClassIdentifier: 
+  _CardName: Water Lily
+  _CardImage: {fileID: 0}
+  _cardModel: {fileID: 1408940618596250356, guid: 2e167807550d056458c11d217e30e91e, type: 3}
+  _isPlant: 0
+  _isAquaticPlant: 1
+  _isWaterCan: 0
+  _IsBasket: 0
+  _isShovel: 0
+  _isBuilding: 0
+  _isLayering: 0
+  _isInsectPollinator: 0
+  _prefabToSpawn: {fileID: 8280670437141093787, guid: f4a7577c93e08584c8df975bddec3421, type: 3}
+  _bonusBioDiversity: 1
+  _numberCardsAtStart: 1

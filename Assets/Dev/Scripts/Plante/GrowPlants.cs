@@ -14,7 +14,6 @@ public class GrowPlants : MonoBehaviour
     public PlantPhase _plantTier;
 
     [Header("Growing Parameters ")]
-    public float _timeToGrow = 5;
     public float _RefreshRate = 0.05f;
     [Range(0,1)]
     public float _minGrow = 0.2f;
@@ -31,6 +30,7 @@ public class GrowPlants : MonoBehaviour
 
     #region Private
 
+    float _timeToGrow ;
     private List<Material> growPlantsMaterials = new List<Material>();
     private bool fullyGrown;
     private int currentTier = 0 ;
@@ -45,6 +45,7 @@ public class GrowPlants : MonoBehaviour
 
     private void Start()
     {
+        _timeToGrow = GetComponent<Plants>().GetTotalGrowTime();
         _maxTier = _plantTier.PhaseAmount;
         _maxTierDetail = _plantTier.PhaseTodetail;
         _transform = GetComponent<Transform>();
@@ -64,6 +65,7 @@ public class GrowPlants : MonoBehaviour
             }
 
         }
+
 
     }
 
@@ -224,7 +226,7 @@ public class GrowPlants : MonoBehaviour
 
         if (growValue >= _maxGrow)
         {
-
+         
             fullyGrown = true;
         }
         else
@@ -239,7 +241,13 @@ public class GrowPlants : MonoBehaviour
     IEnumerator GrowScaleFunction()
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
-        _plantModel.transform.localScale += Vector3.one * ((1f / currentfloat)* _RefreshRate);
+     
+        
+         _plantModel.transform.localScale += Vector3.one * ((2f / currentfloat)* _RefreshRate);
+        _plantModel.transform.localScale = new Vector3(currentfloat, currentfloat, currentfloat);
+
+
+
 
         if (currentfloat >= 1)
         {
@@ -260,6 +268,7 @@ public class GrowPlants : MonoBehaviour
     {
         if (_maxTier < tier)
         {
+            currentTier = _maxTier;
             return;
         }
         if (!(currentTier == tier))
@@ -298,6 +307,8 @@ public class GrowPlants : MonoBehaviour
 
     }
 
+
+
     public bool isFullingGrown()
     {
         return fullyGrown;
@@ -333,6 +344,14 @@ public class GrowPlants : MonoBehaviour
   
 
         
+    }
+
+    public void Harvest()
+    {
+        for (int i = 0; i < _detailsPrefabs.Length; i++)
+        {
+            _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+        }
     }
     
 
