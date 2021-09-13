@@ -67,6 +67,7 @@ public class TabGroup : MonoBehaviour
 
     public void ResetTabs()
     {
+      
         foreach (Tab button in _tabButtons)
         {
             if(_selectedtab != null && button == _selectedtab )
@@ -75,6 +76,11 @@ public class TabGroup : MonoBehaviour
             }
             button.background.sprite = _tabIdle;
         }
+    }
+
+    public void SetIdle()
+    {
+        _selectedtab.background.sprite = _tabIdle;
     }
     #endregion
 

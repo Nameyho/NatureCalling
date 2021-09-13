@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
@@ -35,8 +35,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float[] _layeringMax;
 
+
+    [Header("Menu de pause")]
+    [SerializeField]
+    private GameObject _menuOptionPause;
+
+    #endregion
+    #region Private
     private float[] _lastTime;
 
+    private float[] _privateLayeringMax;
+
+    private bool _isPaused = false;
     #endregion
 
     #region Public Methods
@@ -60,8 +70,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private float[] _privateLayeringMax;
+    public void SetGameOnPause()
+    {
+        if (_isPaused)
+        {
+        Time.timeScale = 1;
+            _isPaused = false;
+            _menuOptionPause.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            _isPaused = true;
+            _menuOptionPause.SetActive(true);
+        }
+    }
 
+
+    public void ReloadScene()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        Time.timeScale = 1;
+       
+        SceneManager.UnloadSceneAsync(scene,UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        SceneManager.LoadScene(scene,LoadSceneMode.Single);
+        
+        
+    }
     #region Unity API
 
     private void Awake()
