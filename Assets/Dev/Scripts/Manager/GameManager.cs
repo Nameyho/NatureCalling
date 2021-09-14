@@ -273,4 +273,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+
+    public IntVariable GetCurrentScore()
+    {
+        return _currentScore;
+    }
 }

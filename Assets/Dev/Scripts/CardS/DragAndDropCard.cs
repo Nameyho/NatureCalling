@@ -183,16 +183,17 @@ public class DragAndDropCard : MonoBehaviour
 			{
 
 				GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
+				Plants plante = hit.transform.GetComponentInParent<Plants>();
 				if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) && Vector3.Distance(hit.point, transform.position) < 0.5f)
 				{
 
-					if (cs._isWaterCan && Input.GetMouseButtonDown(0))
+					if (cs._isWaterCan && Input.GetMouseButtonDown(0)  && plante.CanBeWatered())
 					{
 
 						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 						go.transform.Rotate(0, AxeY, 0);
 					}
-					if (cs._IsBasket)
+					if (cs._IsBasket && !(plante.GetInfested()))
 					{
 
 						seed.SetIsBuidable(false);
@@ -204,7 +205,7 @@ public class DragAndDropCard : MonoBehaviour
 						}
 
 					}
-					if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()))
+					if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()) && plante.CanBePollinisate())
 					{
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
