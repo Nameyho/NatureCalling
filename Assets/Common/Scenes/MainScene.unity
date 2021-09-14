@@ -11306,6 +11306,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2617f1149047d57449594c5dedcf901d, type: 2}
   - {fileID: 11400000, guid: e947511fa6971a94c9be5dc88d6a390e, type: 2}
   - {fileID: 11400000, guid: 4a0c719e9754581499137f439466e245, type: 2}
+  - {fileID: 11400000, guid: 570ccfda176520b449f32b54331a8b65, type: 2}
 --- !u!114 &2022638165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12446,6 +12447,7 @@ GameObject:
   - component: {fileID: 2673633498952862391}
   - component: {fileID: 8375864819208711731}
   - component: {fileID: 5307660879995310658}
+  - component: {fileID: 438149840894850863}
   m_Layer: 0
   m_Name: mod_terrain01
   m_TagString: BuildingZone
@@ -12453,6 +12455,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &438149840894850863
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438149840894850862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2790997842274301300, guid: cce3e7cae8124244db45e1172f3f87b8, type: 3}
 --- !u!1001 &470962746574137139
 PrefabInstance:
   m_ObjectHideFlags: 0
