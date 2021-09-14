@@ -8,13 +8,13 @@ public class Seeding : MonoBehaviour
 
     [Header("Materials")]
     [SerializeField]
-    private Material _Basic;
+    private Material[] _Basic = new Material[2];
 
     [SerializeField]
-    private Material _Effect;
+    private Material[] _Effect = new Material[2];
 
     [SerializeField]
-    private Material _Unbuildable;
+    private Material[] _Unbuildable = new Material[2] ;
 
     [SerializeField]
     private GameObject _ghostModel;
@@ -49,7 +49,7 @@ public class Seeding : MonoBehaviour
 
     #region Private
 
-    private Renderer _myRend;
+    private MeshRenderer _myRend;
     private bool _isBuildable = false;
     private Camera cam;
     private bool _isSelected;
@@ -70,64 +70,27 @@ public class Seeding : MonoBehaviour
     }
 
 
-
-    //private void OnTriggerStay(Collider other)
-    //{
-
-    //    if (other.CompareTag("UnBuild"))
-    //    {
-    //        Debug.Log("unbuild");
-    //        _myRend.material = _Unbuildable;
-    //        _isBuildable = false;
-    //    }
-
-
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-
-    //    Debug.Log("unbuild");
-    //    if (other.CompareTag("UnBuild"))
-    //    {
-    //        _myRend.material = _Effect;
-    //        _isBuildable = true;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("basic");
-    //        _myRend.material = _Basic;
-    //        _isBuildable = true;
-    //    }
-
-    //}
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("EffectZone"))
-
-    //    {
-    //        Debug.Log("Effectzone");
-    //        _myRend.material = _Effect;
-    //        _isBuildable = true;
-    //    }
-    //}
-
     public void UpdateRenderer(int i)
     {
         switch (i)
         {
             case 1:
-                _myRend.material = _Effect;
+
+                _myRend.materials = _Effect;
                 _isBuildable = true;
                 break;
 
 
             case 2:
-                _myRend.material = _Unbuildable;
+                // _myRend.material = _Unbuildable;
+
+                _myRend.materials = _Unbuildable;
                 _isBuildable = false;
                 break;
             case 0:
-                _myRend.material = _Basic;
+                //  _myRend.material = _Basic;
+
+                _myRend.materials = _Basic;
                 _isBuildable = true;
                 break;
         }
@@ -139,7 +102,7 @@ public class Seeding : MonoBehaviour
 
     private void Awake()
     {
-        _myRend = _ghostModel.GetComponent<Renderer>();
+        _myRend = _ghostModel.GetComponent<MeshRenderer>();
         cam = Camera.main;
         _DaD = GetComponent<DragAndDropCard>();
         
