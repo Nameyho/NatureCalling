@@ -228,6 +228,7 @@ public class GrowPlants : MonoBehaviour
         {
          
             fullyGrown = true;
+           
         }
         else
         {

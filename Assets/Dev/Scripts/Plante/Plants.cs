@@ -27,7 +27,18 @@ public class Plants : MonoBehaviour
     private float _wateredTime = 20f;
 
     [SerializeField]
-    private float _waterCanCooldown; 
+    private float _waterCanCooldown;
+
+    [Header("Temps gagné à chaque pollinisation")]
+    [SerializeField]
+    private float _PollinisationTime = 20f;
+
+    [SerializeField]
+    private float _pollinisationCooldown;
+
+    [Header("points gagné à l'arrossage ou pollinisation")]
+    [SerializeField]
+    private int _pollinisationWateredPoint;
 
     [Header("Compatibilité")]
     [SerializeField]
@@ -46,6 +57,12 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private IntVariable _limitation;
 
+
+    [Header("Infestation")]
+    [Range(0,1)]
+    [SerializeField]
+    private float _percentageInfestation;
+
     #endregion
 
     #region private
@@ -53,15 +70,22 @@ public class Plants : MonoBehaviour
     GrowPlants _gp;
     float _phaseTime;
     float _spawnTime;
+
     int _MultiplyWatered = 0;
     float _timewhenLastwatered;
+
+    int _multiplyPollinisation = 0;
+    float _timeWhenLastPollinisation;
+
     float _completscore;
     Transform _transform;
     List<AlreadyUseCard> _usedCardsList = new List<AlreadyUseCard>();
-    int _PollinatorDurability;
+   
     string _name;
     private GroundLayering _groundLayering;
-
+    private bool _isInfested = false;
+    private bool _canBeInfested = true;
+    private int _repellentAround;
     #endregion
 
     #region Unity API
@@ -83,6 +107,14 @@ public class Plants : MonoBehaviour
         GrowPlantWithTime();
 
     }
+
+    private void Update()
+    {
+        if (_repellentAround <= 0)
+        {
+            GetComponent<Plants>().SetcanBeInfested(true);
+        }
+    }
     #endregion
 
     #region Methods
@@ -94,9 +126,19 @@ public class Plants : MonoBehaviour
 
         float basicTime = Time.time - _spawnTime;
         float wateredtime = _wateredTime * _MultiplyWatered;
+        float pollinatorTime = _PollinisationTime * _multiplyPollinisation;
         float completTime = 1  +(1* (_complement * _completscore));
+        float infested = 1;
+        if (_isInfested)
+        {
+            infested = _percentageInfestation;
+        }
+        else
+        {
+            infested = 1f;
+        }
 
-            if (((basicTime + wateredtime) * completTime)> (_phaseTime *( _gp.GetCurrentTier()+1)))
+            if ((((basicTime + wateredtime + pollinatorTime) * completTime) * infested)> (_phaseTime *( _gp.GetCurrentTier()+1)))
             {
             
                 _gp.SetCurrentTier(_gp.GetCurrentTier() + _step);
@@ -117,13 +159,23 @@ public class Plants : MonoBehaviour
             if (hits[i].GetComponent<CapsuleCollider>())
             {
                 CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+                Plants plante = (hits[i].GetComponentInParent<Plants>());
                 if (hc.GetComponentInParent<Plants>() &&
                     !(cc.GetInstanceID().Equals(hc.GetInstanceID())) 
                     && (hc.GetInstanceID() != 0))
                 {
-                    if (CheckIsCompatible(hits[i].GetComponentInParent<Plants>()))
+                    if (CheckIsCompatible(plante))
                     {
                         _completscore++;
+                    }
+                    if(plante.GetInfested() && _card._isRepellent && _canBeInfested)
+                    {
+                        plante.setInfested(false);
+                        plante.SetcanBeInfested(false);
+                    }
+                    if (_card._isRepellent)
+                    {
+                        plante.AddRepellentAround();
                     }
                 }
             }
@@ -153,7 +205,11 @@ public class Plants : MonoBehaviour
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
         }
-
+        if(go.GetComponent<Pollinator>() && (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown))
+        {
+            _multiplyPollinisation++;
+            _timeWhenLastPollinisation = Time.time;
+        }
     }
 
     public void DeleteTier()
@@ -161,61 +217,11 @@ public class Plants : MonoBehaviour
         _gp.SetCurrentTier(_gp.GetCurrentTier() - _step);
     }
 
-    public int getBonusMalus()
-    {
-        return _HarvestBonus;
-    }
-
-    //public void GetAllPlants()
-    //{
-    //    Plants[] Plants = FindObjectsOfType<Plants>();
-
-    //    for (int i = 0; i < Plants.Length; i++)
-    //    {
-    //        Plants[i].ApplyEffect();
-    //    }
-    //}
-
-    public void SetGroundLayering(GroundLayering gl)
-    {
-        _groundLayering = gl;
-    }
-
-    public GroundLayering GetGroundLayering()
-    {
-        return _groundLayering;
-    }
-
-    public void resetSpawnTime()
-    {
-        _spawnTime = Time.time;
-    }
-
-    public void ResetMultiply()
-    {
-        _MultiplyWatered = 0;
-    }
-
-    public int GetPlantHashcode()
-    {
-        return _name.GetHashCode();
-    }
 
     #endregion
     #region main
 
-    private void OnDestroy()
-    {
-     //   _limitation.Value++;
-     
 
-
-    }
-
-    public CardScriptable GetCard()
-    {
-        return _card;
-    }
 
     public void NoticeOtherAboutDestruction()
     {
@@ -226,10 +232,15 @@ public class Plants : MonoBehaviour
             if (hits[i].GetComponent<CapsuleCollider>())
             {
                 CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
-                if (hc.GetComponentInParent<Plants>() &&!(cc.GetInstanceID().Equals(hc.GetInstanceID()))&& (hc.GetInstanceID() != 0))
+                Plants plante = hc.GetComponentInParent<Plants>();
+                if ( plante&&!(cc.GetInstanceID().Equals(hc.GetInstanceID()))&& (hc.GetInstanceID() != 0))
                 {
+                    plante.AddOnUsedCardList(_card);
+                    if (plante.GetRepellentAround() > 0)
+                    {
+                        plante.DeleteRepellentAround();
+                    }
                    
-                    hc.GetComponentInParent<Plants>().AddOnUsedCardList(_card);
                 }
             }
 
@@ -258,15 +269,6 @@ public class Plants : MonoBehaviour
         }
     }
 
-    public string GetName()
-    {
-        return _name;
-    }
-
-    public float GetTotalGrowTime()
-    {
-        return _TotalGrowTime;
-    }
 
     public bool CheckIsCompatible(Plants plantIn)
     {
@@ -291,7 +293,6 @@ public class Plants : MonoBehaviour
                 if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(plantIn.GetName()))
                 {
                     _usedCardsList[i]._around++;
-                    Debug.Log(_usedCardsList[i]._around);
                 }
 
             }
@@ -313,9 +314,110 @@ public class Plants : MonoBehaviour
 
     }
 
+    #endregion
 
+    #region Getter and Setter
 
+    public string GetName()
+    {
+        return _name;
+    }
 
+    public float GetTotalGrowTime()
+    {
+        return _TotalGrowTime;
+    }
+
+    public int GetRepellentAround()
+    {
+        return _repellentAround;
+    }
+
+    public void AddRepellentAround()
+    {
+        _repellentAround++;
+    }
+    public void DeleteRepellentAround()
+    {
+        _repellentAround--;
+    }
+
+    public CardScriptable GetCard()
+    {
+        return _card;
+    }
+
+    public int getBonusMalus()
+    {
+        return _HarvestBonus;
+    }
+
+    public void SetGroundLayering(GroundLayering gl)
+    {
+        _groundLayering = gl;
+    }
+
+    public GroundLayering GetGroundLayering()
+    {
+        return _groundLayering;
+    }
+
+    public void resetSpawnTime()
+    {
+        _spawnTime = Time.time;
+    }
+
+    public void ResetMultiply()
+    {
+        _MultiplyWatered = 0;
+    }
+
+    public int GetPlantHashcode()
+    {
+        return _name.GetHashCode();
+    }
+
+    public bool GetInfested()
+    {
+        return _isInfested;
+    }
+
+    public void setInfested(bool b)
+    {
+        _isInfested = b;
+    }
+
+    public bool GetcanBeInfested()
+    {
+        return _canBeInfested;
+    }
+
+    public void SetcanBeInfested(bool b)
+    {
+        _canBeInfested = b;
+    }
+
+    public void AddBonusScore()
+    {
+        FindObjectOfType<GameManager>().GetCurrentScore().Value += _pollinisationWateredPoint;
+    }
+    public bool CanBeWatered()
+    {
+        if(_MultiplyWatered == 0)
+        {
+            return true;
+        }
+        return (Time.time - _timewhenLastwatered > _waterCanCooldown);
+    }
+
+    public bool CanBePollinisate()
+    {
+        if (_MultiplyWatered == 0)
+        {
+            return true;
+        }
+        return (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown);
+    }
     #endregion
 
     #region External Class

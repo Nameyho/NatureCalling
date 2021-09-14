@@ -15,6 +15,7 @@ public class Pollinator : MonoBehaviour
         {
 
             other.GetComponentInParent<Plants>().AddTier(this.gameObject);
+            other.GetComponentInParent<Plants>().AddBonusScore();
             Destroy(transform.parent.gameObject, 0.5f);
         }
 
