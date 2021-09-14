@@ -17,8 +17,11 @@ public class GameManager : MonoBehaviour
     private int _scoreToChangeScene;
 
     [Header("Valeur de départ à insérer dans le même ordre dans chaque liste")]
+    //[SerializeField]
+    //private List<CardScriptable> cardScriptables = new List<CardScriptable>();
+
     [SerializeField]
-    private List<CardScriptable> cardScriptables = new List<CardScriptable>();
+    private int[] _startValue;
 
     [SerializeField]
     private List<IntVariable> cardsIntvariable = new List<IntVariable>();
@@ -77,6 +80,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.sceneLoaded += OnSceneUnloaded;
     }
+    private void Update()
+    {
+        AddLayering();
+        Debug.Log(Time.timeSinceLevelLoad);
+    }
+
+
+
 
     #endregion
 
@@ -198,10 +209,7 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void Update()
-    {
-        AddLayering();
-    }
+
 
     private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
     {
@@ -213,11 +221,11 @@ public class GameManager : MonoBehaviour
     public void Reset()
     {
         _currentScore.Value = 0;
-        if (cardScriptables.Count == cardsIntvariable.Count)
+        if (_startValue.Length == cardsIntvariable.Count)
         {
-            for (int i = 0; i < cardScriptables.Count; i++)
+            for (int i = 0; i < _startValue.Length; i++)
             {
-                cardsIntvariable[i].Value = cardScriptables[i]._numberCardsAtStart;
+                cardsIntvariable[i].Value = _startValue[i];
                
             }
         }
@@ -254,11 +262,11 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < _layeringTime.Length; i++)
         {
-            if (Time.time - _lastTime[i] > _layeringTime[i] && (_privateLayeringMax[i] > 0))
+            if (Time.timeSinceLevelLoad - _lastTime[i] > _layeringTime[i] && (_privateLayeringMax[i] > 0))
             {
 
                 _layeringCard[i].Value++;
-                _lastTime[i] = Time.time;
+                _lastTime[i] = Time.timeSinceLevelLoad;
                 _privateLayeringMax[i]--;
 
             }
