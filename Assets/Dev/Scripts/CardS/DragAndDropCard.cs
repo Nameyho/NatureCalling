@@ -72,6 +72,7 @@ public class DragAndDropCard : MonoBehaviour
             if (_Hand.gameObject.activeSelf)
             {
 				_Hand.gameObject.SetActive(false);
+				FindObjectOfType<TabGroup>().SetIdle();
             }
             else
             {
@@ -214,16 +215,18 @@ public class DragAndDropCard : MonoBehaviour
 					}
 
 				}
-				if (hit.transform.GetComponentInParent<Building>() && cs._isBuilding)
-				{
-					seed.SetIsBuidable(false);
-					if (Input.GetMouseButtonDown(0))
-					{
-						_score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
-						Destroy(hit.transform.parent.gameObject);
-					}
 
-				}
+				// ?????
+				//if (hit.transform.GetComponentInParent<Building>() && cs._isBuilding)
+				//{
+				//	seed.SetIsBuidable(false);
+				//	if (Input.GetMouseButtonDown(0))
+				//	{
+				//		_score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
+				//		Destroy(hit.transform.parent.gameObject);
+				//	}
+
+				//}
 				if (hit.transform.tag == "Unbuild" && cs._isPlant)
 				{
 					seed.SetIsBuidable(false);

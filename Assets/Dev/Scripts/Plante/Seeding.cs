@@ -1,4 +1,4 @@
-using ScriptableObjectArchitecture;
+﻿using ScriptableObjectArchitecture;
 using UnityEngine;
 using TMPro;
 
@@ -154,28 +154,46 @@ public class Seeding : MonoBehaviour
     {
 
 
+       
+        if (_remainingCards)
+        {
+
+            if (_remainingCards.Value > 0)
+            {
+
+                SeedingObject();
+
+
+            }
+        }
+        else
+        {
+            SeedingObject();
+        }
+    }
+
+
+    private void SeedingObject()
+    {
+
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
-
-        if(_remainingCards.Value > 0)
-        {
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
 
 
-        
-            if (Input.GetMouseButtonDown(0)&& _isBuildable && _isSelected)
-            {
 
-                if (hit.transform.tag == "Layering" &&cs._isPlant)
+                if (Input.GetMouseButtonDown(0) && _isBuildable && _isSelected)
                 {
 
+                    if (hit.transform.tag == "Layering" && cs._isPlant)
+                    {
 
-                       if(hit.transform.parent.GetComponent<GroundLayering>().IsLayeringBuildable())
+
+                        if (hit.transform.parent.GetComponent<GroundLayering>().IsLayeringBuildable())
                         {
-                            GameObject plant =  Instantiate(_plantsPrefabs,hit.point, Quaternion.identity);
+                            GameObject plant = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                             plant.transform.Rotate(0, _DaD.GetRotationY(), 0);
                             if (plant.GetComponent<Plants>())
                             {
@@ -183,46 +201,46 @@ public class Seeding : MonoBehaviour
                                 plant.GetComponent<Plants>().SetGroundLayering(hit.transform.parent.GetComponent<GroundLayering>());
                                 _gameManager.AddProgression(cs._bonusBioDiversity);
                                 hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
-                          
+
                             }
 
                         }
-                        
 
-                }
-                if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
-                {
-                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
-                    _gameManager.AddProgression(cs._bonusBioDiversity);
 
-                }
-                if( !cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && !cs._isLayering && hit.transform.tag=="BuildingZone")
-                {
-                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                    }
+                    if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
+                    {
+                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
+
+                    }
+                    if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && !cs._isLayering && hit.transform.tag == "BuildingZone")
+                    {
+                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
-                        
-                }
-                if(cs._isWaterCan && hit.transform.tag == "Plants")
-                {
-                    WaterCan watercan = GetComponent<WaterCan>();
-                  
-                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
-                    //Destroy(go);
-                }
-                if(cs._isBuilding  )
-                {
-                  
-                    GameObject go =Instantiate(_plantsPrefabs, hit.point,Quaternion.identity);
-                    go.transform.Rotate(0, _DaD.GetRotationY(),0);
+
+                    }
+                    if (cs._isWaterCan && hit.transform.tag == "Plants")
+                    {
+                        WaterCan watercan = GetComponent<WaterCan>();
+
+                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                        //Destroy(go);
+                    }
+                    if (cs._isBuilding)
+                    {
+
+                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
-                }
-               
-                if((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) ||( _isLayeringNotAlreadyPlant &&cs._isLayering ))
+                    }
+
+                    if ((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) || (_isLayeringNotAlreadyPlant && cs._isLayering))
                     {
                         if (hit.transform.tag == "BuildingZone")
                         {
@@ -234,17 +252,17 @@ public class Seeding : MonoBehaviour
                             _isLayeringNotAlreadyPlant = false;
 
                         }
-         
+
                     }
-             
 
 
-                //GetComponent<Cards>().PlayThisCard();
+
+                    //GetComponent<Cards>().PlayThisCard();
 
 
-            }
+                }
 
-        }
+        
     }
 
     #endregion
@@ -252,8 +270,15 @@ public class Seeding : MonoBehaviour
     #region public
     public void UpdateTextLimitation()
     {
-     
+        if (_remainingCards)
+        {
         _textLimitation.text = _remainingCards.Value.ToString();
+
+        }
+        else
+        {
+            _textLimitation.text = "∞";
+        }
     }
 
     public void SetIsSelected(bool f)

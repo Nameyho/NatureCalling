@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
@@ -35,9 +35,53 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float[] _layeringMax;
 
-    private float[] _lastTime;
+
+    [Header("Menu de pause")]
+    [SerializeField]
+    private GameObject _menuOptionPause;
+
+    [SerializeField]
+    private GameObject _mainMenu;
+
+    [SerializeField]
+    private GameObject _restartMenu;
+
+    [SerializeField]
+    private GameObject _QuitMenu;
+
+    [SerializeField]
+    private GameObject _BackToMenu;
+
+    [SerializeField]
+    private GameObject _optionMenu;
+
+    [SerializeField]
+    private SceneVariable _MenuScene;
+
 
     #endregion
+    #region Private
+    private float[] _lastTime ;
+
+    private float[] _privateLayeringMax;
+
+    private bool _isPaused = false;
+    #endregion
+
+
+    #region Unity API
+
+    private void Start()
+    {
+        Reset();
+        Time.timeScale = 1;
+        SceneManager.sceneLoaded += OnSceneUnloaded;
+    }
+
+    #endregion
+
+
+
 
     #region Public Methods
 
@@ -60,11 +104,113 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private float[] _privateLayeringMax;
+    public void SetGameOnPause()
+    {
+        if (_isPaused)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            Time.timeScale = 0;
+            _isPaused = true;
+            _menuOptionPause.SetActive(true);
+            
+        }
+    }
 
+
+    public void ReloadButton()
+    {
+        _mainMenu.SetActive(false);
+        _restartMenu.SetActive(true);
+    }
+
+    public void QuitButton()
+    {
+        _mainMenu.SetActive(false);
+        _QuitMenu.SetActive(true);
+    }
+
+    public void MenuButton()
+    {
+        _mainMenu.SetActive(false);
+        _BackToMenu.SetActive(true);
+        
+    }
+
+    public void OptionsButton()
+    {
+        _mainMenu.SetActive(false);
+        _optionMenu.SetActive(true);
+    }
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+
+    public void CloseOptionMenu()
+    {
+        _BackToMenu.SetActive(false);
+        _optionMenu.SetActive(false);
+        _mainMenu.SetActive(true);
+    }
+
+    public void CloseBackToMenu()
+    {
+        _BackToMenu.SetActive(false);
+        _restartMenu.SetActive(false);
+        _mainMenu.SetActive(true);
+    }
+    public void CloseQuitMenu()
+    {
+        _QuitMenu.SetActive(false);
+        _restartMenu.SetActive(false);
+        _mainMenu.SetActive(true);
+        ResumeGame();
+    }
+    public void CloseReloadMenu()
+    {
+        _mainMenu.SetActive(true);
+        _restartMenu.SetActive(false);
+        ResumeGame();
+        
+    }
+    public void ReloadScene()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        Time.timeScale = 1;
+        //Reset();
+
+        //SceneManager.UnloadSceneAsync(scene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+
+
+    }
+
+    public void BackToMenu()
+    {
+       // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        SceneManager.LoadScene(_MenuScene.Value.SceneName, LoadSceneMode.Single);
+    }
+    
     #region Unity API
 
-    private void Awake()
+
+
+    private void Update()
+    {
+        AddLayering();
+    }
+
+    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
+    {
+        
+        //Reset();
+    }
+    
+
+    public void Reset()
     {
         _currentScore.Value = 0;
         if (cardScriptables.Count == cardsIntvariable.Count)
@@ -72,6 +218,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < cardScriptables.Count; i++)
             {
                 cardsIntvariable[i].Value = cardScriptables[i]._numberCardsAtStart;
+               
             }
         }
         else
@@ -96,20 +243,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        AddLayering();
-    }
-
-
-
     #endregion
 
 
+    
 
-    #region privates methods
+        #region privates methods
 
-    private void AddLayering()
+        private void AddLayering()
     {
         for (int i = 0; i < _layeringTime.Length; i++)
         {
@@ -124,6 +265,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void ResumeGame()
+    {
+        Time.timeScale = 1;
+        _isPaused = false;
+        _menuOptionPause.SetActive(false);
+    }
     #endregion
 
 }
