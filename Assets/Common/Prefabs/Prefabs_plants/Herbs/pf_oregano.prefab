@@ -96,7 +96,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1856093941904696750
+--- !u!1 &4730227811390194218
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,10 +104,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2894733555391209420}
-  - component: {fileID: 6983235477776904333}
-  - component: {fileID: 6552685404070225222}
-  - component: {fileID: 7008040367752446824}
+  - component: {fileID: 3682410221516287753}
+  - component: {fileID: 8816443136652449377}
+  - component: {fileID: 6449386769592072582}
+  - component: {fileID: 1455589142320381157}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -115,13 +115,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2894733555391209420
+--- !u!4 &3682410221516287753
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856093941904696750}
+  m_GameObject: {fileID: 4730227811390194218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
@@ -129,21 +129,21 @@ Transform:
   m_Father: {fileID: 8280670437141093784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6983235477776904333
+--- !u!33 &8816443136652449377
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856093941904696750}
+  m_GameObject: {fileID: 4730227811390194218}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6552685404070225222
+--- !u!23 &6449386769592072582
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856093941904696750}
+  m_GameObject: {fileID: 4730227811390194218}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -178,13 +178,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7008040367752446824
+--- !u!136 &1455589142320381157
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856093941904696750}
+  m_GameObject: {fileID: 4730227811390194218}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: -8661914033608768823}
   - component: {fileID: 5677454170055574786}
   m_Layer: 0
-  m_Name: pf_chamomile_empty
+  m_Name: pf_oregano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,8 +222,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5793616716104573709}
-  - {fileID: 2894733555391209420}
-  - {fileID: 1491904303580236267}
+  - {fileID: 3682410221516287753}
+  - {fileID: 3992537297850046683}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -240,8 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TotalGrowTime: 0
-  _HarvestBonus: 0
-  _step: 0
+  _BonusMalus: 0
   _wateredTime: 20
   _waterCanCooldown: 0
   _compatibilytPlants: []
@@ -268,7 +267,7 @@ MonoBehaviour:
   _maxGrow: 1
   _detailsPrefabs: []
   _plantModel: {fileID: 0}
---- !u!1001 &7173367783497810364
+--- !u!1001 &4634471703244771468
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -277,10 +276,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7454451538762101560, guid: b35163b67a2b15343827083ce8f299df, type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7454451538762101560, guid: b35163b67a2b15343827083ce8f299df, type: 3}
-      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8590797646205585495, guid: b35163b67a2b15343827083ce8f299df, type: 3}
@@ -295,18 +290,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1999999
       objectReference: {fileID: 0}
-    - target: {fileID: 8967639229797028589, guid: b35163b67a2b15343827083ce8f299df, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967639229797028589, guid: b35163b67a2b15343827083ce8f299df, type: 3}
-      propertyPath: m_TagString
-      value: EffectZone
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b35163b67a2b15343827083ce8f299df, type: 3}
---- !u!4 &1491904303580236267 stripped
+--- !u!4 &3992537297850046683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8590797646205585495, guid: b35163b67a2b15343827083ce8f299df, type: 3}
-  m_PrefabInstance: {fileID: 7173367783497810364}
+  m_PrefabInstance: {fileID: 4634471703244771468}
   m_PrefabAsset: {fileID: 0}
