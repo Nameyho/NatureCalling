@@ -188,12 +188,17 @@ public class Seeding : MonoBehaviour
                     }
                     if (cs._isWaterCan && hit.transform.tag == "Plants")
                     {
-                        WaterCan watercan = GetComponent<WaterCan>();
-
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         //Destroy(go);
                     }
+
+                    if(cs._isInsectPollinator && hit.transform.tag == "Plants")
+                    {
+                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+
+                }
                     if (cs._isBuilding)
                     {
 

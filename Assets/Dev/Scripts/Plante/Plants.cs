@@ -27,7 +27,18 @@ public class Plants : MonoBehaviour
     private float _wateredTime = 20f;
 
     [SerializeField]
-    private float _waterCanCooldown; 
+    private float _waterCanCooldown;
+
+    [Header("Temps gagné à chaque pollinisation")]
+    [SerializeField]
+    private float _PollinisationTime = 20f;
+
+    [SerializeField]
+    private float _pollinisationCooldown;
+
+    [Header("points gagné à l'arrossage ou pollinisation")]
+    [SerializeField]
+    private int _pollinisationWateredPoint;
 
     [Header("Compatibilité")]
     [SerializeField]
@@ -59,12 +70,17 @@ public class Plants : MonoBehaviour
     GrowPlants _gp;
     float _phaseTime;
     float _spawnTime;
+
     int _MultiplyWatered = 0;
     float _timewhenLastwatered;
+
+    int _multiplyPollinisation = 0;
+    float _timeWhenLastPollinisation;
+
     float _completscore;
     Transform _transform;
     List<AlreadyUseCard> _usedCardsList = new List<AlreadyUseCard>();
-    int _PollinatorDurability;
+   
     string _name;
     private GroundLayering _groundLayering;
     private bool _isInfested = false;
@@ -110,6 +126,7 @@ public class Plants : MonoBehaviour
 
         float basicTime = Time.time - _spawnTime;
         float wateredtime = _wateredTime * _MultiplyWatered;
+        float pollinatorTime = _PollinisationTime * _multiplyPollinisation;
         float completTime = 1  +(1* (_complement * _completscore));
         float infested = 1;
         if (_isInfested)
@@ -121,7 +138,7 @@ public class Plants : MonoBehaviour
             infested = 1f;
         }
 
-            if ((((basicTime + wateredtime) * completTime) * infested)> (_phaseTime *( _gp.GetCurrentTier()+1)))
+            if ((((basicTime + wateredtime + pollinatorTime) * completTime) * infested)> (_phaseTime *( _gp.GetCurrentTier()+1)))
             {
             
                 _gp.SetCurrentTier(_gp.GetCurrentTier() + _step);
@@ -188,7 +205,11 @@ public class Plants : MonoBehaviour
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
         }
-
+        if(go.GetComponent<Pollinator>() && (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown))
+        {
+            _multiplyPollinisation++;
+            _timeWhenLastPollinisation = Time.time;
+        }
     }
 
     public void DeleteTier()
@@ -376,7 +397,27 @@ public class Plants : MonoBehaviour
         _canBeInfested = b;
     }
 
+    public void AddBonusScore()
+    {
+        FindObjectOfType<GameManager>().GetCurrentScore().Value += _pollinisationWateredPoint;
+    }
+    public bool CanBeWatered()
+    {
+        if(_MultiplyWatered == 0)
+        {
+            return true;
+        }
+        return (Time.time - _timewhenLastwatered > _waterCanCooldown);
+    }
 
+    public bool CanBePollinisate()
+    {
+        if (_MultiplyWatered == 0)
+        {
+            return true;
+        }
+        return (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown);
+    }
     #endregion
 
     #region External Class
