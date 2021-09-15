@@ -20,6 +20,8 @@ public class GrowPlants : MonoBehaviour
     [Range(0, 1)]
     public float _maxGrow = 0.97f;
 
+    [Range(0, 1)]
+    public float _startGrow;
 
     [Header("Details")]
     public GameObject[] _detailsPrefabs;
@@ -65,7 +67,10 @@ public class GrowPlants : MonoBehaviour
             }
 
         }
-
+        if (growPlantsMaterials.Count <= 0)
+        {
+            _plantModel.transform.localScale = new Vector3(_startGrow, _startGrow, _startGrow);
+        }
 
     }
 
@@ -242,7 +247,8 @@ public class GrowPlants : MonoBehaviour
     IEnumerator GrowScaleFunction()
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
-     
+
+        currentfloat = Mathf.Clamp(currentfloat, _startGrow, 1);
         
          _plantModel.transform.localScale += Vector3.one * ((2f / currentfloat)* _RefreshRate);
         _plantModel.transform.localScale = new Vector3(currentfloat, currentfloat, currentfloat);

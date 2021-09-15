@@ -100,6 +100,8 @@ public class GameManager : MonoBehaviour
     private int _currentPlantHealed;
 
     private int _totalHarvestedPlant;
+
+    private GameObject _button;
     #endregion
 
 
@@ -145,7 +147,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetGameOnPause()
+    public void SetGameOnPause(GameObject go) 
     {
         if (_isPaused)
         {
@@ -156,7 +158,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _isPaused = true;
             _menuOptionPause.SetActive(true);
-            
+            go.SetActive(false);
+            _button = go;
         }
     }
 
@@ -195,6 +198,7 @@ public class GameManager : MonoBehaviour
         _BackToMenu.SetActive(false);
         _optionMenu.SetActive(false);
         _mainMenu.SetActive(true);
+        _button.SetActive(true);
     }
 
     public void CloseBackToMenu()
@@ -202,20 +206,23 @@ public class GameManager : MonoBehaviour
         _BackToMenu.SetActive(false);
         _restartMenu.SetActive(false);
         _mainMenu.SetActive(true);
+        _button.SetActive(true);
     }
     public void CloseQuitMenu()
     {
         _QuitMenu.SetActive(false);
         _restartMenu.SetActive(false);
         _mainMenu.SetActive(true);
-        ResumeGame();
+        _button.SetActive(true);
+        
     }
     public void CloseReloadMenu()
     {
         _mainMenu.SetActive(true);
         _restartMenu.SetActive(false);
-        ResumeGame();
-        
+        _button.SetActive(true);
+       
+
     }
     public void ReloadScene()
     {
@@ -225,7 +232,7 @@ public class GameManager : MonoBehaviour
 
         //SceneManager.UnloadSceneAsync(scene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
-
+   
 
     }
 
