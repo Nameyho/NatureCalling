@@ -143,16 +143,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 0
-  _HarvestBonus: 0
-  _step: 0
-  _wateredTime: 20
-  _waterCanCooldown: 0
-  _compatibilytPlants: []
-  _card: {fileID: 0}
-  _radiusDetection: 0
-  _complement: 0
-  _limitation: {fileID: 0}
+  _TotalGrowTime: 100
+  _HarvestBonus: 50
+  _step: 1
+  _wateredTime: 10
+  _waterCanCooldown: 60
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
+  _compatibilytPlants:
+  - {fileID: 11400000, guid: 197d25b8de3c01f4aad6ae27e2e6e6ae, type: 2}
+  - {fileID: 11400000, guid: 52518fdeddb01f64498c89c6d0151601, type: 2}
+  _card: {fileID: 11400000, guid: df11a8ba75d09634ca16156edd049ad5, type: 2}
+  _radiusDetection: 1.2
+  _complement: 0.1
+  _limitation: {fileID: 11400000, guid: e4f455e159f0da64890f8069b9572412, type: 2}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 6506579682199050189}
-  _plantTier: {fileID: 0}
+  _plantTier: {fileID: 11400000, guid: 4950e7942c8ee7d47a8965e997d70d85, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1

@@ -648,9 +648,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7564ffc070f5d7d4b95aa3c31f23865f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Basic: {fileID: -876546973899608171, guid: fa4db0b0a2aa5c84b90876988f563143, type: 3}
-  _Effect: {fileID: 2100000, guid: 2d634d3779be18241bce3225027edbb4, type: 2}
-  _Unbuildable: {fileID: 2100000, guid: 7d85c4df23d7ec8458db5c8388505dc3, type: 2}
+  _Basic:
+  - {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+  - {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+  - {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+  _Effect:
+  - {fileID: 2100000, guid: 16d213d6f96090f429418946ea5dae24, type: 2}
+  - {fileID: 2100000, guid: 16d213d6f96090f429418946ea5dae24, type: 2}
+  - {fileID: 2100000, guid: 16d213d6f96090f429418946ea5dae24, type: 2}
+  _Unbuildable:
+  - {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
+  - {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
+  - {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
   _ghostModel: {fileID: 6270857463234308764, guid: 2d9df3168d3759e41ab5bea36e30ddf4, type: 3}
   _plantsPrefabs: {fileID: 919132149155446097, guid: e831ad1d0767a874b891df19b29ad987, type: 3}
   IgnoreMe:
