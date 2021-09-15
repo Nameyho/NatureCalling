@@ -13,12 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private IntVariable _currentScore;
 
-    [SerializeField]
-    private int _scoreToChangeScene;
-
     [Header("Valeur de départ à insérer dans le même ordre dans chaque liste")]
+    //[SerializeField]
+    //private List<CardScriptable> cardScriptables = new List<CardScriptable>();
+
     [SerializeField]
-    private List<CardScriptable> cardScriptables = new List<CardScriptable>();
+    private int[] _startValue;
 
     [SerializeField]
     private List<IntVariable> cardsIntvariable = new List<IntVariable>();
@@ -59,6 +59,30 @@ public class GameManager : MonoBehaviour
     private SceneVariable _MenuScene;
 
 
+    [Header("Conditions de victoire")]
+    [SerializeField]
+    private int _focusPlantMax;
+
+    [SerializeField]
+    private int _nombreArrosage;
+
+    [SerializeField]
+    private int _scoreToChangeScene;
+
+    [SerializeField]
+    private int _harvestAquaticPlantsToReach;
+
+    [SerializeField]
+    private int _plantToHeal;
+
+    [SerializeField]
+    private int _NombreDePlantARecolter;
+
+    [SerializeField]
+    private BoolVariable[] _animals;
+
+
+
     #endregion
     #region Private
     private float[] _lastTime ;
@@ -66,6 +90,18 @@ public class GameManager : MonoBehaviour
     private float[] _privateLayeringMax;
 
     private bool _isPaused = false;
+
+    private int _focusPlants;
+
+    private int _wateringTime;
+
+    private int _harvestAquaticPlants;
+
+    private int _currentPlantHealed;
+
+    private int _totalHarvestedPlant;
+
+    private GameObject _button;
     #endregion
 
 
@@ -77,6 +113,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.sceneLoaded += OnSceneUnloaded;
     }
+    private void Update()
+    {
+        AddLayering();
+        CheckIfVictory();
+    }
+
+
+
 
     #endregion
 
@@ -94,7 +138,6 @@ public class GameManager : MonoBehaviour
     {
         _currentScore.Value -= score;
     }
-    #endregion
 
     public void CheckMinimalProgression()
     {
@@ -104,7 +147,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetGameOnPause()
+    public void SetGameOnPause(GameObject go) 
     {
         if (_isPaused)
         {
@@ -115,7 +158,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _isPaused = true;
             _menuOptionPause.SetActive(true);
-            
+            go.SetActive(false);
+            _button = go;
         }
     }
 
@@ -154,6 +198,7 @@ public class GameManager : MonoBehaviour
         _BackToMenu.SetActive(false);
         _optionMenu.SetActive(false);
         _mainMenu.SetActive(true);
+        _button.SetActive(true);
     }
 
     public void CloseBackToMenu()
@@ -161,20 +206,23 @@ public class GameManager : MonoBehaviour
         _BackToMenu.SetActive(false);
         _restartMenu.SetActive(false);
         _mainMenu.SetActive(true);
+        _button.SetActive(true);
     }
     public void CloseQuitMenu()
     {
         _QuitMenu.SetActive(false);
         _restartMenu.SetActive(false);
         _mainMenu.SetActive(true);
-        ResumeGame();
+        _button.SetActive(true);
+        
     }
     public void CloseReloadMenu()
     {
         _mainMenu.SetActive(true);
         _restartMenu.SetActive(false);
-        ResumeGame();
-        
+        _button.SetActive(true);
+       
+
     }
     public void ReloadScene()
     {
@@ -184,7 +232,7 @@ public class GameManager : MonoBehaviour
 
         //SceneManager.UnloadSceneAsync(scene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
-
+   
 
     }
 
@@ -193,32 +241,17 @@ public class GameManager : MonoBehaviour
        // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
         SceneManager.LoadScene(_MenuScene.Value.SceneName, LoadSceneMode.Single);
     }
-    
-    #region Unity API
 
-
-
-    private void Update()
-    {
-        AddLayering();
-    }
-
-    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
-    {
-        
-        //Reset();
-    }
-    
 
     public void Reset()
     {
         _currentScore.Value = 0;
-        if (cardScriptables.Count == cardsIntvariable.Count)
+        if (_startValue.Length == cardsIntvariable.Count)
         {
-            for (int i = 0; i < cardScriptables.Count; i++)
+            for (int i = 0; i < _startValue.Length; i++)
             {
-                cardsIntvariable[i].Value = cardScriptables[i]._numberCardsAtStart;
-               
+                cardsIntvariable[i].Value = _startValue[i];
+
             }
         }
         else
@@ -243,22 +276,61 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
+    public IntVariable GetCurrentScore()
+    {
+        return _currentScore;
+    }
+
+    public void AddFocusPlants()
+    {
+        _focusPlants++;
+    }
+
+    public void AddWateringTime()
+    {
+        _wateringTime++;
+    }
+
+    public void AddCurrentAquaticPlant()
+    {
+        _harvestAquaticPlants++;
+    }
+
+    public void AddCurrentHealedPlant()
+    {
+        _currentPlantHealed++;
+    }
+
+    public void AddHarvestedPlant()
+    {
+        _totalHarvestedPlant++;
+    }
+
+
+    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
+    {
+        
+        //Reset();
+    }
+    
     #endregion
 
 
-    
 
-        #region privates methods
 
-        private void AddLayering()
+    #region privates methods
+
+    private void AddLayering()
     {
         for (int i = 0; i < _layeringTime.Length; i++)
         {
-            if (Time.time - _lastTime[i] > _layeringTime[i] && (_privateLayeringMax[i] > 0))
+            if (Time.timeSinceLevelLoad - _lastTime[i] > _layeringTime[i] && (_privateLayeringMax[i] > 0))
             {
 
                 _layeringCard[i].Value++;
-                _lastTime[i] = Time.time;
+                _lastTime[i] = Time.timeSinceLevelLoad;
                 _privateLayeringMax[i]--;
 
             }
@@ -271,11 +343,32 @@ public class GameManager : MonoBehaviour
         _isPaused = false;
         _menuOptionPause.SetActive(false);
     }
+
+    private void CheckIfVictory()
+    {
+
+
+        bool vivace = _focusPlants >= _focusPlantMax;
+        bool arrosage = _wateringTime >= _nombreArrosage;
+        bool points = _currentScore >= _scoreToChangeScene;
+        bool aquaticPlants = _harvestAquaticPlants >= _harvestAquaticPlantsToReach;
+        bool healedPlants = _currentPlantHealed >= _plantToHeal;
+        bool recoltedplant = _totalHarvestedPlant >= _NombreDePlantARecolter;
+        bool a = true;
+        for (int i = 0; i < _animals.Length; i++)
+        {
+            if (!_animals[i])
+            {
+                a = false;
+            }
+        }
+
+
+        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a)
+        {
+            Debug.Log("win");
+        }
+    }
     #endregion
 
-
-    public IntVariable GetCurrentScore()
-    {
-        return _currentScore;
-    }
 }

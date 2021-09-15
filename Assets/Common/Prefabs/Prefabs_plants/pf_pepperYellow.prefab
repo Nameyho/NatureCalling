@@ -244,11 +244,15 @@ MonoBehaviour:
   _step: 1
   _wateredTime: 10
   _waterCanCooldown: 60
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
   _compatibilytPlants: []
   _card: {fileID: 0}
   _radiusDetection: 1.2
   _complement: 0.1
   _limitation: {fileID: 0}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +294,14 @@ PrefabInstance:
     - target: {fileID: 8590797646205585495, guid: b35163b67a2b15343827083ce8f299df, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967639229797028589, guid: b35163b67a2b15343827083ce8f299df, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967639229797028589, guid: b35163b67a2b15343827083ce8f299df, type: 3}
+      propertyPath: m_TagString
+      value: EffectZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b35163b67a2b15343827083ce8f299df, type: 3}

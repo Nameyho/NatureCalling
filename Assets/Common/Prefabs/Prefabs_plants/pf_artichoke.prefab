@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 8280670437141093784}
   - component: {fileID: 1960175358109402039}
   - component: {fileID: 4665304163381673275}
+  - component: {fileID: 178870605835599049}
   m_Layer: 0
   m_Name: pf_artichoke
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 120
+  _TotalGrowTime: 30
   _HarvestBonus: 44
   _step: 1
   _wateredTime: 10
@@ -181,6 +182,18 @@ MonoBehaviour:
   - {fileID: 5446539101406495260}
   - {fileID: 7748373939144807630}
   _plantModel: {fileID: 0}
+--- !u!114 &178870605835599049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280670437141093787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c745c09f920e1429aad4e408e01d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3310562013059922102
 PrefabInstance:
   m_ObjectHideFlags: 0
