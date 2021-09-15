@@ -143,16 +143,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 0
+  _TotalGrowTime: 10
   _HarvestBonus: 0
-  _step: 0
+  _step: 1
   _wateredTime: 20
   _waterCanCooldown: 0
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: 570ccfda176520b449f32b54331a8b65, type: 2}
   _radiusDetection: 0
   _complement: 0
   _limitation: {fileID: 11400000, guid: 9f23465db9327174881c823c9defd6f2, type: 2}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0

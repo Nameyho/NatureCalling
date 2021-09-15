@@ -18,9 +18,10 @@ public class WaterCan : MonoBehaviour
        
         if(other.tag == "Plants" && other.GetComponentInParent<Plants>())
         {
+            Plants plante = other.GetComponentInParent<Plants>();
+            plante.AddTier(this.gameObject);
+            plante.AddBonusScore();
           
-            other.GetComponentInParent<Plants>().AddTier(this.gameObject);
-            other.GetComponentInParent<Plants>().AddBonusScore();
             Destroy(transform.parent.gameObject, 0.5f);
         }
        

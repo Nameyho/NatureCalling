@@ -86,6 +86,7 @@ public class Plants : MonoBehaviour
     private bool _isInfested = false;
     private bool _canBeInfested = true;
     private int _repellentAround;
+    private bool _isChecked = false;
     #endregion
 
     #region Unity API
@@ -114,6 +115,20 @@ public class Plants : MonoBehaviour
         {
             GetComponent<Plants>().SetcanBeInfested(true);
         }
+        if (!_isChecked && (Time.time - _spawnTime > 1f))
+        {
+            CheckInfestation();
+            _isChecked = true;
+        }
+        if (!_canBeInfested)
+        {
+            _isInfested = false;
+        }
+        if (_repellentAround > 0)
+        {
+            _canBeInfested = false;
+        }
+
     }
     #endregion
 
@@ -168,15 +183,47 @@ public class Plants : MonoBehaviour
                     {
                         _completscore++;
                     }
-                    if(plante.GetInfested() && _card._isRepellent && _canBeInfested)
+
+                    if (plante.GetCard()._isRepellent)
+                    {
+                        AddRepellentAround();
+                    }
+                }
+
+               
+            }
+
+        }
+    }
+
+    private void CheckInfestation()
+    {
+        CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+        Collider[] hits = Physics.OverlapSphere(_transform.position, _radiusDetection);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].GetComponent<CapsuleCollider>())
+            {
+                CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+                Plants plante = (hits[i].GetComponentInParent<Plants>());
+                if (hc.GetComponentInParent<Plants>() &&
+                    !(cc.GetInstanceID().Equals(hc.GetInstanceID()))
+                    && (hc.GetInstanceID() != 0))
+                {
+
+                    if (plante.GetInfested() && _card._isRepellent && _canBeInfested)
                     {
                         plante.setInfested(false);
                         plante.SetcanBeInfested(false);
+                        plante.AddRepellentAround();
                     }
                     if (_card._isRepellent)
                     {
-                        plante.AddRepellentAround();
+                        AddRepellentAround();
+                       
                     }
+                   
+
                 }
             }
 
@@ -197,6 +244,7 @@ public class Plants : MonoBehaviour
         if(_MultiplyWatered == 0)
         {
             _MultiplyWatered++;
+            FindObjectOfType<GameManager>().AddWateringTime();
             _timewhenLastwatered = Time.time;
         }
         if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _waterCanCooldown))
@@ -204,6 +252,7 @@ public class Plants : MonoBehaviour
  
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
+            FindObjectOfType<GameManager>().AddWateringTime();
         }
         if(go.GetComponent<Pollinator>() && (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown))
         {
@@ -216,12 +265,6 @@ public class Plants : MonoBehaviour
     {
         _gp.SetCurrentTier(_gp.GetCurrentTier() - _step);
     }
-
-
-    #endregion
-    #region main
-
-
 
     public void NoticeOtherAboutDestruction()
     {
@@ -384,6 +427,10 @@ public class Plants : MonoBehaviour
 
     public void setInfested(bool b)
     {
+        if (!b)
+        {
+           FindObjectOfType<GameManager>().AddCurrentHealedPlant();
+        }
         _isInfested = b;
     }
 

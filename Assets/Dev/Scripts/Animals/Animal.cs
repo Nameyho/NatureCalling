@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using ScriptableObjectArchitecture;
 
 public class Animal : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Animal : MonoBehaviour
 
     [SerializeField]
     private Transform[] points;
+
+    [SerializeField]
+    private BoolVariable _isAppeared;
+
 
     #endregion
 
@@ -27,6 +32,7 @@ public class Animal : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
         GotoNextPoint();
+        _isAppeared.Value = true;
     }
 
 
