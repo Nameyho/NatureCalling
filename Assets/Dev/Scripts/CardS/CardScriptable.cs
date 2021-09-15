@@ -33,6 +33,8 @@ public class CardScriptable : ScriptableObject
 
     public bool _isRepellent;
 
+
+
     [Header("bonus que la carte va apporter")]
 
     public GameObject _prefabToSpawn;

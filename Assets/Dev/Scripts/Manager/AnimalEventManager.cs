@@ -22,12 +22,18 @@ public class AnimalEventManager : MonoBehaviour
     [SerializeField]
     private List<Transform> _animalsLocationsSpawner;
 
+    [Header("Limitation du nombre")]
+    [SerializeField]
+    private int _maxAnimals;
+
     #endregion
 
     #region Private
     private float _nextCheckTime;
 
     private List<AnimalsConditionScriptable> _animalsWaitingToBeInstancied = new List<AnimalsConditionScriptable>();
+
+    private int _animalsOnScene;
     #endregion 
 
     #region 
@@ -101,7 +107,7 @@ public class AnimalEventManager : MonoBehaviour
 
     private void SpawningAnimal()
     {
-        if (_animalsWaitingToBeInstancied.Count > 0)
+        if (_animalsWaitingToBeInstancied.Count > 0 && _animalsOnScene< _maxAnimals )
         {
                 int temp = Random.Range(0, _animalsWaitingToBeInstancied.Count);
                 int percentage = Random.Range(0, 101);
@@ -111,7 +117,7 @@ public class AnimalEventManager : MonoBehaviour
                     int temp2 = Random.Range(0, _animalsLocationsSpawner.Count);
                     Instantiate(_animalsWaitingToBeInstancied[temp].animalGameObject, _animalsLocationsSpawner[temp2]);
                 _animalsWaitingToBeInstancied.Remove(_animalsWaitingToBeInstancied[temp]);
-              
+                _animalsOnScene++;
                 }
 
         }
@@ -120,6 +126,11 @@ public class AnimalEventManager : MonoBehaviour
     public void AddToWaitinglist(AnimalsConditionScriptable acs)
     {
         _AnimalsConditionsList.Add(acs);
+    }
+
+    public void RemoveOnAnimalOnCounter()
+    {
+        _animalsOnScene--;
     }
     #endregion
 }

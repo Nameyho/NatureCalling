@@ -29,6 +29,7 @@ public class HarvestBasket : MonoBehaviour
         {
             GrowPlants gp = other.GetComponentInParent<GrowPlants>();
             Plants plant = other.GetComponentInParent<Plants>();
+           
             if(gp.isFullingGrown()){
                 if (gp.IsDestroyOnHarvest())
                 {
@@ -45,9 +46,26 @@ public class HarvestBasket : MonoBehaviour
                     plant.resetSpawnTime();
                     plant.ResetMultiply();
                 }
+
+                if (other.GetComponentInParent<FocusPlant>())
+                {
+                    other.GetComponentInParent<FocusPlant>().AddFocusPoints();
+
+                }
                 _score.Value += plant.getBonusMalus();
+                if (plant.GetCard()._isAquaticPlant)
+                {
+                    FindObjectOfType<GameManager>().AddCurrentAquaticPlant();
+                }
+
+                if(plant.GetCard()._isAquaticPlant || plant.GetCard()._isPlant)
+                {
+                    FindObjectOfType<GameManager>().AddHarvestedPlant();
+                }
             }
-           
+
+
+
         }
            Destroy(transform.parent.gameObject, 0.5f);
 

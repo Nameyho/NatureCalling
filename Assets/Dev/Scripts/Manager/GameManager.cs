@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private IntVariable _currentScore;
 
-    [SerializeField]
-    private int _scoreToChangeScene;
-
     [Header("Valeur de départ à insérer dans le même ordre dans chaque liste")]
     //[SerializeField]
     //private List<CardScriptable> cardScriptables = new List<CardScriptable>();
@@ -62,6 +59,30 @@ public class GameManager : MonoBehaviour
     private SceneVariable _MenuScene;
 
 
+    [Header("Conditions de victoire")]
+    [SerializeField]
+    private int _focusPlantMax;
+
+    [SerializeField]
+    private int _nombreArrosage;
+
+    [SerializeField]
+    private int _scoreToChangeScene;
+
+    [SerializeField]
+    private int _harvestAquaticPlantsToReach;
+
+    [SerializeField]
+    private int _plantToHeal;
+
+    [SerializeField]
+    private int _NombreDePlantARecolter;
+
+    [SerializeField]
+    private BoolVariable[] _animals;
+
+
+
     #endregion
     #region Private
     private float[] _lastTime ;
@@ -69,6 +90,16 @@ public class GameManager : MonoBehaviour
     private float[] _privateLayeringMax;
 
     private bool _isPaused = false;
+
+    private int _focusPlants;
+
+    private int _wateringTime;
+
+    private int _harvestAquaticPlants;
+
+    private int _currentPlantHealed;
+
+    private int _totalHarvestedPlant;
     #endregion
 
 
@@ -83,7 +114,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         AddLayering();
-        Debug.Log(Time.timeSinceLevelLoad);
+        CheckIfVictory();
     }
 
 
@@ -105,7 +136,6 @@ public class GameManager : MonoBehaviour
     {
         _currentScore.Value -= score;
     }
-    #endregion
 
     public void CheckMinimalProgression()
     {
@@ -204,19 +234,7 @@ public class GameManager : MonoBehaviour
        // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
         SceneManager.LoadScene(_MenuScene.Value.SceneName, LoadSceneMode.Single);
     }
-    
-    #region Unity API
 
-
-
-
-
-    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
-    {
-        
-        //Reset();
-    }
-    
 
     public void Reset()
     {
@@ -226,7 +244,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < _startValue.Length; i++)
             {
                 cardsIntvariable[i].Value = _startValue[i];
-               
+
             }
         }
         else
@@ -251,14 +269,53 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
+    public IntVariable GetCurrentScore()
+    {
+        return _currentScore;
+    }
+
+    public void AddFocusPlants()
+    {
+        _focusPlants++;
+    }
+
+    public void AddWateringTime()
+    {
+        _wateringTime++;
+    }
+
+    public void AddCurrentAquaticPlant()
+    {
+        _harvestAquaticPlants++;
+    }
+
+    public void AddCurrentHealedPlant()
+    {
+        _currentPlantHealed++;
+    }
+
+    public void AddHarvestedPlant()
+    {
+        _totalHarvestedPlant++;
+    }
+
+
+    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
+    {
+        
+        //Reset();
+    }
+    
     #endregion
 
 
-    
 
-        #region privates methods
 
-        private void AddLayering()
+    #region privates methods
+
+    private void AddLayering()
     {
         for (int i = 0; i < _layeringTime.Length; i++)
         {
@@ -279,11 +336,32 @@ public class GameManager : MonoBehaviour
         _isPaused = false;
         _menuOptionPause.SetActive(false);
     }
+
+    private void CheckIfVictory()
+    {
+
+
+        bool vivace = _focusPlants >= _focusPlantMax;
+        bool arrosage = _wateringTime >= _nombreArrosage;
+        bool points = _currentScore >= _scoreToChangeScene;
+        bool aquaticPlants = _harvestAquaticPlants >= _harvestAquaticPlantsToReach;
+        bool healedPlants = _currentPlantHealed >= _plantToHeal;
+        bool recoltedplant = _totalHarvestedPlant >= _NombreDePlantARecolter;
+        bool a = true;
+        for (int i = 0; i < _animals.Length; i++)
+        {
+            if (!_animals[i])
+            {
+                a = false;
+            }
+        }
+
+
+        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a)
+        {
+            Debug.Log("win");
+        }
+    }
     #endregion
 
-
-    public IntVariable GetCurrentScore()
-    {
-        return _currentScore;
-    }
 }

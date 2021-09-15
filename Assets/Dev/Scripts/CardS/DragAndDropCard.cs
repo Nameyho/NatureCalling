@@ -200,8 +200,8 @@ public class DragAndDropCard : MonoBehaviour
 						if (Input.GetMouseButtonDown(0))
 						{
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-						
 							go.transform.Rotate(0,AxeY, 0);
+                           
 						}
 
 					}
