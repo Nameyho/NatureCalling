@@ -113,6 +113,9 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615700}
       id: 1
       isStickyNote: 0
+    - model: {fileID: 8926484042661614798}
+      id: 7
+      isStickyNote: 0
   - title: Circular Bottom Blink
     position:
       serializedVersion: 2
@@ -3053,7 +3056,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -4072,6 +4075,11 @@ MonoBehaviour:
   - m_Id: 6
     linkedSlots: []
     position: {x: 715, y: 4644}
+    expandedSlots: []
+    expanded: 0
+  - m_Id: 7
+    linkedSlots: []
+    position: {x: 543.35034, y: 2063.7659}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614799
@@ -8477,7 +8485,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661615285}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
 --- !u!114 &8926484042661615285
 MonoBehaviour:
   m_ObjectHideFlags: 0
