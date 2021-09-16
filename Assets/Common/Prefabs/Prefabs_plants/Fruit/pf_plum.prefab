@@ -177,6 +177,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 1871007799325575175}
   - {fileID: 4700178116026557911}
@@ -2022,6 +2023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mod_vg_prunier
       objectReference: {fileID: 0}
+    - target: {fileID: 3541492799524068374, guid: 18691ebe21b975341b43b4f46db2c0df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dece9ca800bb44478d0dc2beaccda40, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18691ebe21b975341b43b4f46db2c0df, type: 3}
 --- !u!1 &7466568674946444157 stripped

@@ -177,6 +177,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 7907091013789505883}
   - {fileID: 7143768003436273534}
@@ -271,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mod_vg_thym
       objectReference: {fileID: 0}
+    - target: {fileID: 4028443047550754314, guid: 0876e7f7257745c4d8301567f694d8f0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb50a9393b3ba9643aabc2ba9ae46f0b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0876e7f7257745c4d8301567f694d8f0, type: 3}
 --- !u!1 &2461001790370692444 stripped

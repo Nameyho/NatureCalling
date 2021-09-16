@@ -193,7 +193,7 @@ public class DragAndDropCard : MonoBehaviour
 						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 						go.transform.Rotate(0, AxeY, 0);
 					}
-					if (cs._IsBasket && !(plante.GetInfested()))
+					if (cs._IsBasket && !(plante.GetInfested()) && gp.isFullingGrown())
 					{
 
 						seed.SetIsBuidable(false);

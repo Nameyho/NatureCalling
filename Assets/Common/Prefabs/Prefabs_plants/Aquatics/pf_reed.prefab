@@ -148,11 +148,15 @@ MonoBehaviour:
   _step: 0
   _wateredTime: 20
   _waterCanCooldown: 0
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: 69f4a09c755b6944c9ac4b01c184d324, type: 2}
   _radiusDetection: 0
   _complement: 0
   _limitation: {fileID: 11400000, guid: ab573f5350680c346aa5b3a722d25b61, type: 2}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +175,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 4837710381399063037}
   - {fileID: 3739746631015801236}
@@ -232,6 +237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mod_vg_reed
       objectReference: {fileID: 0}
+    - target: {fileID: 6440569634835550048, guid: 030b0ff67a4baa44eb25486275cd5329, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb50a9393b3ba9643aabc2ba9ae46f0b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030b0ff67a4baa44eb25486275cd5329, type: 3}
 --- !u!4 &5628804083400733752 stripped

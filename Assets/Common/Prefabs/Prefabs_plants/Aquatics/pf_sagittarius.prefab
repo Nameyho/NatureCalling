@@ -148,11 +148,15 @@ MonoBehaviour:
   _step: 0
   _wateredTime: 20
   _waterCanCooldown: 0
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: 9d7291a19a79e2f45af292c7ce0cd6f9, type: 2}
   _radiusDetection: 0
   _complement: 0
   _limitation: {fileID: 11400000, guid: 87e7409ea41d1194bb3303319272f567, type: 2}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +175,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 5314966162747635410}
   - {fileID: 7993505401694387136}
@@ -284,6 +289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mod_vg_sagitaire
       objectReference: {fileID: 0}
+    - target: {fileID: 5004041794430884892, guid: c13ba3b696ef0f543aaf9e6b00ebb6f0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb50a9393b3ba9643aabc2ba9ae46f0b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c13ba3b696ef0f543aaf9e6b00ebb6f0, type: 3}
 --- !u!4 &7266717953692322079 stripped
