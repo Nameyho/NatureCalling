@@ -186,12 +186,12 @@ public class Seeding : MonoBehaviour
                         _gameManager.AddProgression(cs._bonusBioDiversity);
 
                     }
-                    if (cs._isWaterCan && hit.transform.tag == "Plants")
-                    {
-                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                        go.transform.Rotate(0, _DaD.GetRotationY(), 0);
-                        //Destroy(go);
-                    }
+                    //if (cs._isWaterCan && hit.transform.tag == "Plants")
+                    //{
+                    //    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    //    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                    //    //Destroy(go);
+                    //}
 
                     if(cs._isInsectPollinator && hit.transform.tag == "Plants")
                     {
