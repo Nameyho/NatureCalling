@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8856662892180615326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -142,17 +142,17 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 0.7919993, g: 0, b: 3.96, a: 0}
-          key1: {r: 1.1116141, g: 0.6392385, b: 3.001119, a: 1}
-          key2: {r: 0, g: 0, b: 0, a: 0.8}
+          key0: {r: 1.1116141, g: 0.6392385, b: 3.001119, a: 0}
+          key1: {r: 0.7919993, g: 0, b: 3.96, a: 1}
+          key2: {r: 1.1116141, g: 0.6392385, b: 3.001119, a: 0.8}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
           key6: {r: 0, g: 0, b: 0, a: 0}
           key7: {r: 0, g: 0, b: 0, a: 0}
           ctime0: 0
-          ctime1: 65535
-          ctime2: 0
+          ctime1: 31418
+          ctime2: 65535
           ctime3: 0
           ctime4: 0
           ctime5: 0
@@ -194,7 +194,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -522,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3092994925291598288
 RectTransform:
   m_ObjectHideFlags: 0

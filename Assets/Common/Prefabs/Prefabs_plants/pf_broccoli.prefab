@@ -408,7 +408,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.43
+      - m_Value: 0.34
         m_Name: _CylinderZoneSize
         m_Overridden: 1
     m_Vector2f:
@@ -624,7 +624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2735458995855549436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 114.4}
+  m_AnchoredPosition: {x: 0, y: 86.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4560264572315073886
@@ -747,7 +747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1170294193181493911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -926,6 +926,9 @@ VisualEffect:
       - m_Value: 0.6
         m_Name: _LevelIndicatorHeight
         m_Overridden: 1
+      - m_Value: 1.01
+        m_Name: _CylinderFadeZone
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -936,7 +939,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 4
+      - m_Value: 1
         m_Name: _PlantCompatibilityLevel
         m_Overridden: 1
     m_Matrix4x4f:
@@ -978,8 +981,8 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 0.058694366, g: 1.7608327, b: 0, a: 0}
-          key1: {r: 1.1280499, g: 1.9766746, b: 1.0452572, a: 1}
+          key0: {r: 1.1280499, g: 1.9766746, b: 1.0452572, a: 0}
+          key1: {r: 0.058694366, g: 1.7608327, b: 0, a: 1}
           key2: {r: 2.3887963, g: 1.8130964, b: 1.8396673, a: 0.46666667}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
@@ -987,7 +990,7 @@ VisualEffect:
           key6: {r: 0, g: 0, b: 0, a: 0}
           key7: {r: 0, g: 0, b: 0, a: 0}
           ctime0: 0
-          ctime1: 65535
+          ctime1: 41827
           ctime2: 65535
           ctime3: 0
           ctime4: 0
@@ -1030,7 +1033,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1745,15 +1747,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0cdc1236192fe445956921eae8a8043, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0cdc1236192fe445956921eae8a8043, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0cdc1236192fe445956921eae8a8043, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0cdc1236192fe445956921eae8a8043, type: 3}
       propertyPath: m_LocalPosition.x
