@@ -25,7 +25,7 @@ public class HarvestBasket : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        
-        if (other.tag == "Plants" && other.GetComponentInParent<GrowPlants>())
+        if (other.tag == "Plants" || other.tag== "HarvestAquatic" && other.GetComponentInParent<GrowPlants>())
         {
             GrowPlants gp = other.GetComponentInParent<GrowPlants>();
             Plants plant = other.GetComponentInParent<Plants>();

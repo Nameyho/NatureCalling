@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CardName: PollinatorInsects
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 596771829224055525, guid: 14de847f83dac6449b6ab4e24509ad52, type: 3}
+  _cardModel: {fileID: 1769907206491179152, guid: 579cefdd6e873ad46bace43d82e6198f, type: 3}
   _isPlant: 0
   _isAquaticPlant: 0
   _isWaterCan: 0
   _IsBasket: 0
   _isShovel: 0
   _isBuilding: 0
+  _isLayering: 0
   _isInsectPollinator: 1
-  _prefabToSpawn: {fileID: 1018505939896522697, guid: bc05ee5eecda5654e94347d41214d978, type: 3}
+  _isRepellent: 0
+  _prefabToSpawn: {fileID: 7092038542273010839, guid: 4f8b512654f4fc24ebc9fc8ab005c4ae, type: 3}
   _bonusBioDiversity: 0
+  _numberCardsAtStart: 0

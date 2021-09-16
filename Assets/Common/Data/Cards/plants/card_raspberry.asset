@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_raspberry
   m_EditorClassIdentifier: 
-  _CardName: 
+  _CardName: Raspberry
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 0}
-  _isPlant: 0
+  _cardModel: {fileID: 8668773491883254190, guid: 77cc29f409b3c354dac1d26f783d5e82, type: 3}
+  _isPlant: 1
   _isAquaticPlant: 0
   _isWaterCan: 0
   _IsBasket: 0
@@ -24,6 +24,6 @@ MonoBehaviour:
   _isLayering: 0
   _isInsectPollinator: 0
   _isRepellent: 0
-  _prefabToSpawn: {fileID: 0}
-  _bonusBioDiversity: 0
-  _numberCardsAtStart: 0
+  _prefabToSpawn: {fileID: 8280670437141093787, guid: 31c066eb15f838f48ba162efb0c65826, type: 3}
+  _bonusBioDiversity: 1
+  _numberCardsAtStart: 1

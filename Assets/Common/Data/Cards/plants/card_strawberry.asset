@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_strawberry
   m_EditorClassIdentifier: 
-  _CardName: 
+  _CardName: Strawberry
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 0}
-  _isPlant: 0
+  _cardModel: {fileID: 7821716308252798120, guid: f2b6181cc0e33c84ba4181d69cd8b4a5, type: 3}
+  _isPlant: 1
   _isAquaticPlant: 0
   _isWaterCan: 0
   _IsBasket: 0
@@ -24,6 +24,6 @@ MonoBehaviour:
   _isLayering: 0
   _isInsectPollinator: 0
   _isRepellent: 0
-  _prefabToSpawn: {fileID: 0}
-  _bonusBioDiversity: 0
-  _numberCardsAtStart: 0
+  _prefabToSpawn: {fileID: 8280670437141093787, guid: b93085c0c910fec4da41ac137b33ec22, type: 3}
+  _bonusBioDiversity: 1
+  _numberCardsAtStart: 1
