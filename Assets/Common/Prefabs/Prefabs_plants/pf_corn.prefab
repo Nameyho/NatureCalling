@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3008924416002512582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35772, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
   m_Children: []
   m_Father: {fileID: 8280670437141093784}
@@ -158,7 +158,7 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: c9ac977bebcc8b543be0dd94b212be94, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
-  _limitation: {fileID: 0}
+  _limitation: {fileID: 11400000, guid: 6b26d2ed7392c5b4aa0d32d7822f9eb6, type: 2}
   _percentageInfestation: 0.9
 --- !u!114 &7577365461060944825
 MonoBehaviour:
@@ -178,6 +178,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 6391683727522178098}
   - {fileID: 4677819358992106019}

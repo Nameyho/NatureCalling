@@ -49,7 +49,7 @@ public class Seeding : MonoBehaviour
 
     #region Private
 
-    private MeshRenderer _myRend;
+    private Renderer _myRend;
     private bool _isBuildable = false;
     private Camera cam;
     private bool _isSelected;
@@ -102,7 +102,7 @@ public class Seeding : MonoBehaviour
 
     private void Awake()
     {
-        _myRend = _ghostModel.GetComponent<MeshRenderer>();
+        _myRend = _ghostModel.GetComponent<Renderer>();
         cam = Camera.main;
         _DaD = GetComponent<DragAndDropCard>();
         

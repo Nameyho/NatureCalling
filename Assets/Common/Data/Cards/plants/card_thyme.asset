@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_thyme
   m_EditorClassIdentifier: 
-  _CardName: 
+  _CardName: Thyme
   _CardImage: {fileID: 0}
   _cardModel: {fileID: 0}
-  _isPlant: 0
+  _isPlant: 1
   _isAquaticPlant: 0
   _isWaterCan: 0
   _IsBasket: 0
@@ -24,6 +24,6 @@ MonoBehaviour:
   _isLayering: 0
   _isInsectPollinator: 0
   _isRepellent: 0
-  _prefabToSpawn: {fileID: 0}
-  _bonusBioDiversity: 0
-  _numberCardsAtStart: 0
+  _prefabToSpawn: {fileID: 8280670437141093787, guid: 86fa5aa5e8428ca4c868301f7aaffe7f, type: 3}
+  _bonusBioDiversity: 1
+  _numberCardsAtStart: 1

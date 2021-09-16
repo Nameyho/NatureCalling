@@ -57,7 +57,7 @@ public class PlantsManager : MonoBehaviour
         {
             float plantToInfest = _plantOnTheMap.Count * (_percentagePlantsToInfest/100);
             int rand= Random.Range(0, _plantOnTheMap.Count);
-            if (!(_plantOnTheMap[rand].GetComponent<Plants>().GetInfested())&& (_plantOnTheMap[rand].GetComponent<Plants>().GetcanBeInfested()))
+            if (!(_plantOnTheMap[rand].GetComponent<Plants>().GetInfested()) && (_plantOnTheMap[rand].GetComponent<Plants>().GetcanBeInfested()) && plantToInfest > 0)
             {
                 _plantOnTheMap[rand].GetComponent<Plants>().setInfested(true);
                 t++;
