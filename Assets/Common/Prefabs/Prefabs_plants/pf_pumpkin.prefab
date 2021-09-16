@@ -147,10 +147,10 @@ MonoBehaviour:
   _HarvestBonus: 44
   _step: 1
   _wateredTime: 10
-  _waterCanCooldown: 60
-  _PollinisationTime: 20
-  _pollinisationCooldown: 0
-  _pollinisationWateredPoint: 0
+  _waterCanCooldown: 45
+  _PollinisationTime: 10
+  _pollinisationCooldown: 45
+  _pollinisationWateredPoint: 5
   _compatibilytPlants:
   - {fileID: 11400000, guid: c9ac977bebcc8b543be0dd94b212be94, type: 2}
   _card: {fileID: 11400000, guid: e947511fa6971a94c9be5dc88d6a390e, type: 2}
@@ -176,6 +176,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 7178403048069547939}
   - {fileID: 2478142690629370199}

@@ -143,14 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 20
+  _TotalGrowTime: 120
   _HarvestBonus: 44
   _step: 1
   _wateredTime: 10
-  _waterCanCooldown: 60
-  _PollinisationTime: 20
-  _pollinisationCooldown: 0
-  _pollinisationWateredPoint: 0
+  _waterCanCooldown: 45
+  _PollinisationTime: 10
+  _pollinisationCooldown: 45
+  _pollinisationWateredPoint: 5
   _compatibilytPlants:
   - {fileID: 11400000, guid: 81e46dbaa57abb34e936275fc1683755, type: 2}
   - {fileID: 11400000, guid: badf464117c6c92498c4e264949f4f72, type: 2}
