@@ -176,6 +176,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs: []
   _plantModel: {fileID: 0}
 --- !u!1001 &2646287120961733225
@@ -185,6 +186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8280670437141093784}
     m_Modifications:
+    - target: {fileID: -8934283504801372855, guid: 242353ba07b346049a7635eb31980eea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb50a9393b3ba9643aabc2ba9ae46f0b, type: 2}
     - target: {fileID: -8679921383154817045, guid: 242353ba07b346049a7635eb31980eea, type: 3}
       propertyPath: m_RootOrder
       value: 0

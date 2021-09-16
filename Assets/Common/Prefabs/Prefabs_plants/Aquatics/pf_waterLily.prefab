@@ -148,11 +148,15 @@ MonoBehaviour:
   _step: 0
   _wateredTime: 20
   _waterCanCooldown: 0
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: d6bfd8b9abf3467449caf8386e559aeb, type: 2}
   _radiusDetection: 0
   _complement: 0
   _limitation: {fileID: 11400000, guid: 02a2504e19f38da4b889ef4a55723dc3, type: 2}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +175,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 1634292319950932991}
   - {fileID: 3270134406575611120}
@@ -268,6 +273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -864761819475533575, guid: 68cad764226d7784c9c400ffd9335431, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb50a9393b3ba9643aabc2ba9ae46f0b, type: 2}
     - target: {fileID: 919132149155446097, guid: 68cad764226d7784c9c400ffd9335431, type: 3}
       propertyPath: m_Name
       value: mod_vg_nenuphar
