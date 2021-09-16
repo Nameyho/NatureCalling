@@ -147,10 +147,10 @@ MonoBehaviour:
   _HarvestBonus: 50
   _step: 1
   _wateredTime: 10
-  _waterCanCooldown: 60
-  _PollinisationTime: 20
-  _pollinisationCooldown: 0
-  _pollinisationWateredPoint: 0
+  _waterCanCooldown: 45
+  _PollinisationTime: 10
+  _pollinisationCooldown: 45
+  _pollinisationWateredPoint: 5
   _compatibilytPlants:
   - {fileID: 11400000, guid: c9ac977bebcc8b543be0dd94b212be94, type: 2}
   - {fileID: 11400000, guid: 81e46dbaa57abb34e936275fc1683755, type: 2}
