@@ -87,6 +87,8 @@ public class Plants : MonoBehaviour
     private bool _canBeInfested = true;
     private int _repellentAround;
     private bool _isChecked = false;
+
+
     #endregion
 
     #region Unity API
@@ -154,15 +156,10 @@ public class Plants : MonoBehaviour
         }
 
             if ((((basicTime + wateredtime + pollinatorTime) * completTime) * infested)> (_phaseTime *( _gp.GetCurrentTier()+1)))
-            {
-            
+            { 
                 _gp.SetCurrentTier(_gp.GetCurrentTier() + _step);
-            
 
         }
-
-        
-     
     }
 
     private void GetAllPlantHitted()
@@ -356,6 +353,7 @@ public class Plants : MonoBehaviour
         }
 
     }
+
 
     #endregion
 

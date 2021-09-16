@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using ScriptableObjectArchitecture;
+using UnityEngine.VFX;
 
 public class DragAndDropCard : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class DragAndDropCard : MonoBehaviour
 	private float _lastTimeClose;
 	private bool _isFirstTimePlayed = true;
 	private float AxeY;
-
+	private float vfxcooldown  = 1f;
+	private float lastvfx;
 
     #endregion
     #region Exposed
@@ -45,6 +47,16 @@ public class DragAndDropCard : MonoBehaviour
 	[Range(0,1)]
 	private float _RotationSpeed = 1000;
 
+	private bool firsttimewatercan =true;
+	private GameObject go;
+	private VisualEffect ve;
+	public  GameObject vfx;
+
+	private float _resetVfxCooldown = 1f;
+	private float _lastrestvfx;
+
+	public static readonly int sWaterableID = Shader.PropertyToID("Waterable");
+
 	
     #endregion
 
@@ -57,7 +69,8 @@ public class DragAndDropCard : MonoBehaviour
         cam = Camera.main;
         _Hand = this.gameObject.transform.parent.transform.parent.transform.parent.transform;
         _hm = FindObjectOfType<HandManager>();
-    }
+		
+	}
 
     private void LateUpdate()
     {
@@ -87,6 +100,11 @@ public class DragAndDropCard : MonoBehaviour
 			RotateObject();
 
         }
+    }
+
+    private void OnDestroy()
+    {
+		Destroy(go);
     }
     void OnMouseDown()
     {
@@ -132,7 +150,24 @@ public class DragAndDropCard : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 
-                _transform.rotation = hit.transform.rotation;
+
+				if (cs._isWaterCan)
+				{
+					if (firsttimewatercan)
+					{
+						go = Instantiate(vfx, _transform.position, Quaternion.identity);
+						firsttimewatercan = false;
+						ve = go.GetComponent<VisualEffect>();
+						ve.SendEvent("NotWaterable");
+					
+					}
+
+					go.transform.position = _transform.position;
+
+				}
+
+
+				_transform.rotation = hit.transform.rotation;
 
 				Quaternion target = Quaternion.Euler(0, AxeY, 0);
 				_transform.GetChild(1).localRotation = Quaternion.Slerp(transform.rotation,target,/*Time.deltaTime **/_RotationSpeed) ;
@@ -181,20 +216,26 @@ public class DragAndDropCard : MonoBehaviour
 
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
 			{
-
 				GrowPlants gp = hit.transform.GetComponentInParent<GrowPlants>();
 				Plants plante = hit.transform.GetComponentInParent<Plants>();
-			
+
 				if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) || (hit.transform.tag == "HarvestAquatic") && Vector3.Distance(hit.point, transform.position) < 0.5f)
 				{
 				
-
-					if (cs._isWaterCan && Input.GetMouseButtonDown(0)  && plante.CanBeWatered() && hit.transform.tag != "HarvestAquatic")
+					if (cs._isWaterCan  && plante.CanBeWatered() && hit.transform.tag != "HarvestAquatic")
 					{
-
+						ve.SendEvent("Waterable");
+						if ( Input.GetMouseButtonDown(0))
+                        {
 						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 						go.transform.Rotate(0, AxeY, 0);
-					}
+							ve.SendEvent("Watering");
+						}
+						lastvfx = Time.time;
+                    }
+
+
+				
 					if (cs._IsBasket && !(plante.GetInfested()) && gp.isFullingGrown() )
 					{
 
@@ -322,6 +363,21 @@ public class DragAndDropCard : MonoBehaviour
 	public float GetRotationY()
     {
 		return AxeY;
+    }
+	private void Update()
+	{
+	
+		if (ve)
+        {
+		
+            if ((Time.time> _lastrestvfx) && (lastvfx + 1f > Time.time) )
+            {
+			
+				ve.SendEvent("NotWaterable");
+
+            }
+
+		}
     }
     #endregion
 
