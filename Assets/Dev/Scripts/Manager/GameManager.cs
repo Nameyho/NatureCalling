@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
 
@@ -82,6 +83,9 @@ public class GameManager : MonoBehaviour
     private BoolVariable[] _animals;
 
 
+    [Header("Affichage")]
+    [SerializeField]
+    private TMP_Text[] objectifs;
 
     #endregion
     #region Private
@@ -347,22 +351,68 @@ public class GameManager : MonoBehaviour
     private void CheckIfVictory()
     {
 
+        int currentIndex = 0;
 
+        if (_focusPlantMax > 0)
+        {
+            objectifs[currentIndex].text = "Plante vivace récoltée " +  _focusPlants + " / " + _focusPlantMax ;
+            currentIndex++;
+        }
         bool vivace = _focusPlants >= _focusPlantMax;
+
+        if (_nombreArrosage > 0)
+        {
+            objectifs[currentIndex].text = "Arrosages : " +  _wateringTime + " / " + _nombreArrosage;
+            currentIndex++;
+        }
         bool arrosage = _wateringTime >= _nombreArrosage;
+
+        if (_scoreToChangeScene > 0)
+        {
+            objectifs[currentIndex].text = "score : " +  _currentScore + " / " + _scoreToChangeScene;
+            currentIndex++;
+        }
         bool points = _currentScore >= _scoreToChangeScene;
+
+        if(_harvestAquaticPlantsToReach > 0)
+        {
+            objectifs[currentIndex].text = "plantes aquatiques récoltées" + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
+                currentIndex++;
+        }
         bool aquaticPlants = _harvestAquaticPlants >= _harvestAquaticPlantsToReach;
+
+        if(_plantToHeal> 0  && currentIndex < 3)
+        {
+            objectifs[currentIndex].text = "Plantes soignées " + _currentPlantHealed + " / " + _plantToHeal;
+            currentIndex++;
+        }
         bool healedPlants = _currentPlantHealed >= _plantToHeal;
+
+        if (_NombreDePlantARecolter > 0 && currentIndex<3)
+        {
+            objectifs[currentIndex].text = " Plantes récoltées " + _totalHarvestedPlant + " / " + _NombreDePlantARecolter;
+            currentIndex++;
+        }
         bool recoltedplant = _totalHarvestedPlant >= _NombreDePlantARecolter;
+
         bool a = true;
+
+        int spawn = 0;
         for (int i = 0; i < _animals.Length; i++)
         {
+            spawn++;
             if (!_animals[i])
             {
                 a = false;
+                spawn--;
             }
         }
 
+        if(_animals.Length>0 && currentIndex < 3)
+        {
+            objectifs[currentIndex].text = "Animaux apparus " + spawn + " / " + _animals.Length;
+            currentIndex++;
+        }
 
         if(vivace && arrosage && points && aquaticPlants && recoltedplant & a)
         {

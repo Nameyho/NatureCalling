@@ -232,7 +232,7 @@ public class Plants : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(_transform.position, _radiusDetection);
+        //Gizmos.DrawSphere(_transform.position, _radiusDetection);
     }
     #endregion
 

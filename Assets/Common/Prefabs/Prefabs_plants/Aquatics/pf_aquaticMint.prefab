@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7092611040382457773}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
-  m_TagString: Plants
+  m_TagString: HarvestAquatic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 564290628762375896}
   - {fileID: 1228148784290824356}
@@ -256,6 +257,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7073227112635597803, guid: c4f598b5b306e8840b71f313bec1280a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb50a9393b3ba9643aabc2ba9ae46f0b, type: 2}
     - target: {fileID: 919132149155446097, guid: c4f598b5b306e8840b71f313bec1280a, type: 3}
       propertyPath: m_Name
       value: mod_vg_aquaticmint
