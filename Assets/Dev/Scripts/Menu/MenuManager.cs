@@ -83,8 +83,8 @@ public class MenuManager : MonoBehaviour
     }
     public void LoadScene(int scene)
     {
-          //SceneManager.LoadScene(_scenesList[scene].SceneName);
-		  SceneManager.LoadScene(scene);
+          SceneManager.LoadScene(_scenesList[scene].SceneName);
+		  //SceneManager.LoadScene(scene);
     }
 
     public void QuitGame()

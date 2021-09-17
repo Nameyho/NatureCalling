@@ -21,7 +21,6 @@ public class DragAndDropCard : MonoBehaviour
 	private float _lastTimeClose;
 	private bool _isFirstTimePlayed = true;
 	private float AxeY;
-	private float vfxcooldown  = 1f;
 	private float lastvfx;
 
     #endregion
