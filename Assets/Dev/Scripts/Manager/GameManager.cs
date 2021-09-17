@@ -82,6 +82,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private BoolVariable[] _animals;
 
+    [SerializeField]
+    private GameObject _winMenu;
+
 
     [Header("Affichage")]
     [SerializeField]
@@ -104,6 +107,8 @@ public class GameManager : MonoBehaviour
     private int _currentPlantHealed;
 
     private int _totalHarvestedPlant;
+
+    private bool _winmenu = true;
 
     private GameObject _button;
     #endregion
@@ -280,7 +285,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CloseWinMenu()
+    {
+  
+        _winMenu.SetActive(false);
+        Time.timeScale = 1;
+        _winmenu = false;
+    }
 
+    public void MoveToNextScene(string i)
+    {
+        SceneManager.LoadScene(i);
+    }
 
     public IntVariable GetCurrentScore()
     {
@@ -414,9 +430,14 @@ public class GameManager : MonoBehaviour
             currentIndex++;
         }
 
-        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a)
+        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a && _winmenu)
         {
-            Debug.Log("win");
+            Time.timeScale = 0;
+            if (!_winMenu.activeSelf)
+            {
+             _winMenu.SetActive(true);
+
+            }
         }
     }
     #endregion
