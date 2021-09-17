@@ -42,7 +42,11 @@ public class CMFreelookEdgeCamera : MonoBehaviour
     private float _panSpeed;
 
 
+    [SerializeField]
+    private float _rotationSpeed;
+
     private CinemachineFreeLook m_virtualCamera;
+
 
 
     private void Awake()
@@ -63,6 +67,7 @@ public class CMFreelookEdgeCamera : MonoBehaviour
         
         ZoomScreen(_zoomMultiply *up);
         Pan();
+        RightLeft();
 
 
     }
@@ -90,6 +95,18 @@ public class CMFreelookEdgeCamera : MonoBehaviour
         //}
 
 
+    }
+
+    public void RightLeft()
+    {
+        if(Input.GetKey(KeyCode.A)){
+            m_virtualCamera.m_XAxis.Value += _rotationSpeed *Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            m_virtualCamera.m_XAxis.Value -= _rotationSpeed *Time.deltaTime;
+        }
     }
 
     public float GetAxisCustom(string axisName)
