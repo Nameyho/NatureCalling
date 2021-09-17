@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 579994b7ed5b76d488cf2d597f7e1445, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 94b8bf99b0feefa438bf0377f5202de6, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -1283,6 +1283,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1447051057840383353, guid: fd6f1a17ab4718a43a897435e605d8ff, type: 3}
   m_PrefabInstance: {fileID: 1472182292}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &261838892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
+  m_PrefabInstance: {fileID: 1421717673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8856f28be43e786469c0e1c5b1e024a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &272022810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,11 +4486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 831673013724160638, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000014827992
+      value: 0.000000008560947
       objectReference: {fileID: 0}
     - target: {fileID: 831673013724160638, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000014748898
+      value: -8.5152807e-10
       objectReference: {fileID: 0}
     - target: {fileID: 831673013987954331, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4495,11 +4506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 831673013987954331, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1.7438052e-15
+      value: 8.719026e-16
       objectReference: {fileID: 0}
     - target: {fileID: 831673013987954331, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 4.798274e-16
+      value: -1.7869098e-17
       objectReference: {fileID: 0}
     - target: {fileID: 831673014015430932, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: ZoomInMax
@@ -4547,31 +4558,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 831673014050078133, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000014764631
+      value: 0.000000014764631
       objectReference: {fileID: 0}
     - target: {fileID: 831673014050078133, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000020125426
+      value: -0.0000000020125426
       objectReference: {fileID: 0}
     - target: {fileID: 831673014441287953, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 831673014441287953, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9870875
+      value: 0.9908375
       objectReference: {fileID: 0}
     - target: {fileID: 831673014441287953, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.16018222
+      value: 0.1350594
       objectReference: {fileID: 0}
     - target: {fileID: 831673014441287953, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000029417503
+      value: -0.00000001476463
       objectReference: {fileID: 0}
     - target: {fileID: 831673014441287953, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000047738027
+      value: 0.0000000020125421
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a1b05d60dc71f448996c9e36a06562d, type: 3}
@@ -9856,7 +9867,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ReloadButton
         m_Mode: 1
@@ -10068,9 +10079,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: OptionsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11148,7 +11159,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -11639,13 +11650,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: SetGameOnPause
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 7451789394700092046}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12267,7 +12278,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: CloseOptionMenu
         m_Mode: 1
@@ -12503,7 +12514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: CloseGame
         m_Mode: 1
@@ -12645,7 +12656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: MenuButton
         m_Mode: 1
@@ -13384,9 +13395,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: CloseQuitMenu
+        m_MethodName: CloseBackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14377,7 +14388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Back to Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16265,7 +16276,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
@@ -17125,7 +17136,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 261838892}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: CloseBackToMenu
         m_Mode: 1
