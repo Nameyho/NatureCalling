@@ -371,7 +371,7 @@ public class GameManager : MonoBehaviour
 
         if (_focusPlantMax > 0)
         {
-            objectifs[currentIndex].text = "Plante vivace récoltée " +  _focusPlants + " / " + _focusPlantMax ;
+            objectifs[currentIndex].text = "Concombre récoltés " +  _focusPlants + " / " + _focusPlantMax ;
             currentIndex++;
         }
         bool vivace = _focusPlants >= _focusPlantMax;
@@ -385,14 +385,14 @@ public class GameManager : MonoBehaviour
 
         if (_scoreToChangeScene > 0)
         {
-            objectifs[currentIndex].text = "score : " +  _currentScore + " / " + _scoreToChangeScene;
+            objectifs[currentIndex].text = "Score : " +  _currentScore + " / " + _scoreToChangeScene;
             currentIndex++;
         }
         bool points = _currentScore >= _scoreToChangeScene;
 
         if(_harvestAquaticPlantsToReach > 0)
         {
-            objectifs[currentIndex].text = "plantes aquatiques récoltées" + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
+            objectifs[currentIndex].text = "Plantes aquatiques récoltées : " + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
                 currentIndex++;
         }
         bool aquaticPlants = _harvestAquaticPlants >= _harvestAquaticPlantsToReach;

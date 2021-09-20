@@ -2253,15 +2253,27 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _Effect.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d634d3779be18241bce3225027edbb4, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _Effect.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d634d3779be18241bce3225027edbb4, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _Effect.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d634d3779be18241bce3225027edbb4, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
+    - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _Unbuildable.Array.data[0]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
+    - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _Unbuildable.Array.data[1]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
+    - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _Unbuildable.Array.data[2]
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 12137b0e2fed27640ac355505a8eed2b, type: 3}
     - target: {fileID: 1234716946956887856, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_RootOrder
       value: 7
