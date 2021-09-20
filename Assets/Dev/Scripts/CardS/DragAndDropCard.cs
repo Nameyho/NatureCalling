@@ -22,6 +22,11 @@ public class DragAndDropCard : MonoBehaviour
 	private bool _isFirstTimePlayed = true;
 	private float AxeY;
 	private float lastvfx;
+	private bool firsttimewatercan =true;
+	private GameObject go;
+	private VisualEffect ve;
+	private bool PlantNeededToBewateredAround = false;
+	private float _lastrestvfx;
 
     #endregion
     #region Exposed
@@ -46,15 +51,16 @@ public class DragAndDropCard : MonoBehaviour
 	[Range(0,1)]
 	private float _RotationSpeed = 1000;
 
-	private bool firsttimewatercan =true;
-	private GameObject go;
-	private VisualEffect ve;
-	public  GameObject vfx;
 
-	private float _resetVfxCooldown = 1f;
-	private float _lastrestvfx;
+	[Header("VFX AND SFX")]
 
-	public static readonly int sWaterableID = Shader.PropertyToID("Waterable");
+	public AudioSource _audioSource;
+
+	public GameObject _vfxWaterCan;
+	public AudioClip[] _WatercanSounds;
+
+	public GameObject _vfxBasket;
+	public AudioClip[] _BasketSounds;
 
 	
     #endregion
@@ -145,6 +151,9 @@ public class DragAndDropCard : MonoBehaviour
 			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 			CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
+
+
+
 			Seeding seed = GetComponent<Seeding>();
 			if (Physics.Raycast(ray, out hit))
 			{
@@ -152,9 +161,9 @@ public class DragAndDropCard : MonoBehaviour
 
 				if (cs._isWaterCan)
 				{
-					if (firsttimewatercan)
+					if (firsttimewatercan && !PlantNeededToBewateredAround)
 					{
-						go = Instantiate(vfx, _transform.position, Quaternion.identity);
+						go = Instantiate(_vfxWaterCan, _transform.position, Quaternion.identity);
 						firsttimewatercan = false;
 						ve = go.GetComponent<VisualEffect>();
 						ve.SendEvent("NotWaterable");
@@ -162,10 +171,182 @@ public class DragAndDropCard : MonoBehaviour
 					}
 
 					go.transform.position = _transform.position;
+					CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+					Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+					int around = 0;
+					for (int i = 0; i < hits.Length; i++)
+					{
+						if (hits[i].GetComponent<CapsuleCollider>())
+						{
+						CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+						Plants plantLocal = hc.GetComponentInParent<Plants>();
+                            if (plantLocal)
+                            {
+								if (plantLocal.CanBeWatered())
+								{
+									around++;
+								
+								}
+
+                            }
+							
+						}
+					}
+					if (around > 0)
+					{
+						PlantNeededToBewateredAround = true;
+                    }
+                    else
+                    {
+						PlantNeededToBewateredAround = false;
+                    }
+
+				}
+
+				if (cs._isWaterCan && PlantNeededToBewateredAround)
+				{
+					
+					ve.SendEvent("Waterable");
+					if (Input.GetMouseButtonDown(0))
+					{
+						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+
+						go.transform.Rotate(0, AxeY, 0);
+
+
+						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+						int around = 0;
+						for (int i = 0; i < hits.Length; i++)
+						{
+							if (hits[i].GetComponent<CapsuleCollider>())
+							{
+								CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+								Plants plantLocal = hc.GetComponentInParent<Plants>();
+
+								if (plantLocal)
+								{
+									if (plantLocal.CanBeWatered())
+									{
+										GameObject wt = Instantiate(_vfxWaterCan, plantLocal.transform.position, Quaternion.identity);
+										wt.GetComponent<VisualEffect>().SendEvent("Watering");
+										int random = Random.Range(0, _WatercanSounds.Length);
+
+										_audioSource.clip = _WatercanSounds[random];
+										_audioSource.Play();
+										Destroy(wt, 5f);
+
+									}
+
+								}
+
+							}
+						}
+
+
+
+					}
+					lastvfx = Time.time;
+
+
+
 
 				}
 
 
+
+                if (cs._IsBasket)
+                {
+					if (firsttimewatercan && !PlantNeededToBewateredAround)
+					{
+						go = Instantiate(_vfxBasket, _transform.position, Quaternion.identity);
+						firsttimewatercan = false;
+						ve = go.GetComponent<VisualEffect>();
+						ve.SendEvent("NotRecoltable");
+
+					}
+
+					go.transform.position = _transform.position;
+					CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+					Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+					int around = 0;
+					for (int i = 0; i < hits.Length; i++)
+					{
+						if (hits[i].GetComponent<CapsuleCollider>())
+						{
+							CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+							Plants plantLocal = hc.GetComponentInParent<Plants>();
+							if (plantLocal)
+							{
+								if (plantLocal.GetComponentInParent<GrowPlants>().isFullingGrown())
+								{
+									around++;
+
+								}
+
+							}
+
+						}
+					}
+					if (around > 0)
+					{
+						PlantNeededToBewateredAround = true;
+					}
+					else
+					{
+						PlantNeededToBewateredAround = false;
+					}
+				}
+
+				if (cs._IsBasket && PlantNeededToBewateredAround)
+				{
+					Debug.Log("encore recoltable");
+					ve.SendEvent("Recoltable");
+					if (Input.GetMouseButtonDown(0))
+					{
+						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+
+						go.transform.Rotate(0, AxeY, 0);
+
+
+						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+						int around = 0;
+						for (int i = 0; i < hits.Length; i++)
+						{
+							if (hits[i].GetComponent<CapsuleCollider>())
+							{
+								CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+								Plants plantLocal = hc.GetComponentInParent<Plants>();
+
+								if (plantLocal)
+								{
+									if (plantLocal.GetComponentInParent<GrowPlants>().isFullingGrown())
+									{
+										GameObject wt = Instantiate(_vfxBasket, plantLocal.transform.position, Quaternion.identity);
+										wt.GetComponent<VisualEffect>().SendEvent("Recolted");
+										int random = Random.Range(0, _BasketSounds.Length);
+
+										_audioSource.clip =_BasketSounds[random];
+										_audioSource.Play();
+										Destroy(wt, 5f);
+
+									}
+
+								}
+
+							}
+						}
+
+
+
+					}
+					lastvfx = Time.time;
+
+
+
+
+				}
 				_transform.rotation = hit.transform.rotation;
 
 				Quaternion target = Quaternion.Euler(0, AxeY, 0);
@@ -177,7 +358,9 @@ public class DragAndDropCard : MonoBehaviour
 				}
 				else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants")
 				{
-					seed.UpdateRenderer(2);
+
+				seed.UpdateRenderer(2);
+
 
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 					_lastTimeUnbuild = Time.time;
@@ -186,7 +369,9 @@ public class DragAndDropCard : MonoBehaviour
 				}
 				else if (hit.transform.tag == "EffectZone")
 				{
-					seed.UpdateRenderer(1);
+
+						seed.UpdateRenderer(1);
+					
 					effectcollider = hit.collider;
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
@@ -205,7 +390,8 @@ public class DragAndDropCard : MonoBehaviour
 
 				else
 				{
-					seed.UpdateRenderer(0);
+						seed.UpdateRenderer(0);
+					
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 					
 				}
@@ -220,33 +406,8 @@ public class DragAndDropCard : MonoBehaviour
 
 				if ((hit.transform.tag == "Plants" || (hit.transform.tag == "EffectZone")) || (hit.transform.tag == "HarvestAquatic") && Vector3.Distance(hit.point, transform.position) < 0.5f)
 				{
-				
-					if (cs._isWaterCan  && plante.CanBeWatered() && hit.transform.tag != "HarvestAquatic")
-					{
-						ve.SendEvent("Waterable");
-						if ( Input.GetMouseButtonDown(0))
-                        {
-						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-						go.transform.Rotate(0, AxeY, 0);
-							ve.SendEvent("Watering");
-						}
-						lastvfx = Time.time;
-                    }
-
-
-				
-					if (cs._IsBasket && !(plante.GetInfested()) && gp.isFullingGrown() )
-					{
-
-						seed.SetIsBuidable(false);
-						if (Input.GetMouseButtonDown(0))
-						{
-							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-							go.transform.Rotate(0,AxeY, 0);
-                           
-						}
-
-					}
+					
+					
 					if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()) && plante.CanBePollinisate())
 					{
 						seed.SetIsBuidable(false);
@@ -369,11 +530,11 @@ public class DragAndDropCard : MonoBehaviour
 		if (ve)
         {
 		
-            if ((Time.time> _lastrestvfx) && (lastvfx + 1f > Time.time) )
+            if ((Time.time> _lastrestvfx) && (lastvfx + 0.2f > Time.time) )
             {
 			
 				ve.SendEvent("NotWaterable");
-
+				ve.SendEvent("NotRecoltable");
             }
 
 		}

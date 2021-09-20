@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.VFX;
 
 
 public class GrowPlants : MonoBehaviour
@@ -9,6 +10,8 @@ public class GrowPlants : MonoBehaviour
 
     [Header("Model")]
     public List<MeshRenderer> _growPlantMeshes;
+
+    public GameObject _vfx;
 
     [Header("ScriptableObject")]
     public PlantPhase _plantTier;
@@ -83,11 +86,16 @@ public class GrowPlants : MonoBehaviour
         {
 
             fullyGrown = true;
+            _vfx.SetActive(true);
         }
         else
         {
             fullyGrown = false;
+            if (_vfx)
+            {
+                _vfx.SetActive(false);
 
+            }
         }
     }
 
@@ -258,7 +266,8 @@ public class GrowPlants : MonoBehaviour
 
         if (currentfloat >= 1)
         {
-
+           
+            
             fullyGrown = true;
         }
         else

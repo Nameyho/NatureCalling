@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
+using UnityEngine.VFX;
 
 public class Plants : MonoBehaviour
 {
@@ -53,6 +54,18 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private float _complement;
 
+    [SerializeField]
+    private GameObject _comptabiliteVFX;
+
+    [SerializeField]
+    private GameObject _textComptability;
+
+    [SerializeField]
+    private GameObject[] _insideCircle;
+
+    [SerializeField]
+    private GameObject _nuisibleVFX;
+
     [Header("Limitation du nombre de plante")]
     [SerializeField]
     private IntVariable _limitation;
@@ -87,6 +100,7 @@ public class Plants : MonoBehaviour
     private bool _canBeInfested = true;
     private int _repellentAround;
     private bool _isChecked = false;
+    private List<Plants> _plantsAround = new List<Plants>();
 
 
     #endregion
@@ -130,7 +144,14 @@ public class Plants : MonoBehaviour
         {
             _canBeInfested = false;
         }
-
+        if (_isInfested)
+        {
+            _nuisibleVFX.SetActive(true);
+        }
+        else
+        {
+            _nuisibleVFX.SetActive(false);
+        }
     }
     #endregion
 
@@ -179,6 +200,7 @@ public class Plants : MonoBehaviour
                     if (CheckIsCompatible(plante))
                     {
                         _completscore++;
+                      
                     }
 
                     if (plante.GetCard()._isRepellent)
@@ -322,6 +344,10 @@ public class Plants : MonoBehaviour
                 AlreadyUseCard temp = new AlreadyUseCard(plantIn._card, 1);
                 _usedCardsList.Add(temp);
                 plantIn.AddCompletScore(_card);
+                _plantsAround.Add(plantIn);
+                plantIn.AddInPlantsAround(this);
+  
+                
                 return _isIn;
             }
         }
@@ -333,6 +359,7 @@ public class Plants : MonoBehaviour
                 if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(plantIn.GetName()))
                 {
                     _usedCardsList[i]._around++;
+                  
                 }
 
             }
@@ -354,6 +381,65 @@ public class Plants : MonoBehaviour
 
     }
 
+    public void ShowComplementaity()
+    {
+       
+        _comptabiliteVFX.SetActive(true);
+           _textComptability.SetActive(true);
+        VisualEffect vfx = _comptabiliteVFX.GetComponent<VisualEffect>();
+        if(_completscore <= 1)
+        {
+            vfx.SetInt("_PlantCompatibilityLevel", 1);
+            _insideCircle[0].SetActive(true);
+        }
+        if(_completscore ==2)
+        {
+            vfx.SetInt("_PlantCompatibilityLevel", 2);
+            _insideCircle[0].SetActive(true);
+            _insideCircle[1].SetActive(true);
+        }
+        if (_completscore == 3)
+        {
+            vfx.SetInt("_PlantCompatibilityLevel", 3);
+            _insideCircle[0].SetActive(true);
+            _insideCircle[1].SetActive(true);
+            _insideCircle[2].SetActive(true);
+        }
+        if (_completscore == 4)
+        {
+            vfx.SetInt("_PlantCompatibilityLevel", 4);
+            _insideCircle[0].SetActive(true);
+            _insideCircle[1].SetActive(true);
+            _insideCircle[2].SetActive(true);
+            _insideCircle[3].SetActive(true);
+        }
+
+    }
+
+    public void showPlantsAround()
+    {
+        Debug.Log(_plantsAround.Count + _name);
+        foreach (Plants p in _plantsAround)
+        {
+            p.ShowComplementaity();
+        }
+    }
+
+    public void HidePlantsAround()
+    {
+        foreach (Plants p in _plantsAround)
+        {
+            p.DisableVFX();
+        }
+    }
+
+
+
+    public void DisableVFX()
+    {
+        _comptabiliteVFX.SetActive(false);
+        _textComptability.SetActive(false);
+    }
 
     #endregion
 
@@ -372,6 +458,15 @@ public class Plants : MonoBehaviour
     public int GetRepellentAround()
     {
         return _repellentAround;
+    }
+
+    public void AddInPlantsAround(Plants plant)
+    {
+        _plantsAround.Add(plant);
+    }
+    public void RemoveInPlantsAround(Plants plant)
+    {
+        _plantsAround.Remove(plant);
     }
 
     public void AddRepellentAround()

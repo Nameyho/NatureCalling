@@ -1,6 +1,7 @@
 ﻿using ScriptableObjectArchitecture;
 using UnityEngine;
 using TMPro;
+using UnityEngine.VFX;
 
 public class Seeding : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class Seeding : MonoBehaviour
     [SerializeField]
     private GameObject _ghostModel;
 
+
+    [SerializeField]
+    private GameObject _visualPlantVFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
 
     [Header("Prefabs")]
     [SerializeField]
@@ -45,6 +52,9 @@ public class Seeding : MonoBehaviour
     [SerializeField]
     private float _CoolddownLayering;
 
+
+    [SerializeField]
+    private AudioClip[] _sound;
     #endregion
 
     #region Private
@@ -57,6 +67,12 @@ public class Seeding : MonoBehaviour
     private float _lastLayeringPlant;
     private bool _isLayeringNotAlreadyPlant = true;
 
+
+    GameObject go = null;
+
+    bool _isBuildableVFX  = true;
+    bool _isUnbuildableVFX = true;
+    VisualEffect _vfxPlants;
     #endregion
 
     #region Unity API
@@ -64,20 +80,41 @@ public class Seeding : MonoBehaviour
 
     private void Update()
     {
-		
-		onClick();
+       
+        onClick();
         UpdateTextLimitation();
+        if (go )
+        {
+            go.transform.position = transform.position;
+        }
     }
 
 
     public void UpdateRenderer(int i)
     {
+        if (!go && _visualPlantVFX)
+        {
+         go = Instantiate(_visualPlantVFX, transform.position, Quaternion.identity);
+        _vfxPlants = go.GetComponent<VisualEffect>();
+
+        }
         switch (i)
         {
             case 1:
-
                 _myRend.materials = _Effect;
                 _isBuildable = true;
+
+
+              
+                if (_isBuildableVFX && go)
+                {
+                    _isBuildableVFX = false;
+                    _isUnbuildableVFX = true;
+                    _vfxPlants.Reinit();
+                    _vfxPlants.SendEvent("Plantable");
+              
+
+                }
                 break;
 
 
@@ -86,15 +123,33 @@ public class Seeding : MonoBehaviour
 
                 _myRend.materials = _Unbuildable;
                 _isBuildable = false;
+
+                if (_isUnbuildableVFX && go)
+                {
+                 
+                    _isUnbuildableVFX = false;
+                    _isBuildableVFX = true;
+                    _vfxPlants.Reinit();
+                    _vfxPlants.SendEvent("NotPlantable");
+                }
                 break;
             case 0:
                 //  _myRend.material = _Basic;
 
-                _myRend.materials = _Basic;
+                 _myRend.materials = _Basic;
+
+                if (_isBuildableVFX && go)
+                {
+                    _isBuildableVFX = false;
+                    _isUnbuildableVFX = true;
+                    _vfxPlants.Reinit();
+                    _vfxPlants.SendEvent("Plantable");
+                }
+
                 _isBuildable = true;
                 break;
         }
-            
+       
 
     }
 
@@ -105,9 +160,18 @@ public class Seeding : MonoBehaviour
         _myRend = _ghostModel.GetComponent<Renderer>();
         cam = Camera.main;
         _DaD = GetComponent<DragAndDropCard>();
+     
         
     }
 
+
+    private void OnDestroy()
+    {
+        if (go)
+        {
+            Destroy(go);
+        }
+    }
     #endregion
 
 
@@ -125,7 +189,7 @@ public class Seeding : MonoBehaviour
             {
 
                 SeedingObject();
-
+             
 
             }
         }
@@ -169,15 +233,25 @@ public class Seeding : MonoBehaviour
 
                         }
 
-
-                    }
+                    GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
+                    plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
+                    int rand = Random.Range(0, _sound.Length);
+                    _audioSource.clip = _sound[rand];
+                    _audioSource.Play();
+                    Destroy(plantVFX, 5f);
+                }
                     if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _gameManager.AddProgression(cs._bonusBioDiversity);
 
-                    }
+
+                    GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position, Quaternion.identity);
+                    plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
+                    Destroy(plantVFX, 5f);
+                    _audioSource.Play();
+                }
                     if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && !cs._isLayering && hit.transform.tag == "BuildingZone")
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
