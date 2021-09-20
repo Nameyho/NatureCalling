@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5535530677244751297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8006789925039480620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 223529566018240846}
   - component: {fileID: 217601650864392576}
   - component: {fileID: 4327971607171933954}
+  - component: {fileID: 6987854905103348183}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -960,6 +961,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6987854905103348183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741018860848546072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8280670437141093787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1035,11 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: bb5b2a20fca63664d9028b71d466cae3, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 749542489509974860}
+  _textComptability: {fileID: 1808478242060088970}
+  _insideCircle:
+  - {fileID: 19105351909249196}
+  _nuisibleVFX: {fileID: 8339978020747937437}
   _limitation: {fileID: 11400000, guid: be364499afac82f459be0aef6bc7a2ae, type: 2}
   _percentageInfestation: 0
 --- !u!114 &6376793310576639959
@@ -1037,6 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growPlantMeshes: []
+  _recoltableVFX: {fileID: 6085345568964835058}
   _plantTier: {fileID: 11400000, guid: a20325826b385494dbcabb19a4a73fc4, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
@@ -1172,7 +1191,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

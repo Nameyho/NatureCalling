@@ -11,7 +11,7 @@ public class GrowPlants : MonoBehaviour
     [Header("Model")]
     public List<MeshRenderer> _growPlantMeshes;
 
-    public GameObject _vfx;
+    public GameObject _recoltableVFX;
 
     [Header("ScriptableObject")]
     public PlantPhase _plantTier;
@@ -86,14 +86,14 @@ public class GrowPlants : MonoBehaviour
         {
 
             fullyGrown = true;
-            _vfx.SetActive(true);
+            _recoltableVFX.SetActive(true);
         }
         else
         {
             fullyGrown = false;
-            if (_vfx)
+            if (_recoltableVFX)
             {
-                _vfx.SetActive(false);
+                _recoltableVFX.SetActive(false);
 
             }
         }

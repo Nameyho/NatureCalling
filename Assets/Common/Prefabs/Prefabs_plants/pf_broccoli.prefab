@@ -492,7 +492,6 @@ VFXRenderer:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -525,6 +524,7 @@ GameObject:
   - component: {fileID: 4034133598250861439}
   - component: {fileID: 4544954936772352446}
   - component: {fileID: 3979760523359520672}
+  - component: {fileID: 119106601077129881}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -609,6 +609,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &119106601077129881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833716614199884689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4077049323704304866
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2735458995855549436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -747,7 +759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1170294193181493911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1488,6 +1500,14 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: 71c004741dfa22246b475ee4ddd2652b, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 5626208190617627355}
+  _textComptability: {fileID: 5345685593656195735}
+  _insideCircle:
+  - {fileID: 1258351140043963909}
+  - {fileID: 4560264572315073886}
+  - {fileID: 8212383325477073991}
+  - {fileID: 2695592012992902203}
+  _nuisibleVFX: {fileID: 3314690060665246548}
   _limitation: {fileID: 11400000, guid: 220e4712b8875694a82476c8943731d4, type: 2}
   _percentageInfestation: 0
 --- !u!114 &7064656313665035405
@@ -1503,6 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growPlantMeshes: []
+  _recoltableVFX: {fileID: 7767881210693984748}
   _plantTier: {fileID: 11400000, guid: ef73e3466569a1f4ba3c23ea1640f3fc, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0.2

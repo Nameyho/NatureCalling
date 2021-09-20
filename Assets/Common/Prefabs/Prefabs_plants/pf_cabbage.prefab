@@ -397,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &84476329320512630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2365044883900077048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1355,6 +1355,13 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: 197d25b8de3c01f4aad6ae27e2e6e6ae, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 7475767520830705924}
+  _textComptability: {fileID: 2885080078588027640}
+  _insideCircle:
+  - {fileID: 982012097482047874}
+  - {fileID: 2508669433865387826}
+  - {fileID: 4592855509015635958}
+  _nuisibleVFX: {fileID: 1845201859388127896}
   _limitation: {fileID: 11400000, guid: 3f99763961d2afd44bae22ee89f61f2d, type: 2}
   _percentageInfestation: 0
 --- !u!114 &3776609050121798178
@@ -1370,6 +1377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growPlantMeshes: []
+  _recoltableVFX: {fileID: 4203078951599925265}
   _plantTier: {fileID: 11400000, guid: 64f5523cc7b62d24f8decca9deb7fc65, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
@@ -1389,6 +1397,7 @@ GameObject:
   - component: {fileID: 3174753947770294006}
   - component: {fileID: 6836491462457876788}
   - component: {fileID: 5940463675729185083}
+  - component: {fileID: 6685250252575847809}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -1473,6 +1482,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6685250252575847809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381714289997955138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8741686191313784508
 GameObject:
   m_ObjectHideFlags: 0

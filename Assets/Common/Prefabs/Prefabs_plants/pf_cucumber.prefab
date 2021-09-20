@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3715506229420841141}
   - component: {fileID: 6843077623523046937}
   - component: {fileID: 1920938910538783954}
+  - component: {fileID: 2318500237618707990}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -96,6 +97,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2318500237618707990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186476303508205733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2271129933500019873
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8881081988832979572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -816,7 +829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7644490892901709084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -973,7 +986,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1632,6 +1644,14 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: 81e46dbaa57abb34e936275fc1683755, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 3099927410407447102}
+  _textComptability: {fileID: 3740282499876509125}
+  _insideCircle:
+  - {fileID: 3023956887022327486}
+  - {fileID: 2640631142749486149}
+  - {fileID: 6407712586650628977}
+  - {fileID: 7719624014097064725}
+  _nuisibleVFX: {fileID: 4481159263824553665}
   _limitation: {fileID: 11400000, guid: e2654e4bdd6cbec48862e8109045babb, type: 2}
   _percentageInfestation: 0
 --- !u!114 &8122822740823838929
@@ -1648,6 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 4005351750656824527}
+  _recoltableVFX: {fileID: 6263815411789658600}
   _plantTier: {fileID: 11400000, guid: 7913794053dfb9640b08288151158ac8, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
@@ -1755,6 +1776,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63203621caae4c34d8f64109835121e5, type: 3}
+--- !u!1 &7184888561684998071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4649917308559539209, guid: 63203621caae4c34d8f64109835121e5, type: 3}
+  m_PrefabInstance: {fileID: 6687272379801805888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133876463552475757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4706538249559119405, guid: 63203621caae4c34d8f64109835121e5, type: 3}
@@ -1773,11 +1799,6 @@ MeshRenderer:
 --- !u!1 &6321866874160630232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8397455593472168552, guid: 63203621caae4c34d8f64109835121e5, type: 3}
-  m_PrefabInstance: {fileID: 6687272379801805888}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7184888561684998071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4649917308559539209, guid: 63203621caae4c34d8f64109835121e5, type: 3}
   m_PrefabInstance: {fileID: 6687272379801805888}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8865325757652220990

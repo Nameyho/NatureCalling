@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9051312387549224920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2905137291376699767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1071,7 +1071,6 @@ VFXRenderer:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1155,6 +1154,12 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: 2617f1149047d57449594c5dedcf901d, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 3992156827290980489}
+  _textComptability: {fileID: 1234411921246830378}
+  _insideCircle:
+  - {fileID: 1303792553089741716}
+  - {fileID: 1364404451744315272}
+  _nuisibleVFX: {fileID: 5457543755530427310}
   _limitation: {fileID: 11400000, guid: 2e7f7967ff18e09468900a4f9350641f, type: 2}
   _percentageInfestation: 0
 --- !u!114 &1212824115800035596
@@ -1171,6 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 2541434941185878743}
+  _recoltableVFX: {fileID: 2980935724767241997}
   _plantTier: {fileID: 11400000, guid: 9242af3f69aa10549ae29909c39cef21, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
@@ -1271,6 +1277,7 @@ GameObject:
   - component: {fileID: 592808195624180702}
   - component: {fileID: 7186767243282881832}
   - component: {fileID: 5996510966060372768}
+  - component: {fileID: 6510443113117832076}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -1355,6 +1362,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6510443113117832076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473468174263045461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2779942587242441051
 PrefabInstance:
   m_ObjectHideFlags: 0

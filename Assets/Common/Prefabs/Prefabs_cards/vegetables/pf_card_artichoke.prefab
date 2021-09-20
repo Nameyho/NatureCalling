@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 23465612f7d32424e890737b6d1895a2, type: 3}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Basic
       value: 
@@ -182,6 +186,10 @@ PrefabInstance:
       propertyPath: _ghostModel
       value: 
       objectReference: {fileID: 4119279092019487414}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 8751921185227506958}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _plantsPrefabs
       value: 
@@ -203,8 +211,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4252747416217769276}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _visualPlantVFX
+      value: 
+      objectReference: {fileID: 2557448761853728027, guid: e1a3c87c7d3c0844e89abeb1433002a6, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Basic.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Effect.Array.size
@@ -218,6 +234,18 @@ PrefabInstance:
       propertyPath: _Basic.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 91e282dab90a01d48880d4e283ad8e93, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4579191cd84a77140862406d45e6267a, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23465612f7d32424e890737b6d1895a2, type: 3}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Effect.Array.data[0]
       value: 
@@ -299,8 +327,60 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _vfxBasket
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _vfxWaterCan
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _RotationSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _BasketSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _BasketSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _BasketSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _BasketSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _WatercanSounds.Array.data[5]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
@@ -356,6 +436,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+--- !u!82 &8751921185227506958 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+  m_PrefabInstance: {fileID: 9025800269101243382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8229162278163015396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1112898163885538578, guid: 1e43e72da562771459b28899499c4d3d, type: 3}

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2761247564368762556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -201,7 +201,6 @@ VFXRenderer:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -342,6 +341,7 @@ GameObject:
   - component: {fileID: 4034133598250861439}
   - component: {fileID: 4544954936772352446}
   - component: {fileID: 2561141755128185603}
+  - component: {fileID: 280474472957959125}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -426,6 +426,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &280474472957959125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833716614199884689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5160780592514465172
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6467556120904671098
 RectTransform:
   m_ObjectHideFlags: 0
@@ -879,7 +891,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1252,6 +1263,12 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: 8488377f837867b46a98c3d7cbf24777, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 215740778519038290}
+  _textComptability: {fileID: 5452374929564272753}
+  _insideCircle:
+  - {fileID: 702198974336692653}
+  - {fileID: 8203037502025000688}
+  _nuisibleVFX: {fileID: 5957236074831502733}
   _limitation: {fileID: 11400000, guid: d2cf98f3eaddfd4479aeb8b3d71afac1, type: 2}
   _percentageInfestation: 0
 --- !u!114 &-7011877717325797901
@@ -1267,6 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growPlantMeshes: []
+  _recoltableVFX: {fileID: 5160780592514465172}
   _plantTier: {fileID: 11400000, guid: 9a53756e3ab8e1541b837357ebf7efb8, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0

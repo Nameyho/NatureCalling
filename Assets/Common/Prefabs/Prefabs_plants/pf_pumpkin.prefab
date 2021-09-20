@@ -412,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9025356540446885785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -727,6 +727,7 @@ GameObject:
   - component: {fileID: 5595964803777124202}
   - component: {fileID: 7974103261258809658}
   - component: {fileID: 7664197729726544668}
+  - component: {fileID: 4357800293258892932}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -811,6 +812,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4357800293258892932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893836868469350118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3774179189303243709
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6488095357145498193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1057,7 +1070,6 @@ VFXRenderer:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1173,6 +1185,11 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: e947511fa6971a94c9be5dc88d6a390e, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 87390577646713527}
+  _textComptability: {fileID: 2254437495390786361}
+  _insideCircle:
+  - {fileID: 3774179189303243709}
+  _nuisibleVFX: {fileID: 6929179706546265286}
   _limitation: {fileID: 11400000, guid: 65028db2f37765847969cff765aed9b5, type: 2}
   _percentageInfestation: 0
 --- !u!114 &-4148431098490828161
@@ -1189,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 3143635132901977238}
+  _recoltableVFX: {fileID: 2865085836804380002}
   _plantTier: {fileID: 11400000, guid: f117460d35119b74b9c37c1ae85d3cf6, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0

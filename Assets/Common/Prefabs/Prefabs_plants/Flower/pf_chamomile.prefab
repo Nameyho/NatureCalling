@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6983235477776904333}
   - component: {fileID: 6552685404070225222}
   - component: {fileID: 7008040367752446824}
+  - component: {fileID: 8082443919018303569}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -96,6 +97,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8082443919018303569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856093941904696750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8280670437141093787
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +170,10 @@ MonoBehaviour:
   _card: {fileID: 11400000, guid: 4b70131f1e75e454e8c4a3e51fa15366, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
+  _comptabiliteVFX: {fileID: 0}
+  _textComptability: {fileID: 0}
+  _insideCircle: []
+  _nuisibleVFX: {fileID: 0}
   _limitation: {fileID: 11400000, guid: 5dc59538e2d68f545b9672e02136a28b, type: 2}
   _percentageInfestation: 0
 --- !u!114 &5677454170055574786
@@ -173,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 8241839638682011018}
+  _recoltableVFX: {fileID: 0}
   _plantTier: {fileID: 11400000, guid: 9c6ce8119e675054c91d7a20204988b0, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
@@ -352,11 +370,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9203585233282616418, guid: 1edfaa81d2a6aa141b1de80a148f9c7d, type: 3}
   m_PrefabInstance: {fileID: 8049687429039356319}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7903117770743333156 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -9071446277880104773, guid: 1edfaa81d2a6aa141b1de80a148f9c7d, type: 3}
-  m_PrefabInstance: {fileID: 8049687429039356319}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3358605663958584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8051823375072038823, guid: 1edfaa81d2a6aa141b1de80a148f9c7d, type: 3}
@@ -430,6 +443,11 @@ GameObject:
 --- !u!1 &1641191588532345759 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8750655827570139648, guid: 1edfaa81d2a6aa141b1de80a148f9c7d, type: 3}
+  m_PrefabInstance: {fileID: 8049687429039356319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7903117770743333156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -9071446277880104773, guid: 1edfaa81d2a6aa141b1de80a148f9c7d, type: 3}
   m_PrefabInstance: {fileID: 8049687429039356319}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5708574235450498220 stripped

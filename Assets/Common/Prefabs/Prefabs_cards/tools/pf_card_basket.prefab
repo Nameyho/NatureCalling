@@ -251,6 +251,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _vfxBasket
+      value: 
+      objectReference: {fileID: 330249064637539734, guid: 55f15f5db8645e745bcfb0d31501992e, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _RotationSpeed
       value: 100
       objectReference: {fileID: 0}
@@ -258,6 +262,22 @@ PrefabInstance:
       propertyPath: IgnoreMe.m_Bits
       value: 67108864
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _BasketSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _BasketSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f9c54122b148204498668dc2c9d8da8, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _BasketSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: fb228e38d96d14b42958131e3f9238be, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _BasketSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: fd65d6163bbca8446867d4dd3497c1c5, type: 3}
     - target: {fileID: 7949604965152850712, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 2

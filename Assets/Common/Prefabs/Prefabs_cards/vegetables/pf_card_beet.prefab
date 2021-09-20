@@ -113,6 +113,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6852596147101267824}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1860897185845071739}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _plantsPrefabs
       value: 
       objectReference: {fileID: 8280670437141093787, guid: fab4557f316aea04b8c2aed8882df0b9, type: 3}
@@ -133,8 +137,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6603093911298416457}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _visualPlantVFX
+      value: 
+      objectReference: {fileID: 2557448761853728027, guid: e1a3c87c7d3c0844e89abeb1433002a6, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Basic.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Effect.Array.size
@@ -144,6 +156,18 @@ PrefabInstance:
       propertyPath: _Basic.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 91e282dab90a01d48880d4e283ad8e93, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4579191cd84a77140862406d45e6267a, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _sound.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23465612f7d32424e890737b6d1895a2, type: 3}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Effect.Array.data[0]
       value: 
@@ -257,6 +281,11 @@ PrefabInstance:
 --- !u!1 &7813974214177452552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8184421993309676427, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+  m_PrefabInstance: {fileID: 2153908461308858755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1860897185845071739 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
   m_PrefabInstance: {fileID: 2153908461308858755}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1339247694527409297 stripped

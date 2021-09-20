@@ -286,6 +286,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5231407652064531094, guid: a99b783fa008b2847b6071e0490b82e4, type: 3}
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _vfxWaterCan
+      value: 
+      objectReference: {fileID: 5231407652064531094, guid: a99b783fa008b2847b6071e0490b82e4, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _RotationSpeed
       value: 100
       objectReference: {fileID: 0}
@@ -293,6 +297,22 @@ PrefabInstance:
       propertyPath: IgnoreMe.m_Bits
       value: 67108928
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _WatercanSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _WatercanSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 623fd91cdb076e04d99c3fbd4343918d, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _WatercanSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d555b582f6ec58046859571fbebed1b8, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _WatercanSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: c3da950453c11e3408c9ba180164f448, type: 3}
     - target: {fileID: 7949604965152850712, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 3

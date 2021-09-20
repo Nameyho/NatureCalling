@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9186537350803470452}
   - component: {fileID: 5134892592699600503}
   - component: {fileID: 7338552151012044442}
+  - component: {fileID: 4261062360180844661}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
   m_TagString: Plants
@@ -96,6 +97,18 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4261062360180844661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3337636059949756344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50aa2e1fdfc3af7408ccc411b428ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8280670437141093787
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,11 +161,19 @@ MonoBehaviour:
   _step: 0
   _wateredTime: 20
   _waterCanCooldown: 0
+  _PollinisationTime: 20
+  _pollinisationCooldown: 0
+  _pollinisationWateredPoint: 0
   _compatibilytPlants: []
   _card: {fileID: 11400000, guid: 5a803b832daeb884aa44b230783daf7e, type: 2}
   _radiusDetection: 0
   _complement: 0
+  _comptabiliteVFX: {fileID: 0}
+  _textComptability: {fileID: 0}
+  _insideCircle: []
+  _nuisibleVFX: {fileID: 0}
   _limitation: {fileID: 11400000, guid: 8c69c5af9d7cc534cbd3e0cdb87f6524, type: 2}
+  _percentageInfestation: 0
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,10 +188,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 8745614015540981748}
+  _recoltableVFX: {fileID: 0}
   _plantTier: {fileID: 11400000, guid: 60081612757a96346aa955270d8ea601, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0
   _maxGrow: 1
+  _startGrow: 0
   _detailsPrefabs:
   - {fileID: 5657428082409148411}
   - {fileID: 2231939649574805926}
