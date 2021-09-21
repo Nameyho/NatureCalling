@@ -371,42 +371,42 @@ public class GameManager : MonoBehaviour
 
         if (_focusPlantMax > 0)
         {
-            objectifs[currentIndex].text = "Concombre récoltés " +  _focusPlants + " / " + _focusPlantMax ;
+            objectifs[currentIndex].text = "Harvested cucumber   " +  _focusPlants + " / " + _focusPlantMax ;
             currentIndex++;
         }
         bool vivace = _focusPlants >= _focusPlantMax;
 
         if (_nombreArrosage > 0)
         {
-            objectifs[currentIndex].text = "Arrosages : " +  _wateringTime + " / " + _nombreArrosage;
+            objectifs[currentIndex].text = "Watered plants   " +  _wateringTime + " / " + _nombreArrosage;
             currentIndex++;
         }
         bool arrosage = _wateringTime >= _nombreArrosage;
 
         if (_scoreToChangeScene > 0)
         {
-            objectifs[currentIndex].text = "Score : " +  _currentScore + " / " + _scoreToChangeScene;
+            objectifs[currentIndex].text = "Score reached   " +  _currentScore + " / " + _scoreToChangeScene;
             currentIndex++;
         }
         bool points = _currentScore >= _scoreToChangeScene;
 
         if(_harvestAquaticPlantsToReach > 0)
         {
-            objectifs[currentIndex].text = "Plantes aquatiques récoltées : " + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
+            objectifs[currentIndex].text = "Harvested aquatic plants   " + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
                 currentIndex++;
         }
         bool aquaticPlants = _harvestAquaticPlants >= _harvestAquaticPlantsToReach;
 
         if(_plantToHeal> 0  && currentIndex < 3)
         {
-            objectifs[currentIndex].text = "Plantes soignées " + _currentPlantHealed + " / " + _plantToHeal;
+            objectifs[currentIndex].text = "Vermin repelled   " + _currentPlantHealed + " / " + _plantToHeal;
             currentIndex++;
         }
         bool healedPlants = _currentPlantHealed >= _plantToHeal;
 
         if (_NombreDePlantARecolter > 0 && currentIndex<3)
         {
-            objectifs[currentIndex].text = " Plantes récoltées " + _totalHarvestedPlant + " / " + _NombreDePlantARecolter;
+            objectifs[currentIndex].text = "Harvested plants   " + _totalHarvestedPlant + " / " + _NombreDePlantARecolter;
             currentIndex++;
         }
         bool recoltedplant = _totalHarvestedPlant >= _NombreDePlantARecolter;
