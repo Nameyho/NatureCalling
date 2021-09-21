@@ -1114,9 +1114,10 @@ MonoBehaviour:
   _insideCircle:
   - {fileID: 8650284784183866624}
   _nuisibleVFX: {fileID: 4292778275247456312}
-  _PWVFX: {fileID: 6232557258059256971, guid: 031352a8846fdc543853dca84a889a33, type: 3}
+  _pollinisableEffect: {fileID: 0}
+  _WaterableEffect: {fileID: 0}
   _limitation: {fileID: 11400000, guid: 7cf0f1a1c857c2249ad6e4fe5cda9f11, type: 2}
-  _percentageInfestation: 0
+  _percentageInfestation: 1
 --- !u!114 &4665304163381673275
 MonoBehaviour:
   m_ObjectHideFlags: 0
