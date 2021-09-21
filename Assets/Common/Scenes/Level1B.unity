@@ -6287,8 +6287,6 @@ MonoBehaviour:
   background: {fileID: 0}
   _tabCardsScriptable:
   - {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
-  - {fileID: 11400000, guid: 81e46dbaa57abb34e936275fc1683755, type: 2}
-  - {fileID: 11400000, guid: a0a7186c0c6205a4f933ebe9adf9eb2c, type: 2}
   - {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
   - {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
 --- !u!114 &1040615729
@@ -12951,7 +12949,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013966815526}
-  m_LocalRotation: {x: 0.09897817, y: -0.000000008560947, z: 8.5152807e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.09897817, y: 0.000000008560945, z: -8.515279e-10, w: 0.99508965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
