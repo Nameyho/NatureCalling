@@ -79,7 +79,7 @@ public class Plants : MonoBehaviour
 
 
     [Header("Infestation")]
-    [Range(0,1)]
+    [Range(0, 1)]
     [SerializeField]
     private float _percentageInfestation;
 
@@ -100,7 +100,7 @@ public class Plants : MonoBehaviour
     float _completscore;
     Transform _transform;
     List<AlreadyUseCard> _usedCardsList = new List<AlreadyUseCard>();
-   
+
     string _name;
     private GroundLayering _groundLayering;
     private bool _isInfested = false;
@@ -108,6 +108,8 @@ public class Plants : MonoBehaviour
     private int _repellentAround;
     private bool _isChecked = false;
     private List<Plants> _plantsAround = new List<Plants>();
+
+    private bool _isCard = false;
 
 
 
@@ -192,7 +194,7 @@ public class Plants : MonoBehaviour
         float basicTime = Time.time - _spawnTime;
         float wateredtime = _wateredTime * _MultiplyWatered;
         float pollinatorTime = _PollinisationTime * _multiplyPollinisation;
-        float completTime = 1  +(1* (_complement * _completscore));
+        float completTime = 1 + (1 * (_complement * _completscore));
         float infested = 1;
         if (_isInfested)
         {
@@ -203,9 +205,9 @@ public class Plants : MonoBehaviour
             infested = 1f;
         }
 
-            if ((((basicTime + wateredtime + pollinatorTime) * completTime) * infested)> (_phaseTime *( _gp.GetCurrentTier()+1)))
-            { 
-                _gp.SetCurrentTier(_gp.GetCurrentTier() + _step);
+        if ((((basicTime + wateredtime + pollinatorTime) * completTime) * infested) > (_phaseTime * (_gp.GetCurrentTier() + 1)))
+        {
+            _gp.SetCurrentTier(_gp.GetCurrentTier() + _step);
 
         }
     }
@@ -221,13 +223,13 @@ public class Plants : MonoBehaviour
                 CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
                 Plants plante = (hits[i].GetComponentInParent<Plants>());
                 if (hc.GetComponentInParent<Plants>() &&
-                    !(cc.GetInstanceID().Equals(hc.GetInstanceID())) 
+                    !(cc.GetInstanceID().Equals(hc.GetInstanceID()))
                     && (hc.GetInstanceID() != 0))
                 {
                     if (CheckIsCompatible(plante))
                     {
                         _completscore++;
-                      
+
                     }
 
                     if (plante.GetCard()._isRepellent)
@@ -236,7 +238,7 @@ public class Plants : MonoBehaviour
                     }
                 }
 
-               
+
             }
 
         }
@@ -266,9 +268,9 @@ public class Plants : MonoBehaviour
                     if (_card._isRepellent)
                     {
                         AddRepellentAround();
-                       
+
                     }
-                   
+
 
                 }
             }
@@ -285,10 +287,10 @@ public class Plants : MonoBehaviour
     #region public
 
 
-    public void AddTier( GameObject go)
+    public void AddTier(GameObject go)
     {
- 
-        if(_MultiplyWatered == 0 && go.GetComponent<WaterCan>())
+
+        if (_MultiplyWatered == 0 && go.GetComponent<WaterCan>())
         {
             _MultiplyWatered++;
             FindObjectOfType<GameManager>().AddWateringTime();
@@ -298,17 +300,17 @@ public class Plants : MonoBehaviour
         if (_multiplyPollinisation == 0 && go.GetComponent<Pollinator>())
         {
             _multiplyPollinisation++;
-          
+
             _timeWhenLastPollinisation = Time.time;
         }
         if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _waterCanCooldown))
         {
- 
+
             _MultiplyWatered++;
             _timewhenLastwatered = Time.time;
             FindObjectOfType<GameManager>().AddWateringTime();
         }
-        if(go.GetComponent<Pollinator>() && (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown))
+        if (go.GetComponent<Pollinator>() && (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown))
         {
             _multiplyPollinisation++;
             _timeWhenLastPollinisation = Time.time;
@@ -330,14 +332,14 @@ public class Plants : MonoBehaviour
             {
                 CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
                 Plants plante = hc.GetComponentInParent<Plants>();
-                if ( plante&&!(cc.GetInstanceID().Equals(hc.GetInstanceID()))&& (hc.GetInstanceID() != 0))
+                if (plante && !(cc.GetInstanceID().Equals(hc.GetInstanceID())) && (hc.GetInstanceID() != 0))
                 {
                     plante.AddOnUsedCardList(_card);
                     if (plante.GetRepellentAround() > 0)
                     {
                         plante.DeleteRepellentAround();
                     }
-                   
+
                 }
             }
 
@@ -352,12 +354,12 @@ public class Plants : MonoBehaviour
             if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(cs._CardName))
             {
 
-                if(_usedCardsList[i]._around== 0)
+                if (_usedCardsList[i]._around == 0)
                 {
                     _usedCardsList.Remove(_usedCardsList[i]);
                     _compatibilytPlants.Add(cs);
                     _completscore--;
-                }else if (_usedCardsList[i]._around >0)
+                } else if (_usedCardsList[i]._around > 0)
                 {
                     _usedCardsList[i]._around--;
                 }
@@ -370,19 +372,19 @@ public class Plants : MonoBehaviour
     public bool CheckIsCompatible(Plants plantIn)
     {
         bool _isIn = false;
-        foreach (CardScriptable plant in _compatibilytPlants) { 
+        foreach (CardScriptable plant in _compatibilytPlants) {
 
             if (plant._CardName.Equals(plantIn.GetName()))
             {
-                  _isIn = true;
+                _isIn = true;
                 _compatibilytPlants.Remove(plantIn._card);
                 AlreadyUseCard temp = new AlreadyUseCard(plantIn._card, 1);
                 _usedCardsList.Add(temp);
                 plantIn.AddCompletScore(_card);
                 _plantsAround.Add(plantIn);
                 plantIn.AddInPlantsAround(this);
-  
-                
+
+
                 return _isIn;
             }
         }
@@ -394,7 +396,7 @@ public class Plants : MonoBehaviour
                 if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(plantIn.GetName()))
                 {
                     _usedCardsList[i]._around++;
-                  
+
                 }
 
             }
@@ -418,16 +420,16 @@ public class Plants : MonoBehaviour
 
     public void ShowComplementaity()
     {
-       
+
         _comptabiliteVFX.SetActive(true);
-           _textComptability.SetActive(true);
+        _textComptability.SetActive(true);
         VisualEffect vfx = _comptabiliteVFX.GetComponent<VisualEffect>();
-        if(_completscore <= 1)
+        if (_completscore <= 1)
         {
             vfx.SetInt("_PlantCompatibilityLevel", 1);
             _insideCircle[0].SetActive(true);
         }
-        if(_completscore ==2)
+        if (_completscore == 2)
         {
             vfx.SetInt("_PlantCompatibilityLevel", 2);
             _insideCircle[0].SetActive(true);
@@ -469,13 +471,26 @@ public class Plants : MonoBehaviour
     }
 
 
-
+    public void ActivateFx()
+    {
+ 
+        _comptabiliteVFX.SetActive(true);
+        _textComptability.SetActive(true);
+    }
     public void DisableVFX()
     {
+        if (!_isCard)
+        {
         _comptabiliteVFX.SetActive(false);
         _textComptability.SetActive(false);
+
+        }
     }
 
+    public void SetisCard(bool b)
+    {
+        _isCard = b;
+    }
     #endregion
 
     #region Getter and Setter
@@ -592,6 +607,12 @@ public class Plants : MonoBehaviour
             return true;
         }
         return (Time.time - _timeWhenLastPollinisation > _pollinisationCooldown);
+    }
+
+
+    public List<CardScriptable> GetCompatibilite()
+    {
+        return _compatibilytPlants;
     }
     #endregion
 

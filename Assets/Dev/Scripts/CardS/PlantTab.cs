@@ -45,7 +45,14 @@ public class PlantTab : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     {
         if (Input.GetMouseButtonDown(1) && subMenu.activeSelf)
         {
+
+            FindObjectOfType<PlantsManager>().DisableAllvfx();
             subMenu.SetActive(false);
+        
         }
     }
+
+
+ 
+    
 }

@@ -7,7 +7,7 @@ public class PlantsManager : MonoBehaviour
     #region Private
 
     private List<GameObject> _plantOnTheMap = new List<GameObject>();
-    private float _lastTimeinfestation = 0 ;
+    private float _lastTimeinfestation = 0;
 
     #endregion
 
@@ -53,11 +53,11 @@ public class PlantsManager : MonoBehaviour
     private void Infestation()
     {
         int t = 0;
-        if (Time.time - _lastTimeinfestation > _intervalBetweenInfestation && _plantOnTheMap.Count>0)
+        if (Time.time - _lastTimeinfestation > _intervalBetweenInfestation && _plantOnTheMap.Count > 0)
         {
-            float plantToInfest = _plantOnTheMap.Count * (_percentagePlantsToInfest/100);
-            int rand= Random.Range(0, _plantOnTheMap.Count);
-            if (!(_plantOnTheMap[rand].GetComponent<Plants>().GetInfested())&& (_plantOnTheMap[rand].GetComponent<Plants>().GetcanBeInfested()) && (plantToInfest >0))
+            float plantToInfest = _plantOnTheMap.Count * (_percentagePlantsToInfest / 100);
+            int rand = Random.Range(0, _plantOnTheMap.Count);
+            if (!(_plantOnTheMap[rand].GetComponent<Plants>().GetInfested()) && (_plantOnTheMap[rand].GetComponent<Plants>().GetcanBeInfested()) && (plantToInfest > 0))
             {
                 _plantOnTheMap[rand].GetComponent<Plants>().setInfested(true);
                 t++;
@@ -78,6 +78,20 @@ public class PlantsManager : MonoBehaviour
         Infestation();
     }
 
+
+    public List<GameObject> GetPlantsOnTheMaps()
+    {
+        return _plantOnTheMap;
+    }
+
+    public void DisableAllvfx()
+    {
+        for (int i = 0; i < _plantOnTheMap.Count; i++)
+        {
+            _plantOnTheMap[i].GetComponent<Plants>().SetisCard(false);
+            _plantOnTheMap[i].GetComponent<Plants>().DisableVFX();
+        }
+    }
     #endregion
 
 

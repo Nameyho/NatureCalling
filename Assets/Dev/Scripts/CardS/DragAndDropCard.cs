@@ -26,7 +26,7 @@ public class DragAndDropCard : MonoBehaviour
 	private GameObject go;
 	private VisualEffect ve;
 	private bool PlantNeededToBewateredAround = false;
-
+	private bool _isLockedByFlip;
 	private bool PlantNeedToBePollen = false;
 	private float _lastrestvfx;
 
@@ -83,6 +83,7 @@ public class DragAndDropCard : MonoBehaviour
 
     private void LateUpdate()
     {
+		
         if (_isDragable)
         {
             Drag();
@@ -120,14 +121,18 @@ public class DragAndDropCard : MonoBehaviour
     }
     void OnMouseDown()
     {
-        
+            if (!_isLockedByFlip)
+            {
+			  _isDragable = true;
+
+            }
         if (!(_isBusy))
         {
+	
             
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-            _isDragable = true;
             _isBusy = true;
             GetComponent<Seeding>().SetIsSelected(true);
         }
@@ -632,9 +637,14 @@ public class DragAndDropCard : MonoBehaviour
     {
 		return AxeY;
     }
+
+	public void SetIsLockedByFlip(bool b)
+    {
+		_isLockedByFlip = b;
+    }
 	private void Update()
 	{
-	
+
 		if (ve)
         {
 		
