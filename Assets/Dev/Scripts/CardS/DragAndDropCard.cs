@@ -91,6 +91,9 @@ public class DragAndDropCard : MonoBehaviour
         {
 
 			
+		
+				
+			
             if (_Hand.gameObject.activeSelf)
             {
 				_Hand.gameObject.SetActive(false);
