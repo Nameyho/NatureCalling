@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b98dd3fd81cf429b167fe84951f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToFlip: 10
+  _timeToFlip: 2
   _modelMask: {fileID: 3089404211566550134}
 --- !u!1001 &3885471041649041383
 PrefabInstance:
@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 23465612f7d32424e890737b6d1895a2, type: 3}
+    - target: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Basic
       value: 

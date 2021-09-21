@@ -7,10 +7,12 @@ using ScriptableObjectArchitecture;
 public class MenuManager : MonoBehaviour
 {
     #region Exposed
+	[SerializeField]
+    private GameObject _GameTitle;
 
     [SerializeField]
     private GameObject _MainMenu;
-
+ 
     [SerializeField]
     private GameObject _levelSelection;
 
@@ -40,7 +42,8 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.anyKeyDown & _isMenuCanBeOpen)
         {
-            _MainMenu.SetActive(true);
+			_GameTitle.SetActive(false);
+			_MainMenu.SetActive(true);
         }
     }
 
