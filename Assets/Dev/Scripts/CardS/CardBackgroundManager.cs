@@ -20,7 +20,7 @@ public class CardBackgroundManager : MonoBehaviour
     {
         if (other.GetComponent<Cards>())
         {
-            
+            Debug.Log("je suis sorti");
           other.GetComponent<Cards>().TransformIntoGhostModel();
             other.GetComponent<DragAndDropCard>().SetGhost(true);
             Cards cards = other.GetComponent<Cards>();
