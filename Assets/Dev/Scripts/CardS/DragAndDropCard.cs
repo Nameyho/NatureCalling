@@ -26,6 +26,8 @@ public class DragAndDropCard : MonoBehaviour
 	private GameObject go;
 	private VisualEffect ve;
 	private bool PlantNeededToBewateredAround = false;
+
+	private bool PlantNeedToBePollen = false;
 	private float _lastrestvfx;
 
     #endregion
@@ -62,6 +64,8 @@ public class DragAndDropCard : MonoBehaviour
 	public GameObject _vfxBasket;
 	public AudioClip[] _BasketSounds;
 
+	public GameObject _vfxPollinator;
+	public AudioClip[] _pollinatorSounds;
 	
     #endregion
 
@@ -158,7 +162,7 @@ public class DragAndDropCard : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			{
 
-
+				//arrosoir
 				if (cs._isWaterCan)
 				{
 					if (firsttimewatercan && !PlantNeededToBewateredAround)
@@ -254,7 +258,7 @@ public class DragAndDropCard : MonoBehaviour
 				}
 
 
-
+				//panier
                 if (cs._IsBasket)
                 {
 					if (firsttimewatercan && !PlantNeededToBewateredAround)
@@ -300,7 +304,7 @@ public class DragAndDropCard : MonoBehaviour
 
 				if (cs._IsBasket && PlantNeededToBewateredAround)
 				{
-					Debug.Log("encore recoltable");
+
 					ve.SendEvent("Recoltable");
 					if (Input.GetMouseButtonDown(0))
 					{
@@ -347,6 +351,107 @@ public class DragAndDropCard : MonoBehaviour
 
 
 				}
+
+
+
+				//polleniser
+
+				if (cs._isInsectPollinator)
+				{
+					if (firsttimewatercan && !PlantNeedToBePollen)
+					{
+						go = Instantiate(_vfxPollinator, _transform.position, Quaternion.identity);
+						firsttimewatercan = false;
+						ve = go.GetComponent<VisualEffect>();
+						ve.SendEvent("NotPollinisable");
+
+					}
+
+					go.transform.position = _transform.position;
+					CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+					Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+					int around = 0;
+					for (int i = 0; i < hits.Length; i++)
+					{
+						if (hits[i].GetComponent<CapsuleCollider>())
+						{
+							CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+							Plants plantLocal = hc.GetComponentInParent<Plants>();
+							if (plantLocal)
+							{
+								if (plantLocal.CanBePollinisate())
+								{
+									around++;
+
+								}
+
+							}
+
+						}
+					}
+					if (around > 0)
+					{
+						PlantNeedToBePollen = true;
+					}
+					else
+					{
+						PlantNeedToBePollen = false;
+					}
+				}
+
+				if (cs._isInsectPollinator && PlantNeedToBePollen)
+				{
+				
+					ve.SendEvent("Pollinisable");
+					if (Input.GetMouseButtonDown(0))
+					{
+						GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+
+						go.transform.Rotate(0, AxeY, 0);
+
+
+						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+						int around = 0;
+						for (int i = 0; i < hits.Length; i++)
+						{
+							if (hits[i].GetComponent<CapsuleCollider>())
+							{
+								CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+								Plants plantLocal = hc.GetComponentInParent<Plants>();
+
+								if (plantLocal)
+								{
+									if (plantLocal.CanBePollinisate())
+									{
+										GameObject wt = Instantiate(_vfxPollinator, plantLocal.transform.position, Quaternion.identity);
+										wt.GetComponent<VisualEffect>().SendEvent("Pollinised");
+										int random = Random.Range(0, _pollinatorSounds.Length);
+
+										_audioSource.clip = _pollinatorSounds[random];
+										_audioSource.Play();
+										Destroy(wt, 5f);
+
+									}
+
+								}
+
+							}
+						}
+
+
+
+					}
+					lastvfx = Time.time;
+
+
+
+
+				}
+
+
+
+
 				_transform.rotation = hit.transform.rotation;
 
 				Quaternion target = Quaternion.Euler(0, AxeY, 0);
@@ -535,6 +640,7 @@ public class DragAndDropCard : MonoBehaviour
 			
 				ve.SendEvent("NotWaterable");
 				ve.SendEvent("NotRecoltable");
+				ve.SendEvent("NotPollinisable");
             }
 
 		}

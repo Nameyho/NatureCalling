@@ -438,6 +438,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 7802025996631596415}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _vfxPollinator
+      value: 
+      objectReference: {fileID: 8079633379926613137, guid: 76ff23ef9d0619d4dbc05b2a50e0959e, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _pollinatorSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _pollinatorSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1bb0dca611c4846479d329fa982e7227, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _pollinatorSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0aae7167bf8a43e4b8896b0748ecaf0a, type: 3}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _pollinatorSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e4dad98db9d9224ea98ec6f710c5f1c, type: 3}
     - target: {fileID: 7634481018033048922, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.256
@@ -492,6 +516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+--- !u!82 &7802025996631596415 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 386548723670808164, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+  m_PrefabInstance: {fileID: 7573666211021564699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5537034261574244889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2723672931344150786, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}

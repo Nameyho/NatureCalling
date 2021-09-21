@@ -66,6 +66,13 @@ public class Plants : MonoBehaviour
     [SerializeField]
     private GameObject _nuisibleVFX;
 
+    [SerializeField]
+    private GameObject _pollinisableEffect;
+
+    [SerializeField]
+    private GameObject _WaterableEffect;
+
+
     [Header("Limitation du nombre de plante")]
     [SerializeField]
     private IntVariable _limitation;
@@ -101,6 +108,7 @@ public class Plants : MonoBehaviour
     private int _repellentAround;
     private bool _isChecked = false;
     private List<Plants> _plantsAround = new List<Plants>();
+
 
 
     #endregion
@@ -151,6 +159,25 @@ public class Plants : MonoBehaviour
         else
         {
             _nuisibleVFX.SetActive(false);
+        }
+        if (!CanBePollinisate())
+        {
+            _pollinisableEffect.SetActive(true);
+
+        }
+        else
+        {
+            _pollinisableEffect.SetActive(false);
+        }
+
+
+        if (!CanBeWatered())
+        {
+            _WaterableEffect.SetActive(true);
+        }
+        else
+        {
+            _WaterableEffect.SetActive(false);
         }
     }
     #endregion
@@ -260,11 +287,19 @@ public class Plants : MonoBehaviour
 
     public void AddTier( GameObject go)
     {
-        if(_MultiplyWatered == 0)
+ 
+        if(_MultiplyWatered == 0 && go.GetComponent<WaterCan>())
         {
             _MultiplyWatered++;
             FindObjectOfType<GameManager>().AddWateringTime();
             _timewhenLastwatered = Time.time;
+        }
+
+        if (_multiplyPollinisation == 0 && go.GetComponent<Pollinator>())
+        {
+            _multiplyPollinisation++;
+          
+            _timeWhenLastPollinisation = Time.time;
         }
         if (go.GetComponent<WaterCan>() && (Time.time - _timewhenLastwatered > _waterCanCooldown))
         {
@@ -418,7 +453,7 @@ public class Plants : MonoBehaviour
 
     public void showPlantsAround()
     {
-        Debug.Log(_plantsAround.Count + _name);
+
         foreach (Plants p in _plantsAround)
         {
             p.ShowComplementaity();
@@ -552,7 +587,7 @@ public class Plants : MonoBehaviour
 
     public bool CanBePollinisate()
     {
-        if (_MultiplyWatered == 0)
+        if (_multiplyPollinisation == 0)
         {
             return true;
         }
