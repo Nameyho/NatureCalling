@@ -35,6 +35,10 @@ public class CardScriptable : ScriptableObject
 
     public bool _isBugHostel;
 
+    public bool _isHenHouse;
+
+    public bool _isHen;
+
     [Header("bonus que la carte va apporter")]
 
     public GameObject _prefabToSpawn;

@@ -259,7 +259,9 @@ public class Seeding : MonoBehaviour
                     _audioSource.Play();
                 }
                     if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding &&
-                    !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && !cs._isInsectPollinator && hit.transform.tag == "BuildingZone")
+                    !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && 
+                    !cs._isHenHouse && !cs._isInsectPollinator &&  !cs._isHen &&
+                    hit.transform.tag == "BuildingZone")
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
@@ -275,21 +277,31 @@ public class Seeding : MonoBehaviour
                     FindObjectOfType<GameManager>().SetisHive(true);
                     Destroy(vfx, 5f);
                 }
-                    //if (cs._isWaterCan && hit.transform.tag == "Plants")
-                    //{
-                    //    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
-                    //    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
-                    //    //Destroy(go);
-                    //}
 
-                    if(cs._isInsectPollinator && hit.transform.tag == "Plants" && FindObjectOfType<GameManager>().GetIsHive())
+
+                //if (cs._isWaterCan && hit.transform.tag == "Plants")
+                //{
+                //    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                //    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                //    //Destroy(go);
+                //}
+
+                if (cs._isInsectPollinator && hit.transform.tag == "Plants" && FindObjectOfType<GameManager>().GetIsHive())
                     {
                    
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                          go.transform.Rotate(0, _DaD.GetRotationY(), 0);
 
                 }
-                    if (cs._isBuilding)
+
+                if (cs._isHen && hit.transform.tag == "Plants" && FindObjectOfType<GameManager>().GetisHenHouse())
+                {
+
+                   // GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+
+                }
+                if (cs._isBuilding)
                     {
                     GameObject vfx = Instantiate(_GoodVFX, hit.point, Quaternion.identity);
                     Destroy(vfx, 5f);
@@ -297,6 +309,11 @@ public class Seeding : MonoBehaviour
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
+                    if (cs._isHenHouse )
+                    {
+                        FindObjectOfType<GameManager>().SetisHenHouse(true);
+                    }
+
                     }
 
                     if ((cs._isLayering & Time.time - _lastLayeringPlant > _CoolddownLayering) || (_isLayeringNotAlreadyPlant && cs._isLayering))

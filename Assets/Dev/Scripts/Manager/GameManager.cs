@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject _button;
 
-
+    private Animal _hen;
 
     #endregion
 
@@ -367,7 +367,45 @@ public class GameManager : MonoBehaviour
             }
         
     }
-    
+
+    public bool GetisHenHouse()
+    {
+        return _isHenHouse;
+    }
+
+    public void SetisHenHouse(bool b)
+    {
+
+        if (!b)
+        {
+            _numberHenHouse--;
+            if (_numberHenHouse > 0)
+            {
+                _isHenHouse = true;
+            }
+            else
+            {
+                _isHenHouse = false;
+            }
+        }
+        else
+        {
+            _isHenHouse = true;
+            _numberHenHouse++;
+        }
+
+    }
+
+    public void SetHen(Animal hen)
+    {
+        _hen = hen;
+    }
+
+    public Animal getHen()
+    {
+        return _hen;
+    }
+
     #endregion
 
 
