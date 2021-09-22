@@ -66,6 +66,8 @@ public class DragAndDropCard : MonoBehaviour
 
 	public GameObject _vfxPollinator;
 	public AudioClip[] _pollinatorSounds;
+
+	public GameObject _badFVX;
 	
     #endregion
 
@@ -563,15 +565,19 @@ public class DragAndDropCard : MonoBehaviour
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-							
+			
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-							
+                            if (p)
+                            {
 							p.GetGroundLayering().DeletePlants();
 							p.NoticeOtherAboutDestruction();
 							FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
 							_score.Value -= hit.transform.parent.GetComponent<Plants>().GetCard()._bonusBioDiversity;
+
+                            }
 							Destroy(hit.transform.parent.gameObject);
-							
+							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
+							Destroy(vfx, 1f);
 							Destroy(go,5f);
 						}
 
@@ -586,6 +592,8 @@ public class DragAndDropCard : MonoBehaviour
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
 							hit.transform.parent.GetComponentInParent<GroundLayering>().AddRemaining();
 							Destroy(hit.transform.gameObject);
+							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
+							Destroy(vfx, 1f);
 							Destroy(go, 5f);
 
                         }

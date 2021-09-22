@@ -1106,6 +1106,7 @@ MonoBehaviour:
   _pollinisationWateredPoint: 5
   _compatibilytPlants:
   - {fileID: 11400000, guid: badf464117c6c92498c4e264949f4f72, type: 2}
+  - {fileID: 11400000, guid: a0a7186c0c6205a4f933ebe9adf9eb2c, type: 2}
   _card: {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
@@ -1114,8 +1115,8 @@ MonoBehaviour:
   _insideCircle:
   - {fileID: 8650284784183866624}
   _nuisibleVFX: {fileID: 4292778275247456312}
-  _pollinisableEffect: {fileID: 0}
-  _WaterableEffect: {fileID: 0}
+  _pollinisableEffect: {fileID: 5862797708085645776, guid: 182ecdfa658c4114cbe46aab0c770d2e, type: 3}
+  _WaterableEffect: {fileID: 2378727461691681224, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
   _limitation: {fileID: 11400000, guid: 7cf0f1a1c857c2249ad6e4fe5cda9f11, type: 2}
   _percentageInfestation: 1
 --- !u!114 &4665304163381673275
