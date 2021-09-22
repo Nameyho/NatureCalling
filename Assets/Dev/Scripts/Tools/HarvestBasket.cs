@@ -36,6 +36,7 @@ public class HarvestBasket : MonoBehaviour
                     //_score.Value -= other.GetComponentInParent<Plants>().getBonusMalus();
                     FindObjectOfType<PlantsManager>().DeletePlantInMapList(other.transform.parent.transform.gameObject);
                     Destroy(other.transform.parent.transform.gameObject);
+                    plant.GetGroundLayering().DeletePlants();
 
                 }
                 else

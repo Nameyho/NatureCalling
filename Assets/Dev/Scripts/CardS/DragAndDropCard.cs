@@ -366,9 +366,9 @@ public class DragAndDropCard : MonoBehaviour
 
 				//polleniser
 
-				if (cs._isInsectPollinator)
+				if (cs._isInsectPollinator && FindObjectOfType<GameManager>().GetIsHive())
 				{
-					if (firsttimewatercan && !PlantNeedToBePollen)
+					if (firsttimewatercan && !PlantNeedToBePollen )
 					{
 						go = Instantiate(_vfxPollinator, _transform.position, Quaternion.identity);
 						firsttimewatercan = false;
@@ -409,7 +409,7 @@ public class DragAndDropCard : MonoBehaviour
 					}
 				}
 
-				if (cs._isInsectPollinator && PlantNeedToBePollen)
+				if (cs._isInsectPollinator && PlantNeedToBePollen   && FindObjectOfType<GameManager>().GetIsHive())
 				{
 				
 					ve.SendEvent("Pollinisable");
@@ -523,7 +523,7 @@ public class DragAndDropCard : MonoBehaviour
 				{
 					
 					
-					if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()) && plante.CanBePollinisate())
+					if (cs._isInsectPollinator && (gp.GetCurrentTier() < gp.GetMaxTier()) && plante.CanBePollinisate() && FindObjectOfType<GameManager>().GetIsHive())
 					{
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
@@ -565,7 +565,10 @@ public class DragAndDropCard : MonoBehaviour
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-			
+                            if (hit.transform.GetComponentInParent<Beehive>())
+                            {
+								FindObjectOfType<GameManager>().SetisHive(false);
+                            }
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
                             if (p)
                             {
@@ -578,7 +581,7 @@ public class DragAndDropCard : MonoBehaviour
 							Destroy(hit.transform.parent.gameObject);
 							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
 							Destroy(vfx, 1f);
-							Destroy(go,5f);
+							Destroy(go,1f);
 						}
 
 					}
@@ -594,7 +597,7 @@ public class DragAndDropCard : MonoBehaviour
 							Destroy(hit.transform.gameObject);
 							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
 							Destroy(vfx, 1f);
-							Destroy(go, 5f);
+							Destroy(go, 1f);
 
                         }
 					}
