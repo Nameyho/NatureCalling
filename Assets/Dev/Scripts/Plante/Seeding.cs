@@ -25,6 +25,12 @@ public class Seeding : MonoBehaviour
     private GameObject _visualPlantVFX;
 
     [SerializeField]
+    private GameObject _GoodVFX;
+
+    [SerializeField]
+    private GameObject _BugHostelFVX;
+
+    [SerializeField]
     private AudioSource _audioSource;
 
     [Header("Prefabs")]
@@ -229,16 +235,16 @@ public class Seeding : MonoBehaviour
                                 _gameManager.AddProgression(cs._bonusBioDiversity);
                                 hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
 
+                             GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
+                             plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
+                             int rand = Random.Range(0, _sound.Length);
+                             _audioSource.clip = _sound[rand];
+                             _audioSource.Play();
+                                Destroy(plantVFX, 5f);
+
                             }
 
                         }
-
-                    GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
-                    plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
-                    int rand = Random.Range(0, _sound.Length);
-                    _audioSource.clip = _sound[rand];
-                    _audioSource.Play();
-                    Destroy(plantVFX, 5f);
                 }
                     if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                     {
@@ -252,14 +258,22 @@ public class Seeding : MonoBehaviour
                     Destroy(plantVFX, 5f);
                     _audioSource.Play();
                 }
-                    if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding && !cs._isShovel && !cs._isLayering && hit.transform.tag == "BuildingZone")
+                    if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding &&
+                    !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && hit.transform.tag == "BuildingZone")
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                        GameObject vfx = Instantiate(_GoodVFX, hit.point, Quaternion.identity);
+                        Destroy(vfx, 5f);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
 
                     }
+                if (cs._isBugHostel && hit.transform.tag == "BuildingZone")
+                {
+                    GameObject vfx = Instantiate(_BugHostelFVX, hit.point, Quaternion.identity);
+                    Destroy(vfx, 5f);
+                }
                     //if (cs._isWaterCan && hit.transform.tag == "Plants")
                     //{
                     //    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
@@ -275,8 +289,9 @@ public class Seeding : MonoBehaviour
                 }
                     if (cs._isBuilding)
                     {
-
-                        GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                    GameObject vfx = Instantiate(_GoodVFX, hit.point, Quaternion.identity);
+                    Destroy(vfx, 5f);
+                    GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _remainingCards.Value--;
                         _gameManager.AddProgression(cs._bonusBioDiversity);
@@ -287,6 +302,8 @@ public class Seeding : MonoBehaviour
                         if (hit.transform.tag == "BuildingZone")
                         {
                             GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
+                            GameObject vfx = Instantiate(_GoodVFX, hit.point, Quaternion.identity);
+                             Destroy(vfx, 5f);
                             go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                             _remainingCards.Value--;
                             _gameManager.AddProgression(cs._bonusBioDiversity);

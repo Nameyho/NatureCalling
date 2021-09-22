@@ -86,6 +86,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
     - target: {fileID: 470302230727989669, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: _GoodVFX
+      value: 
+      objectReference: {fileID: 5295040354842695884, guid: 11e7b4c52a7475b4db3051e55d8ec036, type: 3}
+    - target: {fileID: 470302230727989669, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: _cardUseMax
       value: 5
       objectReference: {fileID: 0}
@@ -93,6 +97,10 @@ PrefabInstance:
       propertyPath: _ghostModel
       value: 
       objectReference: {fileID: 4381905659634112792}
+    - target: {fileID: 470302230727989669, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: _layeringVFX
+      value: 
+      objectReference: {fileID: 5295040354842695884, guid: 11e7b4c52a7475b4db3051e55d8ec036, type: 3}
     - target: {fileID: 470302230727989669, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: _plantsPrefabs
       value: 
