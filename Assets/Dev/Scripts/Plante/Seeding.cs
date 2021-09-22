@@ -235,16 +235,16 @@ public class Seeding : MonoBehaviour
                                 _gameManager.AddProgression(cs._bonusBioDiversity);
                                 hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
 
+                             GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
+                             plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
+                             int rand = Random.Range(0, _sound.Length);
+                             _audioSource.clip = _sound[rand];
+                             _audioSource.Play();
+                                Destroy(plantVFX, 5f);
+
                             }
 
                         }
-
-                    GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
-                    plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
-                    int rand = Random.Range(0, _sound.Length);
-                    _audioSource.clip = _sound[rand];
-                    _audioSource.Play();
-                    Destroy(plantVFX, 5f);
                 }
                     if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                     {
