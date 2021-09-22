@@ -33,7 +33,11 @@ public class CardScriptable : ScriptableObject
 
     public bool _isRepellent;
 
+    public bool _isBugHostel;
 
+    public bool _isHenHouse;
+
+    public bool _isHen;
 
     [Header("bonus que la carte va apporter")]
 

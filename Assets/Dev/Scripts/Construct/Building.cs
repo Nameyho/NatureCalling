@@ -8,16 +8,27 @@ public class Building : MonoBehaviour
     #region
 
     [SerializeField]
-    private CardScriptable _score;
+    private CardScriptable _buildingCard;
+
+    [SerializeField]
+    private IntVariable _currentScore;
 
     #endregion
 
     #region Mains
 
-    public int GetBonusDiversity()
+
+
+    //private void Awake()
+    //{
+    //    _currentScore.Value += _buildingCard._bonusBioDiversity;
+    //}
+
+    private void OnDestroy()
     {
-        return _score._bonusBioDiversity;
+        _currentScore.Value -= _buildingCard._bonusBioDiversity;
     }
+
     #endregion
 
 }

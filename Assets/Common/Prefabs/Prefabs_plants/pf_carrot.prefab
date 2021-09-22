@@ -709,8 +709,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4571275777532667870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.019, z: 0}
-  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8280670437141093784}
   m_RootOrder: 1
@@ -774,10 +774,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 3
+  m_Radius: 0.25
+  m_Height: 0.5
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8919249284350565318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1571,7 +1571,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81e46dbaa57abb34e936275fc1683755, type: 2}
   - {fileID: 11400000, guid: 52518fdeddb01f64498c89c6d0151601, type: 2}
   - {fileID: 11400000, guid: 2617f1149047d57449594c5dedcf901d, type: 2}
-  - {fileID: 11400000, guid: badf464117c6c92498c4e264949f4f72, type: 2}
+  - {fileID: 11400000, guid: aa87c08cad138c242b90407507a71ddd, type: 2}
   _card: {fileID: 11400000, guid: a0a7186c0c6205a4f933ebe9adf9eb2c, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1
@@ -1586,7 +1586,7 @@ MonoBehaviour:
   _pollinisableEffect: {fileID: 3155800020106501737}
   _WaterableEffect: {fileID: 3395861821022502536}
   _limitation: {fileID: 11400000, guid: 050423fcb3b00cb45b19c33236bf4702, type: 2}
-  _percentageInfestation: 0
+  _percentageInfestation: 0.5
 --- !u!114 &-2428596361744151830
 MonoBehaviour:
   m_ObjectHideFlags: 0
