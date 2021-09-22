@@ -166,7 +166,7 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 149
+    x: 150
     y: -282
     width: 5930
     height: 5353
@@ -248,7 +248,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.6226415634155273,"b":0.015375341288745404,"a":1.0},"time":0.0},{"color":{"r":0.000028857641154900193,"g":0.09433960914611817,"b":0.0,"a":1.0},"time":0.7382314801216126}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.10000763088464737},{"alpha":1.0,"time":0.7529411911964417},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.6226415634155273,"b":0.015375341288745404,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":0.11320751905441284,"b":0.0028479855973273517,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.10000763088464737},{"alpha":1.0,"time":0.7529411911964417},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -5323,7 +5323,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615387}
   m_ExposedName: _CylinderZoneSize
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 0
   m_Category: 
   m_Min:
     m_Type:
@@ -10051,7 +10051,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615701}
   m_ExposedName: _BottomGradiant
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -10112,7 +10112,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.6226415634155273,"b":0.015375341288745404,"a":1.0},"time":0.0},{"color":{"r":0.000028857641154900193,"g":0.09433960914611817,"b":0.0,"a":1.0},"time":0.7382314801216126}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.10000763088464737},{"alpha":1.0,"time":0.7529411911964417},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.6226415634155273,"b":0.015375341288745404,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":0.11320751905441284,"b":0.0028479855973273517,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.10000763088464737},{"alpha":1.0,"time":0.7529411911964417},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: o
@@ -10526,7 +10526,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615770}
   m_ExposedName: _CylinderColor
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -11752,7 +11752,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615832}
   m_ExposedName: New Texture2D
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
