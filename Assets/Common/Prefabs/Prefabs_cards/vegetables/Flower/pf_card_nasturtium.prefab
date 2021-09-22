@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_Name
       value: mod_vg_capucineM
@@ -77,6 +81,30 @@ PrefabInstance:
       propertyPath: _plantsPrefabs
       value: 
       objectReference: {fileID: 8280670437141093787, guid: a8b587b541c7f2141bbf2bc3eb6eca02, type: 3}
+    - target: {fileID: 470302230727989669, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _remainingCards
+      value: 
+      objectReference: {fileID: 11400000, guid: b9d383d9727ffb54c9a0e9c9882621da, type: 2}
+    - target: {fileID: 470302230727989669, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _Basic.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 891587253459695997, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: a8b587b541c7f2141bbf2bc3eb6eca02, type: 3}
+    - target: {fileID: 5037674768361291907, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928177676037937151, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313432348313319864, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: card
       value: 
@@ -158,15 +186,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -174,11 +202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.264
+      value: -0.231
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.101
+      value: -0.019
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_LocalRotation.w
@@ -208,9 +236,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
       propertyPath: m_Name
       value: mod_vg_capucineM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ff2b8b589b5382458c38463ccaf33ff, type: 3}

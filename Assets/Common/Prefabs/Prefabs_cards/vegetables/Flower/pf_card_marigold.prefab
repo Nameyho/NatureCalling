@@ -27,6 +27,22 @@ PrefabInstance:
       propertyPath: _remainingCards
       value: 
       objectReference: {fileID: 11400000, guid: e4f455e159f0da64890f8069b9572412, type: 2}
+    - target: {fileID: 470302230727989669, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _Basic.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 891587253459695997, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: 08d5277fe53ea2143a620030848b6306, type: 3}
+    - target: {fileID: 5928177676037937151, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313432348313319864, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: card
       value: 
@@ -82,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 8184421993309676427, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: m_Name
       value: pf_card_marigold
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328813696805625720, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
@@ -165,6 +185,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9defcb84a91034845a67fcc954013af1, type: 3}
       propertyPath: m_Name
       value: mod_vg_marigoldM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9defcb84a91034845a67fcc954013af1, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9defcb84a91034845a67fcc954013af1, type: 3}

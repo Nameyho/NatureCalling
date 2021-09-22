@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: -8661914033608768823}
   - component: {fileID: 5677454170055574786}
   m_Layer: 0
-  m_Name: pf_sunflower_empty
+  m_Name: pf_sunflower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,22 +252,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23db32183100de4dbd6504f6b6a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TotalGrowTime: 0
-  _HarvestBonus: 0
-  _step: 0
-  _wateredTime: 20
-  _waterCanCooldown: 0
-  _PollinisationTime: 20
-  _pollinisationCooldown: 0
-  _pollinisationWateredPoint: 0
+  _TotalGrowTime: 100
+  _HarvestBonus: 50
+  _step: 1
+  _wateredTime: 10
+  _waterCanCooldown: 45
+  _PollinisationTime: 10
+  _pollinisationCooldown: 45
+  _pollinisationWateredPoint: 5
   _compatibilytPlants: []
   _card: {fileID: 0}
   _radiusDetection: 0
-  _complement: 0
+  _complement: 0.1
   _comptabiliteVFX: {fileID: 0}
   _textComptability: {fileID: 0}
   _insideCircle: []
   _nuisibleVFX: {fileID: 0}
+  _pollinisableEffect: {fileID: 0}
+  _WaterableEffect: {fileID: 0}
   _limitation: {fileID: 0}
   _percentageInfestation: 0
 --- !u!114 &5677454170055574786

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5361194536574680824}
   - component: {fileID: 9063795052182204765}
   - component: {fileID: 6498103661750879639}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: mod_BG_AbriCanard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _textLimitation
       value: 
-      objectReference: {fileID: 9216893957743598068}
+      objectReference: {fileID: 180754651468394938}
     - target: {fileID: 470302230727989669, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _sound.Array.size
       value: 3
@@ -246,6 +246,14 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3039805701739583734, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 5864915776650797345, guid: 480c0594c71b6314b94aa97443e16926, type: 3}
+    - target: {fileID: 5937715349015276490, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5957292047609716193, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -254,6 +262,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6313432348313319864, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6548185811734685258, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: card
       value: 
@@ -261,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 6548185811734685258, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _name
       value: 
-      objectReference: {fileID: 4862170697458674485}
+      objectReference: {fileID: 0}
     - target: {fileID: 7046556453952346103, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_TagString
       value: Cards
@@ -336,33 +348,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+--- !u!114 &180754651468394938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4547104264649966722, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+  m_PrefabInstance: {fileID: 4438478136734512440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8013075629831137497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5957292047609716193, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
   m_PrefabInstance: {fileID: 4438478136734512440}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9216893957743598068 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4787423580761992396, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
-  m_PrefabInstance: {fileID: 4438478136734512440}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4862170697458674485 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9142661442539068941, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
-  m_PrefabInstance: {fileID: 4438478136734512440}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6319142500828973447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7650136677433343167, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
