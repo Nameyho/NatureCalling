@@ -1362,6 +1362,8 @@ MonoBehaviour:
   - {fileID: 2508669433865387826}
   - {fileID: 4592855509015635958}
   _nuisibleVFX: {fileID: 1845201859388127896}
+  _pollinisableEffect: {fileID: 0}
+  _WaterableEffect: {fileID: 0}
   _limitation: {fileID: 11400000, guid: 3f99763961d2afd44bae22ee89f61f2d, type: 2}
   _percentageInfestation: 0
 --- !u!114 &3776609050121798178
@@ -1414,7 +1416,7 @@ Transform:
   m_GameObject: {fileID: 8381714289997955138}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8280670437141093784}
   m_RootOrder: 1
@@ -1478,10 +1480,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.15
-  m_Height: 3
+  m_Radius: 0.41
+  m_Height: 1.22
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &6685250252575847809
 MonoBehaviour:
   m_ObjectHideFlags: 0
