@@ -446,48 +446,113 @@ public class GameManager : MonoBehaviour
 
         int currentIndex = 0;
 
+        //focus plants
         if (_focusPlantMax > 0)
         {
-            objectifs[currentIndex].text = "Harvested cucumber   " +  _focusPlants + " / " + _focusPlantMax ;
+            if (_focusPlants < _focusPlantMax)
+            {
+                objectifs[currentIndex].text = "Harvested cucumber   " +  _focusPlants + " / " + _focusPlantMax ;
+
+            }
+            if(_focusPlants >= _focusPlantMax)
+            {
+                objectifs[currentIndex].text = "Harvested cucumber   " + _focusPlantMax + " / " + _focusPlantMax;
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+            }
             currentIndex++;
         }
         bool vivace = _focusPlants >= _focusPlantMax;
 
+
+        //arrossage
         if (_nombreArrosage > 0)
         {
-            objectifs[currentIndex].text = "Watered plants   " +  _wateringTime + " / " + _nombreArrosage;
+            if(_wateringTime< _nombreArrosage)
+            {
+                objectifs[currentIndex].text = "Watered plants   " +  _wateringTime + " / " + _nombreArrosage;
+            }
+            if (_wateringTime >= _nombreArrosage)
+            {
+                objectifs[currentIndex].text = "Watered plants   " + _nombreArrosage + " / " + _nombreArrosage;
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+            }
+
             currentIndex++;
-        }
+         }
         bool arrosage = _wateringTime >= _nombreArrosage;
 
+
+        //score
         if (_scoreToChangeScene > 0)
         {
-            objectifs[currentIndex].text = "Score reached   " +  _currentScore + " / " + _scoreToChangeScene;
+            if(_currentScore< _scoreToChangeScene)
+            {
+                objectifs[currentIndex].text = "Score reached   " +  _currentScore + " / " + _scoreToChangeScene;
+            }
+            if (_currentScore >= _scoreToChangeScene)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Score reached   " + _scoreToChangeScene + " / " + _scoreToChangeScene;
+            }
             currentIndex++;
         }
         bool points = _currentScore >= _scoreToChangeScene;
 
+
+        //Aquatic
         if(_harvestAquaticPlantsToReach > 0)
         {
-            objectifs[currentIndex].text = "Harvested aquatic plants   " + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
-                currentIndex++;
+            if(_harvestAquaticPlants< _harvestAquaticPlantsToReach)
+            {
+                objectifs[currentIndex].text = "Harvested aquatic plants   " + _harvestAquaticPlants + " / " + _harvestAquaticPlantsToReach;
+            }
+
+            if (_harvestAquaticPlants >= _harvestAquaticPlantsToReach)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Harvested aquatic plants   " + _harvestAquaticPlantsToReach + " / " + _harvestAquaticPlantsToReach;
+            }
+            currentIndex++;
         }
         bool aquaticPlants = _harvestAquaticPlants >= _harvestAquaticPlantsToReach;
 
-        if(_plantToHeal> 0  && currentIndex < 3)
+
+        //plants guérie
+        if(_plantToHeal> 0  && currentIndex <= 3)
         {
-            objectifs[currentIndex].text = "Vermin repelled   " + _currentPlantHealed + " / " + _plantToHeal;
+            if(_currentPlantHealed< _plantToHeal)
+            {
+                objectifs[currentIndex].text = "Healed Plants   " + _currentPlantHealed + " / " + _plantToHeal;
+            }
+            if (_currentPlantHealed >= _plantToHeal)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Healed Plants   " + _plantToHeal + " / " + _plantToHeal;
+            }
+
             currentIndex++;
         }
         bool healedPlants = _currentPlantHealed >= _plantToHeal;
 
-        if (_NombreDePlantARecolter > 0 && currentIndex<3)
+
+        //plante a récolter
+        if (_NombreDePlantARecolter > 0 && currentIndex<=3)
         {
-            objectifs[currentIndex].text = "Harvested plants   " + _totalHarvestedPlant + " / " + _NombreDePlantARecolter;
+            if(_totalHarvestedPlant < _NombreDePlantARecolter)
+            {
+                objectifs[currentIndex].text = "Harvested plants   " + _totalHarvestedPlant + " / " + _NombreDePlantARecolter;
+            }
+
+            if (_totalHarvestedPlant >= _NombreDePlantARecolter)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Harvested plants   " + _NombreDePlantARecolter + " / " + _NombreDePlantARecolter;
+            }
             currentIndex++;
         }
         bool recoltedplant = _totalHarvestedPlant >= _NombreDePlantARecolter;
 
+        //animaux
         bool a = true;
 
         int spawn = 0;
@@ -501,9 +566,20 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(_animals.Length>0 && currentIndex < 3)
+        if(_animals.Length>0 && currentIndex <= 3)
         {
+            if(spawn< _animals.Length)
+            {
             objectifs[currentIndex].text = "Animaux apparus " + spawn + " / " + _animals.Length;
+
+            }
+
+            if (spawn>= _animals.Length)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Animaux apparus " + _animals.Length + " / " + _animals.Length;
+
+            }
             currentIndex++;
         }
 
