@@ -63,6 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8619317590301900136}
   - component: {fileID: 5121139077636695255}
+  - component: {fileID: 4995143086090640679}
   m_Layer: 0
   m_Name: pf_henHouse
   m_TagString: Untagged
@@ -100,6 +101,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildingCard: {fileID: 11400000, guid: e89c2c1161ebca2489ca5ebfa0a0b70d, type: 2}
   _currentScore: {fileID: 11400000, guid: ba023799744d9eb4ebe7624fc527948e, type: 2}
+--- !u!114 &4995143086090640679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619317590301900139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 291e1207aa7c9134b9da49697804c4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _henPrefab: {fileID: 9184099878925045595, guid: 54cce9c85ff465242bef204dbd6bfb62, type: 3}
 --- !u!1001 &8619317590391797815
 PrefabInstance:
   m_ObjectHideFlags: 0

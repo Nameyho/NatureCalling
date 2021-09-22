@@ -30,6 +30,8 @@ public class DragAndDropCard : MonoBehaviour
 	private bool PlantNeedToBePollen = false;
 	private float _lastrestvfx;
 
+
+
     #endregion
     #region Exposed
 
@@ -66,6 +68,8 @@ public class DragAndDropCard : MonoBehaviour
 
 	public GameObject _vfxPollinator;
 	public AudioClip[] _pollinatorSounds;
+
+	public GameObject _vfxHen;
 
 	public GameObject _badFVX;
 	
@@ -230,7 +234,7 @@ public class DragAndDropCard : MonoBehaviour
 
 						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
 						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
-						int around = 0;
+					
 						for (int i = 0; i < hits.Length; i++)
 						{
 							if (hits[i].GetComponent<CapsuleCollider>())
@@ -325,7 +329,7 @@ public class DragAndDropCard : MonoBehaviour
 
 						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
 						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
-						int around = 0;
+					
 						for (int i = 0; i < hits.Length; i++)
 						{
 							if (hits[i].GetComponent<CapsuleCollider>())
@@ -422,7 +426,7 @@ public class DragAndDropCard : MonoBehaviour
 
 						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
 						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
-						int around = 0;
+						
 						for (int i = 0; i < hits.Length; i++)
 						{
 							if (hits[i].GetComponent<CapsuleCollider>())
@@ -441,6 +445,106 @@ public class DragAndDropCard : MonoBehaviour
 										_audioSource.clip = _pollinatorSounds[random];
 										_audioSource.Play();
 										Destroy(wt, 5f);
+
+									}
+
+								}
+
+							}
+						}
+
+
+
+					}
+					lastvfx = Time.time;
+
+
+
+
+				}
+
+
+				//desinfester
+
+				if (cs._isHen && FindObjectOfType<GameManager>().GetisHenHouse())
+				{
+					if (firsttimewatercan && !PlantNeedToBePollen)
+					{
+						go = Instantiate(_vfxHen, _transform.position, Quaternion.identity);
+						firsttimewatercan = false;
+						ve = go.GetComponent<VisualEffect>();
+						ve.SendEvent("NotDeBuggable");
+
+					}
+
+					go.transform.position = _transform.position;
+					CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+					Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+					int around = 0;
+					for (int i = 0; i < hits.Length; i++)
+					{
+						if (hits[i].GetComponent<CapsuleCollider>())
+						{
+							CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+							Plants plantLocal = hc.GetComponentInParent<Plants>();
+							if (plantLocal)
+							{
+								if (plantLocal.GetInfested())
+								{
+									around++;
+
+								}
+
+							}
+
+						}
+					}
+					if (around > 0)
+					{
+						PlantNeedToBePollen = true;
+					}
+					else
+					{
+						PlantNeedToBePollen = false;
+					}
+				}
+
+				if (cs._isHen && PlantNeedToBePollen && FindObjectOfType<GameManager>().GetisHenHouse())
+				{
+                   
+						ve.SendEvent("DeBuggable");
+					
+                    
+					if (Input.GetMouseButtonDown(0))
+					{
+						//GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+
+						//go.transform.Rotate(0, AxeY, 0);
+
+
+						CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+						Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+				
+						for (int i = 0; i < hits.Length; i++)
+						{
+							if (hits[i].GetComponent<CapsuleCollider>())
+							{
+								CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+								Plants plantLocal = hc.GetComponentInParent<Plants>();
+
+								if (plantLocal)
+								{
+									if (plantLocal.GetInfested())
+									{
+										FindObjectOfType<GameManager>().getHen().AddDestination(plantLocal);
+
+
+
+
+										//int random = Random.Range(0, _pollinatorSounds.Length);
+
+										//_audioSource.clip = _pollinatorSounds[random];
+										//_audioSource.Play();
 
 									}
 
@@ -533,20 +637,25 @@ public class DragAndDropCard : MonoBehaviour
 						}
 					}
 
-				}
+                    if (cs._isHen && plante.GetInfested() && FindObjectOfType<GameManager>().GetisHenHouse() && Input.GetMouseButtonDown(0))
+                    {
 
-				// ?????
-				//if (hit.transform.GetComponentInParent<Building>() && cs._isBuilding)
-				//{
-				//	seed.SetIsBuidable(false);
-				//	if (Input.GetMouseButtonDown(0))
-				//	{
-				//		_score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
-				//		Destroy(hit.transform.parent.gameObject);
-				//	}
+                       // FindObjectOfType<GameManager>().getHen().AddDestination(plante);
+                    }
+                }
 
-				//}
-				if (hit.transform.tag == "Unbuild" && cs._isPlant)
+                // ?????
+                //if (hit.transform.GetComponentInParent<Building>() && cs._isBuilding)
+                //{
+                //	seed.SetIsBuidable(false);
+                //	if (Input.GetMouseButtonDown(0))
+                //	{
+                //		_score.Value -= hit.transform.GetComponentInParent<Building>().GetBonusDiversity();
+                //		Destroy(hit.transform.parent.gameObject);
+                //	}
+
+                //}
+                if (hit.transform.tag == "Unbuild" && cs._isPlant)
 				{
 					seed.SetIsBuidable(false);
 					return;
@@ -665,6 +774,7 @@ public class DragAndDropCard : MonoBehaviour
 				ve.SendEvent("NotWaterable");
 				ve.SendEvent("NotRecoltable");
 				ve.SendEvent("NotPollinisable");
+				ve.SendEvent("NotDeBuggable");
             }
 
 		}
