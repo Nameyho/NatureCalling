@@ -23,6 +23,18 @@ PrefabInstance:
       propertyPath: _plantsPrefabs
       value: 
       objectReference: {fileID: 8280670437141093787, guid: 7c26c2ef9711eb64d99510b238ec66cd, type: 3}
+    - target: {fileID: 470302230727989669, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _remainingCards
+      value: 
+      objectReference: {fileID: 11400000, guid: 5dc59538e2d68f545b9672e02136a28b, type: 2}
+    - target: {fileID: 470302230727989669, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _Basic.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 891587253459695997, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: 7c26c2ef9711eb64d99510b238ec66cd, type: 3}
     - target: {fileID: 6548185811734685258, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: card
       value: 
@@ -235,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3b8ae8a4f8bb865449c3eebc14bb1d2a, type: 3}
       propertyPath: m_Name
       value: mod_vg_camomilleM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b8ae8a4f8bb865449c3eebc14bb1d2a, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b8ae8a4f8bb865449c3eebc14bb1d2a, type: 3}

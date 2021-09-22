@@ -73,6 +73,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414485589650286523, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: f4a7577c93e08584c8df975bddec3421, type: 3}
     - target: {fileID: 470302230727989669, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
       propertyPath: _Basic
       value: 
@@ -81,6 +85,22 @@ PrefabInstance:
       propertyPath: _ghostModel
       value: 
       objectReference: {fileID: 4757310073480195862}
+    - target: {fileID: 470302230727989669, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: _Basic.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 6313432348313319864, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548185811734685258, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: card
+      value: 
+      objectReference: {fileID: 11400000, guid: d6bfd8b9abf3467449caf8386e559aeb, type: 2}
+    - target: {fileID: 7921580551658902519, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -170,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d752a55e9e6007419e6fc7ac51400f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.07
+      value: -0.023
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d752a55e9e6007419e6fc7ac51400f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -211,6 +231,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d752a55e9e6007419e6fc7ac51400f6, type: 3}
       propertyPath: m_Name
       value: mod_vg_nenupharM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d752a55e9e6007419e6fc7ac51400f6, type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d752a55e9e6007419e6fc7ac51400f6, type: 3}

@@ -165,13 +165,25 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1067741952704321849, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1112898163885538578, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1453498706430800548, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1525666638186285565, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799717958170897904, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6306881288606755784, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
@@ -195,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 4194906959080744185}
     - target: {fileID: 6858595739010182105, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7046556453952346103, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_TagString
@@ -257,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_card_cabbage
       objectReference: {fileID: 0}
+    - target: {fileID: 8464398337258860351, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 8280670437141093787, guid: 59b91cb707061ad4d806438efc5a8e7e, type: 3}
     - target: {fileID: 8809599717779672841, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -266,11 +282,6 @@ PrefabInstance:
 --- !u!82 &8068009393279969524 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
-  m_PrefabInstance: {fileID: 7764302209334097420}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7255748988747860766 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1112898163885538578, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
   m_PrefabInstance: {fileID: 7764302209334097420}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3280460015946365126 stripped
@@ -295,6 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7255748988747860766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1112898163885538578, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+  m_PrefabInstance: {fileID: 7764302209334097420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4343401492742741444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6306881288606755784, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
@@ -370,6 +386,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1ed36eb4bcf1975429aa79178934fbd0, type: 3}
       propertyPath: m_Name
       value: mod_vg_cabbageM
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1ed36eb4bcf1975429aa79178934fbd0, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ed36eb4bcf1975429aa79178934fbd0, type: 3}
