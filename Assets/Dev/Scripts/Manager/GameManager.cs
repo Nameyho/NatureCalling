@@ -89,9 +89,18 @@ public class GameManager : MonoBehaviour
     [Header("Affichage")]
     [SerializeField]
     private TMP_Text[] objectifs;
+   
+
+ 
 
     #endregion
     #region Private
+    private bool _isBeeHive = false;
+    private int _numberofBeehive = 0;
+
+    private bool _isHenHouse = false;
+    private int _numberHenHouse;
+
     private float[] _lastTime ;
 
     private float[] _privateLayeringMax;
@@ -111,6 +120,9 @@ public class GameManager : MonoBehaviour
     private bool _winmenu = true;
 
     private GameObject _button;
+
+
+
     #endregion
 
 
@@ -328,11 +340,32 @@ public class GameManager : MonoBehaviour
         _totalHarvestedPlant++;
     }
 
-
-    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
+    public bool GetIsHive()
     {
+        return _isBeeHive;
+    }
+    
+    public void SetisHive(bool b)
+    {
+
+        if (!b)
+        {
+            _numberofBeehive--;
+            if (_numberofBeehive>0)
+            {
+                _isBeeHive = true;
+            }
+            else
+            {
+                _isBeeHive = false;
+            }
+        }
+        else
+        {
+                _isBeeHive = true;
+                _numberofBeehive++;
+            }
         
-        //Reset();
     }
     
     #endregion
@@ -341,6 +374,12 @@ public class GameManager : MonoBehaviour
 
 
     #region privates methods
+    private void OnSceneUnloaded(Scene scene, LoadSceneMode mod)
+    {
+        
+        //Reset();
+    }
+
 
     private void AddLayering()
     {

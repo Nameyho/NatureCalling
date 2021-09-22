@@ -259,7 +259,7 @@ public class Seeding : MonoBehaviour
                     _audioSource.Play();
                 }
                     if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding &&
-                    !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && hit.transform.tag == "BuildingZone")
+                    !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && !cs._isInsectPollinator && hit.transform.tag == "BuildingZone")
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
@@ -272,6 +272,7 @@ public class Seeding : MonoBehaviour
                 if (cs._isBugHostel && hit.transform.tag == "BuildingZone")
                 {
                     GameObject vfx = Instantiate(_BugHostelFVX, hit.point, Quaternion.identity);
+                    FindObjectOfType<GameManager>().SetisHive(true);
                     Destroy(vfx, 5f);
                 }
                     //if (cs._isWaterCan && hit.transform.tag == "Plants")
@@ -281,8 +282,9 @@ public class Seeding : MonoBehaviour
                     //    //Destroy(go);
                     //}
 
-                    if(cs._isInsectPollinator && hit.transform.tag == "Plants")
+                    if(cs._isInsectPollinator && hit.transform.tag == "Plants" && FindObjectOfType<GameManager>().GetIsHive())
                     {
+                   
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                          go.transform.Rotate(0, _DaD.GetRotationY(), 0);
 
