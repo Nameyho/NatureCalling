@@ -181,6 +181,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 177513599538305876, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: m_text
+      value: Use to water plants.
+      objectReference: {fileID: 0}
     - target: {fileID: 205444045980417776, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -245,6 +249,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1621871425906076056, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 5803338057726061643, guid: a2c59e28e0e30df4b9dc4fa7f6c74fa1, type: 3}
     - target: {fileID: 1973407743378892326, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 6

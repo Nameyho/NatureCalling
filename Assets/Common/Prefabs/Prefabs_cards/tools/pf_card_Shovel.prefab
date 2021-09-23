@@ -162,6 +162,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 177513599538305876, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: m_text
+      value: Use to destroy an object. Ground layering cannot be destroy with plants
+        on it.
+      objectReference: {fileID: 0}
     - target: {fileID: 205444045980417776, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -250,6 +255,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1621871425906076056, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 5322437700075569807, guid: 544c4e10a024b584eac5d94cdd3c4fa0, type: 3}
     - target: {fileID: 1973407743378892326, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 6
