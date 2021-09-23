@@ -22,6 +22,9 @@ public class FlipCard : MonoBehaviour
     [SerializeField]
     private GameObject _prefabPlant;
 
+    [SerializeField]
+    private GameObject _backcardText;
+
     #endregion
 
 
@@ -41,7 +44,7 @@ public class FlipCard : MonoBehaviour
     {
         step = 180 / _timeToFlip;
         _transform = transform.parent.transform.parent.transform;
-        _comps = _listeComptabiliteText.GetComponentsInChildren<TMP_Text>();
+       
     }
 
      IEnumerator Flip()
@@ -74,52 +77,85 @@ public class FlipCard : MonoBehaviour
 
     private void ShowComptability()
     {
-        List<CardScriptable> plantscomp=  _prefabPlant.GetComponent<Plants>().GetCompatibilite();
-     
-        for (int i = 0; i < plantscomp.Count; i++)
+        _listeComptabiliteText.SetActive(true);
+        _comps = _listeComptabiliteText.GetComponentsInChildren<TMP_Text>();
+        if (_prefabPlant.GetComponent<Plants>())
         {
-            _comps[i].text = plantscomp[i]._CardName;
-            _comps[i].GetComponent<TextComplentarite>().SetCardScriptable(plantscomp[i]);
+            List<CardScriptable> plantscomp=  _prefabPlant.GetComponent<Plants>().GetCompatibilite();
+            if (plantscomp.Count>0)
+            {
+                for (int i = 0; i < plantscomp.Count; i++)
+                {
+                    _comps[i].text = plantscomp[i]._CardName;
+                    _comps[i].GetComponent<TextComplentarite>().SetCardScriptable(plantscomp[i]);
 
+                }
+
+            }
+
+        }
+        else
+        {
+            _backcardText.SetActive(true);
         }
     }
 
     private void HideComptability()
     {
-        List<CardScriptable> plantscomp = _prefabPlant.GetComponent<Plants>().GetCompatibilite();
-
-        for (int i = 0; i < plantscomp.Count; i++)
+        _comps = _listeComptabiliteText.GetComponentsInChildren<TMP_Text>();
+        if (_prefabPlant.GetComponent<Plants>())
         {
-            _comps[i].text = "";
-            Debug.Log(plantscomp[i]._CardName);
+            List<CardScriptable> plantscomp = _prefabPlant.GetComponent<Plants>().GetCompatibilite();
+            if (plantscomp.Count > 0)
+            {
+                for (int i = 0; i < plantscomp.Count; i++)
+                {
+                    _comps[i].text = "";
+                    Debug.Log(plantscomp[i]._CardName);
+                }
+        }
+        }
+        else
+        {
+            _backcardText.SetActive(false);
+
         }
     }
 
     private void ShowAllPlantCards()
     {
-        List<GameObject> plantsOnMap = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
 
-        for (int i = 0; i < plantsOnMap.Count; i++)
+
+        List<GameObject> plantsOnMap = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
+        if (_prefabPlant.GetComponent<Plants>())
         {
-            if (plantsOnMap[i].GetComponent<Plants>().GetCard()._CardName.Equals(_prefabPlant.GetComponent<Plants>().GetCard()._CardName))
+            for (int i = 0; i < plantsOnMap.Count; i++)
             {
-                plantsOnMap[i].GetComponent<Plants>().ActivateFx();
-                plantsOnMap[i].GetComponent<Plants>().SetisCard(true);
+
+                if (plantsOnMap[i].GetComponent<Plants>().GetCard()._CardName.Equals(_prefabPlant.GetComponent<Plants>().GetCard()._CardName))
+                {
+                    plantsOnMap[i].GetComponent<Plants>().ActivateFx();
+                    plantsOnMap[i].GetComponent<Plants>().SetisCard(true);
+                }
             }
+
         }
     }
 
     private void HideAllPlantsCards()
     {
         List<GameObject> plantsOnMap = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
-
-        for (int i = 0; i < plantsOnMap.Count; i++)
+        if (_prefabPlant.GetComponent<Plants>())
         {
-            if (plantsOnMap[i].GetComponent<Plants>().GetCard()._CardName.Equals(_prefabPlant.GetComponent<Plants>().GetCard()._CardName))
+            for (int i = 0; i < plantsOnMap.Count; i++)
             {
-                plantsOnMap[i].GetComponent<Plants>().SetisCard(false);
-                plantsOnMap[i].GetComponent<Plants>().DisableVFX();
+                if (plantsOnMap[i].GetComponent<Plants>().GetCard()._CardName.Equals(_prefabPlant.GetComponent<Plants>().GetCard()._CardName))
+                {
+                    plantsOnMap[i].GetComponent<Plants>().SetisCard(false);
+                    plantsOnMap[i].GetComponent<Plants>().DisableVFX();
+                }
             }
+
         }
     }
 

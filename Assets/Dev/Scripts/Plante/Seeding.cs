@@ -216,7 +216,7 @@ public class Seeding : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
 
 
-
+  
                 if (Input.GetMouseButtonDown(0) && _isBuildable && _isSelected)
                 {
 

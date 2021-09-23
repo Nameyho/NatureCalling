@@ -26,7 +26,7 @@ public class DragAndDropCard : MonoBehaviour
 	private GameObject go;
 	private VisualEffect ve;
 	private bool PlantNeededToBewateredAround = false;
-	private bool _isLockedByFlip;
+	private bool _isLockedByFlip = false;
 	private bool PlantNeedToBePollen = false;
 	private float _lastrestvfx;
 
