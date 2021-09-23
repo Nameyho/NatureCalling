@@ -586,7 +586,7 @@ public class DragAndDropCard : MonoBehaviour
 							CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
 							Plants plantLocal = hc.GetComponentInParent<Plants>();
 
-							if (!_plantsCompatibleInCurrentrange.Contains(plantLocal) )
+							if (!_plantsCompatibleInCurrentrange.Contains(plantLocal) &&plantLocal && cartecompatible.Count>0 )
 							{
                                 for (int j = 0; j < cartecompatible.Count;j++)
                                 {
