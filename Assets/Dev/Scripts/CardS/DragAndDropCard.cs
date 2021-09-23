@@ -157,7 +157,16 @@ public class DragAndDropCard : MonoBehaviour
 
 		if (!_isGhost)
 		{
+            if (FindObjectOfType<GameManager>().GetFlipped()){
+				CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
 
+			
+
+                if (!(GetComponentInChildren<FlipCard>().Equals(FindObjectOfType<GameManager>().GetFlipped()))){
+					FindObjectOfType<GameManager>().GetFlipped().UnflipComplete();
+
+				}
+			}
 			Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
 			Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);

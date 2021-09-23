@@ -52,7 +52,7 @@ public class FlipCard : MonoBehaviour
         while (steptotal<180 && _mustflip )
         {
           steptotal += step;
-
+            FindObjectOfType<GameManager>().setFlippedCard(this);
             Quaternion target = Quaternion.Euler(0, steptotal,0) ;
             _modelMask.transform.localRotation = Quaternion.Lerp(transform.localRotation, target,1f );
         yield return new WaitForSeconds(1f);
@@ -65,7 +65,7 @@ public class FlipCard : MonoBehaviour
         while (steptotal > 0 && ! _mustflip)
         {
             steptotal -= step;
-
+            FindObjectOfType<GameManager>().setFlippedCard(null);
             Quaternion target = Quaternion.Euler(0, steptotal, 0);
             _modelMask.transform.localRotation = Quaternion.Lerp(transform.localRotation, target, 1f);
             yield return new WaitForSeconds(1f);
@@ -111,7 +111,7 @@ public class FlipCard : MonoBehaviour
                 for (int i = 0; i < plantscomp.Count; i++)
                 {
                     _comps[i].text = "";
-                    Debug.Log(plantscomp[i]._CardName);
+                  
                 }
         }
         }
@@ -161,32 +161,42 @@ public class FlipCard : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!_mustflip)
+        if (!_mustflip && !FindObjectOfType<GameManager>().GetFlipped())
         {
-            _mustflip = true;
-
-            _transform.GetComponentInParent<DragAndDropCard>().SetIsLockedByFlip(true);
-            
-            StartCoroutine(Flip());
-            ShowComptability();
-            ShowAllPlantCards();
-
+            flipComplete();
         }
         else
         {
-            _transform.GetComponentInParent<DragAndDropCard>().SetIsLockedByFlip(false);
-            HideComptability();
-            _mustflip = false;
-            StartCoroutine(UnFlip());
-            HideAllPlantsCards();
-
-            for (int i = 0; i < _comps.Length; i++)
-            {
-                _comps[i].GetComponent<TextComplentarite>().HidePlante();
-            }
+            UnflipComplete();
         }
         
 
+    }
+
+
+    public void flipComplete()
+    {
+        _mustflip = true;
+
+        _transform.GetComponentInParent<DragAndDropCard>().SetIsLockedByFlip(true);
+
+        StartCoroutine(Flip());
+        ShowComptability();
+        ShowAllPlantCards();
+    }
+
+    public void UnflipComplete()
+    {
+        _transform.GetComponentInParent<DragAndDropCard>().SetIsLockedByFlip(false);
+        HideComptability();
+        _mustflip = false;
+        StartCoroutine(UnFlip());
+        HideAllPlantsCards();
+
+        for (int i = 0; i < _comps.Length; i++)
+        {
+            _comps[i].GetComponent<TextComplentarite>().HidePlante();
+        }
     }
     #endregion
 }

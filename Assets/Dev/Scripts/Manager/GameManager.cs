@@ -123,6 +123,8 @@ public class GameManager : MonoBehaviour
 
     private Animal _hen;
 
+    private FlipCard _flippedCard;
+
     #endregion
 
 
@@ -406,6 +408,16 @@ public class GameManager : MonoBehaviour
         return _hen;
     }
 
+    public void setFlippedCard(FlipCard fc)
+    {
+        _flippedCard = fc;
+    }
+
+
+    public FlipCard GetFlipped()
+    {
+        return _flippedCard;
+    }
     #endregion
 
 
