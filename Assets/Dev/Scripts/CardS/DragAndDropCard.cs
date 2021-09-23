@@ -632,8 +632,9 @@ public class DragAndDropCard : MonoBehaviour
 				{
 					_transform.position = _transform.parent.position;
 				}
-				else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants")
+				else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants" )
 				{
+
 
 				seed.UpdateRenderer(2);
 
@@ -643,6 +644,14 @@ public class DragAndDropCard : MonoBehaviour
 
 
 				}
+
+				if( hit.transform.tag == "BuildingZone" && (cs._isPlant || cs._isAquaticPlant))
+                {
+					seed.UpdateRenderer(2);
+
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					_lastTimeUnbuild = Time.time;
+				}
 				else if (hit.transform.tag == "EffectZone")
 				{
 
@@ -650,6 +659,8 @@ public class DragAndDropCard : MonoBehaviour
 					
 					effectcollider = hit.collider;
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+
+
 
 				}
 				else if (hit.transform.tag == "Cards")
@@ -721,61 +732,83 @@ public class DragAndDropCard : MonoBehaviour
 			}
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMeSpade))
 			{
-				
+
 				if (cs._isShovel)
 				{
-					
-					if (hit.transform.GetComponentInParent<Plants>() || hit.transform.GetComponentInParent<Building>())
+
+					if ((hit.transform.GetComponentInParent<Plants>() || hit.transform.GetComponentInParent<Building>()) && (!hit.transform.GetComponentInParent<FocusPlant>() )&& (!hit.transform.GetComponentInParent<HenHouse>()))
 					{
 						Plants p = hit.transform.GetComponentInParent<Plants>();
 						seed.SetIsBuidable(false);
 						if (Input.GetMouseButtonDown(0))
 						{
-                            if (hit.transform.GetComponentInParent<Beehive>())
-                            {
+							if (hit.transform.GetComponentInParent<Beehive>())
+							{
 								FindObjectOfType<GameManager>().SetisHive(false);
-                            }
+							}
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-                            if (p )
-                            {
-							p.NoticeOtherAboutDestruction();
-							FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
-							_score.Value -= hit.transform.parent.GetComponent<Plants>().GetCard()._bonusBioDiversity;
+							if (p)
+							{
+								p.NoticeOtherAboutDestruction();
+								FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
+								_score.Value -= hit.transform.parent.GetComponent<Plants>().GetCard()._bonusBioDiversity;
 
-                            }
-                            if (p)
-                            {
-								if (p.GetCard()._isPlant && !  p.GetCard()._isAquaticPlant)
+							}
+							if (p)
+							{
+								if (p.GetCard()._isPlant && !p.GetCard()._isAquaticPlant)
 								{
-								p.GetGroundLayering().DeletePlants();
+									p.GetGroundLayering().DeletePlants();
 
 								}
 
-                            }
+							}
 							Destroy(hit.transform.parent.gameObject);
 							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
 							Destroy(vfx, 1f);
-							Destroy(go,1f);
+							Destroy(go, 1f);
 						}
 
 					}
-			
-					if ((hit.transform.parent.GetComponent<GroundLayering>()))
-                    {
-				
-                        if (!hit.transform.parent.GetComponent<GroundLayering>().IsPlantsOn() && Input.GetMouseButtonDown(0))
+
+					if (hit.transform.GetComponentInParent<HenHouse>())
+					{
+                        if (Input.GetMouseButtonDown(0))
                         {
-							
-							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-							hit.transform.parent.GetComponentInParent<GroundLayering>().AddRemaining();
-							Destroy(hit.transform.gameObject);
-							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
-							Destroy(vfx, 1f);
-							Destroy(go, 1f);
+							if (FindObjectOfType<GameManager>().GetHenHouseNumber() > 1)
+							{
+								FindObjectOfType<GameManager>().SetisHenHouse(false);
+								Destroy(hit.transform.parent.gameObject);
+								GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
+								Destroy(vfx, 1f);
+								Destroy(go, 1f);
+							}
+							else if ((FindObjectOfType<GameManager>().GetHenHouseNumber() == 1))
+							{
+								Debug.Log("test");
+								FindObjectOfType<GameManager>().SetisHenHouse(false);
+								FindObjectOfType<GameManager>().getHen().DeleteChichken(hit.point, hit.transform.GetComponentInParent<HenHouse>());
+							}
 
                         }
 					}
+						if ((hit.transform.parent.GetComponent<GroundLayering>() && !hit.transform.GetComponentInParent<FocusGroundLayering>()))
+						{
 
+							if (!hit.transform.parent.GetComponent<GroundLayering>().IsPlantsOn() && Input.GetMouseButtonDown(0))
+							{
+								
+								GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
+								hit.transform.parent.GetComponentInParent<GroundLayering>().AddRemaining();
+								Destroy(hit.transform.gameObject);
+								GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
+								Destroy(vfx, 1f);
+								Destroy(go, 1f);
+
+							}
+						}
+
+					
 				}
 				
 			}

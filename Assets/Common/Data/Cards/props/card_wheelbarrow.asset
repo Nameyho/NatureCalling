@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_wheelbarrow
   m_EditorClassIdentifier: 
-  _CardName: 
+  _CardName: Wheelbarrow
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 0}
+  _cardModel: {fileID: 4076459723464648130, guid: 426ebb4d768e3c740a57619dcc92f3e6, type: 3}
   _isPlant: 0
   _isAquaticPlant: 0
   _isWaterCan: 0
@@ -24,6 +24,9 @@ MonoBehaviour:
   _isLayering: 0
   _isInsectPollinator: 0
   _isRepellent: 0
-  _prefabToSpawn: {fileID: 0}
+  _isBugHostel: 0
+  _isHenHouse: 0
+  _isHen: 0
+  _prefabToSpawn: {fileID: 8300888782485459508, guid: 00086357291c2e04cb7f739b34bbffec, type: 3}
   _bonusBioDiversity: 0
-  _numberCardsAtStart: 0
+  _numberCardsAtStart: 1

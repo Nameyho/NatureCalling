@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -423,7 +423,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2336,6 +2336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0bef74e3edaf24baecd26083a01aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _plantsCompatibleInCurrentrange: []
+  _PlantToActivateFX: []
   _currentSpawnerLocation: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
   IgnoreMe:
     serializedVersion: 2

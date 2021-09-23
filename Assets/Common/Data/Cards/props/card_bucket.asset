@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
   m_Name: card_bucket
   m_EditorClassIdentifier: 
-  _CardName: 
+  _CardName: Bucket
   _CardImage: {fileID: 0}
-  _cardModel: {fileID: 0}
+  _cardModel: {fileID: 4493050504797845352, guid: a2e5ea4edba223b4cb577436bda0ad6d, type: 3}
   _isPlant: 0
   _isAquaticPlant: 0
   _isWaterCan: 0
@@ -24,6 +24,9 @@ MonoBehaviour:
   _isLayering: 0
   _isInsectPollinator: 0
   _isRepellent: 0
-  _prefabToSpawn: {fileID: 0}
+  _isBugHostel: 0
+  _isHenHouse: 0
+  _isHen: 0
+  _prefabToSpawn: {fileID: 4745128527397837097, guid: 293067aa7ed1df145bda56e9591fe6b0, type: 3}
   _bonusBioDiversity: 0
-  _numberCardsAtStart: 0
+  _numberCardsAtStart: 1

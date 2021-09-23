@@ -1758,7 +1758,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 470302230727989669}
   - component: {fileID: 5176860104624682647}
   m_Layer: 3
-  m_Name: pf_card_props
+  m_Name: pf_card_AAprops
   m_TagString: Cards
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1937,6 +1937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0bef74e3edaf24baecd26083a01aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _plantsCompatibleInCurrentrange: []
+  _PlantToActivateFX: []
   _currentSpawnerLocation: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
   IgnoreMe:
     serializedVersion: 2
@@ -1954,7 +1956,7 @@ MonoBehaviour:
   _vfxPollinator: {fileID: 0}
   _pollinatorSounds: []
   _vfxHen: {fileID: 0}
-  _badFVX: {fileID: 0}
+  _badFVX: {fileID: 1525381477123056673, guid: bda14a8524668eb47b147827dd80bd36, type: 3}
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1994,7 +1996,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
   _ghostModel: {fileID: 6270857463234308764, guid: 2d9df3168d3759e41ab5bea36e30ddf4, type: 3}
   _visualPlantVFX: {fileID: 0}
-  _GoodVFX: {fileID: 0}
+  _GoodVFX: {fileID: 5295040354842695884, guid: 11e7b4c52a7475b4db3051e55d8ec036, type: 3}
   _BugHostelFVX: {fileID: 0}
   _audioSource: {fileID: 5176860104624682647}
   _plantsPrefabs: {fileID: 0}
@@ -2159,7 +2161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

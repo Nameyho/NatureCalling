@@ -26,6 +26,9 @@ public class Animal : MonoBehaviour
     private NavMeshAgent agent;
     private Vector3 _destination;
     private List<Plants> _infestationPoint = new List<Plants>();
+    private Vector3 _destinationFinale;
+    private bool _MustBeDestroyed = false;
+    private HenHouse _hh;
 
     #endregion
 
@@ -62,6 +65,21 @@ public class Animal : MonoBehaviour
     #region Private
     void GotoNextPoint()
     {
+        if (_MustBeDestroyed)
+        {
+            Debug.Log("tanpis je meurs");
+            _destination = _destinationFinale;
+            agent.destination = _destination;
+            if (Vector3.Distance(transform.position, _destination) < 0.15f)
+            {
+                Debug.Log(_hh.transform.position);
+
+                Destroy(_hh.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
+        else
+
         if (_infestationPoint.Count > 0)
         {
             _destination = _infestationPoint[0].transform.position;
@@ -94,6 +112,14 @@ public class Animal : MonoBehaviour
     {
         _infestationPoint.Add(p);
         agent.speed *= 2;
+        GotoNextPoint();
+    }
+
+    public void DeleteChichken(Vector3  d, HenHouse h )
+    {
+        _MustBeDestroyed = true;
+        _destinationFinale = h.transform.position;
+        _hh = h;
         GotoNextPoint();
     }
     #endregion
