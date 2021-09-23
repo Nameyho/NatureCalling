@@ -727,12 +727,16 @@ public class DragAndDropCard : MonoBehaviour
 								FindObjectOfType<GameManager>().SetisHive(false);
                             }
 							GameObject go = Instantiate(cs._prefabToSpawn, hit.point, _transform.rotation);
-                            if (p)
+                            if (p )
                             {
-							p.GetGroundLayering().DeletePlants();
 							p.NoticeOtherAboutDestruction();
 							FindObjectOfType<PlantsManager>().DeletePlantInMapList(hit.transform.parent.gameObject);
 							_score.Value -= hit.transform.parent.GetComponent<Plants>().GetCard()._bonusBioDiversity;
+
+                            }
+                            if (p.GetCard()._isPlant)
+                            {
+							p.GetGroundLayering().DeletePlants();
 
                             }
 							Destroy(hit.transform.parent.gameObject);

@@ -172,14 +172,17 @@ public class Plants : MonoBehaviour
             _pollinisableEffect.SetActive(false);
         }
 
+        if (_card._isPlant)
+        {
+            if (!CanBeWatered())
+            {
+                _WaterableEffect.SetActive(true);
+            }
+            else
+            {
+                _WaterableEffect.SetActive(false);
+            }
 
-        if (!CanBeWatered())
-        {
-            _WaterableEffect.SetActive(true);
-        }
-        else
-        {
-            _WaterableEffect.SetActive(false);
         }
     }
     #endregion
