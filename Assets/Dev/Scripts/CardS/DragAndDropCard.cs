@@ -725,7 +725,7 @@ public class DragAndDropCard : MonoBehaviour
 				if (cs._isShovel)
 				{
 					
-					if (hit.transform.GetComponentInParent<Plants>() || hit.transform.GetComponentInParent<Building>())
+					if ((hit.transform.GetComponentInParent<Plants>() || hit.transform.GetComponentInParent<Building>()) && !hit.transform.GetComponentInParent<FocusPlant>())
 					{
 						Plants p = hit.transform.GetComponentInParent<Plants>();
 						seed.SetIsBuidable(false);

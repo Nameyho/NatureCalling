@@ -260,7 +260,7 @@ public class Seeding : MonoBehaviour
                 }
                     if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding &&
                     !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && 
-                    !cs._isHenHouse && !cs._isInsectPollinator &&  !cs._isHen && !cs._IsBasket &&
+                    !cs._isHenHouse && !cs._isInsectPollinator &&  !cs._isHen && !cs._IsBasket && !cs._isWaterCan &&
                     hit.transform.tag == "BuildingZone")
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
