@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 6548185811734685258, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: _name
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4452257607022248168}
     - target: {fileID: 7046556453952346103, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
       propertyPath: m_TagString
       value: Cards
@@ -351,6 +351,17 @@ PrefabInstance:
 --- !u!114 &180754651468394938 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4547104264649966722, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
+  m_PrefabInstance: {fileID: 4438478136734512440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4452257607022248168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 22866462531286480, guid: 87419b715e8d8d84a94ddeeaedd4b3b2, type: 3}
   m_PrefabInstance: {fileID: 4438478136734512440}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
