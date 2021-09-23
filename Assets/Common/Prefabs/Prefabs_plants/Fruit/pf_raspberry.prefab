@@ -848,7 +848,8 @@ MonoBehaviour:
   _PollinisationTime: 10
   _pollinisationCooldown: 45
   _pollinisationWateredPoint: 5
-  _compatibilytPlants: []
+  _compatibilytPlants:
+  - {fileID: 11400000, guid: d746a01ae19957d449f28fd727fd7a1f, type: 2}
   _card: {fileID: 11400000, guid: 486450501ec11e44ca93b495b48199eb, type: 2}
   _radiusDetection: 1.2
   _complement: 0.1

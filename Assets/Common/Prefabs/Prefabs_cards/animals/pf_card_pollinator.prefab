@@ -426,6 +426,10 @@ PrefabInstance:
       propertyPath: _Unbuildable.Array.data[2]
       value: 
       objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
+    - target: {fileID: 2652127857106575654, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 7092038542273010839, guid: 4f8b512654f4fc24ebc9fc8ab005c4ae, type: 3}
     - target: {fileID: 3263553629363290092, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -478,6 +482,10 @@ PrefabInstance:
       propertyPath: _pollinatorSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 8e4dad98db9d9224ea98ec6f710c5f1c, type: 3}
+    - target: {fileID: 7484695653783169064, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_text
+      value: Use to pollinate plants. A hive is needed to use this card.
+      objectReference: {fileID: 0}
     - target: {fileID: 7634481018033048922, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.256

@@ -2237,7 +2237,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _textLimitation
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2503819965197824551}
     - target: {fileID: 470302230727989669, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _Basic.Array.data[0]
       value: 
@@ -2282,6 +2282,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2652127857106575654, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 9184099878925045595, guid: 54cce9c85ff465242bef204dbd6bfb62, type: 3}
     - target: {fileID: 2723672931344150786, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2310,6 +2314,11 @@ PrefabInstance:
       propertyPath: _vfxHen
       value: 
       objectReference: {fileID: 7300708388139234951, guid: 4a8ee0200ce59fa42b1008debb70c03a, type: 3}
+    - target: {fileID: 7484695653783169064, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_text
+      value: Use to eat parasite on infested plant. A henhouse is needed to use this
+        card.
+      objectReference: {fileID: 0}
     - target: {fileID: 7634481018033048922, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2376,6 +2385,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+--- !u!4 &1703166837569106349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 244692821846323747, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+  m_PrefabInstance: {fileID: 1497323611608105870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4090423697819978250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3171542709249935748, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+  m_PrefabInstance: {fileID: 1497323611608105870}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2503819965197824551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3925121383579873705, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+  m_PrefabInstance: {fileID: 1497323611608105870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1962464793300953310 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1151686412796242768, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
@@ -2387,13 +2417,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4090423697819978250 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3171542709249935748, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
-  m_PrefabInstance: {fileID: 1497323611608105870}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1703166837569106349 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 244692821846323747, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
-  m_PrefabInstance: {fileID: 1497323611608105870}
-  m_PrefabAsset: {fileID: 0}
