@@ -450,7 +450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -620,7 +620,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  - {fileID: 4020850317028356565, guid: 10bdf58a3635fa74b8f26a4e525ab9b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -664,15 +664,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
-  m_sharedMaterial: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10bdf58a3635fa74b8f26a4e525ab9b4, type: 2}
+  m_sharedMaterial: {fileID: 4020850317028356565, guid: 10bdf58a3635fa74b8f26a4e525ab9b4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+  m_fontColor: {r: 0.11372549, g: 0.105882354, b: 0.09411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2322,6 +2322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0bef74e3edaf24baecd26083a01aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _plantsCompatibleInCurrentrange: []
+  _PlantToActivateFX: []
   _currentSpawnerLocation: {fileID: 11400000, guid: bbfac064dba1b8347897dc40bb551a42, type: 2}
   IgnoreMe:
     serializedVersion: 2
@@ -2974,6 +2976,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ba0dd9bf99dffea409e936a620c85797, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ba0dd9bf99dffea409e936a620c85797, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: ba0dd9bf99dffea409e936a620c85797, type: 3}
       propertyPath: m_Materials.Array.data[0]
