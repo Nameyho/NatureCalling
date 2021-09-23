@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _isPaused = true;
             _menuOptionPause.SetActive(true);
-            go.SetActive(false);
+            //go.SetActive(false);
             _button = go;
         }
     }

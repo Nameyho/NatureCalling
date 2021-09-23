@@ -131,7 +131,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2153,6 +2153,8 @@ MonoBehaviour:
   _BasketSounds: []
   _vfxPollinator: {fileID: 0}
   _pollinatorSounds: []
+  _vfxHen: {fileID: 0}
+  _badFVX: {fileID: 0}
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2192,6 +2194,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
   _ghostModel: {fileID: 6270857463234308764, guid: 2d9df3168d3759e41ab5bea36e30ddf4, type: 3}
   _visualPlantVFX: {fileID: 2557448761853728027, guid: e1a3c87c7d3c0844e89abeb1433002a6, type: 3}
+  _GoodVFX: {fileID: 0}
+  _BugHostelFVX: {fileID: 0}
   _audioSource: {fileID: 4640578638802380569}
   _plantsPrefabs: {fileID: 919132149155446097, guid: e831ad1d0767a874b891df19b29ad987, type: 3}
   IgnoreMe:
