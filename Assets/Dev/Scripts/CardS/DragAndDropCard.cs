@@ -743,9 +743,13 @@ public class DragAndDropCard : MonoBehaviour
 							_score.Value -= hit.transform.parent.GetComponent<Plants>().GetCard()._bonusBioDiversity;
 
                             }
-                            if (p.GetCard()._isPlant)
+                            if (p)
                             {
-							p.GetGroundLayering().DeletePlants();
+								if (p.GetCard()._isPlant && !  p.GetCard()._isAquaticPlant)
+								{
+								p.GetGroundLayering().DeletePlants();
+
+								}
 
                             }
 							Destroy(hit.transform.parent.gameObject);
