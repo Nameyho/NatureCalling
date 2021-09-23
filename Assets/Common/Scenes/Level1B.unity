@@ -5054,8 +5054,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Objectives :'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
-  m_sharedMaterial: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10bdf58a3635fa74b8f26a4e525ab9b4, type: 2}
+  m_sharedMaterial: {fileID: 4020850317028356565, guid: 10bdf58a3635fa74b8f26a4e525ab9b4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13111,11 +13111,11 @@ PrefabInstance:
       objectReference: {fileID: 308829785}
     - target: {fileID: 1272540419283927655, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _percentagePlantsToInfest
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419283927655, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _intervalBetweenInfestation
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
@@ -18488,7 +18488,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013966815526}
-  m_LocalRotation: {x: 0.09897817, y: 0.000000008560945, z: -8.515279e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.09897817, y: -0.000000008560947, z: 8.5152807e-10, w: 0.99508965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
