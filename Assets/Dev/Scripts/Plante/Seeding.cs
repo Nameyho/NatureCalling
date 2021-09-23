@@ -72,6 +72,7 @@ public class Seeding : MonoBehaviour
     private DragAndDropCard _DaD;
     private float _lastLayeringPlant;
     private bool _isLayeringNotAlreadyPlant = true;
+    private GameObject VFX;
 
 
     GameObject go = null;
@@ -223,6 +224,7 @@ public class Seeding : MonoBehaviour
                     if (hit.transform.tag == "Layering" && cs._isPlant)
                     {
 
+                        
 
                         if (hit.transform.parent.GetComponent<GroundLayering>().IsLayeringBuildable())
                         {
@@ -244,7 +246,9 @@ public class Seeding : MonoBehaviour
 
                             }
 
-                        }
+                        
+                }
+                   
                 }
                     if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                     {
@@ -260,7 +264,8 @@ public class Seeding : MonoBehaviour
                 }
                     if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding &&
                     !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && 
-                    !cs._isHenHouse && !cs._isInsectPollinator &&  !cs._isHen && !cs._IsBasket && !cs._isWaterCan &&
+                    !cs._isHenHouse && !cs._isInsectPollinator &&  !cs._isHen
+                    && !cs._IsBasket && !cs._isWaterCan &&
                     hit.transform.tag == "BuildingZone")
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);

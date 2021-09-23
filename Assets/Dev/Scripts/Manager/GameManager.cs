@@ -89,9 +89,9 @@ public class GameManager : MonoBehaviour
     [Header("Affichage")]
     [SerializeField]
     private TMP_Text[] objectifs;
-   
 
- 
+
+
 
     #endregion
     #region Private
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     private bool _isHenHouse = false;
     private int _numberHenHouse;
 
-    private float[] _lastTime ;
+    private float[] _lastTime;
 
     private float[] _privateLayeringMax;
 
@@ -140,10 +140,14 @@ public class GameManager : MonoBehaviour
     {
         AddLayering();
         CheckIfVictory();
+
     }
 
 
-
+    public int GetHenHouseNumber()
+    {
+        return _numberHenHouse;
+    }
 
     #endregion
 
