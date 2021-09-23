@@ -18488,7 +18488,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013966815526}
-  m_LocalRotation: {x: 0.09897817, y: -0.000000008560947, z: 8.5152807e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.09897817, y: 0.000000008560945, z: -8.515279e-10, w: 0.99508965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18755,7 +18755,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673015422337615}
-  m_LocalRotation: {x: 0.13505942, y: 8.719026e-16, z: -1.7869098e-17, w: 0.9908375}
+  m_LocalRotation: {x: 0.1350594, y: -0.00000001476463, z: 0.0000000020125421, w: 0.9908375}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22721,6 +22721,9 @@ MonoBehaviour:
   background: {fileID: 0}
   _tabCardsScriptable:
   - {fileID: 11400000, guid: 711d9bdd5c460014298fdeedae958dd2, type: 2}
+  - {fileID: 11400000, guid: afdafa7380f78ca4493ed033256ad0d0, type: 2}
+  - {fileID: 11400000, guid: 965d98b1d5b10a544a18647a5081fa40, type: 2}
+  - {fileID: 11400000, guid: 858c24f9148889142b83a36b575ec9ca, type: 2}
 --- !u!114 &7451789396190112541
 MonoBehaviour:
   m_ObjectHideFlags: 0

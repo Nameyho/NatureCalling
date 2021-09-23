@@ -103,7 +103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.014
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalPosition.y
@@ -111,11 +111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.04
+      value: -0.082
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9545231
+      value: 0.9790213
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalRotation.x
@@ -123,7 +123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.29813725
+      value: 0.20375803
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalRotation.z
@@ -135,7 +135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 34.692
+      value: 23.514
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd55bf8a199802f4a9cc5d6deeb9b129, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: _ghostModel
       value: 
       objectReference: {fileID: 3959828118917093621}
+    - target: {fileID: 470302230727989669, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
+      propertyPath: _plantsPrefabs
+      value: 
+      objectReference: {fileID: 8300888782485459508, guid: 2d978a4cbfc104a40b292742f961281f, type: 3}
     - target: {fileID: 470302230727989669, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
       propertyPath: _remainingCards
       value: 
