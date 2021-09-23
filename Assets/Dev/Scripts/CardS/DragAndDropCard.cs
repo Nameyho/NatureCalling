@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine.VFX;
 
@@ -30,6 +31,9 @@ public class DragAndDropCard : MonoBehaviour
 	private bool PlantNeedToBePollen = false;
 	private float _lastrestvfx;
 
+	public List<Plants> _plantsCompatibleInCurrentrange = new List<Plants>();
+
+	public List<Plants> _PlantToActivateFX = new List<Plants>();
 
 
     #endregion
@@ -563,6 +567,50 @@ public class DragAndDropCard : MonoBehaviour
 
 				}
 
+
+
+				//Detection compatibilié
+
+				if (cs._isPlant || cs._isAquaticPlant)
+				{
+				   List<CardScriptable> cartecompatible =  cs._prefabToSpawn.GetComponent<Plants>().GetCompatibilite();
+
+					_plantsCompatibleInCurrentrange = new List<Plants>();
+					CapsuleCollider cc = GetComponentInChildren<CapsuleCollider>();
+					Collider[] hits = Physics.OverlapSphere(_transform.position, 1.24f);
+
+                    for (int i = 0; i < hits.Length; i++)
+                    {
+						if (hits[i].GetComponent<CapsuleCollider>())
+						{
+							CapsuleCollider hc = hits[i].GetComponent<CapsuleCollider>();
+							Plants plantLocal = hc.GetComponentInParent<Plants>();
+
+							if (!_plantsCompatibleInCurrentrange.Contains(plantLocal) )
+							{
+                                for (int j = 0; j < cartecompatible.Count;j++)
+                                {
+                                    if (cartecompatible[j]._CardName.Equals(plantLocal.GetCard()._CardName))
+                                    {
+										_plantsCompatibleInCurrentrange.Add(plantLocal);
+										_PlantToActivateFX.Add(plantLocal);
+                                    }
+                                }
+							}
+						}
+                    }
+                    for (int i = 0; i < _PlantToActivateFX.Count; i++)
+                    {
+                        if (_plantsCompatibleInCurrentrange.Contains(_PlantToActivateFX[i]))
+                        {
+							_PlantToActivateFX[i].ActivateFx();
+                        }
+                        else
+                        {
+							_PlantToActivateFX[i].DisableVFX();                        }
+                    }
+
+				}
 
 
 
