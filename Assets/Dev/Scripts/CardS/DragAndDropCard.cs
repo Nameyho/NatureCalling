@@ -213,7 +213,7 @@ public class DragAndDropCard : MonoBehaviour
 						Plants plantLocal = hc.GetComponentInParent<Plants>();
                             if (plantLocal)
                             {
-								if (plantLocal.CanBeWatered())
+								if (plantLocal.CanBeWatered() && plantLocal.GetCard()._isPlant)
 								{
 									around++;
 								
@@ -257,7 +257,7 @@ public class DragAndDropCard : MonoBehaviour
 
 								if (plantLocal)
 								{
-									if (plantLocal.CanBeWatered())
+									if (plantLocal.CanBeWatered() && plantLocal.GetCard()._isPlant)
 									{
 										GameObject wt = Instantiate(_vfxWaterCan, plantLocal.transform.position, Quaternion.identity);
 										wt.GetComponent<VisualEffect>().SendEvent("Watering");
@@ -646,7 +646,16 @@ public class DragAndDropCard : MonoBehaviour
 
 				}
 
-				if( hit.transform.tag == "BuildingZone" && (cs._isPlant || cs._isAquaticPlant))
+				if (hit.transform.tag == "BuildingZone" && (!cs._isPlant || !cs._isAquaticPlant))
+				{
+					seed.UpdateRenderer(0);
+
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					_lastTimeUnbuild = Time.time;
+				}
+
+
+				if ( hit.transform.tag == "BuildingZone" && (cs._isPlant || cs._isAquaticPlant))
                 {
 					seed.UpdateRenderer(2);
 
