@@ -180,6 +180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _GoodVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _ghostModel
       value: 
       objectReference: {fileID: 1630558659643141187}
@@ -322,7 +326,7 @@ PrefabInstance:
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _badFVX
       value: 
-      objectReference: {fileID: 1525381477123056673, guid: bda14a8524668eb47b147827dd80bd36, type: 3}
+      objectReference: {fileID: 5295040354842695884, guid: 11e7b4c52a7475b4db3051e55d8ec036, type: 3}
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _RotationSpeed
       value: 100

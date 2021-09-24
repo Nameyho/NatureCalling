@@ -195,6 +195,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 307bf7876df31c645bc7edd00b703a6c, type: 2}
     - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _GoodVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 470302230727989669, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _ghostModel
       value: 
       objectReference: {fileID: 5053990009613003867}
@@ -309,6 +313,10 @@ PrefabInstance:
     - target: {fileID: 7046556453952346103, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _badFVX
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: _vfxBasket
