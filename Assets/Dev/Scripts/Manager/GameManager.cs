@@ -596,7 +596,7 @@ public class GameManager : MonoBehaviour
             if (pollinisedtotal >= PlantToPollen)
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
-                objectifs[currentIndex].text = "Plants to pollenize   " + PlantToPollen + " / " + PlantToPollen;
+                objectifs[currentIndex].text = "Plants to pollen   " + PlantToPollen + " / " + PlantToPollen;
             }
             currentIndex++;
         }
@@ -674,7 +674,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             if (!_winMenu.activeSelf)
             {
-             _winMenu.SetActive(true);
+				_winMenu.SetActive(true);
 
             }
         }

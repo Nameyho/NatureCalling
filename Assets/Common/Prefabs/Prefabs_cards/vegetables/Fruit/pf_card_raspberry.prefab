@@ -27,10 +27,26 @@ PrefabInstance:
       propertyPath: _Basic.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 470302230727989669, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: _Effect.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 470302230727989669, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: _Effect.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 470302230727989669, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: _Effect.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
     - target: {fileID: 684436478514446917, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1466661021405330180, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 3494243709450804988, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: _prefabPlant
       value: 
@@ -43,6 +59,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 486450501ec11e44ca93b495b48199eb, type: 2}
+    - target: {fileID: 6755732375159076552, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 8184421993309676426, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: m_RootOrder
       value: 0

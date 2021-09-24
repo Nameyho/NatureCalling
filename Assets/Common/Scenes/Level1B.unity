@@ -679,6 +679,7 @@ MonoBehaviour:
   _tabCardsScriptable:
   - {fileID: 11400000, guid: 4b70131f1e75e454e8c4a3e51fa15366, type: 2}
   - {fileID: 11400000, guid: df11a8ba75d09634ca16156edd049ad5, type: 2}
+  - {fileID: 11400000, guid: 481ad828fd293c3499a8b5081d92958e, type: 2}
   - {fileID: 11400000, guid: badf464117c6c92498c4e264949f4f72, type: 2}
 --- !u!4 &42073052 stripped
 Transform:
@@ -10063,8 +10064,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9021487, y: 0.30908906, z: 2.422782}
-  m_Center: {x: -0.13096303, y: -0.020764684, z: -0.391713}
+  m_Size: {x: 1.2179744, y: 0.1842684, z: 0.9420523}
+  m_Center: {x: 0.4438104, y: -0.083175, z: 0.28473037}
 --- !u!1001 &1124698994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12508,12 +12509,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7451789396023078242}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
+      propertyPath: PlantToPollen
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _focusPlantMax
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _nombreArrosage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _menuOptionPause
@@ -12521,7 +12526,7 @@ PrefabInstance:
       objectReference: {fileID: 7451789395327705860}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _scoreToChangeScene
-      value: 2500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: objectifs.Array.size
@@ -17298,7 +17303,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013671845601}
-  m_LocalRotation: {x: 0.13505943, y: 0.000000014764631, z: -0.0000000020125426, w: 0.9908375}
+  m_LocalRotation: {x: 0.1350594, y: -0.000000014764631, z: 0.0000000020125421, w: 0.9908375}
   m_LocalPosition: {x: 0, y: 5, z: -15.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17397,7 +17402,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013694639553}
-  m_LocalRotation: {x: 0.13505942, y: 8.719026e-16, z: -1.7869098e-17, w: 0.9908375}
+  m_LocalRotation: {x: 0.1350594, y: -0.00000001476463, z: 0.0000000020125421, w: 0.9908375}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17812,7 +17817,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013966815526}
-  m_LocalRotation: {x: 0.09897817, y: 0.000000008560945, z: -8.515279e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.09897817, y: -0.000000008560947, z: 8.5152807e-10, w: 0.99508965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22410,6 +22415,7 @@ GameObject:
   - component: {fileID: 7903631915281404736}
   - component: {fileID: 312798698176553654}
   - component: {fileID: 1122766841}
+  - component: {fileID: 7877002484508766754}
   m_Layer: 0
   m_Name: water
   m_TagString: AquaticPlants
@@ -22417,6 +22423,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &7877002484508766754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877002484508766753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9701508, y: 0.16972362, z: 1.5156058}
+  m_Center: {x: -0.09486008, y: -0.09044742, z: -0.89074045}
 --- !u!33 &7903631915281404736
 MeshFilter:
   m_ObjectHideFlags: 0
