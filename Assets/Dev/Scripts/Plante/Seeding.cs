@@ -217,14 +217,12 @@ public class Seeding : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMe))
 
 
-  
                 if (Input.GetMouseButtonDown(0) && _isBuildable && _isSelected)
                 {
 
-                    if (hit.transform.tag == "Layering" && cs._isPlant)
+                    if (hit.transform.tag == "Layering" && cs._isPlant )
                     {
 
-                        
 
                         if (hit.transform.parent.GetComponent<GroundLayering>().IsLayeringBuildable())
                         {
@@ -247,9 +245,9 @@ public class Seeding : MonoBehaviour
                             }
 
                         
-                }
+                    }
                    
-                }
+                    }
                     if (hit.transform.tag == "AquaticPlants" && cs._isAquaticPlant)
                     {
                         GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
@@ -261,7 +259,7 @@ public class Seeding : MonoBehaviour
                     plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
                     Destroy(plantVFX, 5f);
                     _audioSource.Play();
-                }
+                    }
                     if (!cs._isAquaticPlant && !cs._isPlant && !cs._isBuilding &&
                     !cs._isShovel && !cs._isLayering  && !cs._isBugHostel && 
                     !cs._isHenHouse && !cs._isInsectPollinator &&  !cs._isHen

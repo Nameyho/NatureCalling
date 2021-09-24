@@ -622,7 +622,6 @@ public class DragAndDropCard : MonoBehaviour
 				}
 
 
-
 				_transform.rotation = hit.transform.rotation;
 
 				Quaternion target = Quaternion.Euler(0, AxeY, 0);
@@ -632,12 +631,14 @@ public class DragAndDropCard : MonoBehaviour
 				{
 					_transform.position = _transform.parent.position;
 				}
-				else if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants" )
+				if (hit.transform.tag == "UnBuild" || hit.transform.tag == "Plants" )
 				{
 
 
 				seed.UpdateRenderer(2);
 
+				Debug.Log(hit.transform.tag);
+					
 
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 					_lastTimeUnbuild = Time.time;
@@ -652,7 +653,7 @@ public class DragAndDropCard : MonoBehaviour
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 					_lastTimeUnbuild = Time.time;
 				}
-				else if (hit.transform.tag == "EffectZone")
+				else if (hit.transform.tag == "EffectZone" )
 				{
 
 						seed.UpdateRenderer(1);
@@ -675,12 +676,29 @@ public class DragAndDropCard : MonoBehaviour
 					RotateObject();
 				}
 
-				else
+				if ((hit.transform.tag == "Layering" && !(hit.transform.tag == " AquaticPlants")) && cs._isPlant)
 				{
-						seed.UpdateRenderer(0);
-					
+					seed.UpdateRenderer(0);
+
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
-					
+
+				}
+				else {
+
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+				}
+
+				if (hit.transform.tag == "AquaticPlants" && ( cs._isAquaticPlant || !cs._isPlant) )
+				{
+					Debug.Log(hit.transform.tag);
+					seed.UpdateRenderer(0);
+
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+
+                }
+                else
+                {
+					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 				}
 
 
