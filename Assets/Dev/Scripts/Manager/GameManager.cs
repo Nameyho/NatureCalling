@@ -79,18 +79,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int _NombreDePlantARecolter;
 
-    [SerializeField]
-    private BoolVariable[] _animals;
 
     [SerializeField]
-    private GameObject _winMenu;
+    private int PlantToPollen;
+
+
+    [SerializeField]
+    private int PlantWithComplementToReach;
+
+    [SerializeField]
+    private BoolVariable[] _animals;
 
 
     [Header("Affichage")]
     [SerializeField]
     private TMP_Text[] objectifs;
 
+    [SerializeField]
+    private GameObject _winMenu;
 
+    
 
 
     #endregion
@@ -116,6 +124,10 @@ public class GameManager : MonoBehaviour
     private int _currentPlantHealed;
 
     private int _totalHarvestedPlant;
+
+    private int pollinisedtotal;
+
+    private int _completementTotal = 0;
 
     private bool _winmenu = true;
 
@@ -351,6 +363,10 @@ public class GameManager : MonoBehaviour
         return _isBeeHive;
     }
     
+    public void AddPollinisedtotal()
+    {
+        pollinisedtotal++;
+    }
     public void SetisHive(bool b)
     {
 
@@ -568,6 +584,60 @@ public class GameManager : MonoBehaviour
         }
         bool recoltedplant = _totalHarvestedPlant >= _NombreDePlantARecolter;
 
+
+        //plante a polleniser
+        if (PlantToPollen > 0 && currentIndex <= 3)
+        {
+            if (pollinisedtotal < PlantToPollen)
+            {
+                objectifs[currentIndex].text = "Plants to pollenize   " + pollinisedtotal + " / " + PlantToPollen;
+            }
+
+            if (pollinisedtotal >= PlantToPollen)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Plants to pollenize   " + PlantToPollen + " / " + PlantToPollen;
+            }
+            currentIndex++;
+        }
+        bool pollenised = pollinisedtotal >= PlantToPollen;
+
+
+        //plante complémentaire
+        _completementTotal = 0;
+        if (PlantWithComplementToReach > 0)
+        {
+            List<GameObject>  plantlist = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
+            for (int i = 0; i < plantlist.Count; i++)
+            {
+                if (plantlist[i].GetComponent<Plants>().getComplementScore() >= 3)
+                {
+                    _completementTotal++;
+                }
+            }
+        }
+
+        if (PlantWithComplementToReach > 0 && currentIndex <= 3)
+        {
+           
+            if (_completementTotal < PlantWithComplementToReach)
+            {
+                objectifs[currentIndex].text = "Plants with 3 complement   " + _completementTotal + " / " + PlantWithComplementToReach;
+                objectifs[currentIndex].color = new Color(255, 255, 255);
+            }
+
+            if (_completementTotal >= PlantWithComplementToReach)
+            {
+                objectifs[currentIndex].color = new Color(0, 255, 0);
+                objectifs[currentIndex].text = "Plants with 3 complement   " + PlantWithComplementToReach + " / " + PlantWithComplementToReach;
+            }
+            currentIndex++;
+        }
+
+        bool plant = _completementTotal>= PlantWithComplementToReach;
+        
+
+        
         //animaux
         bool a = true;
 
@@ -599,7 +669,7 @@ public class GameManager : MonoBehaviour
             currentIndex++;
         }
 
-        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a && _winmenu)
+        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a  && pollenised && plant && _winmenu)
         {
             Time.timeScale = 0;
             if (!_winMenu.activeSelf)

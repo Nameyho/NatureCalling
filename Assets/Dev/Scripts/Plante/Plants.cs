@@ -507,6 +507,10 @@ public class Plants : MonoBehaviour
         return _name;
     }
 
+    public float getComplementScore()
+    {
+        return _completscore;
+    }
     public float GetTotalGrowTime()
     {
         return _TotalGrowTime;

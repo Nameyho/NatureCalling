@@ -254,6 +254,9 @@ public class Seeding : MonoBehaviour
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         _gameManager.AddProgression(cs._bonusBioDiversity);
 
+                    int rand = Random.Range(0, _sound.Length);
+                    _audioSource.clip = _sound[rand];
+                  
 
                     GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position, Quaternion.identity);
                     plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
@@ -282,6 +285,7 @@ public class Seeding : MonoBehaviour
                     Destroy(vfx, 5f);
                 }
 
+               
                 
 
                 //if (cs._isWaterCan && hit.transform.tag == "Plants")
