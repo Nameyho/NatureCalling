@@ -24,13 +24,16 @@ public class FlipCard : MonoBehaviour
 
     [SerializeField]
     private GameObject _backcardText;
+	
+ [SerializeField]
+	private GameObject _textGrowWell;
 
-    #endregion
+	#endregion
 
 
-    #region private
+	#region private
 
-    float step;
+	float step;
     bool _mustflip = false;
     Transform _transform;
     TMP_Text[] _comps;
@@ -78,6 +81,9 @@ public class FlipCard : MonoBehaviour
     private void ShowComptability()
     {
         _listeComptabiliteText.SetActive(true);
+		if(_textGrowWell != null) {
+			_textGrowWell.SetActive(true);
+		}
         _comps = _listeComptabiliteText.GetComponentsInChildren<TMP_Text>();
         if (_prefabPlant.GetComponent<Plants>())
         {
@@ -102,7 +108,11 @@ public class FlipCard : MonoBehaviour
 
     private void HideComptability()
     {
-        _comps = _listeComptabiliteText.GetComponentsInChildren<TMP_Text>();
+		if (_textGrowWell != null)
+		{
+			_textGrowWell.SetActive(false);
+		}
+		_comps = _listeComptabiliteText.GetComponentsInChildren<TMP_Text>();
         if (_prefabPlant.GetComponent<Plants>())
         {
             List<CardScriptable> plantscomp = _prefabPlant.GetComponent<Plants>().GetCompatibilite();

@@ -27,10 +27,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1466661021405330180, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 3494243709450804988, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: _prefabPlant
       value: 
       objectReference: {fileID: 8280670437141093787, guid: b93085c0c910fec4da41ac137b33ec22, type: 3}
+    - target: {fileID: 3494243709450804988, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: _listeComptabiliteText
+      value: 
+      objectReference: {fileID: 4447906591417238571}
     - target: {fileID: 6313432348313319864, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: m_Layer
       value: 19
@@ -39,6 +47,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: ae851498563e88243a0e856d366c06e0, type: 2}
+    - target: {fileID: 6755732375159076552, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 8184421993309676426, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -89,6 +101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+--- !u!1 &4447906591417238571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2351611833004886792, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+  m_PrefabInstance: {fileID: 2096630110543646499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1752123130050758267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 380680947445287256, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
