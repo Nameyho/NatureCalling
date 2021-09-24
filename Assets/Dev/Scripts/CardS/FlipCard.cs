@@ -25,7 +25,7 @@ public class FlipCard : MonoBehaviour
     [SerializeField]
     private GameObject _backcardText;
 	
- [SerializeField]
+	[SerializeField]
 	private GameObject _textGrowWell;
 
 	#endregion
@@ -54,11 +54,11 @@ public class FlipCard : MonoBehaviour
     {
         while (steptotal<180 && _mustflip )
         {
-          steptotal += step;
+			steptotal += step;
             FindObjectOfType<GameManager>().setFlippedCard(this);
             Quaternion target = Quaternion.Euler(0, steptotal,0) ;
             _modelMask.transform.localRotation = Quaternion.Lerp(transform.localRotation, target,1f );
-        yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds(1f);
 
         }
     }

@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: aa87c08cad138c242b90407507a71ddd, type: 2}
+    - target: {fileID: 6666726112677092699, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b5674a1cd13d3147bcc3fbe7c581d30, type: 2}
     - target: {fileID: 7046556453952346103, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 193702010957031163, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1474c7208bb1f50459cecb686765804f, type: 2}
     - target: {fileID: 470302230727989669, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: _ghostModel
       value: 
@@ -39,6 +43,14 @@ PrefabInstance:
       propertyPath: _prefabPlant
       value: 
       objectReference: {fileID: 8280670437141093787, guid: 08d5277fe53ea2143a620030848b6306, type: 3}
+    - target: {fileID: 3002308897471683110, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+    - target: {fileID: 3962734222152050628, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 5928177676037937151, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: m_Layer
       value: 11
