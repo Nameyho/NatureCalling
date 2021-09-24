@@ -664,7 +664,8 @@ public class DragAndDropCard : MonoBehaviour
 
 
 				}
-				else if (hit.transform.tag == "Cards")
+				Debug.Log(hit.transform.tag);
+				if (hit.transform.tag == "Cards")
 				{
                     if (_isFirstTimePlayed)
                     {
@@ -683,10 +684,7 @@ public class DragAndDropCard : MonoBehaviour
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
 				}
-				else {
 
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
-				}
 
 				if (hit.transform.tag == "AquaticPlants" && ( cs._isAquaticPlant || !cs._isPlant) )
 				{
@@ -696,10 +694,7 @@ public class DragAndDropCard : MonoBehaviour
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
                 }
-                else
-                {
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
-				}
+
 
 
 			}
