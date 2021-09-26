@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8dc1e43ee8b054b8e358e7fb00ee85, type: 3}
+  m_Name: card_plantingBin02
+  m_EditorClassIdentifier: 
+  _CardName: Planting bin 02
+  _CardImage: {fileID: 0}
+  _cardModel: {fileID: 3141288642522337427, guid: 209f18a200cf2744e92b32e491c05ddb, type: 3}
+  _isPlant: 0
+  _isAquaticPlant: 0
+  _isWaterCan: 0
+  _IsBasket: 0
+  _isShovel: 0
+  _isBuilding: 0
+  _isLayering: 1
+  _isInsectPollinator: 0
+  _isRepellent: 0
+  _isBugHostel: 0
+  _isHenHouse: 0
+  _isHen: 0
+  _prefabToSpawn: {fileID: 2463183351765302725, guid: 2782e6158dd852b4191507167f0d2965, type: 3}
+  _bonusBioDiversity: 0
+  _numberCardsAtStart: 2

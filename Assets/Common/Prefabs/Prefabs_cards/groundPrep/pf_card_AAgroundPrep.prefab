@@ -384,6 +384,7 @@ MonoBehaviour:
   _listeComptabiliteText: {fileID: 1309582387431134448}
   _prefabPlant: {fileID: 0}
   _backcardText: {fileID: 8954311640899606440}
+  _textGrowWell: {fileID: 0}
 --- !u!1 &2581901016417299239
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +441,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
+  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -614,7 +615,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 510afb01cbe805f4ab1cb6668553cc24, type: 2}
+  - {fileID: 2100000, guid: 9fd9e55039c949946b3d994d97182455, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -706,7 +707,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
+  - {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1771,8 +1772,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27553847, y: 0.4361157, z: 0.07335499}
-  m_Center: {x: 0, y: 0, z: -0.2}
+  m_Size: {x: 0.25781384, y: 0.38482958, z: 0.07335499}
+  m_Center: {x: 0.00054751337, y: -0.0007811785, z: -0.2}
 --- !u!114 &470302230727989669
 MonoBehaviour:
   m_ObjectHideFlags: 0
