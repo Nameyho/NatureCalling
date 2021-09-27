@@ -725,7 +725,7 @@ public class DragAndDropCard : MonoBehaviour
 				if ((hit.transform.tag == "Layering" && !(hit.transform.tag == " AquaticPlants")) && cs._isPlant)
 				{
 					seed.UpdateRenderer(0);
-					Debug.Log("ici 1 ");
+			
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
 				}

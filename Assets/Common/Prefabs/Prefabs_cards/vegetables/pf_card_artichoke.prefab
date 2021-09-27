@@ -615,12 +615,16 @@ PrefabInstance:
       value: pf_card_artichoke
       objectReference: {fileID: 0}
     - target: {fileID: 8464398337258860351, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _speed
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464398337258860351, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _modelMask
       value: 
       objectReference: {fileID: 4286274265369391372}
     - target: {fileID: 8464398337258860351, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _timeToFlip
-      value: 2
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8464398337258860351, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _prefabPlant

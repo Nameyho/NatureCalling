@@ -477,6 +477,7 @@ public class GameManager : MonoBehaviour
     {
 
         int currentIndex = 0;
+        int currentObjectifComplete = 0;
 
         //focus plants
         if (_focusPlantMax > 0)
@@ -490,6 +491,7 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].text = "Cucumber to harvest   " + _focusPlantMax + " / " + _focusPlantMax;
                 objectifs[currentIndex].color = new Color(0, 255, 0);
+                currentObjectifComplete++;
             }
             currentIndex++;
         }
@@ -507,6 +509,7 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].text = "Plants to water   " + _nombreArrosage + " / " + _nombreArrosage;
                 objectifs[currentIndex].color = new Color(0, 255, 0);
+                currentObjectifComplete++;
             }
 
             currentIndex++;
@@ -525,6 +528,7 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
                 objectifs[currentIndex].text = "Score to reach   " + _scoreToChangeScene + " / " + _scoreToChangeScene;
+                currentObjectifComplete++;
             }
             currentIndex++;
         }
@@ -543,6 +547,7 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
                 objectifs[currentIndex].text = "Aquatic plant to harvest   " + _harvestAquaticPlantsToReach + " / " + _harvestAquaticPlantsToReach;
+                currentObjectifComplete++;
             }
             currentIndex++;
         }
@@ -560,6 +565,7 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
                 objectifs[currentIndex].text = "Infestation stopped   " + _plantToHeal + " / " + _plantToHeal;
+                currentObjectifComplete++;
             }
 
             currentIndex++;
@@ -579,6 +585,7 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
                 objectifs[currentIndex].text = "Plants to harvest   " + _NombreDePlantARecolter + " / " + _NombreDePlantARecolter;
+                currentObjectifComplete++;
             }
             currentIndex++;
         }
@@ -597,44 +604,46 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
                 objectifs[currentIndex].text = "Plants to pollen   " + PlantToPollen + " / " + PlantToPollen;
+                currentObjectifComplete++;
             }
             currentIndex++;
         }
         bool pollenised = pollinisedtotal >= PlantToPollen;
 
 
-        //plante complémentaire
-        _completementTotal = 0;
-        if (PlantWithComplementToReach > 0)
-        {
-            List<GameObject>  plantlist = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
-            for (int i = 0; i < plantlist.Count; i++)
-            {
-                if (plantlist[i].GetComponent<Plants>().getComplementScore() >= 3)
-                {
-                    _completementTotal++;
-                }
-            }
-        }
+        ////plante complémentaire
+        //_completementTotal = 0;
+        //if (PlantWithComplementToReach > 0)
+        //{
+        //    List<GameObject>  plantlist = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
+        //    for (int i = 0; i < plantlist.Count; i++)
+        //    {
+        //        if (plantlist[i].GetComponent<Plants>().getComplementScore() >= 3)
+        //        {
+        //            _completementTotal++;
 
-        if (PlantWithComplementToReach > 0 && currentIndex <= 3)
-        {
+        //        }
+        //    }
+        //}
+
+        //if (PlantWithComplementToReach > 0 && currentIndex <= 3)
+        //{
            
-            if (_completementTotal < PlantWithComplementToReach)
-            {
-                objectifs[currentIndex].text = "Plants with 3 complement   " + _completementTotal + " / " + PlantWithComplementToReach;
-                objectifs[currentIndex].color = new Color(255, 255, 255);
-            }
+        //    if (_completementTotal < PlantWithComplementToReach)
+        //    {
+        //        objectifs[currentIndex].text = "Plants with 3 complement   " + _completementTotal + " / " + PlantWithComplementToReach;
+        //        objectifs[currentIndex].color = new Color(255, 255, 255);
+        //    }
 
-            if (_completementTotal >= PlantWithComplementToReach)
-            {
-                objectifs[currentIndex].color = new Color(0, 255, 0);
-                objectifs[currentIndex].text = "Plants with 3 complement   " + PlantWithComplementToReach + " / " + PlantWithComplementToReach;
-            }
-            currentIndex++;
-        }
+        //    if (_completementTotal >= PlantWithComplementToReach)
+        //    {
+        //        objectifs[currentIndex].color = new Color(0, 255, 0);
+        //        objectifs[currentIndex].text = "Plants with 3 complement   " + PlantWithComplementToReach + " / " + PlantWithComplementToReach;
+        //    }
+        //    currentIndex++;
+        //}
 
-        bool plant = _completementTotal>= PlantWithComplementToReach;
+        //bool plant = _completementTotal>= PlantWithComplementToReach;
         
 
         
@@ -664,12 +673,21 @@ public class GameManager : MonoBehaviour
             {
                 objectifs[currentIndex].color = new Color(0, 255, 0);
                 objectifs[currentIndex].text = "Wild animals to see   " + _animals.Length + " / " + _animals.Length;
-
+                currentObjectifComplete++;
             }
             currentIndex++;
         }
 
-        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a  && pollenised && plant && _winmenu)
+        //recap objectives
+
+        if (currentObjectifComplete < currentIndex)
+        {
+
+
+        }
+
+
+        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a  && pollenised && _winmenu)
         {
             Time.timeScale = 0;
             if (!_winMenu.activeSelf)

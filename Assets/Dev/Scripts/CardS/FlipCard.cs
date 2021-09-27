@@ -8,8 +8,8 @@ using TMPro;
 public class FlipCard : MonoBehaviour
 {
     #region Exposed
-    [SerializeField]
-    private float _timeToFlip;
+  
+    private float _timeToFlip = 500;
 
     private float steptotal;
 
@@ -27,6 +27,9 @@ public class FlipCard : MonoBehaviour
 	
 	[SerializeField]
 	private GameObject _textGrowWell;
+
+    [SerializeField]
+    private float _speed;
 
 	#endregion
 
@@ -54,11 +57,11 @@ public class FlipCard : MonoBehaviour
     {
         while (steptotal<180 && _mustflip )
         {
-			steptotal += step;
+			steptotal += step * Time.deltaTime * _speed;
             FindObjectOfType<GameManager>().setFlippedCard(this);
             Quaternion target = Quaternion.Euler(0, steptotal,0) ;
             _modelMask.transform.localRotation = Quaternion.Lerp(transform.localRotation, target,1f );
-			yield return new WaitForSeconds(1f);
+			yield return new WaitForSeconds( Time.deltaTime);
 
         }
     }
@@ -67,11 +70,11 @@ public class FlipCard : MonoBehaviour
     {
         while (steptotal > 0 && ! _mustflip)
         {
-            steptotal -= step;
+            steptotal -= step * Time.deltaTime * _speed;
             FindObjectOfType<GameManager>().setFlippedCard(null);
             Quaternion target = Quaternion.Euler(0, steptotal, 0);
             _modelMask.transform.localRotation = Quaternion.Lerp(transform.localRotation, target, 1f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(Time.deltaTime);
 
         }
 
