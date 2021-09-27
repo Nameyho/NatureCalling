@@ -319,6 +319,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7046556453952346103, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046556453952346103, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_TagString
       value: Cards
       objectReference: {fileID: 0}
@@ -334,6 +338,10 @@ PrefabInstance:
       propertyPath: _cardLimitation
       value: 
       objectReference: {fileID: 11400000, guid: 050423fcb3b00cb45b19c33236bf4702, type: 2}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: IgnoreMeEffect.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0

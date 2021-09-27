@@ -227,6 +227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 369787236414987799, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: _GoodVFX
       value: 
@@ -254,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 4227412237115291409, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971847529032757774, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6313432347788347264, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_Layer

@@ -46,8 +46,9 @@ public class DragAndDropCard : MonoBehaviour
     [Header("camera")]
     public LayerMask IgnoreMe;
 
-	[Header("camera")]
 	public LayerMask IgnoreMeSpade;
+
+	public LayerMask IgnoreMeEffect;
 
 	[Header("Score")]
     [SerializeField]
@@ -662,10 +663,7 @@ public class DragAndDropCard : MonoBehaviour
 
 
 				seed.UpdateRenderer(2);
-
-				Debug.Log(hit.transform.tag);
-					
-
+			
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 					_lastTimeUnbuild = Time.time;
 
@@ -675,7 +673,6 @@ public class DragAndDropCard : MonoBehaviour
 				if (hit.transform.tag == "BuildingZone" && (!cs._isPlant || !cs._isAquaticPlant))
 				{
 					seed.UpdateRenderer(0);
-
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 					_lastTimeUnbuild = Time.time;
 				}
@@ -690,16 +687,29 @@ public class DragAndDropCard : MonoBehaviour
 				}
 				else if (hit.transform.tag == "EffectZone" )
 				{
-
-						seed.UpdateRenderer(1);
+					if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~IgnoreMeEffect))
+                    {
 					
-					effectcollider = hit.collider;
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+						if((hit.transform.tag == "Layering")&& cs._isPlant)
+                        {
+							
+							seed.UpdateRenderer(1);
 
-
-
+                        }
+                        if((!(hit.transform.tag =="Layering"))&& cs._isPlant)
+                        {
+							seed.UpdateRenderer(2);
+							
+						}
+						else
+                        {
+							seed.UpdateRenderer(0);
+						}
+                    }
+							effectcollider = hit.collider;
+							this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 				}
-				Debug.Log(hit.transform.tag);
+	
 				if (hit.transform.tag == "Cards")
 				{
                     if (_isFirstTimePlayed)
@@ -715,7 +725,7 @@ public class DragAndDropCard : MonoBehaviour
 				if ((hit.transform.tag == "Layering" && !(hit.transform.tag == " AquaticPlants")) && cs._isPlant)
 				{
 					seed.UpdateRenderer(0);
-
+					Debug.Log("ici 1 ");
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
 
 				}
@@ -723,7 +733,7 @@ public class DragAndDropCard : MonoBehaviour
 
 				if (hit.transform.tag == "AquaticPlants" && ( cs._isAquaticPlant || !cs._isPlant) )
 				{
-					Debug.Log(hit.transform.tag);
+				
 					seed.UpdateRenderer(0);
 
 					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);

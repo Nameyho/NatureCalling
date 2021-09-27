@@ -108,7 +108,9 @@ public class Seeding : MonoBehaviour
         switch (i)
         {
             case 1:
+
                 _myRend.materials = _Effect;
+                Debug.Log(_myRend.materials[0]);
                 _isBuildable = true;
 
 
@@ -142,7 +144,7 @@ public class Seeding : MonoBehaviour
                 break;
             case 0:
                 //  _myRend.material = _Basic;
-
+                Debug.Log("basic");
                  _myRend.materials = _Basic;
 
                 if (_isBuildableVFX && go)

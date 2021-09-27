@@ -475,6 +475,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8079633379926613137, guid: 76ff23ef9d0619d4dbc05b2a50e0959e, type: 3}
     - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: IgnoreMeEffect.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _pollinatorSounds.Array.size
       value: 3
       objectReference: {fileID: 0}

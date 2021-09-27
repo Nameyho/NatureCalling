@@ -1694,6 +1694,7 @@ MonoBehaviour:
   _listeComptabiliteText: {fileID: 6794171027208425143}
   _prefabPlant: {fileID: 0}
   _backcardText: {fileID: 2601011356787953175}
+  _textGrowWell: {fileID: 0}
 --- !u!1 &6794171027208425143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2176,9 @@ MonoBehaviour:
   IgnoreMeSpade:
     serializedVersion: 2
     m_Bits: 0
+  IgnoreMeEffect:
+    serializedVersion: 2
+    m_Bits: 64
   _score: {fileID: 0}
   _RotationSpeed: 100
   _audioSource: {fileID: 0}
@@ -2186,6 +2190,7 @@ MonoBehaviour:
   _pollinatorSounds: []
   _vfxHen: {fileID: 0}
   _badFVX: {fileID: 0}
+  _disableCard: {fileID: 0}
 --- !u!65 &8016043649188081478
 BoxCollider:
   m_ObjectHideFlags: 0
