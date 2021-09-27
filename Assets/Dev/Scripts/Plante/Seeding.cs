@@ -167,8 +167,8 @@ public class Seeding : MonoBehaviour
         _myRend = _ghostModel.GetComponent<Renderer>();
         cam = Camera.main;
         _DaD = GetComponent<DragAndDropCard>();
-     
-        
+
+
     }
 
 
@@ -235,7 +235,7 @@ public class Seeding : MonoBehaviour
                                 _gameManager.AddProgression(cs._bonusBioDiversity);
                                 hit.transform.parent.GetComponent<GroundLayering>().AddPlants();
 
-                             GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
+                            GameObject plantVFX = Instantiate(_visualPlantVFX, transform.position,Quaternion.identity);
                              plantVFX.GetComponent<VisualEffect>().SendEvent("Planted");
                              int rand = Random.Range(0, _sound.Length);
                              _audioSource.clip = _sound[rand];
@@ -275,7 +275,8 @@ public class Seeding : MonoBehaviour
                         Destroy(vfx, 5f);
                     
                         _remainingCards.Value--;
-                        _gameManager.AddProgression(cs._bonusBioDiversity);
+          
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
 
                     }
                 if (cs._isBugHostel && hit.transform.tag == "BuildingZone")
@@ -334,7 +335,9 @@ public class Seeding : MonoBehaviour
                              Destroy(vfx, 5f);
                             go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                             _remainingCards.Value--;
-                            _gameManager.AddProgression(cs._bonusBioDiversity);
+
+                  
+                        _gameManager.AddProgression(cs._bonusBioDiversity);
                             _lastLayeringPlant = Time.time;
                             _isLayeringNotAlreadyPlant = false;
 
@@ -359,7 +362,9 @@ public class Seeding : MonoBehaviour
     {
         if (_remainingCards)
         {
+            DragAndDropCard dad = GetComponent<DragAndDropCard>();
         _textLimitation.text = _remainingCards.Value.ToString();
+          
 
         }
         else

@@ -18,6 +18,7 @@ public class CardBackgroundManager : MonoBehaviour
     #region Unity API
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log("triggered");
         if (other.GetComponent<Cards>())
         {
           other.GetComponent<Cards>().TransformIntoGhostModel();

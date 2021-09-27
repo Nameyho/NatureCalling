@@ -99,7 +99,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 73436417738510436, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_PlayOnAwake
@@ -191,6 +191,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
     - target: {fileID: 536535341427811593, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 543776199239613931, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 580079277024616163, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
@@ -223,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3409568634334031177, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5063979713189990090, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_fontAsset
@@ -241,6 +245,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 7446005331726866122, guid: 4a88e182388540849a4688f90a9577a8, type: 2}
+    - target: {fileID: 5878080776424985456, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878080776424985456, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_TagString
+      value: Layering
+      objectReference: {fileID: 0}
     - target: {fileID: 6306881288606755784, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -274,9 +286,17 @@ PrefabInstance:
       value: Cards
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _disableCard
+      value: 
+      objectReference: {fileID: 7858306292536244894}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _RotationSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _cardLimitation
+      value: 
+      objectReference: {fileID: 11400000, guid: e2654e4bdd6cbec48862e8109045babb, type: 2}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -338,6 +358,11 @@ PrefabInstance:
 --- !u!82 &4083191282239797014 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+  m_PrefabInstance: {fileID: 4367766658824792558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7858306292536244894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878080776424985456, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
   m_PrefabInstance: {fileID: 4367766658824792558}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8852865319739500324 stripped

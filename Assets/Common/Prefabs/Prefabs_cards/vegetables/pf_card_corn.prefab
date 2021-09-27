@@ -176,7 +176,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 73436417738510436, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _Basic
@@ -268,6 +268,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 50a8142c7f16c5840bdf31ea88a9edb7, type: 2}
     - target: {fileID: 536535341427811593, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 543776199239613931, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 580079277024616163, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
@@ -300,7 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3409568634334031177, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6306881288606755784, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
@@ -335,6 +339,10 @@ PrefabInstance:
       value: Cards
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _disableCard
+      value: 
+      objectReference: {fileID: 4589334807342635005}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _RotationSpeed
       value: 100
       objectReference: {fileID: 0}
@@ -342,6 +350,10 @@ PrefabInstance:
       propertyPath: IgnoreMe.m_Bits
       value: 67108888
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _cardLimitation
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b26d2ed7392c5b4aa0d32d7822f9eb6, type: 2}
     - target: {fileID: 8184421993309676426, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -403,6 +415,11 @@ PrefabInstance:
 --- !u!82 &7643928631684061813 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 303716400006176504, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+  m_PrefabInstance: {fileID: 7936385858580726925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4589334807342635005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878080776424985456, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
   m_PrefabInstance: {fileID: 7936385858580726925}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2910849676181375559 stripped

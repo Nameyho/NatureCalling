@@ -172,7 +172,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 73436417738510436, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 244692821846323747, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -304,11 +304,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 611d43f2483f3b14081b4c64d1b48d2a, type: 2}
     - target: {fileID: 536535341427811593, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 536535341427811593, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 543776199239613931, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 543776199239613931, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -368,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3409568634334031177, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3519501865855409174, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
@@ -487,6 +491,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _disableCard
+      value: 
+      objectReference: {fileID: 3229422695095109766}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _vfxWaterCan
       value: 
       objectReference: {fileID: 0}
@@ -494,6 +502,10 @@ PrefabInstance:
       propertyPath: _RotationSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _cardLimitation
+      value: 
+      objectReference: {fileID: 11400000, guid: 7cf0f1a1c857c2249ad6e4fe5cda9f11, type: 2}
     - target: {fileID: 7441933050289698363, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _BasketSounds.Array.size
       value: 0
@@ -636,6 +648,11 @@ AudioSource:
 --- !u!1 &4286274265369391372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5060341988060703482, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+  m_PrefabInstance: {fileID: 9025800269101243382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3229422695095109766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5878080776424985456, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
   m_PrefabInstance: {fileID: 9025800269101243382}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4252747416217769276 stripped

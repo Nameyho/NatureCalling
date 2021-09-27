@@ -31,15 +31,15 @@ public class DragAndDropCard : MonoBehaviour
 	private bool PlantNeedToBePollen = false;
 	private float _lastrestvfx;
 
+
 	public List<Plants> _plantsCompatibleInCurrentrange = new List<Plants>();
 
 	public List<Plants> _PlantToActivateFX = new List<Plants>();
 
+	#endregion
+	#region Exposed
 
-    #endregion
-    #region Exposed
-
-    [SerializeField]
+	[SerializeField]
     private CurrentSpawnerLocationScritpable _currentSpawnerLocation;
 
 
@@ -76,6 +76,8 @@ public class DragAndDropCard : MonoBehaviour
 	public GameObject _vfxHen;
 
 	public GameObject _badFVX;
+
+	public GameObject _disableCard;
 	
     #endregion
 
@@ -87,19 +89,38 @@ public class DragAndDropCard : MonoBehaviour
         _transform = GetComponent<Transform>();
         cam = Camera.main;
         _Hand = this.gameObject.transform.parent.transform.parent.transform.parent.transform;
+
         _hm = FindObjectOfType<HandManager>();
 		
 	}
 
     private void LateUpdate()
     {
-
-
+		Seeding seed = GetComponent<Seeding>();
+		if (seed.GetLimitation())
+        {
+			if (seed.GetLimitation())
+			{
+			
+				if (seed.GetLimitation().Value > 0)
+				{
+			_disableCard.SetActive(false);
+				
+				}
+				else
+			_disableCard.SetActive(true);
+				{
+				
+				}
+			}
+		}
 
         if (_isDragable)
         {
             Drag();
         }
+
+		
         if (Input.GetMouseButtonDown(1) )
         {
             if (_Hand.gameObject.activeSelf)
@@ -117,6 +138,9 @@ public class DragAndDropCard : MonoBehaviour
 			RotateObject();
 
         }
+
+
+
     }
 
     private void OnDestroy()
@@ -162,9 +186,19 @@ public class DragAndDropCard : MonoBehaviour
 			Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
 			Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+			Seeding seed = GetComponent<Seeding>();
+			if (!seed.GetLimitation())
+            {
+				transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
 
-
-			transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
+            }
+            else
+            {
+				if((seed.GetLimitation().Value > 0))
+                {
+					transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
+				}
+            }
 
 		}
 		else
@@ -865,6 +899,11 @@ public class DragAndDropCard : MonoBehaviour
 	
 	}
 
+
+	public void setIsDrageable(bool b)
+    {
+		_isDragable = b;
+    }
 	public float GetRotationY()
     {
 		return AxeY;
