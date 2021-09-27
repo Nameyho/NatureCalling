@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: _prefabPlant
       value: 
       objectReference: {fileID: 8280670437141093787, guid: 31c066eb15f838f48ba162efb0c65826, type: 3}
+    - target: {fileID: 3494243709450804988, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: _listeComptabiliteText
+      value: 
+      objectReference: {fileID: 2989221920911952173}
     - target: {fileID: 6313432348313319864, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: m_Layer
       value: 18
@@ -117,6 +121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+--- !u!1 &2989221920911952173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2351611833004886792, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+  m_PrefabInstance: {fileID: 709673180613575205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &905558538592734077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 380680947445287256, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}

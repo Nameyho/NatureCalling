@@ -121,6 +121,10 @@ PrefabInstance:
       propertyPath: _prefabPlant
       value: 
       objectReference: {fileID: 8280670437141093787, guid: ea7da55c492d9144f8b9b98722d45b6f, type: 3}
+    - target: {fileID: 3494243709450804988, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+      propertyPath: _listeComptabiliteText
+      value: 
+      objectReference: {fileID: 5799146918703791623}
     - target: {fileID: 6548185811734685258, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
       propertyPath: card
       value: 
@@ -179,6 +183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+--- !u!1 &5799146918703791623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2351611833004886792, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
+  m_PrefabInstance: {fileID: 8131301787987571983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8471372788849130583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 380680947445287256, guid: 2c3fd5f9c7ca6d745995238cf4270ab7, type: 3}
