@@ -93,18 +93,15 @@ public class DragAndDropCard : MonoBehaviour
 
     private void LateUpdate()
     {
-		
+
+
+
         if (_isDragable)
         {
             Drag();
         }
         if (Input.GetMouseButtonDown(1) )
         {
-
-			
-		
-				
-			
             if (_Hand.gameObject.activeSelf)
             {
 				_Hand.gameObject.SetActive(false);
@@ -113,11 +110,8 @@ public class DragAndDropCard : MonoBehaviour
             else
             {
 				reset();
-
             }
-
 		}
-
         if (_isGhost)
         {
 			RotateObject();
@@ -137,9 +131,7 @@ public class DragAndDropCard : MonoBehaviour
 
             }
         if (!(_isBusy))
-        {
-	
-            
+        {         
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
             offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));

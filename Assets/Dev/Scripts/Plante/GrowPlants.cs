@@ -256,28 +256,32 @@ public class GrowPlants : MonoBehaviour
     {
         float currentfloat = (float)currentTier / (float)_maxTier;
 
-        currentfloat = Mathf.Clamp(currentfloat, _startGrow, 1);
-        
-         _plantModel.transform.localScale += Vector3.one * ((2f / currentfloat)* _RefreshRate);
-        _plantModel.transform.localScale = new Vector3(currentfloat, currentfloat, currentfloat);
+        currentfloat = Mathf.Clamp(currentfloat , _startGrow, 1);
 
-
-
-
-        if (currentfloat >= 1)
+        while(_plantModel.transform.localScale.x< currentfloat && _plantModel.transform.localScale.y<=1)
         {
+            
+             _plantModel.transform.localScale += Vector3.one * ( currentfloat* _RefreshRate* Time.deltaTime);
+           // _plantModel.transform.localScale = new Vector3(currentfloat, currentfloat, currentfloat);
+
+            if (_plantModel.transform.localScale.y >= 1)
+            {
            
             
-            fullyGrown = true;
-        }
-        else
-        {
-            fullyGrown = false;
+                fullyGrown = true;
+            }
+            else
+            {
+                fullyGrown = false;
+
+            }
+
+        
+
+            yield return new WaitForSeconds(_RefreshRate);
+
 
         }
-        yield return new WaitForSeconds(_RefreshRate);
-
-
     }
 
     public void SetCurrentTier(int tier)
