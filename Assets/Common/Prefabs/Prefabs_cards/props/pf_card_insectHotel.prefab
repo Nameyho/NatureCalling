@@ -47,6 +47,10 @@ PrefabInstance:
       propertyPath: _prefabPlant
       value: 
       objectReference: {fileID: 8300888782485459508, guid: 13227eab0ece6494e895131c17ebc95c, type: 3}
+    - target: {fileID: 3726311971055221246, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 6313432348313319864, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
       propertyPath: m_Layer
       value: 24
@@ -107,6 +111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_card_insectHotel
       objectReference: {fileID: 0}
+    - target: {fileID: 9192026480595864038, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
 --- !u!4 &8304647164569174717 stripped
@@ -132,15 +140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52557def82951e4c8e26273e7e28d8d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52557def82951e4c8e26273e7e28d8d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52557def82951e4c8e26273e7e28d8d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c52557def82951e4c8e26273e7e28d8d, type: 3}
       propertyPath: m_LocalPosition.x

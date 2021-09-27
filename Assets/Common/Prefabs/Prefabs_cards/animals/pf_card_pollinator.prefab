@@ -426,6 +426,14 @@ PrefabInstance:
       propertyPath: _Unbuildable.Array.data[2]
       value: 
       objectReference: {fileID: -876546973899608171, guid: 5543f6c736e3d404b8a67064fe379a50, type: 3}
+    - target: {fileID: 1765561982761782227, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016912542814000277, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 2652127857106575654, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
       propertyPath: _prefabPlant
       value: 
@@ -538,6 +546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pf_card_pollinator
       objectReference: {fileID: 0}
+    - target: {fileID: 8789239214816907874, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763110b6af9f4f74c8c0a37aa3061bab, type: 3}
 --- !u!82 &7802025996631596415 stripped
