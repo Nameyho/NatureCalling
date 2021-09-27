@@ -380,12 +380,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b98dd3fd81cf429b167fe84951f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToFlip: 2
   _modelMask: {fileID: 190282548293786671}
   _listeComptabiliteText: {fileID: 1309582387431134448}
   _prefabPlant: {fileID: 0}
   _backcardText: {fileID: 8954311640899606440}
   _textGrowWell: {fileID: 0}
+  _speed: 1000
 --- !u!1 &2581901016417299239
 GameObject:
   m_ObjectHideFlags: 0
