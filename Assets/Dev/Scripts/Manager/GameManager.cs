@@ -4,6 +4,8 @@ using UnityEngine;
 using ScriptableObjectArchitecture;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
 
@@ -84,8 +86,8 @@ public class GameManager : MonoBehaviour
     private int PlantToPollen;
 
 
-    [SerializeField]
-    private int PlantWithComplementToReach;
+    //[SerializeField]
+    //private int PlantWithComplementToReach;
 
     [SerializeField]
     private BoolVariable[] _animals;
@@ -96,9 +98,16 @@ public class GameManager : MonoBehaviour
     private TMP_Text[] objectifs;
 
     [SerializeField]
+    private GameObject _ObjectivesTabs;
+
+    [SerializeField]
     private GameObject _winMenu;
 
-    
+    [SerializeField]
+    private Image _objectiveLogo;
+
+    [SerializeField]
+    private TMP_Text _recapObsTmp;
 
 
     #endregion
@@ -127,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     private int pollinisedtotal;
 
-    private int _completementTotal = 0;
+   // private int _completementTotal = 0;
 
     private bool _winmenu = true;
 
@@ -682,8 +691,13 @@ public class GameManager : MonoBehaviour
 
         if (currentObjectifComplete < currentIndex)
         {
+            _recapObsTmp.text = "Objectives   " + currentObjectifComplete + " / " + currentIndex;
 
-
+        }
+        if(currentObjectifComplete>= currentIndex)
+        {
+            _recapObsTmp.text = " Objectives   " + currentIndex + " / " + currentIndex;
+            _objectiveLogo.color = new Color(0, 255, 0);
         }
 
 
@@ -697,6 +711,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
     #endregion
 
 }
