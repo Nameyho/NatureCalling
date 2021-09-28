@@ -824,7 +824,7 @@ public class DragAndDropCard : MonoBehaviour
 							Destroy(hit.transform.parent.gameObject);
 							GameObject vfx = Instantiate(_badFVX, hit.point, Quaternion.identity);
 							Destroy(vfx, 1f);
-							Destroy(go, 1f);
+							Destroy(go);
 						}
 
 					}
