@@ -158,7 +158,9 @@ public class GameManager : MonoBehaviour
 
     private FlipCard _flippedCard;
 
-    private float _baseY;
+    private DragAndDropCard _dad;
+
+
 
     #endregion
 
@@ -167,7 +169,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _baseY = _plusOne.transform.position.y;
+       
         Reset();
         Time.timeScale = 1;
         SceneManager.sceneLoaded += OnSceneUnloaded;
@@ -217,6 +219,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            if (_dad)
+            {
+            _dad.reset();
+
+            }
             Time.timeScale = 0;
             _isPaused = true;
             _menuOptionPause.SetActive(true);
@@ -307,6 +314,7 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log("rest");
         _currentScore.Value = 0;
         if (_startValue.Length == cardsIntvariable.Count)
         {
@@ -718,7 +726,11 @@ public class GameManager : MonoBehaviour
         return _scoreToChangeScene;
 }
 
-
+    public void setCurrentCardDraged(DragAndDropCard dad)
+    {
+        _dad = dad;
+      
+    }
     
     #endregion
 }

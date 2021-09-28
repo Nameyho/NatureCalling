@@ -90,7 +90,7 @@ public class DragAndDropCard : MonoBehaviour
         _transform = GetComponent<Transform>();
         cam = Camera.main;
         _Hand = this.gameObject.transform.parent.transform.parent.transform.parent.transform;
-
+		
         _hm = FindObjectOfType<HandManager>();
 		
 	}
@@ -204,7 +204,7 @@ public class DragAndDropCard : MonoBehaviour
 		}
 		else
 		{
-		
+			FindObjectOfType<GameManager>().setCurrentCardDraged(this);
 			RaycastHit hit;
 			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 			CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
@@ -882,7 +882,8 @@ public class DragAndDropCard : MonoBehaviour
             _Hand.gameObject.SetActive(true);
             Destroy(_transform.gameObject);
             _hm.ChangeHand();
-        }
+			FindObjectOfType<GameManager>().setCurrentCardDraged(this);
+		}
         
     }
 
