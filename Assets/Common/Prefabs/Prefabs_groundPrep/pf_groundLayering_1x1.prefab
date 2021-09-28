@@ -48,9 +48,6 @@ MonoBehaviour:
   _audioSource: {fileID: -1242805934113772609}
   _NumberMaxOfPlants: 6
   _remainingCard: {fileID: 11400000, guid: b62e729f04950d044957eabc929698d9, type: 2}
-  _plusOne: {fileID: 6756145823409663055, guid: e80a760bbf141224eb5671ad4957029c, type: 3}
-  _maxHeigh: 100
-  _time: 10
 --- !u!82 &-1242805934113772609
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60,8 +57,8 @@ AudioSource:
   m_GameObject: {fileID: 4885253156091891685}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c0a709bdf8fc939448e3e00056e601e0, type: 3}
+  OutputAudioMixerGroup: {fileID: 4638381013193728359, guid: 5690bd87f32ee10469a4b1694199e454, type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
