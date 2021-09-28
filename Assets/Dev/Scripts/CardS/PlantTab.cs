@@ -13,6 +13,11 @@ public class PlantTab : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     [SerializeField]
     private GameObject subMenu;
 
+    public Sprite _tabIdle;
+    public Sprite _tabHover;
+
+    public Image _background;
+
     [SerializeField]
     private SubMenuScriptable subMenuScriptable;
 
@@ -29,11 +34,12 @@ public class PlantTab : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-      
+        _background.sprite = _tabHover;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        _background.sprite = _tabIdle;
     }
 
     public void CloseSubMenu()

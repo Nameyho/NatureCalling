@@ -314,7 +314,7 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
-        Debug.Log("rest");
+        
         _currentScore.Value = 0;
         if (_startValue.Length == cardsIntvariable.Count)
         {
