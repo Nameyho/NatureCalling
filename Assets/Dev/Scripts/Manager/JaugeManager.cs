@@ -27,13 +27,12 @@ public class JaugeManager : MonoBehaviour
     [Header("ScriptableObject")]
     public PlantPhase _plantTier;
 
+
+
     private void Update()
     {
-
-        
-            SetCurrentTier(currentScore.Value);
-          
-        
+     SetCurrentTier(currentScore.Value);
+         
     }
 
     private void Start()
@@ -41,6 +40,7 @@ public class JaugeManager : MonoBehaviour
 
         _maxTier = _plantTier.PhaseAmount;
         _maxTierDetail = _plantTier.PhaseTodetail;
+        
         if (_growPlantMeshes.Count > 0)
         {
             for (int i = 0; i < _growPlantMeshes.Count; i++)
@@ -88,12 +88,12 @@ public class JaugeManager : MonoBehaviour
         while (growValue <test)
         {
            
-            Debug.Log(test);
+           
             mat.SetFloat("Grow_", test);
 
             if (currentTier >= _maxTierDetail)
             {
-                Vector3 VecMax = ((currentTier - _maxTierDetail) * (Vector3.one / (_maxTier - _maxTierDetail)));
+                Vector3 VecMax = ((currentTier - _maxTierDetail) * (Vector3.one / (FindObjectOfType<GameManager>().GetScoreToReach() - _maxTierDetail)));
                 if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
                 {
                     for (int i = 0; i < _detailsPrefabs.Length; i++)
@@ -127,9 +127,9 @@ public class JaugeManager : MonoBehaviour
                 }
 
             }
-            yield return new WaitForSeconds(_RefreshRate);
+            yield return new WaitForFixedUpdate();
         }
 
 
     }
-    }
+}

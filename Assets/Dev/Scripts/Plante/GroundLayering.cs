@@ -18,6 +18,7 @@ public class GroundLayering : MonoBehaviour
     [SerializeField]
     private IntVariable _remainingCard;
 
+
     #endregion
 
 
@@ -74,7 +75,13 @@ public class GroundLayering : MonoBehaviour
 
     public void AddRemaining()
     {
-        _remainingCard.Value++;   
+        _remainingCard.Value++;
+    
     }
+    #endregion
+
+    #region Privates Methods
+
+
     #endregion
 }

@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
     private int PlantToPollen;
 
 
+
     //[SerializeField]
     //private int PlantWithComplementToReach;
 
@@ -109,6 +110,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _recapObsTmp;
 
+    [SerializeField]
+    private GameObject _plusOne;
+
+    [SerializeField]
+    private int _maxHeigh;
+
+    [SerializeField]
+    private float _time;
+
+
+    public GameObject _collider;
 
     #endregion
     #region Private
@@ -146,6 +158,8 @@ public class GameManager : MonoBehaviour
 
     private FlipCard _flippedCard;
 
+    private float _baseY;
+
     #endregion
 
 
@@ -153,6 +167,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _baseY = _plusOne.transform.position.y;
         Reset();
         Time.timeScale = 1;
         SceneManager.sceneLoaded += OnSceneUnloaded;
@@ -162,9 +177,8 @@ public class GameManager : MonoBehaviour
         AddLayering();
         CheckIfVictory();
 
+
     }
-
-
     public int GetHenHouseNumber()
     {
         return _numberHenHouse;
@@ -462,6 +476,7 @@ public class GameManager : MonoBehaviour
 
     private void AddLayering()
     {
+        
         for (int i = 0; i < _layeringTime.Length; i++)
         {
             if (Time.timeSinceLevelLoad - _lastTime[i] > _layeringTime[i] && (_privateLayeringMax[i] > 0))
@@ -471,9 +486,27 @@ public class GameManager : MonoBehaviour
                 _lastTime[i] = Time.timeSinceLevelLoad;
                 _privateLayeringMax[i]--;
 
+                StartCoroutine(ShowPlusOne());
             }
         }
     }
+
+    IEnumerator ShowPlusOne()
+    {
+       
+        float step = _maxHeigh/_time;
+        _plusOne.SetActive(true);
+
+        while (_plusOne.transform.position.y < _maxHeigh)
+        {
+            _plusOne.transform.localPosition += new Vector3(0, step* Time.deltaTime, 0);
+            yield return new WaitForEndOfFrame();
+        }
+        
+        _plusOne.transform.localPosition = new Vector3(0, 0, 0);
+        _plusOne.SetActive(false);
+    }
+
 
     private void ResumeGame()
     {
@@ -619,43 +652,6 @@ public class GameManager : MonoBehaviour
         }
         bool pollenised = pollinisedtotal >= PlantToPollen;
 
-
-        ////plante complémentaire
-        //_completementTotal = 0;
-        //if (PlantWithComplementToReach > 0)
-        //{
-        //    List<GameObject>  plantlist = FindObjectOfType<PlantsManager>().GetPlantsOnTheMaps();
-        //    for (int i = 0; i < plantlist.Count; i++)
-        //    {
-        //        if (plantlist[i].GetComponent<Plants>().getComplementScore() >= 3)
-        //        {
-        //            _completementTotal++;
-
-        //        }
-        //    }
-        //}
-
-        //if (PlantWithComplementToReach > 0 && currentIndex <= 3)
-        //{
-           
-        //    if (_completementTotal < PlantWithComplementToReach)
-        //    {
-        //        objectifs[currentIndex].text = "Plants with 3 complement   " + _completementTotal + " / " + PlantWithComplementToReach;
-        //        objectifs[currentIndex].color = new Color(255, 255, 255);
-        //    }
-
-        //    if (_completementTotal >= PlantWithComplementToReach)
-        //    {
-        //        objectifs[currentIndex].color = new Color(0, 255, 0);
-        //        objectifs[currentIndex].text = "Plants with 3 complement   " + PlantWithComplementToReach + " / " + PlantWithComplementToReach;
-        //    }
-        //    currentIndex++;
-        //}
-
-        //bool plant = _completementTotal>= PlantWithComplementToReach;
-        
-
-        
         //animaux
         bool a = true;
 
@@ -707,7 +703,7 @@ public class GameManager : MonoBehaviour
             if (!_winMenu.activeSelf)
             {
 				_winMenu.SetActive(true);
-
+                _collider.SetActive(true);
             }
         }
     }
@@ -715,4 +711,14 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region Publics
+
+    public int GetScoreToReach()
+    {
+        return _scoreToChangeScene;
+}
+
+
+    
+    #endregion
 }

@@ -174,6 +174,7 @@ public class FlipCard : MonoBehaviour
 
     private void OnMouseDown()
     {
+      
         if (!_mustflip && !FindObjectOfType<GameManager>().GetFlipped())
         {
             flipComplete();

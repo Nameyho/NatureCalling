@@ -58,7 +58,7 @@ public class DragAndDropCard : MonoBehaviour
 	[Header("Rotation Speed")]
 	[SerializeField]
 	[Range(0,1)]
-	private float _RotationSpeed = 1000;
+	private float _RotationSpeed;
 
 
 	[Header("VFX AND SFX")]
@@ -204,7 +204,7 @@ public class DragAndDropCard : MonoBehaviour
 		}
 		else
 		{
-
+		
 			RaycastHit hit;
 			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 			CardScriptable cs = GetComponent<Cards>().GetCardScriptable();
@@ -215,7 +215,7 @@ public class DragAndDropCard : MonoBehaviour
 			Seeding seed = GetComponent<Seeding>();
 			if (Physics.Raycast(ray, out hit))
 			{
-
+				
 				//arrosoir
 				if (cs._isWaterCan)
 				{
@@ -652,7 +652,7 @@ public class DragAndDropCard : MonoBehaviour
 				_transform.rotation = hit.transform.rotation;
 
 				Quaternion target = Quaternion.Euler(0, AxeY, 0);
-				_transform.GetChild(1).localRotation = Quaternion.Slerp(transform.rotation,target,/*Time.deltaTime **/_RotationSpeed) ;
+				_transform.GetChild(1).localRotation =  Quaternion.Euler(0,AxeY,0) ;
 
                 if (hit.transform.tag == "CardsBackground")
 				{
@@ -664,7 +664,7 @@ public class DragAndDropCard : MonoBehaviour
 
 				seed.UpdateRenderer(2);
 			
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					this.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 					_lastTimeUnbuild = Time.time;
 
 
@@ -673,7 +673,7 @@ public class DragAndDropCard : MonoBehaviour
 				if (hit.transform.tag == "BuildingZone" && (!cs._isPlant || !cs._isAquaticPlant))
 				{
 					seed.UpdateRenderer(0);
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					this.transform.position = new Vector3(hit.point.x, hit.point.y , hit.point.z);
 					_lastTimeUnbuild = Time.time;
 				}
 
@@ -682,7 +682,7 @@ public class DragAndDropCard : MonoBehaviour
                 {
 					seed.UpdateRenderer(2);
 
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					this.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 					_lastTimeUnbuild = Time.time;
 				}
 				else if (hit.transform.tag == "EffectZone" )
@@ -707,7 +707,7 @@ public class DragAndDropCard : MonoBehaviour
 						}
                     }
 							effectcollider = hit.collider;
-							this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+							this.transform.position = new Vector3(hit.point.x, hit.point.y , hit.point.z);
 				}
 	
 				if (hit.transform.tag == "Cards")
@@ -726,7 +726,7 @@ public class DragAndDropCard : MonoBehaviour
 				{
 					seed.UpdateRenderer(0);
 			
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					this.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 
 				}
 
@@ -736,7 +736,7 @@ public class DragAndDropCard : MonoBehaviour
 				
 					seed.UpdateRenderer(0);
 
-					this.transform.position = new Vector3(hit.point.x, hit.point.y + 0.3f, hit.point.z);
+					this.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 
                 }
 
@@ -896,13 +896,13 @@ public class DragAndDropCard : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.T))
 		{
-			AxeY++;
+			AxeY += 1* _RotationSpeed;
 			//_transform.Rotate(Vector3.up * Time.deltaTime *_RotationSpeed ,Space.World);
 
 		}
 		if (Input.GetKey(KeyCode.R))
 		{
-			AxeY--;
+			AxeY -= 1*_RotationSpeed;
 			//_transform.Rotate(Vector3.down * Time.deltaTime * _RotationSpeed, Space.World); 
 		}
 
