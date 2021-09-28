@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
 
     public void SetAnimalsVolume(Slider volume)
     {
-        _MasterMixer.SetFloat("Animals", volume.value);
+        _MasterMixer.SetFloat("Animal", volume.value);
     }
 
     public void SetVFXVolume(Slider volume)
