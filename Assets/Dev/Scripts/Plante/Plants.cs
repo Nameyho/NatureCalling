@@ -235,7 +235,7 @@ public class Plants : MonoBehaviour
                     {
                         _completscore++;
                         bool isIn = false;
-                            Debug.Log(_usedCardsList.Count);
+                        
                         for (int j = 0; j < _usedCardsList.Count; j++)
                         {
                             if(_usedCardsList[j]._cardAlreadyUse == plante._card)
@@ -250,7 +250,7 @@ public class Plants : MonoBehaviour
 
                             AlreadyUseCard card = new AlreadyUseCard(plante._card,0);
                             _usedCardsList.Add(card);
-                                plante._completscore++;
+                            plante._completscore++;
                         }
                     }
 
@@ -259,8 +259,6 @@ public class Plants : MonoBehaviour
                         AddRepellentAround();
                     }
                 }
-
-
             }
 
         }
@@ -365,32 +363,41 @@ public class Plants : MonoBehaviour
 
                     for (int j = 0; j < _usedCardsList.Count; j++)
                     {
-                        if(_usedCardsList[j]._cardAlreadyUse == plante._card)
+                       Debug.Log(_usedCardsList[j]._cardAlreadyUse._CardName);
+                        Debug.Log(plante._card._CardName);
+                        if (_usedCardsList[j]._cardAlreadyUse == plante._card)
                         {
-                           
 
-                          
-                            if (_usedCardsList[j]._around >=1)
-                            {
-                                 Debug.Log(plante.name);
+
+                            //if (_usedCardsList[j]._around >= 1)
+                            //{
+                            //    Debug.Log(plante.name);
+
+                            //    plante._completscore--;
+                            //    plante._compatibilytPlants.Add(_usedCardsList[j]._cardAlreadyUse);
+                            //    plante._usedCardsList.Remove(_usedCardsList[j]);
+
 
                                 plante._completscore--;
-                                plante._compatibilytPlants.Add(_usedCardsList[j]._cardAlreadyUse);
-                                plante._usedCardsList.Remove(_usedCardsList[j]);
-
-
-                                _completscore--;
-                                _compatibilytPlants.Add(_usedCardsList[j]._cardAlreadyUse);
-                                _usedCardsList.Remove(_usedCardsList[j]);
+                                plante._compatibilytPlants.Add(_card);
+                                if (_usedCardsList[j]._around == 1)
+                                {
+                                 _usedCardsList.Remove(_usedCardsList[j]);
+                                }
+                                else
+                                {
+                                    _usedCardsList[j]._around--;
+                                }
                             }
                         }
                     }
-                }
+               
             }
 
         }
-        Debug.Log(_usedCardsList.Count);
     }
+
+   
 
     public void AddOnUsedCardList(CardScriptable cs)
     {
@@ -442,7 +449,15 @@ public class Plants : MonoBehaviour
                 if (_usedCardsList[i]._cardAlreadyUse._CardName.Equals(plantIn.GetName()))
                 {
                     _usedCardsList[i]._around++;
+                  
 
+                }
+                for (int j = 0; j < plantIn._compatibilytPlants.Count; j++)
+                {
+                    if (plantIn._compatibilytPlants[j].Equals(_card)){
+                        plantIn._completscore++;
+                        plantIn._compatibilytPlants.Remove(_card);
+                    }
                 }
 
             }
@@ -480,7 +495,6 @@ public class Plants : MonoBehaviour
                     _insideCircle[2].SetActive(false);
 
                 }
-
                 if (_insideCircle.Length>=4)
                 {
                  _insideCircle[3].SetActive(false);
