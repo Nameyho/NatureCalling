@@ -48,6 +48,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _Basic.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51f874b9cfea346448d3eebe623e48fe, type: 2}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: _sound.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 91e282dab90a01d48880d4e283ad8e93, type: 3}
