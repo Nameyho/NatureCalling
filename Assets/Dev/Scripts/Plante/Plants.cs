@@ -489,6 +489,11 @@ public class Plants : MonoBehaviour
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 1);
                 _insideCircle[0].SetActive(true);
+                if (_insideCircle.Length == 2)
+                {
+                    _insideCircle[1].SetActive(false);
+
+                }
                 _insideCircle[1].SetActive(false);
                 if (_insideCircle.Length == 3)
                 {
@@ -504,7 +509,11 @@ public class Plants : MonoBehaviour
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 2);
                 _insideCircle[0].SetActive(true);
-                _insideCircle[1].SetActive(true);
+                if (_insideCircle.Length == 2)
+                {
+                    _insideCircle[1].SetActive(false);
+
+                }
                 if (_insideCircle.Length == 3)
                 {
                     _insideCircle[2].SetActive(false);
@@ -519,7 +528,11 @@ public class Plants : MonoBehaviour
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 3);
                 _insideCircle[0].SetActive(true);
-                _insideCircle[1].SetActive(true);
+                if (_insideCircle.Length == 2)
+                {
+                    _insideCircle[1].SetActive(false);
+
+                }
                 if (_insideCircle.Length == 3)
                 {
                     _insideCircle[2].SetActive(false);
@@ -534,7 +547,11 @@ public class Plants : MonoBehaviour
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 4);
                 _insideCircle[0].SetActive(true);
-                _insideCircle[1].SetActive(true);
+                if (_insideCircle.Length == 2)
+                {
+                    _insideCircle[1].SetActive(false);
+
+                }
                 if (_insideCircle.Length == 3)
                 {
                     _insideCircle[2].SetActive(false);
@@ -549,7 +566,11 @@ public class Plants : MonoBehaviour
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 4);
                 _insideCircle[0].SetActive(false);
-                _insideCircle[1].SetActive(false);
+                if (_insideCircle.Length == 2)
+                {
+                    _insideCircle[1].SetActive(false);
+
+                }
                 if (_insideCircle.Length == 3)
                 {
                 _insideCircle[2].SetActive(false);
