@@ -107,7 +107,7 @@ public class Plants : MonoBehaviour
     private bool _canBeInfested = true;
     private int _repellentAround;
     private bool _isChecked = false;
-    private List<Plants> _plantsAround = new List<Plants>();
+    public List<Plants> _plantsAround = new List<Plants>();
 
     private bool _isCard = false;
 
@@ -132,6 +132,7 @@ public class Plants : MonoBehaviour
     private void FixedUpdate()
     {
         GrowPlantWithTime();
+
 
     }
 
@@ -184,6 +185,7 @@ public class Plants : MonoBehaviour
             }
 
         }
+       
     }
     #endregion
 
@@ -232,7 +234,24 @@ public class Plants : MonoBehaviour
                     if (CheckIsCompatible(plante))
                     {
                         _completscore++;
+                        bool isIn = false;
+                            Debug.Log(_usedCardsList.Count);
+                        for (int j = 0; j < _usedCardsList.Count; j++)
+                        {
+                            if(_usedCardsList[j]._cardAlreadyUse == plante._card)
+                            {
+                                isIn = true;
+                                _usedCardsList[j]._around++;
+                               
+                            }
+                        }
+                        if (!isIn)
+                        {
 
+                            AlreadyUseCard card = new AlreadyUseCard(plante._card,0);
+                            _usedCardsList.Add(card);
+                                plante._completscore++;
+                        }
                     }
 
                     if (plante.GetCard()._isRepellent)
@@ -337,16 +356,40 @@ public class Plants : MonoBehaviour
                 Plants plante = hc.GetComponentInParent<Plants>();
                 if (plante && !(cc.GetInstanceID().Equals(hc.GetInstanceID())) && (hc.GetInstanceID() != 0))
                 {
-                    plante.AddOnUsedCardList(_card);
+                    if(plante)
+                   
                     if (plante.GetRepellentAround() > 0)
                     {
                         plante.DeleteRepellentAround();
                     }
 
+                    for (int j = 0; j < _usedCardsList.Count; j++)
+                    {
+                        if(_usedCardsList[j]._cardAlreadyUse == plante._card)
+                        {
+                           
+
+                          
+                            if (_usedCardsList[j]._around >=1)
+                            {
+                                 Debug.Log(plante.name);
+
+                                plante._completscore--;
+                                plante._compatibilytPlants.Add(_usedCardsList[j]._cardAlreadyUse);
+                                plante._usedCardsList.Remove(_usedCardsList[j]);
+
+
+                                _completscore--;
+                                _compatibilytPlants.Add(_usedCardsList[j]._cardAlreadyUse);
+                                _usedCardsList.Remove(_usedCardsList[j]);
+                            }
+                        }
+                    }
                 }
             }
 
         }
+        Debug.Log(_usedCardsList.Count);
     }
 
     public void AddOnUsedCardList(CardScriptable cs)
@@ -404,7 +447,6 @@ public class Plants : MonoBehaviour
 
             }
         }
-
         return _isIn;
     }
 
@@ -432,29 +474,79 @@ public class Plants : MonoBehaviour
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 1);
                 _insideCircle[0].SetActive(true);
+                _insideCircle[1].SetActive(false);
+                if (_insideCircle.Length == 3)
+                {
+                    _insideCircle[2].SetActive(false);
+
+                }
+
+                if (_insideCircle.Length>=4)
+                {
+                 _insideCircle[3].SetActive(false);
+                }
             }
             if (_completscore == 2)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 2);
                 _insideCircle[0].SetActive(true);
                 _insideCircle[1].SetActive(true);
+                if (_insideCircle.Length == 3)
+                {
+                    _insideCircle[2].SetActive(false);
+
+                }
+                if (_insideCircle.Length >= 4)
+                {
+                    _insideCircle[3].SetActive(false);
+                }
             }
             if (_completscore == 3)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 3);
                 _insideCircle[0].SetActive(true);
                 _insideCircle[1].SetActive(true);
-                _insideCircle[2].SetActive(true);
+                if (_insideCircle.Length == 3)
+                {
+                    _insideCircle[2].SetActive(false);
+
+                }
+                if (_insideCircle.Length >= 4)
+                {
+                    _insideCircle[3].SetActive(false);
+                }
             }
             if (_completscore == 4)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 4);
                 _insideCircle[0].SetActive(true);
                 _insideCircle[1].SetActive(true);
-                _insideCircle[2].SetActive(true);
-                _insideCircle[3].SetActive(true);
+                if (_insideCircle.Length == 3)
+                {
+                    _insideCircle[2].SetActive(false);
+
+                }
+                if (_insideCircle.Length >= 4)
+                {
+                    _insideCircle[3].SetActive(false);
+                }
             }
-            
+            if (_completscore == 0)
+            {
+                vfx.SetInt("_PlantCompatibilityLevel", 4);
+                _insideCircle[0].SetActive(false);
+                _insideCircle[1].SetActive(false);
+                if (_insideCircle.Length == 3)
+                {
+                _insideCircle[2].SetActive(false);
+
+                }
+                if (_insideCircle.Length >= 4)
+                {
+                    _insideCircle[3].SetActive(false);
+                }
+            }
+
         }
 
     }
@@ -639,6 +731,7 @@ public class Plants : MonoBehaviour
             _around = around;
 
             }
+
        
         }
 
