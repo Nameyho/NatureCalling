@@ -488,14 +488,17 @@ public class Plants : MonoBehaviour
             if (_completscore == 1)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 1);
-                _insideCircle[0].SetActive(true);
-                if (_insideCircle.Length == 2)
+                if (_insideCircle.Length >= 1)
+                {
+                    _insideCircle[0].SetActive(true);
+
+                }
+                if (_insideCircle.Length >= 2)
                 {
                     _insideCircle[1].SetActive(false);
 
                 }
-                _insideCircle[1].SetActive(false);
-                if (_insideCircle.Length == 3)
+                if (_insideCircle.Length >= 3)
                 {
                     _insideCircle[2].SetActive(false);
 
@@ -508,13 +511,18 @@ public class Plants : MonoBehaviour
             if (_completscore == 2)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 2);
-                _insideCircle[0].SetActive(true);
-                if (_insideCircle.Length == 2)
+
+                if (_insideCircle.Length >= 1)
                 {
-                    _insideCircle[1].SetActive(false);
+                    _insideCircle[0].SetActive(true);
 
                 }
-                if (_insideCircle.Length == 3)
+                if (_insideCircle.Length >= 2)
+                {
+                    _insideCircle[1].SetActive(true);
+
+                }
+                if (_insideCircle.Length >= 3)
                 {
                     _insideCircle[2].SetActive(false);
 
@@ -527,15 +535,19 @@ public class Plants : MonoBehaviour
             if (_completscore == 3)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 3);
-                _insideCircle[0].SetActive(true);
-                if (_insideCircle.Length == 2)
+                if (_insideCircle.Length >= 1)
                 {
-                    _insideCircle[1].SetActive(false);
+                    _insideCircle[0].SetActive(true);
 
                 }
-                if (_insideCircle.Length == 3)
+                if (_insideCircle.Length>= 2)
                 {
-                    _insideCircle[2].SetActive(false);
+                    _insideCircle[1].SetActive(true);
+
+                }
+                if (_insideCircle.Length >= 3)
+                {
+                    _insideCircle[2].SetActive(true);
 
                 }
                 if (_insideCircle.Length >= 4)
@@ -546,26 +558,36 @@ public class Plants : MonoBehaviour
             if (_completscore == 4)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 4);
-                _insideCircle[0].SetActive(true);
-                if (_insideCircle.Length == 2)
+
+                if (_insideCircle.Length >= 1)
                 {
-                    _insideCircle[1].SetActive(false);
+                    _insideCircle[0].SetActive(true);
 
                 }
-                if (_insideCircle.Length == 3)
+                if (_insideCircle.Length >= 2)
                 {
-                    _insideCircle[2].SetActive(false);
+                    _insideCircle[1].SetActive(true);
+
+                }
+                if (_insideCircle.Length >= 3)
+                {
+                    _insideCircle[2].SetActive(true);
 
                 }
                 if (_insideCircle.Length >= 4)
                 {
-                    _insideCircle[3].SetActive(false);
+                    _insideCircle[3].SetActive(true);
                 }
             }
             if (_completscore == 0)
             {
                 vfx.SetInt("_PlantCompatibilityLevel", 4);
-                _insideCircle[0].SetActive(false);
+
+                if (_insideCircle.Length == 1)
+                {
+                    _insideCircle[0].SetActive(false);
+
+                }
                 if (_insideCircle.Length == 2)
                 {
                     _insideCircle[1].SetActive(false);
