@@ -47,6 +47,10 @@ PrefabInstance:
       propertyPath: _Effect.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+    - target: {fileID: 696212746937326911, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2051908100574255192, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -78,6 +82,10 @@ PrefabInstance:
     - target: {fileID: 7441933050289698363, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
       propertyPath: IgnoreMeEffect.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7649218046525049260, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7921580551658902519, guid: bd657ca3b7213ec4b8e5d339f28630a9, type: 3}
       propertyPath: m_Layer

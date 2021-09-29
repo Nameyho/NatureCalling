@@ -1570,7 +1570,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c9ac977bebcc8b543be0dd94b212be94, type: 2}
   - {fileID: 11400000, guid: badf464117c6c92498c4e264949f4f72, type: 2}
   - {fileID: 11400000, guid: 52518fdeddb01f64498c89c6d0151601, type: 2}
-  - {fileID: 11400000, guid: 2617f1149047d57449594c5dedcf901d, type: 2}
+  - {fileID: 11400000, guid: b1a2f8779c8cc9d4a9df43e50ee2e3cd, type: 2}
   - {fileID: 11400000, guid: aa87c08cad138c242b90407507a71ddd, type: 2}
   _card: {fileID: 11400000, guid: a0a7186c0c6205a4f933ebe9adf9eb2c, type: 2}
   _radiusDetection: 1.2
@@ -1587,6 +1587,7 @@ MonoBehaviour:
   _WaterableEffect: {fileID: 3395861821022502536}
   _limitation: {fileID: 11400000, guid: 050423fcb3b00cb45b19c33236bf4702, type: 2}
   _percentageInfestation: 0.5
+  _plantsAround: []
 --- !u!114 &-2428596361744151830
 MonoBehaviour:
   m_ObjectHideFlags: 0

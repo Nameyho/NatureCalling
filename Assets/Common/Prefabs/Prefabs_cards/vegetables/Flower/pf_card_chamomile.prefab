@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: _Effect.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+    - target: {fileID: 843573226333275320, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 891587253459695997, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: _prefabPlant
       value: 
@@ -118,6 +122,10 @@ PrefabInstance:
     - target: {fileID: 8184421993309676427, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
       propertyPath: m_Name
       value: pf_card_chamomile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785238061510890319, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ed14a27fbb90a498be7de55df1b7a3, type: 3}

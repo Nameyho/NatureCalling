@@ -1124,6 +1124,7 @@ MonoBehaviour:
   _WaterableEffect: {fileID: 2722336173422522210}
   _limitation: {fileID: 11400000, guid: 5dc59538e2d68f545b9672e02136a28b, type: 2}
   _percentageInfestation: 0
+  _plantsAround: []
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
+  m_Color: {r: 0.764151, g: 0.7081596, b: 0.5226504, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
