@@ -10,9 +10,6 @@ public class GroundLayering : MonoBehaviour
 
 
     [SerializeField]
-    private AudioSource _audioSource;
-
-    [SerializeField]
     private int _NumberMaxOfPlants;
 
     [SerializeField]
@@ -33,10 +30,7 @@ public class GroundLayering : MonoBehaviour
     #region UnityAPI
 
 
-    private void Awake()
-    {
-        _audioSource.Play();
-    }
+
     #endregion
 
 

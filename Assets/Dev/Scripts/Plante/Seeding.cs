@@ -338,7 +338,10 @@ public class Seeding : MonoBehaviour
                             go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                             _remainingCards.Value--;
 
-                  
+                        int rand = Random.Range(0, _sound.Length);
+                        _audioSource.clip = _sound[rand];
+                        _audioSource.Play();
+
                         _gameManager.AddProgression(cs._bonusBioDiversity);
                             _lastLayeringPlant = Time.time;
                             _isLayeringNotAlreadyPlant = false;
