@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 8577303698326210303}
   m_Layer: 3
   m_Name: '[unbuildCollider]'
-  m_TagString: HarvestAquatic
+  m_TagString: Plants
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,8 +339,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 0.46
+  m_Radius: 0.23
+  m_Height: 0.43
   m_Direction: 1
   m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!114 &8577303698326210303
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growPlantMeshes:
   - {fileID: 3461388051473299159}
-  _recoltableVFX: {fileID: 0}
+  _recoltableVFX: {fileID: 3897338279798634477}
   _plantTier: {fileID: 11400000, guid: d03b33f42361719428d463c33f722996, type: 2}
   _RefreshRate: 0.05
   _minGrow: 0

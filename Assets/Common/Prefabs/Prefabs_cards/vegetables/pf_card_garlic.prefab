@@ -226,6 +226,14 @@ PrefabInstance:
       propertyPath: _sound.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 23465612f7d32424e890737b6d1895a2, type: 3}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _Effect.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
+    - target: {fileID: 470302230727989669, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
+      propertyPath: _Effect.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4041cbd1ffd64e1418f01bba9721f2a9, type: 2}
     - target: {fileID: 536535341427811593, guid: 1e43e72da562771459b28899499c4d3d, type: 3}
       propertyPath: m_RootOrder
       value: 6

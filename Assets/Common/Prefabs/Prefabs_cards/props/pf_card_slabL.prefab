@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 9cb19206c48ca17439487a03e28aec16, type: 2}
+    - target: {fileID: 7441933050289698363, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
+      propertyPath: _RotationSpeed
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7521658906464018108, guid: ee8f1427f02db8448a5a80fbeef4ebce, type: 3}
       propertyPath: m_Layer
       value: 15

@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76df480efdead564ead11277b690e7a2, type: 3}
---- !u!1001 &6801328426730876804
+--- !u!1001 &3901158851463686356
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -87,6 +87,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -128,20 +140,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 76df480efdead564ead11277b690e7a2, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 76df480efdead564ead11277b690e7a2, type: 3}
       propertyPath: m_Name
       value: mod_vg_oreganoM
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76df480efdead564ead11277b690e7a2, type: 3}
---- !u!1 &5954398600200082133 stripped
+--- !u!1 &4243194177616090501 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 76df480efdead564ead11277b690e7a2, type: 3}
-  m_PrefabInstance: {fileID: 6801328426730876804}
+  m_PrefabInstance: {fileID: 3901158851463686356}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7360769583772206443
 PrefabInstance:
@@ -153,7 +161,7 @@ PrefabInstance:
     - target: {fileID: 470302230727989669, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
       propertyPath: _ghostModel
       value: 
-      objectReference: {fileID: 5954398600200082133}
+      objectReference: {fileID: 4243194177616090501}
     - target: {fileID: 470302230727989669, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
       propertyPath: _plantsPrefabs
       value: 
@@ -190,6 +198,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6c9a724a70a15b047bf445e2a5d6cb7c, type: 2}
+    - target: {fileID: 7046556453952346103, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7091322413123400168, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
