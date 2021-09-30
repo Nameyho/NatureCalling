@@ -370,14 +370,14 @@ public class Seeding : MonoBehaviour
             {
                 _textLimitation.text = "∞";
             }
+            if (_remainingCards == 0) 
+            {
+                GetComponent<DragAndDropCard>().reset();
+            }
         }
         else
         {
             _textLimitation.text = "∞";
-        }
-        if (_remainingCards == 0) 
-        {
-            GetComponent<DragAndDropCard>().reset();
         }
     }
 
