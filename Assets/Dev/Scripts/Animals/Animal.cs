@@ -18,6 +18,13 @@ public class Animal : MonoBehaviour
     [SerializeField]
     private GameObject _DebugVFX;
 
+
+    [SerializeField]
+    private float _henPatrol;
+
+    [SerializeField]
+    private float _henClose;
+
     #endregion
 
     #region Private
@@ -89,7 +96,7 @@ public class Animal : MonoBehaviour
             {
                     _infestationPoint[0].setInfested(false);
                     _infestationPoint.Remove(_infestationPoint[0]);
-                agent.speed /= 2;
+                agent.speed =_henPatrol;
                 GameObject wt = Instantiate(_DebugVFX, transform.position, Quaternion.identity);
                 wt.GetComponent<VisualEffect>().SendEvent("DeBugged");
                 Destroy(wt, 5f);
@@ -111,7 +118,7 @@ public class Animal : MonoBehaviour
     public void AddDestination(Plants p)
     {
         _infestationPoint.Add(p);
-        agent.speed *= 2;
+        agent.speed = _henClose;
         GotoNextPoint();
     }
 

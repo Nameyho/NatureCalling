@@ -26,7 +26,11 @@ public class Building : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (_currentScore)
+        {
         _currentScore.Value -= _buildingCard._bonusBioDiversity;
+
+        }
     }
 
     #endregion

@@ -529,6 +529,7 @@ public class GameManager : MonoBehaviour
         int currentIndex = 0;
         int currentObjectifComplete = 0;
 
+
         //focus plants
         if (_focusPlantMax > 0)
         {
@@ -584,7 +585,10 @@ public class GameManager : MonoBehaviour
         }
         bool points = _currentScore >= _scoreToChangeScene;
 
-
+        if (_scoreToChangeScene == 0)
+        {
+            points = false;
+        }
         //Aquatic
         if(_harvestAquaticPlantsToReach > 0)
         {

@@ -10,6 +10,10 @@ public class Beehive : MonoBehaviour
     
     private void OnDestroy()
     {
+        if (_hiveNumber >= 0)
+        {
         _hiveNumber.Value++;
+
+        }
     }
 }

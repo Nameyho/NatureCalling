@@ -105,14 +105,19 @@ public class DragAndDropCard : MonoBehaviour
 			
 				if (seed.GetLimitation().Value > 0)
 				{
-			_disableCard.SetActive(false);
+					_disableCard.SetActive(false);
 				
 				}
 				else
-			_disableCard.SetActive(true);
 				{
 				
+					_disableCard.SetActive(true);
 				}
+
+                if (seed.GetLimitation().Value < 0)
+                {
+					_disableCard.SetActive(false);
+                }
 			}
 		}
 
@@ -199,7 +204,11 @@ public class DragAndDropCard : MonoBehaviour
                 {
 					transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
 				}
-            }
+				if ((seed.GetLimitation().Value < 0))
+				{
+					transform.position = new Vector3(curPosition.x, curPosition.y, curPosition.z);
+				}
+			}
 
 		}
 		else

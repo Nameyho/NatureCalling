@@ -28,7 +28,11 @@ public class HenHouse : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (HenHouseCardLimitation >= 0)
+        {
         HenHouseCardLimitation.Value++; 
+
+        }
     }
     #endregion
 }
