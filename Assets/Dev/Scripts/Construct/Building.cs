@@ -35,10 +35,13 @@ public class Building : MonoBehaviour
           
 
         }
-
-        if(_limitation.Value >= 0)
+        if (_limitation)
         {
-            _limitation.Value++;
+            if(_limitation.Value >= 0)
+            {
+                _limitation.Value++;
+            }
+
         }
     }
 
