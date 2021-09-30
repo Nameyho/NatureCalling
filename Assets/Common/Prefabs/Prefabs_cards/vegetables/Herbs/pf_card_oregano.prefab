@@ -207,6 +207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
     - target: {fileID: 7441933050289698363, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
+      propertyPath: _RotationSpeed
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441933050289698363, guid: 01b870c0788dcf24d88d6c8f4e2e2b93, type: 3}
       propertyPath: IgnoreMeEffect.m_Bits
       value: 64
       objectReference: {fileID: 0}
