@@ -860,7 +860,8 @@ MonoBehaviour:
   _pollinisableEffect: {fileID: 8849205303855142424}
   _WaterableEffect: {fileID: 8194444160027990445}
   _limitation: {fileID: 11400000, guid: 1daff23245ed5bb4f94ed017225e8b87, type: 2}
-  _percentageInfestation: 0
+  _percentageInfestation: 0.3
+  _plantsAround: []
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
