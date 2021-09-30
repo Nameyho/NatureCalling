@@ -13,6 +13,9 @@ public class Building : MonoBehaviour
     [SerializeField]
     private IntVariable _currentScore;
 
+    [SerializeField]
+    private IntVariable _limitation;
+ 
     #endregion
 
     #region Mains
@@ -29,7 +32,13 @@ public class Building : MonoBehaviour
         if (_currentScore)
         {
         _currentScore.Value -= _buildingCard._bonusBioDiversity;
+          
 
+        }
+
+        if(_limitation.Value >= 0)
+        {
+            _limitation.Value++;
         }
     }
 
