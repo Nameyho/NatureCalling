@@ -108,9 +108,9 @@ public class JaugeManager : MonoBehaviour
                 //    }
                 //}
 
-                float maxDetail = 1- (((float)scoretoreach - (float) currentScore.Value )/ (float)scoretoreach);
+                float maxDetail = (((float)currentScore.Value - (float) _maxTierDetail )/( ((float)scoretoreach)- (float)_maxTierDetail));
 
-                Debug.Log(maxDetail);
+                
                 Vector3 vec100 = new Vector3(100,100,100) ;
                 for (int i = 0; i < _detailsPrefabs.Length; i++)
                 {
@@ -132,14 +132,28 @@ public class JaugeManager : MonoBehaviour
                     //    }
                     //}
 
-                    if ((maxDetail > 0) && _detailsPrefabs[i].gameObject.transform.localScale.y<=100)
+                    if (maxDetail > 0 && maxDetail <= 1)
                     {
-                      //  Debug.Log(1f / (maxDetail * _RefreshRate));
+                        //  Debug.Log(1f / (maxDetail * _RefreshRate));
                         _detailsPrefabs[i].gameObject.transform.localScale = vec100 * maxDetail;
                     }
-                }
 
-            }
+
+                    if (maxDetail > 1)
+                    {
+                        _detailsPrefabs[i].gameObject.transform.localScale = vec100;
+                    }
+                
+
+                 }
+                }else
+                {
+                for (int i = 0; i < _detailsPrefabs.Length; i++)
+                {
+
+                    _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+                }
+                }
             yield return new WaitForFixedUpdate();
         }
 
