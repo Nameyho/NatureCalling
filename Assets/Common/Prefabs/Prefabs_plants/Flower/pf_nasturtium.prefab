@@ -1350,6 +1350,7 @@ MonoBehaviour:
   _WaterableEffect: {fileID: 5743605681315911439}
   _limitation: {fileID: 11400000, guid: b9d383d9727ffb54c9a0e9c9882621da, type: 2}
   _percentageInfestation: 0
+  _plantsAround: []
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,9 +1512,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8501148547171496559, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8501148547171496559, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8501148547171496559, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7937036013581584745, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7937036013581584745, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7937036013581584745, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7922932749587551805, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7922932749587551805, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7922932749587551805, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
       propertyPath: m_Name
       value: mod_vg_capucine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810574184076710080, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810574184076710080, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810574184076710080, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810971225381168467, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810971225381168467, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810971225381168467, guid: c6f9351be3becd141a8437d32c00b103, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6f9351be3becd141a8437d32c00b103, type: 3}

@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: ScenesList
   m_EditorClassIdentifier: 
   _list:
+  - _sceneName: Assets/Common/Scenes/MainScene.unity
+    _sceneIndex: -1
+    _isSceneEnabled: 1
   - _sceneName: Assets/Common/Scenes/Level1B.unity
     _sceneIndex: 1
     _isSceneEnabled: 1
-  - _sceneName: Assets/Common/Scenes/MainScene.unity
-    _sceneIndex: -1
+  - _sceneName: Assets/Common/Scenes/Level2B.unity
+    _sceneIndex: 2
+    _isSceneEnabled: 1
+  - _sceneName: Assets/Common/Scenes/LevelSandBox.unity
+    _sceneIndex: 3
     _isSceneEnabled: 1
