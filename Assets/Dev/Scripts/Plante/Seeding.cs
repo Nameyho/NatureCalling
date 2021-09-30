@@ -375,6 +375,10 @@ public class Seeding : MonoBehaviour
         {
             _textLimitation.text = "∞";
         }
+        if (_remainingCards == 0) 
+        {
+            GetComponent<DragAndDropCard>().reset();
+        }
     }
 
     public void SetIsSelected(bool f)
