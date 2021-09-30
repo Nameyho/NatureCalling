@@ -52,7 +52,7 @@ VisualEffect:
       - m_Value: 0.6
         m_Name: _LevelIndicatorHeight
         m_Overridden: 1
-      - m_Value: 1.37
+      - m_Value: 0.61
         m_Name: _CylinderFadeZone
         m_Overridden: 1
     m_Vector2f:
@@ -838,7 +838,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.31
+      - m_Value: 0.15
         m_Name: _CylinderZoneSize
         m_Overridden: 1
     m_Vector2f:
@@ -1673,6 +1673,22 @@ PrefabInstance:
     - target: {fileID: 2378727461691681224, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577601938184850135, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577601938184850135, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Name
+      value: _WateredSphereSize
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577601938184850135, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577601938184850135, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6731665595786491949, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
       propertyPath: m_RootOrder
