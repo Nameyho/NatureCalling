@@ -62,6 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8619317590301900136}
+  - component: {fileID: 2913688896197094008}
   m_Layer: 0
   m_Name: pf_leaves
   m_TagString: Untagged
@@ -85,6 +86,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2913688896197094008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619317590301900139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc761bdb39f682245b12ea532aa32bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingCard: {fileID: 11400000, guid: fad586faede9924478ae4389c0b77ffa, type: 2}
+  _currentScore: {fileID: 11400000, guid: 79bc3e36cbf4c5d48af62297a5fd0305, type: 2}
 --- !u!1001 &2931473464268822497
 PrefabInstance:
   m_ObjectHideFlags: 0

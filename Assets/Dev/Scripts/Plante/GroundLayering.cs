@@ -69,7 +69,11 @@ public class GroundLayering : MonoBehaviour
 
     public void AddRemaining()
     {
+        if (_remainingCard >= 0)
+        {
         _remainingCard.Value++;
+
+        }
     
     }
     #endregion

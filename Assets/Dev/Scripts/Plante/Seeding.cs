@@ -189,23 +189,8 @@ public class Seeding : MonoBehaviour
     private void onClick()
     {
 
+    SeedingObject();
 
-       
-        if (_remainingCards)
-        {
-
-            if (_remainingCards.Value > 0)
-            {
-
-                SeedingObject();
-             
-
-            }
-        }
-        else
-        {
-            SeedingObject();
-        }
     }
 
 
@@ -275,9 +260,12 @@ public class Seeding : MonoBehaviour
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
                         GameObject vfx = Instantiate(_GoodVFX, hit.point, Quaternion.identity);
                         Destroy(vfx, 5f);
-                    
+                    if (_remainingCards >= 0)
+                    {
                         _remainingCards.Value--;
-          
+
+                    }
+
                     _gameManager.AddProgression(cs._bonusBioDiversity);
 
                     }
@@ -319,8 +307,12 @@ public class Seeding : MonoBehaviour
                     Destroy(vfx, 5f);
                     GameObject go = Instantiate(_plantsPrefabs, hit.point, Quaternion.identity);
                         go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                    if (_remainingCards >= 0)
+                    {
                         _remainingCards.Value--;
-                        _gameManager.AddProgression(cs._bonusBioDiversity);
+
+                    }
+                    _gameManager.AddProgression(cs._bonusBioDiversity);
                     if (cs._isHenHouse )
                     {
                         FindObjectOfType<GameManager>().SetisHenHouse(true);
@@ -336,7 +328,11 @@ public class Seeding : MonoBehaviour
                             GameObject vfx = Instantiate(_GoodVFX, hit.point, Quaternion.identity);
                              Destroy(vfx, 5f);
                             go.transform.Rotate(0, _DaD.GetRotationY(), 0);
+                        if (_remainingCards >= 0)
+                        {
                             _remainingCards.Value--;
+
+                        }
 
                         int rand = Random.Range(0, _sound.Length);
                         _audioSource.clip = _sound[rand];
@@ -369,8 +365,11 @@ public class Seeding : MonoBehaviour
         {
             DragAndDropCard dad = GetComponent<DragAndDropCard>();
         _textLimitation.text = _remainingCards.Value.ToString();
-          
 
+            if (_remainingCards < 0)
+            {
+                _textLimitation.text = "∞";
+            }
         }
         else
         {
