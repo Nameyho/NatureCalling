@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc761bdb39f682245b12ea532aa32bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: {fileID: 11400000, guid: eaf73278f8ed8a043b12ade420baac6e, type: 2}
+  _buildingCard: {fileID: 11400000, guid: eaf73278f8ed8a043b12ade420baac6e, type: 2}
+  _currentScore: {fileID: 11400000, guid: ba023799744d9eb4ebe7624fc527948e, type: 2}
 --- !u!1001 &5864915776803080841
 PrefabInstance:
   m_ObjectHideFlags: 0
