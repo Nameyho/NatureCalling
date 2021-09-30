@@ -13087,7 +13087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _startValue.Array.size
-      value: 32
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _layeringMax.Array.size
@@ -13270,6 +13270,10 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
+      propertyPath: _startValue.Array.data[32]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _layeringCard.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 62a7fb4e0a868184ebf4705bcb6d436e, type: 2}
@@ -13303,7 +13307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: cardsIntvariable.Array.size
-      value: 32
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _harvestAquaticPlantsToReach
@@ -13437,6 +13441,10 @@ PrefabInstance:
       propertyPath: cardsIntvariable.Array.data[31]
       value: 
       objectReference: {fileID: 11400000, guid: 2cdcbc79accfd96478158b422b71fbc1, type: 2}
+    - target: {fileID: 1272540419072414042, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
+      propertyPath: cardsIntvariable.Array.data[32]
+      value: 
+      objectReference: {fileID: 11400000, guid: e2654e4bdd6cbec48862e8109045babb, type: 2}
     - target: {fileID: 1272540419125347750, guid: 3b6171ffc52a7f44695a471a4a5e3317, type: 3}
       propertyPath: _animalsLocationsSpawner.Array.size
       value: 1
@@ -19217,7 +19225,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673013966815526}
-  m_LocalRotation: {x: 0.09897817, y: 0.000000008560945, z: -8.515279e-10, w: 0.99508965}
+  m_LocalRotation: {x: 0.09897817, y: -0.000000008560947, z: 8.5152807e-10, w: 0.99508965}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19484,7 +19492,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831673015422337615}
-  m_LocalRotation: {x: 0.13505942, y: 8.719026e-16, z: -1.7869098e-17, w: 0.9908375}
+  m_LocalRotation: {x: 0.1350594, y: -0.00000001476463, z: 0.0000000020125421, w: 0.9908375}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -23411,9 +23419,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 965d98b1d5b10a544a18647a5081fa40, type: 2}
   - {fileID: 11400000, guid: afdafa7380f78ca4493ed033256ad0d0, type: 2}
   - {fileID: 11400000, guid: 9cb19206c48ca17439487a03e28aec16, type: 2}
+  - {fileID: 11400000, guid: 858c24f9148889142b83a36b575ec9ca, type: 2}
   - {fileID: 11400000, guid: b5d69444b49837844951060d143b2bb9, type: 2}
   - {fileID: 11400000, guid: b97ebbbfd17e3af4f9203fcb421fbff1, type: 2}
-  - {fileID: 11400000, guid: 858c24f9148889142b83a36b575ec9ca, type: 2}
 --- !u!114 &7451789396190112541
 MonoBehaviour:
   m_ObjectHideFlags: 0
