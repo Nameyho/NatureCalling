@@ -1278,6 +1278,7 @@ MonoBehaviour:
   _WaterableEffect: {fileID: 15497747141552024}
   _limitation: {fileID: 11400000, guid: 08cb07759930399419d91bfb0d97029f, type: 2}
   _percentageInfestation: 0
+  _plantsAround: []
 --- !u!114 &5677454170055574786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,6 +1520,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76df480efdead564ead11277b690e7a2, type: 3}
       propertyPath: m_LocalPosition.x

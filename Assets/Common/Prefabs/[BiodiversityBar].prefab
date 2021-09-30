@@ -326,7 +326,7 @@ MonoBehaviour:
   - {fileID: 1387934605821414257}
   - {fileID: 9190486987711121830}
   - {fileID: 7676041136341462498}
-  _minGrow: 0.2
+  _minGrow: 0
   _plantTier: {fileID: 11400000, guid: 4813557278ec2874cbd2647e6511c25e, type: 2}
 --- !u!1001 &5040615172190716511
 PrefabInstance:
@@ -447,6 +447,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6a386f124e9a2b74593fa71322619184, type: 2}
+    - target: {fileID: -7632502592431268215, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7632502592431268215, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7632502592431268215, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7575582162370530646, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -789,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6a386f124e9a2b74593fa71322619184, type: 2}
     - target: {fileID: -974103045228116690, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -685672051347197559, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_CastShadows
@@ -823,6 +835,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6a386f124e9a2b74593fa71322619184, type: 2}
+    - target: {fileID: -520632275616508149, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -520632275616508149, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -520632275616508149, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -495711628406255282, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -902,6 +926,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_Name
       value: "fleur jauge biodiversit\xE9 Anime"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193967061782781318, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193967061782781318, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193967061782781318, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1199940588834481596, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_CastShadows
@@ -1139,6 +1175,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6a386f124e9a2b74593fa71322619184, type: 2}
+    - target: {fileID: 5418557666430418207, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418557666430418207, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418557666430418207, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5593038690579583883, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -1239,6 +1287,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6a386f124e9a2b74593fa71322619184, type: 2}
+    - target: {fileID: 8216653488185342492, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216653488185342492, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216653488185342492, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8252876058795484124, guid: 61a3353f22f839248bb9693a14d2fbb6, type: 3}
       propertyPath: m_CastShadows
       value: 0

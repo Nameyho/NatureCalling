@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87390577646713527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080004121545228496}
@@ -52,7 +52,7 @@ VisualEffect:
       - m_Value: 1.45
         m_Name: _LevelIndicatorHeight
         m_Overridden: 1
-      - m_Value: 3.16
+      - m_Value: 0.94
         m_Name: _CylinderFadeZone
         m_Overridden: 1
     m_Vector2f:
@@ -808,10 +808,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1
-  m_Height: 3
+  m_Radius: 0.77
+  m_Height: 1.2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.34, z: 0}
 --- !u!114 &4357800293258892932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6929179706546265286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.156, z: 0}
+  m_LocalPosition: {x: -0.03, y: -0.156, z: -0.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080004121545228496}
@@ -986,7 +986,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.9
+      - m_Value: 0.3
         m_Name: _CylinderZoneSize
         m_Overridden: 1
     m_Vector2f:
@@ -1291,8 +1291,16 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5241841223004952861, guid: 182ecdfa658c4114cbe46aab0c770d2e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241841223004952861, guid: 182ecdfa658c4114cbe46aab0c770d2e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862797708085645776, guid: 182ecdfa658c4114cbe46aab0c770d2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182ecdfa658c4114cbe46aab0c770d2e, type: 3}
@@ -1339,7 +1347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3577601938184850135, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
-      value: 0.96
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 3577601938184850135, guid: a280fe2c7b03e2c4dac39208ea44c145, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Overridden
