@@ -89,40 +89,53 @@ public class JaugeManager : MonoBehaviour
         {
            
            
+            int scoretoreach = FindObjectOfType<GameManager>().GetScoreToReach();
             mat.SetFloat("Grow_", test);
+                float max =(float) currentScore.Value - (float)_maxTierDetail;
 
-            if (currentTier >= _maxTierDetail)
+              
+
+            if (max >= 0 )
             {
-                Vector3 VecMax = ((currentTier - _maxTierDetail) * (Vector3.one / (FindObjectOfType<GameManager>().GetScoreToReach() - _maxTierDetail)));
-                if (VecMax.sqrMagnitude == Vector3.zero.sqrMagnitude)
-                {
-                    for (int i = 0; i < _detailsPrefabs.Length; i++)
-                    {
-                        _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
 
-                    }
-                }
 
+                //if (max<0)
+                //{
+                //    for (int i = 0; i < _detailsPrefabs.Length; i++)
+                //    {
+                //        _detailsPrefabs[i].gameObject.transform.localScale = Vector3.zero;
+
+                //    }
+                //}
+
+                float maxDetail = 1- (((float)scoretoreach - (float) currentScore.Value )/ _maxTierDetail);
+
+                Debug.Log(maxDetail);
+                Vector3 vec100 = new Vector3(100,100,100) ;
                 for (int i = 0; i < _detailsPrefabs.Length; i++)
                 {
-                    if (VecMax.sqrMagnitude >= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude)
+                    //if (VecMax.sqrMagnitude >= _detailsPrefabs[i].gameObject.transform.localScale.sqrMagnitude)
+                    //{
+
+                    //    if (currentTier != _maxTierDetail)
+                    //    {
+                    //        if (_detailsPrefabs[i].transform.localScale.sqrMagnitude <vec100.sqrMagnitude)
+                    //        {
+                    //            Debug.Log("test");
+                    //            _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f / (currentTier - _maxTierDetail) * _RefreshRate);
+
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f * _RefreshRate);
+                    //    }
+                    //}
+
+                    if ((maxDetail > 0) && (maxDetail <= 1))
                     {
-
-                        if (currentTier != _maxTierDetail)
-                        {
-                            if (_detailsPrefabs[i].transform.localScale.sqrMagnitude < Vector3.one.sqrMagnitude)
-                            {
-                                _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f / (currentTier - _maxTierDetail) * _RefreshRate);
-
-                            }
-                        }
-                        else
-                        {
-                            _detailsPrefabs[i].gameObject.transform.localScale += Vector3.one * (1f * _RefreshRate);
-                        }
-
-
-
+                        Debug.Log(1f / (maxDetail * _RefreshRate));
+                        _detailsPrefabs[i].gameObject.transform.localScale = vec100 * maxDetail;
                     }
                 }
 
