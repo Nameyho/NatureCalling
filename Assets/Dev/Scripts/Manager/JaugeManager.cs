@@ -108,7 +108,7 @@ public class JaugeManager : MonoBehaviour
                 //    }
                 //}
 
-                float maxDetail = 1- (((float)scoretoreach - (float) currentScore.Value )/ _maxTierDetail);
+                float maxDetail = 1- (((float)scoretoreach - (float) currentScore.Value )/ (float)scoretoreach);
 
                 Debug.Log(maxDetail);
                 Vector3 vec100 = new Vector3(100,100,100) ;
@@ -132,9 +132,9 @@ public class JaugeManager : MonoBehaviour
                     //    }
                     //}
 
-                    if ((maxDetail > 0) && (maxDetail <= 1))
+                    if ((maxDetail > 0) && _detailsPrefabs[i].gameObject.transform.localScale.y<=100)
                     {
-                        Debug.Log(1f / (maxDetail * _RefreshRate));
+                      //  Debug.Log(1f / (maxDetail * _RefreshRate));
                         _detailsPrefabs[i].gameObject.transform.localScale = vec100 * maxDetail;
                     }
                 }
