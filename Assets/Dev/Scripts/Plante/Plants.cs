@@ -363,8 +363,7 @@ public class Plants : MonoBehaviour
 
                     for (int j = 0; j < _usedCardsList.Count; j++)
                     {
-                       Debug.Log(_usedCardsList[j]._cardAlreadyUse._CardName);
-                        Debug.Log(plante._card._CardName);
+                
                         if (_usedCardsList[j]._cardAlreadyUse == plante._card)
                         {
 
@@ -581,7 +580,7 @@ public class Plants : MonoBehaviour
             }
             if (_completscore == 0)
             {
-                vfx.SetInt("_PlantCompatibilityLevel", 4);
+                _comptabiliteVFX.SetActive(false);
 
                 if (_insideCircle.Length == 1)
                 {
