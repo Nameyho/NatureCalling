@@ -185,6 +185,11 @@ public class Plants : MonoBehaviour
             }
 
         }
+
+        if (_card._isRepellent)
+        {
+            _canBeInfested = false;
+        }
        
     }
     #endregion
