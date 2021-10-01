@@ -30,7 +30,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5544843541457095026}
-  - {fileID: 2705523830264951052}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,8 +223,8 @@ Transform:
   m_LocalPosition: {x: -0.1759299, y: 0.33691645, z: -0.03985042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2463183351765302726}
-  m_RootOrder: 1
+  m_Father: {fileID: 5544843541457095026}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4447979329255734436
 BoxCollider:
