@@ -21,6 +21,12 @@ public class PlantsManager : MonoBehaviour
 
     #endregion
 
+    #region private
+
+    int t = 0;
+
+    #endregion
+
     #region public
 
     public void AddPlantInMapList(GameObject plant)
@@ -52,12 +58,12 @@ public class PlantsManager : MonoBehaviour
 
     private void Infestation()
     {
-        int t = 0;
+        
         if (Time.time - _lastTimeinfestation > _intervalBetweenInfestation && _plantOnTheMap.Count > 0)
         {
             float plantToInfest = _plantOnTheMap.Count * (_percentagePlantsToInfest / 100);
             int rand = Random.Range(0, _plantOnTheMap.Count);
-            if (!(_plantOnTheMap[rand].GetComponent<Plants>().GetInfested()) && (_plantOnTheMap[rand].GetComponent<Plants>().GetcanBeInfested()) && (plantToInfest > 0))
+            if (!(_plantOnTheMap[rand].GetComponent<Plants>().GetInfested()) && (_plantOnTheMap[rand].GetComponent<Plants>().GetcanBeInfested()) && (Mathf.Floor(plantToInfest) > 0))
             {
                 _plantOnTheMap[rand].GetComponent<Plants>().setInfested(true);
                 t++;
@@ -65,6 +71,7 @@ public class PlantsManager : MonoBehaviour
             if (t >= plantToInfest)
             {
                 _lastTimeinfestation = Time.time;
+                t = 0;
             }
         }
     }
