@@ -9,228 +9,239 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
 
-    #region Exposed
+	#region Exposed
 
-    [Header("Progression")]
+	[Header("Progression")]
 
-    [SerializeField]
-    private IntVariable _currentScore;
+	[SerializeField]
+	private IntVariable _currentScore;
 
-    [Header("Valeur de départ à insérer dans le même ordre dans chaque liste")]
-    //[SerializeField]
-    //private List<CardScriptable> cardScriptables = new List<CardScriptable>();
+	[Header("Valeur de départ à insérer dans le même ordre dans chaque liste")]
+	//[SerializeField]
+	//private List<CardScriptable> cardScriptables = new List<CardScriptable>();
 
-    [SerializeField]
-    private int[] _startValue;
+	[SerializeField]
+	private int[] _startValue;
 
-    [SerializeField]
-    private List<IntVariable> cardsIntvariable = new List<IntVariable>();
+	[SerializeField]
+	private List<IntVariable> cardsIntvariable = new List<IntVariable>();
 
 
-    [Header("Layering bonus à insérer dans le même ordre dans chaque liste")]
-    [SerializeField]
-    private IntVariable[] _layeringCard;
+	[Header("Layering bonus à insérer dans le même ordre dans chaque liste")]
+	[SerializeField]
+	private IntVariable[] _layeringCard;
 
-    [SerializeField]
-    private float[] _layeringTime;
+	[SerializeField]
+	private float[] _layeringTime;
 
 
-    [SerializeField]
-    private float[] _layeringMax;
+	[SerializeField]
+	private float[] _layeringMax;
 
 
-    [Header("Menu de pause")]
-    [SerializeField]
-    private GameObject _menuOptionPause;
+	[Header("Menu de pause")]
+	[SerializeField]
+	private GameObject _menuOptionPause;
 
-    [SerializeField]
-    private GameObject _mainMenu;
+	[SerializeField]
+	private GameObject _mainMenu;
 
-    [SerializeField]
-    private GameObject _restartMenu;
+	[SerializeField]
+	private GameObject _restartMenu;
 
-    [SerializeField]
-    private GameObject _QuitMenu;
+	[SerializeField]
+	private GameObject _QuitMenu;
 
-    [SerializeField]
-    private GameObject _BackToMenu;
+	[SerializeField]
+	private GameObject _BackToMenu;
 
-    [SerializeField]
-    private GameObject _optionMenu;
+	[SerializeField]
+	private GameObject _optionMenu;
 
-    [SerializeField]
-    private SceneVariable _MenuScene;
+	[SerializeField]
+	private SceneVariable _MenuScene;
 
 
-    [Header("Conditions de victoire")]
-    [SerializeField]
-    private int _focusPlantMax;
+	[Header("Conditions de victoire")]
+	[SerializeField]
+	private int _focusPlantMax;
 
-    [SerializeField]
-    private int _nombreArrosage;
+	[SerializeField]
+	private int _nombreArrosage;
 
-    [SerializeField]
-    private int _scoreToChangeScene;
+	[SerializeField]
+	private int _scoreToChangeScene;
 
-    [SerializeField]
-    private int _harvestAquaticPlantsToReach;
+	[SerializeField]
+	private int _harvestAquaticPlantsToReach;
 
-    [SerializeField]
-    private int _plantToHeal;
+	[SerializeField]
+	private int _plantToHeal;
 
-    [SerializeField]
-    private int _NombreDePlantARecolter;
+	[SerializeField]
+	private int _NombreDePlantARecolter;
 
 
-    [SerializeField]
-    private int PlantToPollen;
+	[SerializeField]
+	private int PlantToPollen;
 
 
 
-    //[SerializeField]
-    //private int PlantWithComplementToReach;
+	//[SerializeField]
+	//private int PlantWithComplementToReach;
 
-    [SerializeField]
-    private BoolVariable[] _animals;
+	[SerializeField]
+	private BoolVariable[] _animals;
 
 
-    [Header("Affichage")]
-    [SerializeField]
-    private TMP_Text[] objectifs;
+	[Header("Affichage")]
+	[SerializeField]
+	private TMP_Text[] objectifs;
 
-    [SerializeField]
-    private GameObject _ObjectivesTabs;
+	[SerializeField]
+	private GameObject _ObjectivesTabs;
 
-    [SerializeField]
-    private GameObject _winMenu;
+	[SerializeField]
+	private GameObject _winMenu;
 
-    [SerializeField]
-    private Image _objectiveLogo;
+	[SerializeField]
+	private Image _objectiveLogo;
 
-    [SerializeField]
-    private TMP_Text _recapObsTmp;
+	[SerializeField]
+	private TMP_Text _recapObsTmp;
 
-    [SerializeField]
-    private GameObject _plusOne;
+	[SerializeField]
+	private GameObject _plusOne;
 
-    [SerializeField]
-    private int _maxHeigh;
+	[SerializeField]
+	private int _maxHeigh;
 
-    [SerializeField]
-    private float _time;
+	[SerializeField]
+	private float _time;
 
 
-    public GameObject _collider;
+	public GameObject _collider;
 
-    #endregion
-    #region Private
-    private bool _isBeeHive = false;
-    private int _numberofBeehive = 0;
+	#endregion
+	#region Private
+	private bool _isBeeHive = false;
+	private int _numberofBeehive = 0;
 
-    private bool _isHenHouse = false;
-    private int _numberHenHouse;
+	private bool _isHenHouse = false;
+	private int _numberHenHouse;
 
-    private float[] _lastTime;
+	private float[] _lastTime;
 
-    private float[] _privateLayeringMax;
+	private float[] _privateLayeringMax;
 
-    private bool _isPaused = false;
+	private bool _isPaused = false;
 
-    private int _focusPlants;
+	private bool _isInfo = false;
 
-    private int _wateringTime;
+	private int _focusPlants;
 
-    private int _harvestAquaticPlants;
+	private int _wateringTime;
 
-    private int _currentPlantHealed;
+	private int _harvestAquaticPlants;
 
-    private int _totalHarvestedPlant;
+	private int _currentPlantHealed;
 
-    private int pollinisedtotal;
+	private int _totalHarvestedPlant;
 
-   // private int _completementTotal = 0;
+	private int pollinisedtotal;
 
-    private bool _winmenu = true;
+	// private int _completementTotal = 0;
 
-    private GameObject _button;
+	private bool _winmenu = true;
 
-    private Animal _hen;
+	private GameObject _button;
 
-    private FlipCard _flippedCard;
+	private Animal _hen;
 
-    private DragAndDropCard _dad;
+	private FlipCard _flippedCard;
 
+	private DragAndDropCard _dad;
 
 
-    #endregion
 
+	#endregion
 
-    #region Unity API
 
-    private void Start()
-    {
-       
-        Reset();
-        Time.timeScale = 1;
-        SceneManager.sceneLoaded += OnSceneUnloaded;
-    }
-    private void Update()
-    {
-        AddLayering();
-        CheckIfVictory();
+	#region Unity API
 
+	private void Start()
+	{
 
-    }
-    public int GetHenHouseNumber()
-    {
-        return _numberHenHouse;
-    }
+		Reset();
+		Time.timeScale = 1;
+		SceneManager.sceneLoaded += OnSceneUnloaded;
+	}
+	private void Update()
+	{
+		AddLayering();
+		CheckIfVictory();
 
-    #endregion
 
+	}
+	public int GetHenHouseNumber()
+	{
+		return _numberHenHouse;
+	}
 
+	#endregion
 
 
-    #region Public Methods
 
-    public void AddProgression(int score)
-    {
-        _currentScore.Value += score;
-    }
 
-    public void DeleteProgression(int score)
-    {
-        _currentScore.Value -= score;
-    }
+	#region Public Methods
 
-    public void CheckMinimalProgression()
-    {
-        if (_scoreToChangeScene < _currentScore.Value)
-        {
-            //bravo tu peux aller au niveau suivant si tu veux
-        }
-    }
+	public void AddProgression(int score)
+	{
+		_currentScore.Value += score;
+	}
 
-    public void SetGameOnPause(GameObject go) 
-    {
-        if (_isPaused)
-        {
-            ResumeGame();
-        }
-        else
-        {
-            if (_dad)
-            {
-            _dad.reset();
+	public void DeleteProgression(int score)
+	{
+		_currentScore.Value -= score;
+	}
 
-            }
-            Time.timeScale = 0;
-            _isPaused = true;
-            _menuOptionPause.SetActive(true);
-            //go.SetActive(false);
-            _button = go;
-        }
-    }
+	public void CheckMinimalProgression()
+	{
+		if (_scoreToChangeScene < _currentScore.Value)
+		{
+			//bravo tu peux aller au niveau suivant si tu veux
+		}
+	}
+
+	public void SetGameOnPause(GameObject go)
+	{
+		if (_isPaused)
+		{
+			ResumeGame();
+		}
+		else
+		{
+			if (_dad)
+			{
+				_dad.reset();
+
+			}
+			Time.timeScale = 0;
+			_isPaused = true;
+			_menuOptionPause.SetActive(true);
+			//go.SetActive(false);
+			_button = go;
+		}
+	}
+
+	//public void InfoButton()
+	//{
+	//	if(!_isInfo)
+	//	{
+	//		_infoButton.setActive(false);
+	//	}
+
+	//}
 
 
     public void ReloadButton()
