@@ -96,6 +96,12 @@ public class GameManager : MonoBehaviour
 
 	[Header("Affichage")]
 	[SerializeField]
+	private GameObject _infoControlsPanel;
+
+	[SerializeField]
+	private GameObject _infoPlantsPanel;
+
+	[SerializeField]
 	private TMP_Text[] objectifs;
 
 	[SerializeField]
@@ -221,6 +227,14 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
+			if(_infoControlsPanel.activeSelf)
+			{
+				_infoControlsPanel.SetActive(false);
+			}
+			if (_infoPlantsPanel.activeSelf)
+			{
+				_infoPlantsPanel.SetActive(false);
+			}
 			if (_dad)
 			{
 				_dad.reset();
@@ -244,128 +258,159 @@ public class GameManager : MonoBehaviour
 	//}
 
 
-    public void ReloadButton()
-    {
-        _mainMenu.SetActive(false);
-        _restartMenu.SetActive(true);
-    }
+	public void ReloadButton()
+	{
+		_mainMenu.SetActive(false);
+		_restartMenu.SetActive(true);
+	}
 
-    public void QuitButton()
-    {
-        _mainMenu.SetActive(false);
-        _QuitMenu.SetActive(true);
-    }
+	public void QuitButton()
+	{
+		_mainMenu.SetActive(false);
+		_QuitMenu.SetActive(true);
+	}
 
-    public void MenuButton()
-    {
-        _mainMenu.SetActive(false);
-        _BackToMenu.SetActive(true);
-        
-    }
+	public void MenuButton()
+	{
+		_mainMenu.SetActive(false);
+		_BackToMenu.SetActive(true);
 
-    public void OptionsButton()
-    {
-        _mainMenu.SetActive(false);
-        _optionMenu.SetActive(true);
-    }
-    public void CloseGame()
-    {
-        Application.Quit();
-    }
+	}
 
-    public void CloseOptionMenu()
-    {
-        _BackToMenu.SetActive(false);
-        _optionMenu.SetActive(false);
-        _mainMenu.SetActive(true);
-        _button.SetActive(true);
-    }
+	public void OptionsButton()
+	{
+		_mainMenu.SetActive(false);
+		_optionMenu.SetActive(true);
+	}
+	public void CloseGame()
+	{
+		Application.Quit();
+	}
 
-    public void CloseBackToMenu()
-    {
-        _BackToMenu.SetActive(false);
-        _restartMenu.SetActive(false);
-        _mainMenu.SetActive(true);
-        _button.SetActive(true);
-    }
-    public void CloseQuitMenu()
-    {
-        _QuitMenu.SetActive(false);
-        _restartMenu.SetActive(false);
-        _mainMenu.SetActive(true);
-        _button.SetActive(true);
-        
-    }
-    public void CloseReloadMenu()
-    {
-        _mainMenu.SetActive(true);
-        _restartMenu.SetActive(false);
-        _button.SetActive(true);
-       
+	public void CloseOptionMenu()
+	{
+		_BackToMenu.SetActive(false);
+		_optionMenu.SetActive(false);
+		_mainMenu.SetActive(true);
+		_button.SetActive(true);
+	}
 
-    }
-    public void ReloadScene()
-    {
-        string scene = SceneManager.GetActiveScene().name;
-        Time.timeScale = 1;
-        //Reset();
+	public void CloseBackToMenu()
+	{
+		_BackToMenu.SetActive(false);
+		_restartMenu.SetActive(false);
+		_mainMenu.SetActive(true);
+		_button.SetActive(true);
+	}
+	public void CloseQuitMenu()
+	{
+		_QuitMenu.SetActive(false);
+		_restartMenu.SetActive(false);
+		_mainMenu.SetActive(true);
+		_button.SetActive(true);
 
-        //SceneManager.UnloadSceneAsync(scene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
-        SceneManager.LoadScene(scene, LoadSceneMode.Single);
-   
-
-    }
-
-    public void BackToMenu()
-    {
-       // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
-        SceneManager.LoadScene(_MenuScene.Value.SceneName, LoadSceneMode.Single);
-    }
+	}
+	public void CloseReloadMenu()
+	{
+		_mainMenu.SetActive(true);
+		_restartMenu.SetActive(false);
+		_button.SetActive(true);
 
 
-    public void Reset()
-    {
-        
-        _currentScore.Value = 0;
-        if (_startValue.Length == cardsIntvariable.Count)
-        {
-            for (int i = 0; i < _startValue.Length; i++)
-            {
-                cardsIntvariable[i].Value = _startValue[i];
+	}
+	public void ReloadScene()
+	{
+		string scene = SceneManager.GetActiveScene().name;
+		Time.timeScale = 1;
+		//Reset();
 
-            }
-        }
-        else
-        {
-            Debug.Log("pas le même nombre de cartes");
-        }
+		//SceneManager.UnloadSceneAsync(scene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+		SceneManager.LoadScene(scene, LoadSceneMode.Single);
 
-        if ((_layeringCard.Length == _layeringTime.Length) && (_layeringMax.Length == _layeringTime.Length))
-        {
-            _lastTime = new float[_layeringTime.Length];
 
-            _privateLayeringMax = _layeringMax;
+	}
 
-            for (int i = 0; i < _privateLayeringMax.Length; i++)
-            {
-                _privateLayeringMax[i] -= _layeringCard[i].Value;
-            }
-        }
-        else
-        {
-            Debug.Log("pas le même nombre de cartes");
-        }
-    }
+	public void BackToMenu()
+	{
+		// SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+		SceneManager.LoadScene(_MenuScene.Value.SceneName, LoadSceneMode.Single);
+	}
 
-    public void CloseWinMenu()
-    {
-  
-        _winMenu.SetActive(false);
-        Time.timeScale = 1;
-        _winmenu = false;
-    }
 
-    public void MoveToNextScene(string i)
+	public void Reset()
+	{
+
+		_currentScore.Value = 0;
+		if (_startValue.Length == cardsIntvariable.Count)
+		{
+			for (int i = 0; i < _startValue.Length; i++)
+			{
+				cardsIntvariable[i].Value = _startValue[i];
+
+			}
+		}
+		else
+		{
+			Debug.Log("pas le même nombre de cartes");
+		}
+
+		if ((_layeringCard.Length == _layeringTime.Length) && (_layeringMax.Length == _layeringTime.Length))
+		{
+			_lastTime = new float[_layeringTime.Length];
+
+			_privateLayeringMax = _layeringMax;
+
+			for (int i = 0; i < _privateLayeringMax.Length; i++)
+			{
+				_privateLayeringMax[i] -= _layeringCard[i].Value;
+			}
+		}
+		else
+		{
+			Debug.Log("pas le même nombre de cartes");
+		}
+	}
+
+	public void CloseWinMenu()
+	{
+
+		_winMenu.SetActive(false);
+		Time.timeScale = 1;
+		_winmenu = false;
+	}
+
+	public void InfoCtrlPanel()
+	{
+		if(!_infoControlsPanel.activeSelf && !_isPaused)
+		{
+			if (_infoPlantsPanel.activeSelf)
+			{
+				_infoPlantsPanel.SetActive(false);
+			}
+			_infoControlsPanel.SetActive(true);
+		} 
+		else
+		{
+			_infoControlsPanel.SetActive(false);
+		}
+	}
+	public void InfoPlantsPanel()
+	{
+		if (!_infoPlantsPanel.activeSelf && !_isPaused)
+		{
+			if (_infoControlsPanel.activeSelf)
+			{
+				_infoControlsPanel.SetActive(false);
+			}
+			_infoPlantsPanel.SetActive(true);
+		}
+		else
+		{
+			_infoPlantsPanel.SetActive(false);
+		}
+	}
+
+	public void MoveToNextScene(string i)
     {
         SceneManager.LoadScene(i);
     }

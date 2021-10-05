@@ -202,6 +202,14 @@ PrefabInstance:
       propertyPath: _Effect.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 55345f4967d96be4cb4b019a31f4c1f0, type: 2}
+    - target: {fileID: 844569953584020430, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: _prefabPlant
+      value: 
+      objectReference: {fileID: 1126866308680151898, guid: 98e143ed82dae8f499d33b1d9b95716b, type: 3}
+    - target: {fileID: 844569953584020430, guid: 96788ec603d043245903b06f597bc368, type: 3}
+      propertyPath: _listeComptabiliteText
+      value: 
+      objectReference: {fileID: 7635500141462820348}
     - target: {fileID: 6313432348313319864, guid: 96788ec603d043245903b06f597bc368, type: 3}
       propertyPath: m_Layer
       value: 23
@@ -284,6 +292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96788ec603d043245903b06f597bc368, type: 3}
+--- !u!1 &7635500141462820348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1309582387431134448, guid: 96788ec603d043245903b06f597bc368, type: 3}
+  m_PrefabInstance: {fileID: 8924494894738096396}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4550219122079724290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4971847529032757774, guid: 96788ec603d043245903b06f597bc368, type: 3}

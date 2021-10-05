@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: _prefabPlant
       value: 
       objectReference: {fileID: 5322437700075569807, guid: 544c4e10a024b584eac5d94cdd3c4fa0, type: 3}
+    - target: {fileID: 1621871425906076056, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+      propertyPath: _listeComptabiliteText
+      value: 
+      objectReference: {fileID: 2484172869398803532}
     - target: {fileID: 1973407743378892326, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -302,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 6224564546091950581, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 7575245704018084935, guid: 8c7605791baecd243adddaa95dad500e, type: 2}
+      objectReference: {fileID: 5444211896857336637, guid: b239277461303dd40bec923594153b95, type: 2}
     - target: {fileID: 6313432347788347264, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
       propertyPath: m_Layer
       value: 14
@@ -408,6 +412,11 @@ PrefabInstance:
 --- !u!1 &596771829224055525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8184421993309676427, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
+  m_PrefabInstance: {fileID: 8781105174405054830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2484172869398803532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6603770953391387938, guid: 7c9a0a0392dcbba4b8a52066b6241887, type: 3}
   m_PrefabInstance: {fileID: 8781105174405054830}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3439701091155588265 stripped
