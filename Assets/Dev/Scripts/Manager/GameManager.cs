@@ -765,7 +765,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a  && pollenised && _winmenu)
+        if(vivace && arrosage && points && aquaticPlants && recoltedplant & a  && pollenised && healedPlants && _winmenu)
         {
             Time.timeScale = 0;
             if (!_winMenu.activeSelf)
