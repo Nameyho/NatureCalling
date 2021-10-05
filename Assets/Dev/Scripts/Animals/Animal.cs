@@ -92,7 +92,7 @@ public class Animal : MonoBehaviour
             _destination = _infestationPoint[0].transform.position;
             agent.destination = _destination;
             Debug.Log(agent.destination + " infesté");
-            if (Vector3.Distance(transform.position, _destination) < 0.5f)
+            if (Vector3.Distance(transform.position, _destination) < 0.75f)
             {
                     _infestationPoint[0].setInfested(false);
                     _infestationPoint.Remove(_infestationPoint[0]);

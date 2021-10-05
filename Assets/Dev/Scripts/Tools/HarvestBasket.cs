@@ -27,8 +27,10 @@ public class HarvestBasket : MonoBehaviour
        
         if (other.tag == "Plants" || other.tag== "HarvestAquatic" && other.GetComponentInParent<GrowPlants>())
         {
+
             GrowPlants gp = other.GetComponentInParent<GrowPlants>();
-            Plants plant = other.GetComponentInParent<Plants>();
+            
+           Plants plant = other.GetComponentInParent<Plants>();
            
             if(gp.isFullingGrown()){
                 if (gp.IsDestroyOnHarvest())
@@ -36,7 +38,11 @@ public class HarvestBasket : MonoBehaviour
                     //_score.Value -= other.GetComponentInParent<Plants>().getBonusMalus();
                     FindObjectOfType<PlantsManager>().DeletePlantInMapList(other.transform.parent.transform.gameObject);
                     Destroy(other.transform.parent.transform.gameObject);
+                    if (plant.GetGroundLayering())
+                    {
                     plant.GetGroundLayering().DeletePlants();
+
+                    }
 
                 }
                 else
@@ -53,6 +59,7 @@ public class HarvestBasket : MonoBehaviour
                     other.GetComponentInParent<FocusPlant>().AddFocusPoints();
 
                 }
+                  
                 _score.Value += plant.getBonusMalus();
                 if (plant.GetCard()._isAquaticPlant)
                 {
